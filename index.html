@@ -1,10 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>RASTROS</title>
+	<meta charset="utf-8">
+	<title>RASTROS - Uma Visão Sobre a Seca no Ceará</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
+	<script src='https://unpkg.com/scrollama'></script>
+	<script src='js/script.js'></script>
+
 </head>
+
 <body>
-	<p>Work in Progress</p>
-	<img src="res/dog.jpg">
+	<section id='intro'>
+		<p class='intro__overline'>
+			<a href='https://github.com/AndyFernandes/rastros'>GitHub</a>
+		</p>
+		<h1 class='intro__hed'>RASTROS - Uma Visão Sobre a Seca no Ceará</h1>
+		<p class='intro__dek'>
+			Trabalho da Disciplina de Visualização de Dados (UFC-2018).
+		</p>
+	</section>
+	
+	<section id='scroll'>
+		<div class='scroll__graphic'>
+			<div class='scroll__graphic__img' id='scroll__graphic__img_0'>
+				<p>0</p>
+			</div>
+			<div class='scroll__graphic__img' id='scroll__graphic__img_1'>
+				<img src="res/dog1.jpg">
+			</div>
+			<div class='scroll__graphic__img' id='scroll__graphic__img_2'>
+				<img src="res/dog2.jpg">
+			</div>
+			<div class='scroll__graphic__img' id='scroll__graphic__img_3'>
+				<img src="res/dog3.jpg">
+			</div>
+			<div class='scroll__graphic__img' id='scroll__graphic__img_4'>
+				<img src="res/dog4.jpg">
+			</div>
+		</div>
+		<div class='scroll__text'>
+			<div class='step' data-step='1'>
+				<p>STEP 1</p>
+			</div>
+			<div class='step' data-step='2'>
+				<p>STEP 2</p>
+			</div>
+			<div class='step' data-step='3'>
+				<p>STEP 3</p>
+			</div>
+			<div class='step' data-step='4'>
+				<p>STEP 4</p>
+			</div>
+		</div>
+	</section>
+	
+	<section id='outro'>
+		
+	</section>
+	
+	<script>
+		// using d3 for convenience
+		var container = d3.select('#scroll');
+		var graphic = container.select('.scroll__graphic');
+		var text = container.select('.scroll__text');
+		var step = text.selectAll('.step');
+
+		// initialize the scrollama
+		var scroller = scrollama();
+		
+		// kick things off
+		init();
+	</script>
 </body>
+
 </html>

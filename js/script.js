@@ -10,12 +10,18 @@ function handleResize() {
 
 	var graphicMargin = 16 * 4;
 	var textWidth = text.node().offsetWidth;
-	var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+	var graphicWidth = container.node().offsetWidth - textWidth;
 	var graphicHeight = Math.floor(window.innerHeight)
 	var graphicMarginTop = Math.floor(graphicHeight / 2)
 
-	for (var idx = 0; idx < 5; idx++) {
-		$("#scroll__graphic__img_"+idx).hide()
+	var scroll_graphics = $(".scroll__graphic__img")
+	for (var i = scroll_graphics.length - 1; i >= 0; i--) {
+		$(scroll_graphics[i]).hide()
+	}
+
+	var scroll_text = $(".step > p")
+	for (var i = scroll_text.length - 1; i >= 0; i--) {
+		$(scroll_text[i]).hide()
 	}
 
 	graphic
@@ -31,49 +37,66 @@ function handleResize() {
 // scrollama event handlers
 function handleStepEnter(response) {
 	// response = { element, direction, index }
+	console.log("Entering: " + response.direction + " " + response.index)
 
 	// add color to current step only
 	step.classed('is-active', function (d, i) {
 		return i === response.index;
 	})
 
-	// update graphic based on step
-	
-	// graphic.select('img').attr("src", "res/dog"+(response.index+1)+".jpg");
+	// # UPDATE GRAPHIC BASED ON STEP #
+	var graph = $(".scroll__graphic");
+	var text = $(".scroll__text");
 
-	if(response.direction == 'down') {
-		$("#scroll__graphic__img_"+(response.index)).stop().fadeOut(1000, function(){
-			$("#scroll__graphic__img_"+(response.index+1)).fadeIn(1000);
-		});
+	// Get the working text panels for the current step
+	var actText = $("#step_"+(response.index)+ " > p");
+	var prevText = (response.direction == 'down') ? 
+					$("#step_"+(Math.max(0,response.index-1))+ " > p") 
+					: $("#step_"+(response.index+1)+ " > p");
 
-	} else if(response.direction == 'up') {
-		$("#scroll__graphic__img_"+(response.index+2)).stop().fadeOut(1000, function(){
-			$("#scroll__graphic__img_"+(response.index+1)).fadeIn(1000);
-		});
+	// Get the working graphics for the current step
+	var actGraph = $("#scroll__graphic__img_"+(response.index));
+	var prevGraph = (response.direction == 'down') ? 
+					 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
+					 : $("#scroll__graphic__img_"+(response.index+1));
+
+	if(actGraph.hasClass("left_panel")) {
+		graph.animate({left: "0%"})
+		text.animate({left: "65%"})
+	}
+	else if(actGraph.hasClass("right_panel")) {
+		graph.animate({left: "35%"})
+		text.animate({left: "0%"})
+	}
+	else if(actGraph.hasClass("center_panel")) {
+
 	}
 
-	console.log(response.element)
+	// Fade-out the previous graphic and fade-in the actual one
+	prevGraph.stop().fadeOut(500, function() {
+		actGraph.fadeIn(500);
+	})
+
+	for (var i = prevText.length - 1; i >= 0; i--) {
+		$(prevText[i]).stop().fadeOut(500)
+	}
+	for (var i = actText.length - 1; i >= 0; i--) {
+		$(actText[i]).fadeIn(1500)
+	}
 }
 
 // scrollama event handlers
 function handleStepExit(response) {
 	// response = { element, direction, index }
-
-	// add color to current step only
-	step.classed('is-active', function (d, i) {
-		return i === response.index;
-	})
+	// console.log("Leaving: " + response.direction + " " + response.index)
 
 	// update graphic based on step
-	
-	if(response.direction == 'down') {
-		$("#scroll__graphic__img_"+(response.index)).stop().fadeOut(1000)
+	var prevGraph = (response.direction == 'down') ? 
+					 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
+					 : $("#scroll__graphic__img_"+(response.index+1));
 
-	} else if(response.direction == 'up') {
-		$("#scroll__graphic__img_"+(response.index+2)).stop().fadeOut(1000)
-	}
+	prevGraph.stop().fadeOut(100);
 
-	console.log(response.element)
 }
 
 function handleContainerEnter(response) {

@@ -69,15 +69,21 @@ a:hover {
 
 #scroll {
 	position: relative;
-	border-top: 2px dashed #000;
-	border-bottom: 2px dashed #000;
+	grid-column-gap: 0px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 
+/* 
+	left: 35%;
+	left: 0%;
+*/
 .scroll__graphic {
 	position: absolute;
 	top: 0;
-	right: 2rem;
+	left: 0%;
 	bottom: auto;
+	width: 65%;
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -108,25 +114,29 @@ a:hover {
 	color: #666;
 }
 
+/*
+	left: 65%;
+	left: 0%;
+*/
 .scroll__text {
 	position: relative;
+	left: 65%;
 	padding: 0 1rem;
-	max-width: 30rem;
-	width: 33%;
+	width: 35%;
 }
 
 .step {
 	margin: 0 auto 2rem auto;
-	border: 1px solid #333;
+	/*border: 1px solid #333;*/
 	/* border-bottom: none; */
 }
 
 .step:last-child {
-	border-bottom: 1px solid #333;
+	/*border-bottom: 1px solid #333;*/
 }
 
 .step.is-active {
-	background-color: lightgoldenrodyellow;
+	/*background-color: lightgoldenrodyellow;*/
 }
 
 .step p {

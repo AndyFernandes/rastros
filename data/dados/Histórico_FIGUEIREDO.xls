@@ -1,0 +1,159 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">Estado</th><th scope="col">Nome</th><th scope="col">Capacidade (hm&#179;)</th><th scope="col">Cota (m)</th><th scope="col">Volume &#218;til (hm&#179;)</th><th scope="col">Volume (%)</th><th scope="col">Data da Medi&#231;&#227;o</th>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,43</td><td>36,59</td><td>7,18</td><td> 05/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,43</td><td>36,59</td><td>7,18</td><td> 06/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,42</td><td>36,49</td><td>7,16</td><td> 07/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,42</td><td>36,49</td><td>7,16</td><td> 08/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,40</td><td>36,27</td><td>7,12</td><td> 09/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,40</td><td>36,27</td><td>7,12</td><td> 10/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,39</td><td>36,17</td><td>7,10</td><td> 11/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,39</td><td>36,17</td><td>7,10</td><td> 12/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,38</td><td>36,06</td><td>7,07</td><td> 13/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,38</td><td>36,06</td><td>7,07</td><td> 14/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,37</td><td>35,95</td><td>7,05</td><td> 15/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,37</td><td>35,95</td><td>7,05</td><td> 16/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,36</td><td>35,84</td><td>7,03</td><td> 17/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,35</td><td>35,74</td><td>7,01</td><td> 18/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,34</td><td>35,63</td><td>6,99</td><td> 19/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,33</td><td>35,52</td><td>6,97</td><td> 20/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,32</td><td>35,42</td><td>6,95</td><td> 21/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,31</td><td>35,31</td><td>6,93</td><td> 22/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,31</td><td>35,31</td><td>6,93</td><td> 23/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,30</td><td>35,20</td><td>6,91</td><td> 24/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,29</td><td>35,10</td><td>6,89</td><td> 25/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,28</td><td>34,99</td><td>6,86</td><td> 26/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,28</td><td>34,99</td><td>6,86</td><td> 27/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,27</td><td>34,88</td><td>6,84</td><td> 28/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,26</td><td>34,77</td><td>6,82</td><td> 29/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,25</td><td>34,67</td><td>6,80</td><td> 30/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,24</td><td>34,56</td><td>6,78</td><td> 31/08/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,24</td><td>34,56</td><td>6,78</td><td> 01/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,23</td><td>34,45</td><td>6,76</td><td> 02/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,23</td><td>34,45</td><td>6,76</td><td> 03/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,22</td><td>34,35</td><td>6,74</td><td> 04/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,21</td><td>34,24</td><td>6,72</td><td> 05/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,20</td><td>34,13</td><td>6,70</td><td> 06/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,20</td><td>34,13</td><td>6,70</td><td> 07/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,19</td><td>34,03</td><td>6,68</td><td> 08/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,18</td><td>33,92</td><td>6,65</td><td> 09/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,17</td><td>33,81</td><td>6,63</td><td> 10/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,16</td><td>33,70</td><td>6,61</td><td> 11/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,16</td><td>33,70</td><td>6,61</td><td> 12/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,15</td><td>33,60</td><td>6,59</td><td> 13/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,14</td><td>33,49</td><td>6,57</td><td> 14/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,13</td><td>33,38</td><td>6,55</td><td> 15/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,12</td><td>33,28</td><td>6,53</td><td> 16/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,12</td><td>33,28</td><td>6,53</td><td> 17/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,11</td><td>33,17</td><td>6,51</td><td> 18/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,10</td><td>33,06</td><td>6,49</td><td> 19/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,09</td><td>32,96</td><td>6,47</td><td> 20/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,09</td><td>32,96</td><td>6,47</td><td> 21/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,08</td><td>32,85</td><td>6,45</td><td> 22/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,07</td><td>32,74</td><td>6,42</td><td> 23/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,06</td><td>32,63</td><td>6,40</td><td> 24/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,05</td><td>32,53</td><td>6,38</td><td> 25/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,04</td><td>32,42</td><td>6,36</td><td> 26/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,03</td><td>32,31</td><td>6,34</td><td> 27/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,03</td><td>32,31</td><td>6,34</td><td> 28/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,02</td><td>32,21</td><td>6,32</td><td> 29/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,01</td><td>32,10</td><td>6,30</td><td> 30/09/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>82,00</td><td>31,99</td><td>6,28</td><td> 01/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,99</td><td>31,89</td><td>6,26</td><td> 02/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,98</td><td>31,78</td><td>6,24</td><td> 03/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,97</td><td>31,67</td><td>6,21</td><td> 04/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,97</td><td>31,67</td><td>6,21</td><td> 05/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,96</td><td>31,56</td><td>6,19</td><td> 06/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,96</td><td>31,56</td><td>6,19</td><td> 07/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,95</td><td>31,45</td><td>6,17</td><td> 08/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,95</td><td>31,45</td><td>6,17</td><td> 09/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,94</td><td>31,35</td><td>6,15</td><td> 10/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,93</td><td>31,24</td><td>6,13</td><td> 11/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,92</td><td>31,13</td><td>6,11</td><td> 12/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,92</td><td>31,13</td><td>6,11</td><td> 13/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,91</td><td>31,02</td><td>6,09</td><td> 14/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,90</td><td>30,91</td><td>6,06</td><td> 15/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,89</td><td>30,81</td><td>6,04</td><td> 16/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,88</td><td>30,70</td><td>6,02</td><td> 17/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,87</td><td>30,59</td><td>6,00</td><td> 18/10/2018</td>
+		</tr><tr>
+			<td>Cear&#225;                                             </td><td>FIGUEIREDO                                        </td><td>509,69</td><td>81,87</td><td>30,59</td><td>6,00</td><td> 19/10/2018</td>
+		</tr>
+	</table>
+</div>

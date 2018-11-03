@@ -67,11 +67,11 @@ a:hover {
 
 /* scrollama */
 
-#scroll {
+.scroll {
 	position: relative;
 	grid-column-gap: 0px;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
+	/*border-top: 1px solid #000;
+	border-bottom: 1px solid #000;*/
 }
 
 /* 
@@ -79,7 +79,8 @@ a:hover {
 	left: 0%;
 */
 .scroll__graphic {
-	position: absolute;
+	position: -webkit-sticky;
+  	position: sticky;
 	top: 0;
 	left: 0%;
 	bottom: auto;
@@ -93,11 +94,13 @@ a:hover {
 
 .scroll__graphic.is-fixed {
 	position: fixed;
+	bottom: 0;
 }
 
 .scroll__graphic.is-bottom {
+	position: absolute;	
+	top: 0;
 	bottom: 0;
-	top: auto;
 }
 
 .scroll__graphic p {

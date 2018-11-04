@@ -6,16 +6,25 @@
 	<title>RASTROS - Uma Visão Sobre a Seca no Ceará</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/dc.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js'></script>
 	<script src='https://unpkg.com/scrollama'></script>
+	
 	<script src='js/script.js'></script>
 	<script src='js/stickyfill.min.js'></script>
+
+	<script src="js/crossfilter.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/dc.min.js"></script>
 
 </head>
 
@@ -25,22 +34,22 @@
 					  <div class=" navbar-collapse" id="navbarSupportedContent">
 					    <ul class="navbar-nav mr-auto">
 					      <li class="nav-item active">
-					        <a class="nav-link" href="#intro">Home <span class="sr-only">(current)</span></a>
+					        <a class="nav-link" href="#intro">Início <span class="sr-only">(current)</span></a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">About</a>
+					        <a class="nav-link" href="#about_us">Sobre</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">First</a>
+					        <a class="nav-link" href="#scroll_1">O que é a SECA?</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">Second</a>
+					        <a class="nav-link" href="#scroll_2">Índices Sociais</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">Third</a>
+					        <a class="nav-link" href="#scroll_3">Correlações</a>
 					      </li>
 					      <li class="nav-item">
-					        <a class="nav-link" href="#">Fourth</a>
+					        <a class="nav-link" href="#scroll_4">Medidas e Soluções</a>
 					      </li>
 					    </ul>
 					  </div>
@@ -54,18 +63,18 @@
 			</div>
 	</div>
 
-	<section id='intro'>
-		<p class='intro__overline'>
-			<a href='https://github.com/AndyFernandes/rastros'>GitHub</a>
-		</p>
-		<h1 class='intro__hed'>RASTROS - Uma Visão Sobre a Seca no Ceará</h1>
-		<p class='intro__dek'>
-			Trabalho da Disciplina de Visualização de Dados (UFC-2018).
-		</p>
+	<div class="ajuste">
+	<section id='intro' class=''>
+			<br><br><br>
+			<h1 class='intro__hed'>R A S T R O S</h1>
+			<h2>Uma Visão Sobre a Seca no Ceará</h2>
+			<br>
+			
+		
 	</section>
+	</div>
 	
-	<h1>Section1</h1>
-
+	<h1>1ª PARTE: O que é a SECA?</h1>
 	<section class="scroll" id='scroll_1'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_1'>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_0'>
@@ -109,8 +118,7 @@
 		</div>
 	</section>
 	
-	<h1>Section2</h1>
-
+	<h1>2ª PARTE: Explorando os indíces sociais do Ceará</h1>
 	<section class="scroll" id='scroll_2'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_2'>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_5'>
@@ -154,7 +162,127 @@
 		</div>
 	</section>
 
-	<section id='outro'>
+	<h1>3ª PARTE: Correlações</h1>
+	<section class="scroll" id='scroll_3'>
+		<div class='scroll__graphic sticky' id='scroll__graphic_3'>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_10'>
+				<img src="res/dog1.jpg">
+			</div>
+			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_11'>
+				<img src="res/dog2.jpg">
+			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_12'>
+				<img src="res/dog3.jpg">
+			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_13'>
+				<img src="res/dog1.jpg">
+			</div>
+			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_14'>
+				<img src="res/dog4.jpg">
+			</div>
+		</div>
+
+		<div class='scroll__text' id='scroll__text_3'>
+			<div class='step' id='step_10'>
+				<p>STEP 1</p>
+				<p>Era uma vez, um pedaçinho no meio do nada</p>
+			</div>
+			<div class='step' id='step_11'>
+				<p>STEP 2</p>
+				<p>Com sabor de chocolate</p>
+			</div>
+			<div class='step' id='step_12'>
+				<p>STEP 3</p>
+				<p>Com cheiro de terra molhada</p>
+			</div>
+			<div class='step' id='step_13'>
+				<p>STEP 3</p>
+				<p>Com cheiro de terra molhada</p>
+			</div>
+			<div class='step' id='step_14'>
+				<p>STEP 4</p>
+				<p>Pra gente ser feliz, tem que <b>confiar</b> das nossas fantasias</p>
+			</div>
+		</div>
+	</section>
+
+	<h1>4ª PARTE: Medidas e Soluções</h1>
+	<section class="scroll" id='scroll_4'>
+		<div class='scroll__graphic sticky' id='scroll__graphic_4'>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_15'>
+				<img src="res/dog1.jpg">
+			</div>
+			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_16'>
+				<img src="res/dog2.jpg">
+			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_17'>
+				<img src="res/dog3.jpg">
+			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_18'>
+				<img src="res/dog1.jpg">
+			</div>
+			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_19'>
+				<img src="res/dog4.jpg">
+			</div>
+		</div>
+
+		<div class='scroll__text' id='scroll__text_4'>
+			<div class='step' id='step_15'>
+				<p>STEP 1</p>
+				<p>Era uma vez, um pedaçinho no meio do nada</p>
+			</div>
+			<div class='step' id='step_16'>
+				<p>STEP 2</p>
+				<p>Com sabor de chocolate</p>
+			</div>
+			<div class='step' id='step_17'>
+				<p>STEP 3</p>
+				<p>Com cheiro de terra molhada</p>
+			</div>
+			<div class='step' id='step_18'>
+				<p>STEP 3</p>
+				<p>Com cheiro de terra molhada</p>
+			</div>
+			<div class='step' id='step_19'>
+				<p>STEP 4</p>
+				<p>Pra gente ser feliz, tem que <b>confiar</b> das nossas fantasias</p>
+			</div>
+		</div>
+	</section>
+
+	<section id='about_us' class = "col">
+		<div id='apresentacao' class="container">
+			<br>
+			<h5>SOBRE</h5>
+			<p>O  projeto <b>RASTROS:  Uma  Vis ãoo  Sobre  a  Seca  no  Ceará</b> ́e  um  trabalho  sub-metido na disciplina <b>CK0242 - Visualizacão de Dados</b>, ofertada pelo Departamento de Computacao da Universidade Federal do Ceará (DC/UFC), que visa retratar de forma dinâmica a história e o impacto do fenômeno da Seca nos aspectos socioecômicos do estado do Ceará, através da análises de visualizações práticas e interativas.</p>
+
+			<p>Esse projeto encontra validade no fato de que, apesar da existência de uma extensa documentação histórica e de um senso comum acerca de vários aspectos, ainda há uma escassez de ferramentas que possam exibir de forma clara e objetiva os impactos desse fenômeno, além de desmistificar possíveis crenças populares sobre os fatos relacionados à Seca no Nordeste e, essencialmente, no Ceará.  A intenção, portanto,  ́e de compilar as informações existentes sobre o fenômeno em um formato que seja acessível para a população comum e que enfatize as informações importantes, muitas vezes implícitas</p>
+		</div>
+
+		<div class="container">
+			<h5>MEMBROS</h5>
+			<div id="membros" class=" row">
+				<div class="membro col-sm">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDoIR-s1G_4p7E-Zmf0zIRDn7wwY3GUWWlXwJ26QXnlHvLx8O" class="foto_membro">
+					<p class="name_membro "><b>Andreza Fernandes</b></p>
+					<p class="descricao_membro">Lorem Lorem Lorem</p>
+				</div>
+				
+				<div class="membro col-sm">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDoIR-s1G_4p7E-Zmf0zIRDn7wwY3GUWWlXwJ26QXnlHvLx8O"  class="foto_membro">
+					<p class="name_membro"><b>Minho</b></p>
+					<p class="descricao_membro">Lorem Lorem Lorem</p>
+				</div>
+					
+				<div class="membro col-sm">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDoIR-s1G_4p7E-Zmf0zIRDn7wwY3GUWWlXwJ26QXnlHvLx8O"  class="foto_membro">
+					<p class="name_membro"><b>Davi</b></p>
+					<p class="descricao_membro">Lorem Lorem Lorem</p>
+				</div>	
+			</div>
+
+		</div>
+
 		
 	</section>
 	
@@ -162,6 +290,8 @@
 		// kick things off
 		init("#scroll_1");
 		init("#scroll_2");
+		init("#scroll_3");
+		init("#scroll_4");
 	</script>
 </body>
 

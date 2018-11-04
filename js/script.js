@@ -156,3 +156,7 @@ function init(selector) {
 	handleResize();
 }
 
+
+/////////////////////////////////////////////// Início dos gráficos
+
+

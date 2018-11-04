@@ -138,7 +138,15 @@ a:hover {
 #rodape {
 	margin-top:20px;
 	height: 200px;
+	width: 100%;
 	background-image: linear-gradient(to right, rgba(186,77,14,1), rgba(90,154,163,1));
+}
+
+#rodape img{
+	margin-top:20px;
+	margin-left: 30px;
+	width: 400px;
+	height: 130px;
 }
 
 /* scrollama */

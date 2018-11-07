@@ -79,25 +79,29 @@ a:hover {
 
 .intro__dek {
 	font-size: 1.4rem;
+	text-align: center;
 }
 
+/*li{
+	margin-left: 50px;
+}*/
 /* demo */
 .ajuste{
 	width: 100%;
-	height: 640px;
+	height: 77%;
 	/*opacity: 0.7;*/
-	background-image: linear-gradient(to right, rgba(186,77,14,1), rgba(90,154,163,1));
+	/*background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(90,154,163,1));*/
 }
 
 #intro {
 	margin-bottom: 320px;
-	height: 100%;
+	height: 50%;
 	width: 100%;
 }
 
 #about_us {
 	margin-top:80px;
-	height: 560px;
+	height: 100%;
 }
 
 #about_us h5{
@@ -110,8 +114,13 @@ a:hover {
 	height: 300px;
 }
 
+#teste h5{
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 40px;
+}
 #membros{
-	height: 270px;
+	height: 40%;
 }
 
 .membro p{
@@ -137,9 +146,10 @@ a:hover {
 
 #rodape {
 	margin-top:20px;
-	height: 200px;
+	height: 350px;
 	width: 100%;
-	background-image: linear-gradient(to right, rgba(186,77,14,1), rgba(90,154,163,1));
+	/*background-image: linear-gradient(to right, rgba(186,77,14,1), rgba(90,154,163,1));*/
+	background-color: black;
 }
 
 #rodape img{

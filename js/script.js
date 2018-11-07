@@ -128,7 +128,10 @@ function init(selector) {
 			.style("height", graphicHeight + "px")
 			.style("top", 0);
 
-		$("#intro").css("height", Math.floor(window.innerHeight/2));
+		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
+		$("#about_us").css("height", Math.floor(window.innerHeight/3));
+		$("#teste").css("height", Math.floor(window.innerHeight/3));
+		// $("#intro").css("height", Math.floor(window.innerHeight)/4);
 	
 		// 3. tell scrollama to update new element dimensions
 		scroller.resize();

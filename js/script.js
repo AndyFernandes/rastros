@@ -162,4 +162,8 @@ function init(selector) {
 
 /////////////////////////////////////////////// Início dos gráficos
 
+function chartLine(data, attX, attY, idDiv){
+	
+};
+
 

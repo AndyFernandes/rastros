@@ -296,6 +296,13 @@
 	</section>
 	
 	<script>
+
+		// Execução da função de renderização para 
+        d3.csv("data/indices_sociais/IBGE/taxa_mortalidade_infantil.csv").then(function(csv){ 
+        	console.log(csv[1].Localidade)
+            // render(csv);
+        });
+
 		// kick things off
 		init("#scroll_1");
 		init("#scroll_2");

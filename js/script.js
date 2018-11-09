@@ -167,3 +167,120 @@ function chartLine(data, attX, attY, idDiv){
 };
 
 
+function scatter(dataset) {
+	// Variáveis Importantes
+	let margin = {top: 40, right: 40, bottom: 40, left: 60};
+	let w = $("#chart").width() - margin.left - margin.right;
+	let h = $("#chart").height() - margin.top - margin.bottom;
+
+	// Declara as funções de escala linear
+    let xScale = d3.scaleLinear()
+    			   .domain([0, d3.max(dataset, function(d){ return d.Budget_M } )])
+    			   .range([0, w]);
+	
+	let yScale = d3.scaleLinear()
+    			   .domain([0, d3.max(dataset, function(d){ return d.Worldwide_Gross_M } )])
+    			   .range([h, 0]);
+
+	// Declara os eixos do gráfico
+	let xAxis = d3.axisBottom()
+				  .scale(xScale)
+	let yAxis = d3.axisLeft()
+				  .scale(yScale)
+
+	// Cria a região onde o gráfico será desenhado
+    let svg = d3.select("#chart")
+    			.append("svg")
+        			.attr("width", w + margin.left + margin.right)
+        			.attr("height", h + margin.top + margin.bottom)
+        		.append("g")
+        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    
+    // Declara e posiciona os marcadores do gráfico scatterplot
+    svg.selectAll("circle")
+		.data(dataset)
+		.enter()
+		.append("circle")
+		.attr("class", "marker")
+		.attr("cx", function(d){
+			return xScale(d.Budget_M);
+		})
+		.attr("cy", function(d){
+			return yScale(d.Worldwide_Gross_M);
+		})
+		.attr("r", 5)
+		.attr("fill", "#428bcaBB")
+		.attr("stroke", "black");
+
+	// Adiciona as labels a cada marcador no gráfico
+    svg.selectAll("text")
+		.data(dataset)
+		.enter()
+		.append("text")
+		.attr("class", "label")
+		.attr("x", function(d){
+			return xScale(d.Budget_M)+3;
+		})
+		.attr("y", function(d){
+			return yScale(d.Worldwide_Gross_M)-3;
+		})
+		.attr("font-family", "roboto")
+		.attr("font-size", "12px")
+		.attr("fill", "black")
+		.text(function(d) {
+			return d.Film;
+		});
+
+	// Adiciona a animação das labels para o Hover nos marcadores
+	d3.selectAll(".label")
+		.each(function (d, i) { 
+			d3.select(this).attr("id", "label_"+i)
+			$(this).hide()
+		})
+
+	d3.selectAll(".marker")
+		.each(function (d, i) { 
+			d3.select(this).attr("id", "marker_"+i)
+				
+				$(this).mouseover(function() {
+			    $("#label_" + $(this).attr("id").split("_")[1]).stop().fadeIn();
+			});
+			$(this).mouseleave(function() {
+			    $("#label_" + $(this).attr("id").split("_")[1]).stop().fadeOut();
+			});
+		})         	
+	
+	// Adiciona os eixos à região do gráfico
+    svg.append("g")
+            .attr("transform", "translate(0,"+ h + ")")
+            .call(xAxis)
+
+	svg.append("text")
+			.attr("transform", "translate(" + (w/2) + "," + (h + margin.bottom) + ")")
+			.style("text-anchor", "middle")
+			.attr("font-family", "roboto")
+			.attr("font-size", "12px")
+			.text("Orçamento (em Milhões)");
+
+    svg.append("g")
+    		.call(yAxis)
+
+    svg.append("text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 0 - margin.left)
+			.attr("x", 0 - (h / 2))
+			.attr("dy", "1em")
+			.style("text-anchor", "middle")
+			.attr("font-family", "roboto")
+			.attr("font-size", "12px")
+			.text("Bilheteria (em Milhões)");
+			
+	// Título do Gráfico
+	svg.append("text")
+		.attr("transform", "translate(" + (w/2) + ","+ (0 - margin.top/2) +")")
+		.style("text-anchor", "middle")
+		.attr("font-family", "roboto")
+		.attr("font-weight", "bold")
+		.attr("font-size", "20px")
+		.text("Análise de Lucro de Filmes");
+}

@@ -184,7 +184,7 @@ function scatter(dataset, x, y, labels, title, panel) {
 
 	// Declara os eixos do gráfico
 	let xAxis = d3.axisBottom()
-				  .scale(xScale)
+				  .scale(xScale);
 
 	let yAxis = d3.axisLeft()
 				  .scale(yScale)
@@ -256,34 +256,36 @@ function scatter(dataset, x, y, labels, title, panel) {
 	// Adiciona os eixos à região do gráfico
     svg.append("g")
             .attr("transform", "translate(0,"+ h + ")")
-            .call(xAxis)
+            .attr("class", "axis")
+            .call(xAxis)	
 
 	svg.append("text")
-			.attr("transform", "translate(" + (w/2) + "," + (h + margin.bottom) + ")")
+			.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
 			.style("text-anchor", "middle")
 			.attr("font-family", "roboto")
-			.attr("font-size", "12px")
+			.attr("font-size", "14px")
 			.text(x);
 
     svg.append("g")
+    		.attr("class", "axis")
     		.call(yAxis)
 
     svg.append("text")
 			.attr("transform", "rotate(-90)")
-			.attr("y", 0 - margin.left)
+			.attr("y", 0 - 50)
 			.attr("x", 0 - (h / 2))
 			.attr("dy", "1em")
 			.style("text-anchor", "middle")
 			.attr("font-family", "roboto")
-			.attr("font-size", "12px")
+			.attr("font-size", "14px")
 			.text(y);
 			
 	// Título do Gráfico
 	svg.append("text")
-		.attr("transform", "translate(" + (w/2) + ","+ (0 - margin.top/2) +")")
+		.attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
 		.style("text-anchor", "middle")
 		.attr("font-family", "roboto")
 		.attr("font-weight", "bold")
-		.attr("font-size", "20px")
+		.attr("font-size", "24px")
 		.text(title);
 }

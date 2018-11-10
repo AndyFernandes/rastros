@@ -1,4 +1,4 @@
-function init(selector) {
+	function init(selector) {
 	// using d3 for convenience
 	var container = d3.selectAll(selector);
 
@@ -72,7 +72,7 @@ function init(selector) {
 
 	function handleStepExit(response) {
 		// response = { element, direction, index }
-		console.log("Leaving: " + response.direction + " " + response.index)
+		// console.log("Leaving: " + response.direction + " " + response.index)
 
 		// update graphic based on step
 		var prevGraph = (response.direction == 'down') ? 
@@ -167,29 +167,30 @@ function chartLine(data, attX, attY, idDiv){
 };
 
 
-function scatter(dataset) {
+function scatter(dataset, x, y, labels, title, panel) {
 	// Variáveis Importantes
-	let margin = {top: 40, right: 40, bottom: 40, left: 60};
-	let w = $("#chart").width() - margin.left - margin.right;
-	let h = $("#chart").height() - margin.top - margin.bottom;
+	let margin = {top: 150, right: 100, bottom: 150, left: 100};
+	let w = $(panel).width() - margin.left - margin.right;
+	let h = $(panel).height() - margin.top - margin.bottom;
 
 	// Declara as funções de escala linear
     let xScale = d3.scaleLinear()
-    			   .domain([0, d3.max(dataset, function(d){ return d.Budget_M } )])
+    			   .domain([d3.min(dataset, function(d){ return +d[x] } ), d3.max(dataset, function(d){ return +d[x] } )])
     			   .range([0, w]);
 	
 	let yScale = d3.scaleLinear()
-    			   .domain([0, d3.max(dataset, function(d){ return d.Worldwide_Gross_M } )])
+    			   .domain([d3.min(dataset, function(d){ return +d[y] } ), d3.max(dataset, function(d){ return +d[y] } )])
     			   .range([h, 0]);
 
 	// Declara os eixos do gráfico
 	let xAxis = d3.axisBottom()
 				  .scale(xScale)
+
 	let yAxis = d3.axisLeft()
 				  .scale(yScale)
 
 	// Cria a região onde o gráfico será desenhado
-    let svg = d3.select("#chart")
+    let svg = d3.select(panel)
     			.append("svg")
         			.attr("width", w + margin.left + margin.right)
         			.attr("height", h + margin.top + margin.bottom)
@@ -203,14 +204,15 @@ function scatter(dataset) {
 		.append("circle")
 		.attr("class", "marker")
 		.attr("cx", function(d){
-			return xScale(d.Budget_M);
+			return xScale(+d[x]);
 		})
 		.attr("cy", function(d){
-			return yScale(d.Worldwide_Gross_M);
+			return yScale(+d[y]);
 		})
 		.attr("r", 5)
 		.attr("fill", "#428bcaBB")
 		.attr("stroke", "black");
+
 
 	// Adiciona as labels a cada marcador no gráfico
     svg.selectAll("text")
@@ -219,17 +221,18 @@ function scatter(dataset) {
 		.append("text")
 		.attr("class", "label")
 		.attr("x", function(d){
-			return xScale(d.Budget_M)+3;
+			return xScale(+d[x])+3;
 		})
 		.attr("y", function(d){
-			return yScale(d.Worldwide_Gross_M)-3;
+			return yScale(+d[y])-3;
 		})
 		.attr("font-family", "roboto")
 		.attr("font-size", "12px")
 		.attr("fill", "black")
 		.text(function(d) {
-			return d.Film;
+			return d[labels];
 		});
+	console.log("a")
 
 	// Adiciona a animação das labels para o Hover nos marcadores
 	d3.selectAll(".label")
@@ -260,7 +263,7 @@ function scatter(dataset) {
 			.style("text-anchor", "middle")
 			.attr("font-family", "roboto")
 			.attr("font-size", "12px")
-			.text("Orçamento (em Milhões)");
+			.text(x);
 
     svg.append("g")
     		.call(yAxis)
@@ -273,7 +276,7 @@ function scatter(dataset) {
 			.style("text-anchor", "middle")
 			.attr("font-family", "roboto")
 			.attr("font-size", "12px")
-			.text("Bilheteria (em Milhões)");
+			.text(y);
 			
 	// Título do Gráfico
 	svg.append("text")
@@ -282,5 +285,5 @@ function scatter(dataset) {
 		.attr("font-family", "roboto")
 		.attr("font-weight", "bold")
 		.attr("font-size", "20px")
-		.text("Análise de Lucro de Filmes");
+		.text(title);
 }

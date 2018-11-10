@@ -185,6 +185,11 @@ a:hover {
 	border: 1px solid #000;
 }
 
+.scroll__graphic__img {
+	width: 100%;
+	height: 100%;
+}
+
 .scroll__graphic.is-fixed {
 	position: fixed;
 	bottom: 0;

@@ -211,6 +211,7 @@ function chartLine(data, attX, attY, title, idDiv){
     				.domain(d3.extent(data, function(d){return d[attX];}))
     				.range([0, width]);
     
+<<<<<<< HEAD
 
 	var yScale = d3.scaleLinear()
 	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
@@ -224,6 +225,21 @@ function chartLine(data, attX, attY, title, idDiv){
 					.scale(yScale)
 					.ticks(12);
 
+=======
+
+	var yScale = d3.scaleLinear()
+	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
+	    .range([height, 0]); 
+
+	var xAxis = d3.axisBottom()
+					.scale(xScale)
+					.ticks(12);
+
+	var yAxis = d3.axisLeft()
+					.scale(yScale)
+					.ticks(12);
+
+>>>>>>> 30ef1847dfb688164e0ac55e6db1f8210d484b75
 	// gridlines in x axis function
 	function make_x_gridlines() {		
 	    return d3.axisBottom(xScale)
@@ -426,6 +442,7 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("font-size", "24px")
 		.text(title);
 }
+<<<<<<< HEAD
 
 
 
@@ -550,3 +567,5 @@ function barChart(dataset, x, y, labels, title, panel, options){
 	   .text(y);
  }
 
+=======
+>>>>>>> 30ef1847dfb688164e0ac55e6db1f8210d484b75

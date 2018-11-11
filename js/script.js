@@ -1,15 +1,17 @@
-	function init(selector) {
-	// using d3 for convenience
+// ###########################
+//     FUNÇÕES DO SCROLLAMA
+// ###########################
+function init(selector) {
+	// Seletores importantes
 	var container = d3.selectAll(selector);
-
 	var graphic = container.select('.scroll__graphic');
 	var text = container.select('.scroll__text');
 	var step = text.selectAll('.step');
 
-	// initialize the scrollama
+	// Inicializa o Scrollama
 	var scroller = scrollama();
 
-	// initially hide everything
+	// Inicialmente esconde todas os gráficos no scrollytelling
 	container.selectAll(".scroll__graphic__img")._groups
 		 .forEach(function(d, i) {
 		  $(d).hide()
@@ -20,34 +22,36 @@
 		$(d).hide()
 	})
 
-	// scrollama event handlers
+	// TRATAMENTO DE EVENTOS DO SCROLLAMA
+
+	// Função ativada quando o scroll entra em um step
 	function handleStepEnter(response) {
 		// response = { element, direction, index }
 		// console.log(response.element)
 		// console.log("Entering: " + response.direction + " " + response.index)
 
-		// add color to current step only
+		// Ativa o step que o usuário entrou
 		step.classed('is-active', function (d, i) {
 			return i === response.index;
 		})
 
-		// # UPDATE GRAPHIC BASED ON STEP #
+		// Armazena a área dos gráficos e a caixa de texto
 		var graph = $(".scroll__graphic");
 		var textbox = $(".scroll__text");
 
-		// Get the working text panels for the current step
+		// Armazena os textos específicos do step atual e anterior
 		var actText = $("#step_"+(response.index)+ " > p");
 		var prevText = (response.direction == 'down') ? 
 						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
 						: $("#step_"+(response.index+1)+ " > p");
 
-		// Get the working graphics for the current step
+		// Armazena os gráficos específicos do step atual e anterior
 		var actGraph = $("#scroll__graphic__img_"+(response.index));
 		var prevGraph = (response.direction == 'down') ? 
 						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
 						 : $("#scroll__graphic__img_"+(response.index+1));
 
-
+		// Posiciona os gráficos e a caixa de texto de acordo com a classe do painel
 		if(actGraph.hasClass("left_panel")) {
 			graph.stop().animate({left: "0%"})
 			textbox.stop().animate({left: "65%"})
@@ -57,11 +61,12 @@
 			textbox.stop().animate({left: "0%"})
 		}
 
-		// Fade-out the previous graphic and fade-in the actual one
+		// Realiza o fade-out do gráfico anterior e fade-in do gráfico atual
 		$(prevGraph[0]).stop().fadeOut(500, function() {
 			$(actGraph[0]).fadeIn(500);
 		})
 
+		// Realiza o fade-out da caixa de texto anterior e fade-in da caixa de texto atual
 		for (var i = prevText.length - 1; i >= 0; i--) {
 			$(prevText[i]).stop().fadeOut(500)
 		}
@@ -70,19 +75,31 @@
 		}
 	}
 
+	// Função ativada quando o scroll sai de um step
 	function handleStepExit(response) {
 		// response = { element, direction, index }
 		// console.log("Leaving: " + response.direction + " " + response.index)
 
-		// update graphic based on step
+		// Armazena os gráficos específicos do step anterior
 		var prevGraph = (response.direction == 'down') ? 
 						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
 						 : $("#scroll__graphic__img_"+(response.index+1));
 
+		// Armazena os textos específicos do step atual e anterior
+		var prevText = (response.direction == 'down') ? 
+						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
+						: $("#step_"+(response.index+1)+ " > p");
+
+		// Realiza o fade-out do gráfico anterior
 		prevGraph.stop().fadeOut(100);
 
+		// Realiza o fade-out da caixa de texto anterior e fade-in da caixa de texto atual
+		for (var i = prevText.length - 1; i >= 0; i--) {
+			$(prevText[i]).stop().fadeOut(500)
+		}
 	}
 
+	// Função ativada quando o scroll entra no container
 	function handleContainerEnter(response) {
 		// response = { direction }
 
@@ -92,6 +109,7 @@
 		// graphic.classed('is-bottom', false);
 	}
 
+	// Função ativada quando o scroll sai do container
 	function handleContainerExit(response) {
 		// response = { direction }
 
@@ -101,20 +119,20 @@
 		// graphic.classed('is-bottom', response.direction === 'down');
 	}
 
+	// Função para o posicionamento "sticky" dos containers
 	(function setupStickyfill() {
 		d3.selectAll(".sticky").each(function() {
 			  Stickyfill.add(this);
 		});
 	})();
 
-	// 1. force a resize on load to ensure proper dimensions are sent to scrollama
-	// generic window resize listener event
+	// Função de tratamento para o evento de redimensionamento da janela
 	function handleResize() {
-		// 1. update height of step elements
+		// Atualiza o tamanho das caixas de step
 		var stepHeight = Math.floor(window.innerHeight * 0.90);
 		step.style("height", stepHeight + "px");
 
-		// 2. update width/height of graphic element
+		// Atualiza as informações de largura e altura da área dos gráfico
 		var bodyWidth = d3.select("body").node().offsetWidth;
 
 		var graphicMargin = 16 * 4;
@@ -128,18 +146,17 @@
 			.style("height", graphicHeight + "px")
 			.style("top", 0);
 
+		// Atualiza as dimensões de outros componentes do site
 		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
 		$("#about_us").css("height", Math.floor(window.innerHeight/3));
 		$("#teste").css("height", Math.floor(window.innerHeight/3));
-		// $("#intro").css("height", Math.floor(window.innerHeight)/4);
+		 // $("#intro").css("height", Math.floor(window.innerHeight)/4);
 	
-		// 3. tell scrollama to update new element dimensions
+		// Aciona função do Scrollama para redimensionar os seus elementos
 		scroller.resize();
 	}
 
-	// 2. setup the scroller passing options
-	// this will also initialize trigger observations
-	// 3. bind scrollama event handlers (this can be chained like below)
+	// Associa as funções de tratamento de evento com os listeners do Scrollama
 	scroller
 		.setup({
 		  container: selector,
@@ -154,19 +171,29 @@
 		.onContainerEnter(handleContainerEnter)
 		.onContainerExit(handleContainerExit);
 
-	// setup resize event
+	// Associa a função de redimensionamento com o listener da janela
 	window.addEventListener("resize", handleResize);
 	handleResize();
 }
 
 
-/////////////////////////////////////////////// Início dos gráficos
+// ###############################
+//     FUNÇÕES DE VISUALIZAÇÃO
+// ###############################
 
 function chartLine(data, attX, attY, idDiv){
 	
 };
 
 
+// Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @x 			Nome do atributo a ser projeto no eixo X 
+// @y 			Nome do atributo a ser projeto no eixo Y 
+// @labels 		Nome do atributo a ser extraído como título de cada ponto 
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
 function scatter(dataset, x, y, labels, title, panel, options) {
 	// Variáveis Importantes
 	let margin = {top: 150, right: 100, bottom: 150, left: 100};

@@ -1,3 +1,6 @@
+/* #########################
+       DEFINIÇÕES GERAIS
+   ######################### */
 * {
 	box-sizing: border-box;
 }
@@ -159,7 +162,9 @@ a:hover {
 	height: 130px;
 }
 
-/* scrollama */
+/* ####################################
+       DEFINIÇÕES PARA O  SCROLLAMA
+   #################################### */
 .scroll {
 	position: relative;
 	grid-column-gap: 0px;
@@ -183,22 +188,18 @@ a:hover {
 	transform: translate3d(0, 0, 0);
 	background-color: #ddd;
 	border: 1px solid #000;
-}
-
-.scroll__graphic__img {
-
-	width: 100%;
-	height: 100%;
 	text-align: center;
   	vertical-align: middle;
 }
 
-.scroll__graphic__img svg {
+.scroll__graphic__img {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 	margin: 0 auto;
+
 }
+
 
 .scroll__graphic.is-fixed {
 	position: fixed;
@@ -256,6 +257,9 @@ a:hover {
 	font-size: 1.5rem;
 }
 
+/* #######################################
+       DEFINIÇÃO PARA AS VISUALIZAÇÕES
+   ####################################### */
 .axis path, .axis line {
 	stroke-width: 2px;
 }

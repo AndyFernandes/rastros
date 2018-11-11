@@ -566,6 +566,3 @@ function barChart(dataset, x, y, labels, title, panel, options){
 	   .attr("font-size", "12px")
 	   .text(y);
  }
-
-=======
->>>>>>> 30ef1847dfb688164e0ac55e6db1f8210d484b75

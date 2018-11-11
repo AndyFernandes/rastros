@@ -210,8 +210,6 @@ function chartLine(data, attX, attY, title, idDiv){
     var xScale = d3.scaleTime()
     				.domain(d3.extent(data, function(d){return d[attX];}))
     				.range([0, width]);
-    
-<<<<<<< HEAD
 
 	var yScale = d3.scaleLinear()
 	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
@@ -225,21 +223,6 @@ function chartLine(data, attX, attY, title, idDiv){
 					.scale(yScale)
 					.ticks(12);
 
-=======
-
-	var yScale = d3.scaleLinear()
-	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
-	    .range([height, 0]); 
-
-	var xAxis = d3.axisBottom()
-					.scale(xScale)
-					.ticks(12);
-
-	var yAxis = d3.axisLeft()
-					.scale(yScale)
-					.ticks(12);
-
->>>>>>> 30ef1847dfb688164e0ac55e6db1f8210d484b75
 	// gridlines in x axis function
 	function make_x_gridlines() {		
 	    return d3.axisBottom(xScale)
@@ -442,9 +425,6 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("font-size", "24px")
 		.text(title);
 }
-<<<<<<< HEAD
-
-
 
 // Função BAR CHART: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
 // @dataset 	Conjunto de dados de entrada 
@@ -566,3 +546,22 @@ function barChart(dataset, x, y, labels, title, panel, options){
 	   .attr("font-size", "12px")
 	   .text(y);
  }
+
+
+// ######################
+//     FUNÇÕES GERAIS
+// ######################
+function sampleImage() {
+	let i = Math.floor(Math.random() * 6);
+	let j = Math.floor(Math.random() * 6);
+
+	let odd = Math.random();
+	if(odd > 0.5) {
+		let idx = Math.floor(Math.random() * 6);
+
+		$("#mosaic_"+(i+1)+"x"+(j+1)).fadeOut('slow', function () {
+			$(this).css("background-image", "url(../img/seca/"+idx+".jpg)")
+			$(this).fadeIn('slow');
+		});
+	}
+}

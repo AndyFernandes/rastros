@@ -54,17 +54,59 @@ a {
 }
 
 a,
-a:visited,
 a:hover {
 	color: #f30;
 	text-decoration: none;
-	border-bottom: 1px solid currentColor;
+	border-bottom: 0px solid currentColor;
 }
 
 #intro {
-	max-width: 40rem;
-	margin: 1rem auto;
+	position: relative;
+	width: 100%;
+	height: 77%;
+	margin: 0 auto;
 	text-align: center;
+	z-index: 1;
+}
+
+.intro_mosaic {
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 1px;
+	background-color: rgba(255, 255, 255, 0.5);
+	height: 99%;
+	z-index: 1;
+}
+
+.column {
+	flex: 20%;
+	padding: 0 1px;
+}
+
+.mosaic_img {
+	background-image: url("../img/seca/1.jpg");
+	background-color: black;
+	background-size: cover;
+	width: 100%;
+	height: 20%;
+	margin-top: 2px;
+}
+
+.intro_title_bg {
+	position: absolute; z-index: 1;
+	margin: 0 auto;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: white; 
+    opacity: 0.75;
+}
+
+.intro_title {
+	position: relative;
+	top: 42%;
+	transform: translateY(-50%);
+	margin: 0 auto;
 }
 
 .intro__overline {
@@ -72,7 +114,7 @@ a:hover {
 }
 
 .intro__hed {
-	font-size: 90px;
+	font-size: 120px;
 	margin: 1.5rem auto;
 	text-transform: uppercase;
 	font-weight: 900;
@@ -81,25 +123,8 @@ a:hover {
 }
 
 .intro__dek {
-	font-size: 1.4rem;
+	font-size: 2rem;
 	text-align: center;
-}
-
-/*li{
-	margin-left: 50px;
-}*/
-/* demo */
-.ajuste{
-	width: 100%;
-	height: 77%;
-	/*opacity: 0.7;*/
-	/*background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(90,154,163,1));*/
-}
-
-#intro {
-	margin-bottom: 320px;
-	height: 50%;
-	width: 100%;
 }
 
 #about_us {
@@ -122,29 +147,38 @@ a:hover {
 	margin-bottom: 10px;
 	font-size: 40px;
 }
+
 #membros{
 	height: 40%;
 }
 
-.membro p{
+.membro p {
 	text-align: center;
 }
 
 .name_membro {
 	margin-top: 5px;
+	margin-bottom: 0px;
+	font-weight: 700;
+}
+
+.email_membro {
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-style: italic;
 }
 
 .descricao_membro{
+	margin-top: 5px;
 	font-size: 15px;
-	margin-top:-20px;
-
 }
 
 .foto_membro {
-	border-radius: 80px;
-	width: 150px;
-	height: 150px;
-	margin-left:27%;
+	border-radius: 90px;
+	width: 175px;
+	height: 175px;
+	margin-left:25%;
 }
 
 #rodape {
@@ -155,7 +189,7 @@ a:hover {
 	background-color: black;
 }
 
-#rodape img{
+#rodape img {
 	margin-top:20px;
 	margin-left: 30px;
 	width: 400px;
@@ -165,9 +199,16 @@ a:hover {
 /* ####################################
        DEFINIÇÕES PARA O  SCROLLAMA
    #################################### */
+.section_header {
+	background: white;
+	z-index: 2;
+}
+
 .scroll {
 	position: relative;
 	grid-column-gap: 0px;
+	background: white;
+	z-index: 2;
 	/*border-top: 1px solid #000;
 	border-bottom: 1px solid #000;*/
 }
@@ -192,15 +233,6 @@ a:hover {
   	vertical-align: middle;
 }
 
-.scroll__graphic__img {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-	margin: 0 auto;
-
-}
-
-
 .scroll__graphic.is-fixed {
 	position: fixed;
 	bottom: 0;
@@ -210,6 +242,13 @@ a:hover {
 	position: absolute;	
 	top: 0;
 	bottom: 0;
+}
+
+.scroll__graphic__img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 auto;
 }
 
 .scroll__graphic p {

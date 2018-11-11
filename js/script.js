@@ -547,6 +547,7 @@ function barChart(dataset, x, y, labels, title, panel, options){
 	   .text(y);
  }
 
+
 // ######################
 //     FUNÇÕES GERAIS
 // ######################

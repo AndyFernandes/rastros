@@ -1,15 +1,17 @@
-	function init(selector) {
-	// using d3 for convenience
+// ###########################
+//     FUNÇÕES DO SCROLLAMA
+// ###########################
+function init(selector) {
+	// Seletores importantes
 	var container = d3.selectAll(selector);
-
 	var graphic = container.select('.scroll__graphic');
 	var text = container.select('.scroll__text');
 	var step = text.selectAll('.step');
 
-	// initialize the scrollama
+	// Inicializa o Scrollama
 	var scroller = scrollama();
 
-	// initially hide everything
+	// Inicialmente esconde todas os gráficos no scrollytelling
 	container.selectAll(".scroll__graphic__img")._groups
 		 .forEach(function(d, i) {
 		  $(d).hide()
@@ -20,34 +22,36 @@
 		$(d).hide()
 	})
 
-	// scrollama event handlers
+	// TRATAMENTO DE EVENTOS DO SCROLLAMA
+
+	// Função ativada quando o scroll entra em um step
 	function handleStepEnter(response) {
 		// response = { element, direction, index }
 		// console.log(response.element)
 		// console.log("Entering: " + response.direction + " " + response.index)
 
-		// add color to current step only
+		// Ativa o step que o usuário entrou
 		step.classed('is-active', function (d, i) {
 			return i === response.index;
 		})
 
-		// # UPDATE GRAPHIC BASED ON STEP #
+		// Armazena a área dos gráficos e a caixa de texto
 		var graph = $(".scroll__graphic");
 		var textbox = $(".scroll__text");
 
-		// Get the working text panels for the current step
+		// Armazena os textos específicos do step atual e anterior
 		var actText = $("#step_"+(response.index)+ " > p");
 		var prevText = (response.direction == 'down') ? 
 						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
 						: $("#step_"+(response.index+1)+ " > p");
 
-		// Get the working graphics for the current step
+		// Armazena os gráficos específicos do step atual e anterior
 		var actGraph = $("#scroll__graphic__img_"+(response.index));
 		var prevGraph = (response.direction == 'down') ? 
 						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
 						 : $("#scroll__graphic__img_"+(response.index+1));
 
-
+		// Posiciona os gráficos e a caixa de texto de acordo com a classe do painel
 		if(actGraph.hasClass("left_panel")) {
 			graph.stop().animate({left: "0%"})
 			textbox.stop().animate({left: "65%"})
@@ -57,11 +61,12 @@
 			textbox.stop().animate({left: "0%"})
 		}
 
-		// Fade-out the previous graphic and fade-in the actual one
+		// Realiza o fade-out do gráfico anterior e fade-in do gráfico atual
 		$(prevGraph[0]).stop().fadeOut(500, function() {
 			$(actGraph[0]).fadeIn(500);
 		})
 
+		// Realiza o fade-out da caixa de texto anterior e fade-in da caixa de texto atual
 		for (var i = prevText.length - 1; i >= 0; i--) {
 			$(prevText[i]).stop().fadeOut(500)
 		}
@@ -70,19 +75,31 @@
 		}
 	}
 
+	// Função ativada quando o scroll sai de um step
 	function handleStepExit(response) {
 		// response = { element, direction, index }
 		// console.log("Leaving: " + response.direction + " " + response.index)
 
-		// update graphic based on step
+		// Armazena os gráficos específicos do step anterior
 		var prevGraph = (response.direction == 'down') ? 
 						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
 						 : $("#scroll__graphic__img_"+(response.index+1));
 
+		// Armazena os textos específicos do step atual e anterior
+		var prevText = (response.direction == 'down') ? 
+						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
+						: $("#step_"+(response.index+1)+ " > p");
+
+		// Realiza o fade-out do gráfico anterior
 		prevGraph.stop().fadeOut(100);
 
+		// Realiza o fade-out da caixa de texto anterior e fade-in da caixa de texto atual
+		for (var i = prevText.length - 1; i >= 0; i--) {
+			$(prevText[i]).stop().fadeOut(500)
+		}
 	}
 
+	// Função ativada quando o scroll entra no container
 	function handleContainerEnter(response) {
 		// response = { direction }
 
@@ -92,6 +109,7 @@
 		// graphic.classed('is-bottom', false);
 	}
 
+	// Função ativada quando o scroll sai do container
 	function handleContainerExit(response) {
 		// response = { direction }
 
@@ -101,20 +119,20 @@
 		// graphic.classed('is-bottom', response.direction === 'down');
 	}
 
+	// Função para o posicionamento "sticky" dos containers
 	(function setupStickyfill() {
 		d3.selectAll(".sticky").each(function() {
 			  Stickyfill.add(this);
 		});
 	})();
 
-	// 1. force a resize on load to ensure proper dimensions are sent to scrollama
-	// generic window resize listener event
+	// Função de tratamento para o evento de redimensionamento da janela
 	function handleResize() {
-		// 1. update height of step elements
+		// Atualiza o tamanho das caixas de step
 		var stepHeight = Math.floor(window.innerHeight * 0.90);
 		step.style("height", stepHeight + "px");
 
-		// 2. update width/height of graphic element
+		// Atualiza as informações de largura e altura da área dos gráfico
 		var bodyWidth = d3.select("body").node().offsetWidth;
 
 		var graphicMargin = 16 * 4;
@@ -128,18 +146,17 @@
 			.style("height", graphicHeight + "px")
 			.style("top", 0);
 
+		// Atualiza as dimensões de outros componentes do site
 		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
 		$("#about_us").css("height", Math.floor(window.innerHeight/3));
 		$("#teste").css("height", Math.floor(window.innerHeight/3));
-		// $("#intro").css("height", Math.floor(window.innerHeight)/4);
+		 // $("#intro").css("height", Math.floor(window.innerHeight)/4);
 	
-		// 3. tell scrollama to update new element dimensions
+		// Aciona função do Scrollama para redimensionar os seus elementos
 		scroller.resize();
 	}
 
-	// 2. setup the scroller passing options
-	// this will also initialize trigger observations
-	// 3. bind scrollama event handlers (this can be chained like below)
+	// Associa as funções de tratamento de evento com os listeners do Scrollama
 	scroller
 		.setup({
 		  container: selector,
@@ -154,24 +171,145 @@
 		.onContainerEnter(handleContainerEnter)
 		.onContainerExit(handleContainerExit);
 
-	// setup resize event
+	// Associa a função de redimensionamento com o listener da janela
 	window.addEventListener("resize", handleResize);
 	handleResize();
 }
 
 
-/////////////////////////////////////////////// Início dos gráficos
+// ###############################
+//     FUNÇÕES DE VISUALIZAÇÃO
+// ###############################
 
-function chartLine(data, attX, attY, idDiv){
+// Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @attX		Nome do atributo a ser projeto no eixo X 
+// @attY		Nome do atributo a ser projeto no eixo Y 
+// @title 		Título do gráfico a ser exibido
+// @idDiv 		Identificador da <div> na qual o gráfico deve ser renderizado
+function chartLine(data, attX, attY, title, idDiv){
+    let parseDate = d3.timeParse("%Y");
+    console.log(parseDate("2016"));
+    var div = $(idDiv);
+
+    data.forEach(function(d) {
+        //d[attX] = parseFloat(d[attX]);
+        d[attX] = parseDate(d[attX]);
+        d[attY] = parseFloat(d[attY]);
+    });
+
+    var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
+    	width = $(idDiv).width() - margin.left - margin.right, 
+    	height = $(idDiv).height() - margin.top - margin.bottom;
+
+    /*var xScale = d3.scaleLinear()
+    				.domain([d3.min(data, function(d){ return d[attX];}), d3.max(data, function(d){ return d[attX];})]) 
+    				.range([0, width]); // output
+    
+    */
+    var xScale = d3.scaleTime()
+    				.domain(d3.extent(data, function(d){return d[attX];}))
+    				.range([0, width]);
+    
+
+	var yScale = d3.scaleLinear()
+	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
+	    .range([height, 0]); 
+
+	var xAxis = d3.axisBottom()
+					.scale(xScale)
+					.ticks(12);
+
+	var yAxis = d3.axisLeft()
+					.scale(yScale)
+					.ticks(12);
+
+	// gridlines in x axis function
+	function make_x_gridlines() {		
+	    return d3.axisBottom(xScale)
+	        .ticks(5)
+	}
+
+	// gridlines in y axis function
+	function make_y_gridlines() {		
+	    return d3.axisLeft(yScale)
+	        .ticks(5)
+	}
+
+	var line = d3.line()
+			    .x(function(d) { return xScale(d[attX]); }) // set the x values for the line generator
+			    .y(function(d) { return yScale(d[attY]); }); // set the y values for the line generator 
+
+
+	// 1. Add the SVG to the page and employ #2
+	var svg = d3.select(idDiv).append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  	.append("g")
+	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// 2. Call the x axis in a group tag
+	svg.append("g")
+	    .attr("class", "x axis")
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(xAxis);
+
+	// 3. Call the y axis in a group tag
+	svg.append("g")
+	    .attr("class", "y axis")
+	    .call(yAxis);
+
+	// add the X gridlines
+	svg.append("g")			
+	      .attr("class", "grid")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(make_x_gridlines()
+	          .tickSize(-height)
+	          .tickFormat(""))
+
+	// add the Y gridlines
+	svg.append("g")			
+	      .attr("class", "grid")
+	      .call(make_y_gridlines()
+	          .tickSize(-width)
+	          .tickFormat(""))
+ 
+	svg.append("path") 
+	    .attr("class", "line") // Assign a class for styling 
+	    .attr("d", line(data));  
 	
-};
+	// 12. Appends a circle for each datapoint 
+	svg.selectAll(".dot")
+	    .data(data)
+	  .enter().append("circle") // Uses the enter().append() method
+	    .attr("class", "dot") // Assign a class for styling
+	    .attr("cx", function(d) { return xScale(d[attX]) })
+	    .attr("cy", function(d) { return yScale(d[attY]) })
+	    .attr("r", 5);
 
+	// Título do Gráfico
+	svg.append("text")
+		.attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
+		.style("text-anchor", "middle")
+		.attr("font-family", "Segoe UI")
+		.attr("font-weight", "bold")
+		.attr("font-size", "30px")
+		.text(title);
+ }
 
-function scatter(dataset, x, y, labels, title, panel) {
+// Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @x 			Nome do atributo a ser projeto no eixo X 
+// @y 			Nome do atributo a ser projeto no eixo Y 
+// @labels 		Nome do atributo a ser extraído como título de cada ponto 
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+function scatter(dataset, x, y, labels, title, panel, options) {
 	// Variáveis Importantes
 	let margin = {top: 150, right: 100, bottom: 150, left: 100};
-	let w = $(panel).width() - margin.left - margin.right;
-	let h = $(panel).height() - margin.top - margin.bottom;
+	let w = options["width"] - margin.left - margin.right;
+	let h = options["height"] - margin.top - margin.bottom;
 
 	// Declara as funções de escala linear
     let xScale = d3.scaleLinear()
@@ -209,8 +347,8 @@ function scatter(dataset, x, y, labels, title, panel) {
 		.attr("cy", function(d){
 			return yScale(+d[y]);
 		})
-		.attr("r", 5)
-		.attr("fill", "#428bcaBB")
+		.attr("r", options["marker-size"])
+		.attr("fill", options["color"])
 		.attr("stroke", "black");
 
 
@@ -221,18 +359,17 @@ function scatter(dataset, x, y, labels, title, panel) {
 		.append("text")
 		.attr("class", "label")
 		.attr("x", function(d){
-			return xScale(+d[x])+3;
+			return xScale(+d[x])+5;
 		})
 		.attr("y", function(d){
-			return yScale(+d[y])-3;
+			return yScale(+d[y])-5;
 		})
-		.attr("font-family", "roboto")
-		.attr("font-size", "12px")
+		.attr("font-family", "Roboto")
+		.attr("font-size", "14px")
 		.attr("fill", "black")
 		.text(function(d) {
 			return d[labels];
 		});
-	console.log("a")
 
 	// Adiciona a animação das labels para o Hover nos marcadores
 	d3.selectAll(".label")
@@ -262,9 +399,9 @@ function scatter(dataset, x, y, labels, title, panel) {
 	svg.append("text")
 			.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
 			.style("text-anchor", "middle")
-			.attr("font-family", "roboto")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
-			.text(x);
+			.text(options["xlabel"]);
 
     svg.append("g")
     		.attr("class", "axis")
@@ -276,16 +413,140 @@ function scatter(dataset, x, y, labels, title, panel) {
 			.attr("x", 0 - (h / 2))
 			.attr("dy", "1em")
 			.style("text-anchor", "middle")
-			.attr("font-family", "roboto")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
-			.text(y);
+			.text(options["ylabel"]);
 			
 	// Título do Gráfico
 	svg.append("text")
 		.attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
 		.style("text-anchor", "middle")
-		.attr("font-family", "roboto")
+		.attr("font-family", "Roboto")
 		.attr("font-weight", "bold")
 		.attr("font-size", "24px")
 		.text(title);
 }
+
+
+
+// Função BAR CHART: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @x 			Nome do atributo a ser projeto no eixo X 
+// @y 			Nome do atributo a ser projeto no eixo Y 
+// @labels 		Nome do atributo a ser extraído como título de cada ponto 
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+
+function barChart(dataset, x, y, labels, title, panel, options){
+    let parseDate = d3.timeParse("%Y");
+    var div = $(panel);
+	
+    data.forEach(function(d) {
+        d[x] = parseDate(d[x]);
+        d[y] = parseFloat(d[y]);
+    });
+
+    var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
+    	w = $(panel).width() - margin.left - margin.right, 
+    	h = $(panel).height() - margin.top - margin.bottom;
+
+    var bar_size = (w / dataset.length)
+    var xScale = d3.scaleBand()
+		.range([0,w])            
+		.domain(labels)
+		.padding(0.2);
+    
+
+    var yScale = d3.scaleLinear()
+        .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
+        .range([height, 0]); 
+
+    let xAxis = d3.axisBottom()
+            .scale(xScale);
+    let yAxis = d3.axisLeft()
+            .scale(yScale).ticks(5);
+    
+
+
+	// 1. Add the SVG to the page and employ #2
+    var svg = d3.select(panel).append("svg")
+	        .attr("width", width + margin.left + margin.right)
+	        .attr("height", height + margin.top + margin.bottom)
+	  	.append("g")
+	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+
+
+	// add the Y gridlines
+    svg.append('g')
+       .attr('class', 'grid')
+       .call(d3.axisLeft()
+       .scale(yScale)
+       .tickSize(-w, 0, 0)
+       .tickFormat(''))
+    barChart = svg.selectAll()
+		  .data(dataset)
+	          .enter()
+	          .append("rect")
+	          .attr("y",(d) => yScale(d[y]))
+	          .attr("height", (d) => h - yScale(d[y]))
+    	          .attr("width", bar_size -10)
+	          .attr("transform", function (d, i) {
+         			var translate = [ bar_size* i, 0];
+         			return "translate("+ translate +")";
+			})
+		  .attr("fill",function (d,i){return options[i]})
+	          .on('mouseenter', function (a, i) {d3.select(this)
+				.transition()
+				.duration(100)
+				.attr('opacity', 0.5)
+				.attr('width', xScale.bandwidth() +25)	
+				svg.append('line')
+				   .attr('id','line')
+			       	   .attr('x1', 0)
+				   .attr('y1', yScale(a[y]))
+				   .attr('x2', w)
+				   .attr('y2', yScale(a[y]))
+				   .attr('stroke', 'red')})
+		   .on('mouseleave', function (a, i) {
+			d3.select(this)
+				.transition()
+				.duration(100)
+				.attr('opacity', 1)
+				.attr('width', xScale.bandwidth() + 20 )
+			svg.selectAll('#line').remove()
+		    })
+
+
+    svg.append("g").attr("transform", "translate(0," + h + ")")
+                    .call(xAxis);
+    svg.append("g").attr("transform", "translate(0," + 0 + ")")
+                    .call(yAxis);
+	// Título do Gráfico e nome dos eixos
+    svg.append("text")
+       .attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
+       .style("text-anchor", "middle")
+       .attr("font-family", "Segoe UI")
+       .attr("font-weight", "bold")
+       .attr("font-size", "30px")
+       .text(title);
+
+    svg.append("text")
+           .attr("transform", "translate(" + (w/2) + "," + (h + margin.bottom) + ")")
+           .style("text-anchor", "middle")
+           .attr("font-family", "sans-serif")
+           .attr("font-size", "12px")
+           .text(x);
+	
+    svg.append("text")
+	   .attr("transform", "rotate(-90)")
+	   .attr("y", 0 - margin.left)
+	   .attr("x",0 - (h / 2))
+	   .attr("dy", "1em")
+	   .style("text-anchor", "middle")
+	   .attr("font-family", "sans-serif")
+	   .attr("font-size", "12px")
+	   .text(y);
+ }
+

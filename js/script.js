@@ -210,7 +210,6 @@ function chartLine(data, attX, attY, title, idDiv){
     var xScale = d3.scaleTime()
     				.domain(d3.extent(data, function(d){return d[attX];}))
     				.range([0, width]);
-    
 
 	var yScale = d3.scaleLinear()
 	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
@@ -426,6 +425,127 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("font-size", "24px")
 		.text(title);
 }
+
+// Função BAR CHART: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @x 			Nome do atributo a ser projeto no eixo X 
+// @y 			Nome do atributo a ser projeto no eixo Y 
+// @labels 		Nome do atributo a ser extraído como título de cada ponto 
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+
+function barChart(dataset, x, y, labels, title, panel, options){
+    let parseDate = d3.timeParse("%Y");
+    var div = $(panel);
+	
+    data.forEach(function(d) {
+        d[x] = parseDate(d[x]);
+        d[y] = parseFloat(d[y]);
+    });
+
+    var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
+    	w = $(panel).width() - margin.left - margin.right, 
+    	h = $(panel).height() - margin.top - margin.bottom;
+
+    var bar_size = (w / dataset.length)
+    var xScale = d3.scaleBand()
+		.range([0,w])            
+		.domain(labels)
+		.padding(0.2);
+    
+
+    var yScale = d3.scaleLinear()
+        .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
+        .range([height, 0]); 
+
+    let xAxis = d3.axisBottom()
+            .scale(xScale);
+    let yAxis = d3.axisLeft()
+            .scale(yScale).ticks(5);
+    
+
+
+	// 1. Add the SVG to the page and employ #2
+    var svg = d3.select(panel).append("svg")
+	        .attr("width", width + margin.left + margin.right)
+	        .attr("height", height + margin.top + margin.bottom)
+	  	.append("g")
+	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+
+
+	// add the Y gridlines
+    svg.append('g')
+       .attr('class', 'grid')
+       .call(d3.axisLeft()
+       .scale(yScale)
+       .tickSize(-w, 0, 0)
+       .tickFormat(''))
+    barChart = svg.selectAll()
+		  .data(dataset)
+	          .enter()
+	          .append("rect")
+	          .attr("y",(d) => yScale(d[y]))
+	          .attr("height", (d) => h - yScale(d[y]))
+    	          .attr("width", bar_size -10)
+	          .attr("transform", function (d, i) {
+         			var translate = [ bar_size* i, 0];
+         			return "translate("+ translate +")";
+			})
+		  .attr("fill",function (d,i){return options[i]})
+	          .on('mouseenter', function (a, i) {d3.select(this)
+				.transition()
+				.duration(100)
+				.attr('opacity', 0.5)
+				.attr('width', xScale.bandwidth() +25)	
+				svg.append('line')
+				   .attr('id','line')
+			       	   .attr('x1', 0)
+				   .attr('y1', yScale(a[y]))
+				   .attr('x2', w)
+				   .attr('y2', yScale(a[y]))
+				   .attr('stroke', 'red')})
+		   .on('mouseleave', function (a, i) {
+			d3.select(this)
+				.transition()
+				.duration(100)
+				.attr('opacity', 1)
+				.attr('width', xScale.bandwidth() + 20 )
+			svg.selectAll('#line').remove()
+		    })
+
+
+    svg.append("g").attr("transform", "translate(0," + h + ")")
+                    .call(xAxis);
+    svg.append("g").attr("transform", "translate(0," + 0 + ")")
+                    .call(yAxis);
+	// Título do Gráfico e nome dos eixos
+    svg.append("text")
+       .attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
+       .style("text-anchor", "middle")
+       .attr("font-family", "Segoe UI")
+       .attr("font-weight", "bold")
+       .attr("font-size", "30px")
+       .text(title);
+
+    svg.append("text")
+           .attr("transform", "translate(" + (w/2) + "," + (h + margin.bottom) + ")")
+           .style("text-anchor", "middle")
+           .attr("font-family", "sans-serif")
+           .attr("font-size", "12px")
+           .text(x);
+	
+    svg.append("text")
+	   .attr("transform", "rotate(-90)")
+	   .attr("y", 0 - margin.left)
+	   .attr("x",0 - (h / 2))
+	   .attr("dy", "1em")
+	   .style("text-anchor", "middle")
+	   .attr("font-family", "sans-serif")
+	   .attr("font-size", "12px")
+	   .text(y);
+ }
 
 // ######################
 //     FUNÇÕES GERAIS

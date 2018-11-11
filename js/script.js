@@ -181,6 +181,12 @@ function init(selector) {
 //     FUNÇÕES DE VISUALIZAÇÃO
 // ###############################
 
+// Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// @dataset 	Conjunto de dados de entrada 
+// @attX		Nome do atributo a ser projeto no eixo X 
+// @attY		Nome do atributo a ser projeto no eixo Y 
+// @title 		Título do gráfico a ser exibido
+// @idDiv 		Identificador da <div> na qual o gráfico deve ser renderizado
 function chartLine(data, attX, attY, title, idDiv){
     let parseDate = d3.timeParse("%Y");
     console.log(parseDate("2016"));

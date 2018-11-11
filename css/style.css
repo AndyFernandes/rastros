@@ -260,12 +260,6 @@ a:hover {
 /* #######################################
        DEFINIÇÃO PARA AS VISUALIZAÇÕES
    ####################################### */
-.axis path, .axis line {
-	stroke-width: 2px;
-}
-
-/* Graficos  */
-
 .line {
     fill: steelblue;
     stroke-width: 3;

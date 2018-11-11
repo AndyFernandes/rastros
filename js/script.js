@@ -426,3 +426,21 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("font-size", "24px")
 		.text(title);
 }
+
+// ######################
+//     FUNÇÕES GERAIS
+// ######################
+function sampleImage() {
+	let i = Math.floor(Math.random() * 6);
+	let j = Math.floor(Math.random() * 6);
+
+	let odd = Math.random();
+	if(odd > 0.5) {
+		let idx = Math.floor(Math.random() * 6);
+
+		$("#mosaic_"+(i+1)+"x"+(j+1)).fadeOut('slow', function () {
+			$(this).css("background-image", "url(../img/seca/"+idx+".jpg)")
+			$(this).fadeIn('slow');
+		});
+	}
+}

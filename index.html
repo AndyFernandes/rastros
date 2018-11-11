@@ -321,7 +321,14 @@
 		]
 
 		Promise.all(promises).then(function() {
-		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3")	
+
+			let options = { "color": "#428BCABB", "marker-size": 5, 
+							"width": 800,//$("#scroll__graphic__img_3").width(), 
+							"height": 600,//$("#scroll__graphic__img_3").height(),
+							"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
+		    
+		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", 
+		    		"Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
 		})      
 	</script>
 </body>

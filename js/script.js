@@ -167,11 +167,11 @@ function chartLine(data, attX, attY, idDiv){
 };
 
 
-function scatter(dataset, x, y, labels, title, panel) {
+function scatter(dataset, x, y, labels, title, panel, options) {
 	// Variáveis Importantes
 	let margin = {top: 150, right: 100, bottom: 150, left: 100};
-	let w = $(panel).width() - margin.left - margin.right;
-	let h = $(panel).height() - margin.top - margin.bottom;
+	let w = options["width"] - margin.left - margin.right;
+	let h = options["height"] - margin.top - margin.bottom;
 
 	// Declara as funções de escala linear
     let xScale = d3.scaleLinear()
@@ -209,8 +209,8 @@ function scatter(dataset, x, y, labels, title, panel) {
 		.attr("cy", function(d){
 			return yScale(+d[y]);
 		})
-		.attr("r", 5)
-		.attr("fill", "#428bcaBB")
+		.attr("r", options["marker-size"])
+		.attr("fill", options["color"])
 		.attr("stroke", "black");
 
 
@@ -221,18 +221,17 @@ function scatter(dataset, x, y, labels, title, panel) {
 		.append("text")
 		.attr("class", "label")
 		.attr("x", function(d){
-			return xScale(+d[x])+3;
+			return xScale(+d[x])+5;
 		})
 		.attr("y", function(d){
-			return yScale(+d[y])-3;
+			return yScale(+d[y])-5;
 		})
-		.attr("font-family", "roboto")
-		.attr("font-size", "12px")
+		.attr("font-family", "Roboto")
+		.attr("font-size", "14px")
 		.attr("fill", "black")
 		.text(function(d) {
 			return d[labels];
 		});
-	console.log("a")
 
 	// Adiciona a animação das labels para o Hover nos marcadores
 	d3.selectAll(".label")
@@ -262,9 +261,9 @@ function scatter(dataset, x, y, labels, title, panel) {
 	svg.append("text")
 			.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
 			.style("text-anchor", "middle")
-			.attr("font-family", "roboto")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
-			.text(x);
+			.text(options["xlabel"]);
 
     svg.append("g")
     		.attr("class", "axis")
@@ -276,15 +275,15 @@ function scatter(dataset, x, y, labels, title, panel) {
 			.attr("x", 0 - (h / 2))
 			.attr("dy", "1em")
 			.style("text-anchor", "middle")
-			.attr("font-family", "roboto")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
-			.text(y);
+			.text(options["ylabel"]);
 			
 	// Título do Gráfico
 	svg.append("text")
 		.attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
 		.style("text-anchor", "middle")
-		.attr("font-family", "roboto")
+		.attr("font-family", "Roboto")
 		.attr("font-weight", "bold")
 		.attr("font-size", "24px")
 		.text(title);

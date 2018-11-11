@@ -181,10 +181,115 @@ function init(selector) {
 //     FUNÇÕES DE VISUALIZAÇÃO
 // ###############################
 
-function chartLine(data, attX, attY, idDiv){
-	
-};
+function chartLine(data, attX, attY, title, idDiv){
+    let parseDate = d3.timeParse("%Y");
+    console.log(parseDate("2016"));
+    var div = $(idDiv);
 
+    data.forEach(function(d) {
+        //d[attX] = parseFloat(d[attX]);
+        d[attX] = parseDate(d[attX]);
+        d[attY] = parseFloat(d[attY]);
+    });
+
+    var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
+    	width = $(idDiv).width() - margin.left - margin.right, 
+    	height = $(idDiv).height() - margin.top - margin.bottom;
+
+    /*var xScale = d3.scaleLinear()
+    				.domain([d3.min(data, function(d){ return d[attX];}), d3.max(data, function(d){ return d[attX];})]) 
+    				.range([0, width]); // output
+    
+    */
+    var xScale = d3.scaleTime()
+    				.domain(d3.extent(data, function(d){return d[attX];}))
+    				.range([0, width]);
+    
+
+	var yScale = d3.scaleLinear()
+	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
+	    .range([height, 0]); 
+
+	var xAxis = d3.axisBottom()
+					.scale(xScale)
+					.ticks(12);
+
+	var yAxis = d3.axisLeft()
+					.scale(yScale)
+					.ticks(12);
+
+	// gridlines in x axis function
+	function make_x_gridlines() {		
+	    return d3.axisBottom(xScale)
+	        .ticks(5)
+	}
+
+	// gridlines in y axis function
+	function make_y_gridlines() {		
+	    return d3.axisLeft(yScale)
+	        .ticks(5)
+	}
+
+	var line = d3.line()
+			    .x(function(d) { return xScale(d[attX]); }) // set the x values for the line generator
+			    .y(function(d) { return yScale(d[attY]); }); // set the y values for the line generator 
+
+
+	// 1. Add the SVG to the page and employ #2
+	var svg = d3.select(idDiv).append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  	.append("g")
+	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// 2. Call the x axis in a group tag
+	svg.append("g")
+	    .attr("class", "x axis")
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(xAxis);
+
+	// 3. Call the y axis in a group tag
+	svg.append("g")
+	    .attr("class", "y axis")
+	    .call(yAxis);
+
+	// add the X gridlines
+	svg.append("g")			
+	      .attr("class", "grid")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(make_x_gridlines()
+	          .tickSize(-height)
+	          .tickFormat(""))
+
+	// add the Y gridlines
+	svg.append("g")			
+	      .attr("class", "grid")
+	      .call(make_y_gridlines()
+	          .tickSize(-width)
+	          .tickFormat(""))
+ 
+	svg.append("path") 
+	    .attr("class", "line") // Assign a class for styling 
+	    .attr("d", line(data));  
+	
+	// 12. Appends a circle for each datapoint 
+	svg.selectAll(".dot")
+	    .data(data)
+	  .enter().append("circle") // Uses the enter().append() method
+	    .attr("class", "dot") // Assign a class for styling
+	    .attr("cx", function(d) { return xScale(d[attX]) })
+	    .attr("cy", function(d) { return yScale(d[attY]) })
+	    .attr("r", 5);
+
+	// Título do Gráfico
+	svg.append("text")
+		.attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
+		.style("text-anchor", "middle")
+		.attr("font-family", "Segoe UI")
+		.attr("font-weight", "bold")
+		.attr("font-size", "30px")
+		.text(title);
+ }
 
 // Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
 // @dataset 	Conjunto de dados de entrada 

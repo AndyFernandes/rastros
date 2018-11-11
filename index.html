@@ -415,14 +415,15 @@
 							"height": 600,
 							"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
 		    
-		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", 
-		    		"Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
+		    //scatter(newData, "Notificacoes", "Mortalidade", "Localidade", 
+		    	//	"Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
 		})  
 
 		// Corpo para montagem dos gráficos de linha
 
 		//let regua = d3.map();
 		ldata = []
+		
 		let promise = [
 			//d3.csv("data/social/regua_precipitacao.csv", function(d){ regua.set(+d.ano, +d.taxa);})
 			d3.csv("data/social/regua_precipitacao.csv").then(function(d){
@@ -432,8 +433,13 @@
 			})
 		]
 		Promise.all(promise).then(function(){
+			var colors =["#A52A2A","#000000","#00008B","#2F4F4F","#4682B4",
+				"#FFFF00","#008080","#6A5ACD","#8B4513","#A52A2A",
+				"#000000","#00008B","#2F4F4F","#4682B4","#FFFF00",
+				"#008080","#6A5ACD","#8B4513","#6A5ACD","#8B4513"]
 			console.log(ldata);
-			chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4");
+			//schartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4");
+			barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
 		});    
 	</script>
 

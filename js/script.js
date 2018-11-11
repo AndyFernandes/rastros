@@ -437,27 +437,35 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 
 function barChart(dataset, x, y, labels, title, panel, options){
     let parseDate = d3.timeParse("%Y");
-    var div = $(panel);
-	
-    data.forEach(function(d) {
-        d[x] = parseDate(d[x]);
+    let label = []
+    let values = []
+    dataset.forEach(function(d) {
+        d[x] = +d[x];
+	label.push(d[x])
         d[y] = parseFloat(d[y]);
+	values.push(d[y])
     });
-
+    console.log(label)	
+    
+    
     var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
-    	w = $(panel).width() - margin.left - margin.right, 
-    	h = $(panel).height() - margin.top - margin.bottom;
+    	w = 800 - margin.left - margin.right, 
+    	h = 600 - margin.top - margin.bottom;
 
     var bar_size = (w / dataset.length)
     var xScale = d3.scaleBand()
 		.range([0,w])            
-		.domain(labels)
+		.domain(label)
 		.padding(0.2);
+
     
 
-    var yScale = d3.scaleLinear()
-        .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
-        .range([height, 0]); 
+    //var yScale = d3.scaleLinear()
+      //  .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
+        //.range([h, 0]); 
+    let yScale = d3.scaleLinear()
+            .domain([0, d3.max(values)])
+            .range([h,0]);	
 
     let xAxis = d3.axisBottom()
             .scale(xScale);
@@ -468,8 +476,8 @@ function barChart(dataset, x, y, labels, title, panel, options){
 
 	// 1. Add the SVG to the page and employ #2
     var svg = d3.select(panel).append("svg")
-	        .attr("width", width + margin.left + margin.right)
-	        .attr("height", height + margin.top + margin.bottom)
+	        .attr("width", w + margin.left + margin.right)
+	        .attr("height", h + margin.top + margin.bottom)
 	  	.append("g")
 	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
@@ -498,7 +506,7 @@ function barChart(dataset, x, y, labels, title, panel, options){
 				.transition()
 				.duration(100)
 				.attr('opacity', 0.5)
-				.attr('width', xScale.bandwidth() +25)	
+				.attr('width', xScale.bandwidth()-5)	
 				svg.append('line')
 				   .attr('id','line')
 			       	   .attr('x1', 0)
@@ -511,7 +519,7 @@ function barChart(dataset, x, y, labels, title, panel, options){
 				.transition()
 				.duration(100)
 				.attr('opacity', 1)
-				.attr('width', xScale.bandwidth() + 20 )
+				.attr('width', xScale.bandwidth() -10)
 			svg.selectAll('#line').remove()
 		    })
 
@@ -522,7 +530,7 @@ function barChart(dataset, x, y, labels, title, panel, options){
                     .call(yAxis);
 	// Título do Gráfico e nome dos eixos
     svg.append("text")
-       .attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
+       .attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
        .style("text-anchor", "middle")
        .attr("font-family", "Segoe UI")
        .attr("font-weight", "bold")

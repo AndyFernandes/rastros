@@ -86,7 +86,7 @@
 				<!-- <img src="res/dog1.jpg"> -->
 			</div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_4'>
-				<img src="res/dog4.jpg">
+				<!--<img src="res/dog4.jpg"> -->
 			</div>
 		</div>
 
@@ -260,7 +260,7 @@
 			<h5>MEMBROS</h5>
 			<div id="membros" class=" row">
 				<div class="membro col-sm">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDoIR-s1G_4p7E-Zmf0zIRDn7wwY3GUWWlXwJ26QXnlHvLx8O" class="foto_membro">
+					<img src="img/andreza.jpg" class="foto_membro">
 					<p class="name_membro "><b>Andreza Fernandes</b></p>
 					<p class="descricao_membro">Lorem Lorem Lorem</p>
 				</div>
@@ -272,7 +272,7 @@
 				</div>
 					
 				<div class="membro col-sm">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDoIR-s1G_4p7E-Zmf0zIRDn7wwY3GUWWlXwJ26QXnlHvLx8O"  class="foto_membro">
+					<img src="img/davi.jpg"  class="foto_membro">
 					<p class="name_membro"><b>Davi</b></p>
 					<p class="descricao_membro">Lorem Lorem Lorem</p>
 				</div>	
@@ -322,7 +322,24 @@
 
 		Promise.all(promises).then(function() {
 		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3")	
-		})      
+		})  
+
+		// Corpo para montagem dos gráficos de linha
+
+		//let regua = d3.map();
+		ldata = []
+		let promise = [
+			//d3.csv("data/social/regua_precipitacao.csv", function(d){ regua.set(+d.ano, +d.taxa);})
+			d3.csv("data/social/regua_precipitacao.csv").then(function(d){
+				for(var k = d.length - 1; k >=0; k--){
+					ldata.push({"ano": d[k].ano, "precipitacao": d[k].precipitacao})
+				}
+			})
+		]
+		Promise.all(promise).then(function(){
+			console.log(ldata);
+			chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4");
+		});    
 	</script>
 </body>
 

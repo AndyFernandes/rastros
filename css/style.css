@@ -85,7 +85,7 @@ a:hover {
 }
 
 .mosaic_img {
-	background-image: url("../img/seca/1.jpg");
+	background-image: url("img/seca/1.jpg");
 	background-color: black;
 	background-size: cover;
 	width: 100%;

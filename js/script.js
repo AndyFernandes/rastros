@@ -559,7 +559,7 @@ function sampleImage() {
 		let idx = Math.floor(Math.random() * 6);
 
 		$("#mosaic_"+(i+1)+"x"+(j+1)).fadeOut('slow', function () {
-			$(this).css("background-image", "url(../img/seca/"+idx+".jpg)")
+			$(this).css("background-image", "url(img/seca/"+idx+".jpg)")
 			$(this).fadeIn('slow');
 		});
 	}

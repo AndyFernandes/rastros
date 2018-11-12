@@ -126,7 +126,10 @@ a:hover {
 	font-size: 2rem;
 	text-align: center;
 }
-
+.section_header {
+	height: window.innerHeight;
+	width:100%;
+}
 #about_us {
 	margin-top:80px;
 	height: 100%;
@@ -299,20 +302,10 @@ a:hover {
 /* #######################################
        DEFINIÇÃO PARA AS VISUALIZAÇÕES
    ####################################### */
-.line {
-    fill: steelblue;
-    stroke-width: 3;
-}
   
 .overlay {
   fill: none;
   pointer-events: all;
-}
-
-/* Style the dots by assigning a fill and stroke */
-.dot {
-    fill: steelblue;
-    stroke: #fff;
 }
   
 .focus circle {
@@ -337,12 +330,6 @@ a:hover {
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
-}
-
-.line {
-  	fill: none;
-  	stroke: steelblue;
-  	stroke-width: 2px;
 }
 
 .tick {

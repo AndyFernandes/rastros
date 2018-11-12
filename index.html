@@ -382,6 +382,8 @@
 		init("#scroll_3");
 		init("#scroll_4");
 
+		
+
 		// Inicializa e cria uma função assícrona para lidar com os gráficos no título
 		for (var i = 0; i < 5; i++) {
 			for (var j = 0; j < 5; j++) {
@@ -410,35 +412,39 @@
 		]
 
 		Promise.all(promises).then(function() {
+		    // opcoes
 			let options = { "color": "#428BCABB", "marker-size": 5, 
-							"width": 800,
-							"height": 600,
-							"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
-		    
-		    //scatter(newData, "Notificacoes", "Mortalidade", "Localidade", 
-		    	//	"Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
+								"width": 800,
+								"height": 600,
+								"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
+
+		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
 		})  
 
 		// Corpo para montagem dos gráficos de linha
-
-		//let regua = d3.map();
 		ldata = []
 		
 		let promise = [
-			//d3.csv("data/social/regua_precipitacao.csv", function(d){ regua.set(+d.ano, +d.taxa);})
 			d3.csv("data/social/regua_precipitacao.csv").then(function(d){
 				for(var k = d.length - 1; k >=0; k--){
 					ldata.push({"ano": d[k].ano, "precipitacao": d[k].precipitacao})
 				}
 			})
 		]
+
 		Promise.all(promise).then(function(){
 			var colors =["#A52A2A","#000000","#00008B","#2F4F4F","#4682B4",
 				"#FFFF00","#008080","#6A5ACD","#8B4513","#A52A2A",
 				"#000000","#00008B","#2F4F4F","#4682B4","#FFFF00",
 				"#008080","#6A5ACD","#8B4513","#6A5ACD","#8B4513"]
-			console.log(ldata);
-			//schartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4");
+
+			let options = { "color": "#428BCABB", "marker-size": 5, 
+								"width": 800,
+								"height": 600,
+								"xlabel":"Anos", "ylabel":"Precipitação" };
+			
+			chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4", options);
+			
 			barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
 		});    
 	</script>

@@ -23,12 +23,9 @@ function init(selector) {
 	})
 
 	// TRATAMENTO DE EVENTOS DO SCROLLAMA
-
 	// Função ativada quando o scroll entra em um step
 	function handleStepEnter(response) {
 		// response = { element, direction, index }
-		// console.log(response.element)
-		// console.log("Entering: " + response.direction + " " + response.index)
 
 		// Ativa o step que o usuário entrou
 		step.classed('is-active', function (d, i) {
@@ -78,8 +75,7 @@ function init(selector) {
 	// Função ativada quando o scroll sai de um step
 	function handleStepExit(response) {
 		// response = { element, direction, index }
-		// console.log("Leaving: " + response.direction + " " + response.index)
-
+	
 		// Armazena os gráficos específicos do step anterior
 		var prevGraph = (response.direction == 'down') ? 
 						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
@@ -187,9 +183,9 @@ function init(selector) {
 // @attY		Nome do atributo a ser projeto no eixo Y 
 // @title 		Título do gráfico a ser exibido
 // @idDiv 		Identificador da <div> na qual o gráfico deve ser renderizado
-function chartLine(data, attX, attY, title, idDiv){
+// @options		Contém as informações utilizadas para o layout do gráfico
+function chartLine(data, attX, attY, title, idDiv, options){
     let parseDate = d3.timeParse("%Y");
-    console.log(parseDate("2016"));
     var div = $(idDiv);
 
     data.forEach(function(d) {
@@ -199,8 +195,8 @@ function chartLine(data, attX, attY, title, idDiv){
     });
 
     var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
-    	width = $(idDiv).width() - margin.left - margin.right, 
-    	height = $(idDiv).height() - margin.top - margin.bottom;
+    	width = options['width'] - margin.left - margin.right, 
+    	height = options['height'] - margin.top - margin.bottom;
 
     /*var xScale = d3.scaleLinear()
     				.domain([d3.min(data, function(d){ return d[attX];}), d3.max(data, function(d){ return d[attX];})]) 
@@ -235,29 +231,47 @@ function chartLine(data, attX, attY, title, idDiv){
 	        .ticks(5)
 	}
 
+	// Line function
 	var line = d3.line()
-			    .x(function(d) { return xScale(d[attX]); }) // set the x values for the line generator
-			    .y(function(d) { return yScale(d[attY]); }); // set the y values for the line generator 
+			    .x(function(d) { return xScale(d[attX]); }) 
+			    .y(function(d) { return yScale(d[attY]); }); 
 
 
-	// 1. Add the SVG to the page and employ #2
+	// Add the SVG to the page and employ #2
 	var svg = d3.select(idDiv).append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  	.append("g")
 	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	// 2. Call the x axis in a group tag
+	// Call the x axis in a group tag
 	svg.append("g")
 	    .attr("class", "x axis")
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(xAxis);
 
-	// 3. Call the y axis in a group tag
+	svg.append("text")
+			.attr("transform", "translate(" + (width/2) + "," + (height+50) + ")")
+			.style("text-anchor", "middle")
+			.attr("font-family", "Segoe UI")
+			.attr("font-size", "14px")
+			.text(options["xlabel"]);
+
+	// Call the y axis in a group tag
 	svg.append("g")
 	    .attr("class", "y axis")
 	    .call(yAxis);
 
+	svg.append("text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 0 - 50)
+			.attr("x", 0 - (height / 2))
+			.attr("dy", "1em")
+			.style("text-anchor", "middle")
+			.attr("font-family", "Segoe UI")
+			.attr("font-size", "14px")
+			.text(options["ylabel"]);
+	
 	// add the X gridlines
 	svg.append("g")			
 	      .attr("class", "grid")
@@ -274,19 +288,23 @@ function chartLine(data, attX, attY, title, idDiv){
 	          .tickFormat(""))
  
 	svg.append("path") 
-	    .attr("class", "line") // Assign a class for styling 
-	    .attr("d", line(data));  
+	    .attr("class", "line") 
+	    .attr("d", line(data))
+	    .style("stroke", options['color'])
+	    .style("fill", "none")
+	    .style("stroke-width","2px");  
 	
-	// 12. Appends a circle for each datapoint 
+	// Appends a circle for each datapoint 
 	svg.selectAll(".dot")
 	    .data(data)
 	  .enter().append("circle") // Uses the enter().append() method
 	    .attr("class", "dot") // Assign a class for styling
 	    .attr("cx", function(d) { return xScale(d[attX]) })
 	    .attr("cy", function(d) { return yScale(d[attY]) })
-	    .attr("r", 5);
+	    .attr("r", 5)
+	    .style("fill", options['color']);
 
-	// Título do Gráfico
+	// Title
 	svg.append("text")
 		.attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
 		.style("text-anchor", "middle")

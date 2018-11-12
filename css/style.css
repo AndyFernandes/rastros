@@ -71,34 +71,19 @@ a:hover {
 
 .intro_mosaic {
 	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 1px;
-	background-color: rgba(255, 255, 255, 0.5);
-	height: 99%;
-	z-index: 1;
-}
-
-.column {
-	flex: 20%;
-	padding: 0 1px;
-}
-
-.mosaic_img {
-	background-image: url("img/seca/1.jpg");
+	background-image: url("../img/seca/4.jpg");
 	background-color: black;
 	background-size: cover;
-	width: 100%;
-	height: 20%;
-	margin-top: 2px;
+	height: 100%;
 }
 
+
 .intro_title_bg {
-	position: absolute; z-index: 1;
+	position: absolute;
 	margin: 0 auto;
     top: 0; left: 0; 
     width: 100%; height: 100%;
-    background: white; 
+    background: black; 
     opacity: 0.75;
 }
 
@@ -114,6 +99,7 @@ a:hover {
 }
 
 .intro__hed {
+	color: white;
 	font-size: 120px;
 	margin: 1.5rem auto;
 	text-transform: uppercase;
@@ -123,6 +109,7 @@ a:hover {
 }
 
 .intro__dek {
+	color: white;
 	font-size: 2rem;
 	text-align: center;
 }

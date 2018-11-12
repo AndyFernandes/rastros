@@ -126,10 +126,7 @@ a:hover {
 	font-size: 2rem;
 	text-align: center;
 }
-.section_header {
-	height: window.innerHeight;
-	width:100%;
-}
+
 #about_us {
 	margin-top:80px;
 	height: 100%;

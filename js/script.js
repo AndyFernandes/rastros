@@ -144,8 +144,9 @@ function init(selector) {
 
 		// Atualiza as dimensões de outros componentes do site
 		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
-		$("#about_us").css("height", Math.floor(window.innerHeight/3));
-		$("#teste").css("height", Math.floor(window.innerHeight/3));
+		$(".section_header").css("height", Math.floor(window.innerHeight));
+		$("#about_us").css("height", Math.floor(window.innerHeight/2)-80);
+		$("#teste").css("height", Math.floor(window.innerHeight/2)-80);
 		 // $("#intro").css("height", Math.floor(window.innerHeight)/4);
 	
 		// Aciona função do Scrollama para redimensionar os seus elementos

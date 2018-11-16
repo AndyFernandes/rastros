@@ -114,6 +114,38 @@ a:hover {
 	text-align: center;
 }
 
+.arrow {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	text-align: center;
+	margin: 8% 0;
+}
+
+.arrow p {
+	color: white;
+	text-decoration: none;
+	border-bottom: 0;
+}
+
+.bounce {
+	-moz-animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}
+
 .section_header {
 	background: white;
 	z-index: 2;
@@ -194,6 +226,8 @@ a:hover {
 	padding-left: 8%;
 	margin-left: 35%
 }
+
+
 
 /* ####################################
        DEFINIÇÕES PARA O  SCROLLAMA

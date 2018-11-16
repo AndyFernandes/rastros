@@ -194,10 +194,10 @@ a:hover {
 	padding-left: 8%;
 	margin-left: 35%
 }
+
 /* ####################################
        DEFINIÇÕES PARA O  SCROLLAMA
    #################################### */
-
 
 .scroll {
 	position: relative;
@@ -255,8 +255,8 @@ a:hover {
 	-moz-transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	font-size: 8rem;
-	font-weight: 900;
+	font-size: 2rem;
+	font-weight: 200;
 	color: #666;
 }
 
@@ -286,9 +286,20 @@ a:hover {
 }
 
 .step p {
-	text-align: center;
+	text-align: justify;
 	padding: 1rem;
 	font-size: 1.5rem;
+}
+
+.step p.quote {
+	text-align: center;
+	font-style: italic;
+	font-size: 1.25rem;
+}
+
+.step li {
+	text-align: left;
+	font-size: 1.25rem;
 }
 
 /* #######################################

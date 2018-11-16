@@ -88,42 +88,47 @@
 	<section class="scroll" id='scroll_1'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_1'>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_0'>
-				<img src="res/dog1.jpg">
+				<p>Imagem do mapa do Ceará ou alguma imagem histórica da Seca?</p>
 			</div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_1'>
-				<img src="res/dog2.jpg">
+				<p>Gráfico em Barra mostrando as diferenças entre as quadras para últimos 30 anos (inserir linha da média) + Mapa choropleth com valores médios de chuva por ano (nesse ou slide extra)(map interativo?)</p>
 			</div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'>
-				<img src="res/dog3.jpg">
+				<p>GRÁFICO DE LINHAS C/ A PRECIPITAÇÃO (X = ANO | Y = PRECICIPITAÇÃO ACUMULADA DE FEVERERIO A MAIO) + BOTAR LINHAS PRETAS DELIMITANDO OS LIMITES ACIMA + BACKGROUNDs RUIM(VERMELHO PASTEL), NORMAL(AMARELO PASTEL), BOM(VERDE PASTEL)</p>
 			</div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_3'>
-				<!-- <img src="res/dog1.jpg"> -->
+				<p>MOSTRAR AQUI UM GRÁFICO BARRA EMPILHADO MOSTRANDO A MÉDIA DE PRODUÇÃO DE CADA CULTURA DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DA PRODUÇÃO NESSES MESES) NOS ÚLTIMOS ANOS. (GRAFICO AGRUPADO DE DIFERENÇAS) (SÓ OS 10 PRODUTOS MAIS PRODUZIDOS)</p>
 			</div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_4'>
-				<!--<img src="res/dog4.jpg"> -->
+				<p>MOSTRAR AQUI UM GRÁFICO BARRA RANKEADO MOSTRANDO O VOLUME ACUMULADO DOS RESERVATÓRIOS DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DO VOLUME NESSES PERÍODOS)(MOSTRAR SÓ OS RESERVATÓRIOS COM MAIOR VOLUME DURANTE A QUADRA CHUVOSA) + POSSÍVEL GRÁFICO ASSOCIADO A VEGETAÇÃO (?)</p>
 			</div>
 		</div>
 
 		<div class='scroll__text' id='scroll__text_1'>
 			<div class='step' id='step_0'>
-				<p>STEP 1</p>
-				<p>Era uma vez, um pedaçinho no meio do nada</p>
+				<p>Há pesquisadores que demarcam 1603 como o ano da primeira seca registrada no Ceará, depois da <i>“chegada do branco”</i>. A memória histórica conta que a seca, além dos índios, fez o português Pero Coelho de Souza desistir da colonização local.</p>
 			</div>
 			<div class='step' id='step_1'>
-				<p>STEP 2</p>
-				<p>Com sabor de chocolate</p>
+				<p>As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de ??? milímetros. Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o <b>período de estação (ou quadra) chuvosa do Estado</b>.</p>
 			</div>
 			<div class='step' id='step_2'>
-				<p>STEP 3</p>
-				<p>Com cheiro de terra molhada</p>
+				<p>As observações ao longo do tempo resultaram em um critério matemático usado pela Funceme(link) para classificar a estação chuvosa no Ceará. Os anos secos ocorrem quando as precipitações pluviométricas, entre fevereiro e maio: </p>
+
+				<ul>
+					<li>não ultrapassam 493.2 milímetros;</li>
+					<li>de 493.3 a 631.2 milímetros, temos anos normais;</li>
+					<li>e acima dos 631.3 milímetros são estações acima da média (anos chuvosos);</li>
+				</ul>
 			</div>
 			<div class='step' id='step_3'>
-				<p>STEP 3</p>
-				<p>Com cheiro de terra molhada</p>
+				<p>A Funceme observa ainda que 75% das chuvas do ano se concentram na quadra chuvosa: </p>
+
+				<p class="quote">“Ou seja, a quantidade de chuva entre fevereiro e maio é bastante importante para o resultado da safra e para o gerenciamento de recursos hídricos”.</p>
+
+				<p>Podemos perceber o impacto dessas chuvas na produção agropecuária.</p>
 			</div>
 			<div class='step' id='step_4'>
-				<p>STEP 4</p>
-				<p>Pra gente ser feliz, tem que <b>confiar</b> das nossas fantasias</p>
+				<p>O impacto da quadra chuvosa também é significativa na manutenção das reservas hídricas do estado, sendo perceptível a escassez durante os períodos de estiagem. A falta de água se torna, então, um fator significante na vida da população que ainda dependem da agricultura de subsistência e, também, na própria manutenção da vida nesse bioma.</p>
 			</div>
 		</div>
 	</section>
@@ -385,7 +390,7 @@
 								"height": 600,
 								"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
 
-		    scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
+		    // scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
 		})  
 
 		// Corpo para montagem dos gráficos de linha
@@ -410,9 +415,9 @@
 								"height": 600,
 								"xlabel":"Anos", "ylabel":"Precipitação" };
 			
-			chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4", options);
+			// chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4", options);
 			
-			barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
+			// barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
 		});    
 	</script>
 

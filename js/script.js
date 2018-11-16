@@ -22,10 +22,16 @@ function init(selector) {
 		$(d).hide()
 	})
 
+	step.selectAll("ul")._groups
+		.forEach(function(d, i) {
+		$(d).hide()
+	})
+
 	// TRATAMENTO DE EVENTOS DO SCROLLAMA
 	// Função ativada quando o scroll entra em um step
 	function handleStepEnter(response) {
 		// response = { element, direction, index }
+		console.log("Entering: " + response.index)
 
 		// Ativa o step que o usuário entrou
 		step.classed('is-active', function (d, i) {
@@ -37,10 +43,10 @@ function init(selector) {
 		var textbox = $(".scroll__text");
 
 		// Armazena os textos específicos do step atual e anterior
-		var actText = $("#step_"+(response.index)+ " > p");
+		var actText = $("#step_"+(response.index)).children();
 		var prevText = (response.direction == 'down') ? 
-						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
-						: $("#step_"+(response.index+1)+ " > p");
+						$("#step_"+(Math.max(0,response.index-1))).children()
+						: $("#step_"+(response.index+1)).children();
 
 		// Armazena os gráficos específicos do step atual e anterior
 		var actGraph = $("#scroll__graphic__img_"+(response.index));
@@ -64,9 +70,6 @@ function init(selector) {
 		})
 
 		// Realiza o fade-out da caixa de texto anterior e fade-in da caixa de texto atual
-		for (var i = prevText.length - 1; i >= 0; i--) {
-			$(prevText[i]).stop().fadeOut(500)
-		}
 		for (var i = actText.length - 1; i >= 0; i--) {
 			$(actText[i]).fadeIn(1500)
 		}
@@ -75,6 +78,7 @@ function init(selector) {
 	// Função ativada quando o scroll sai de um step
 	function handleStepExit(response) {
 		// response = { element, direction, index }
+		console.log("Exiting: " + response.index)
 	
 		// Armazena os gráficos específicos do step anterior
 		var prevGraph = (response.direction == 'down') ? 
@@ -83,8 +87,8 @@ function init(selector) {
 
 		// Armazena os textos específicos do step atual e anterior
 		var prevText = (response.direction == 'down') ? 
-						$("#step_"+(Math.max(0,response.index-1))+ " > p") 
-						: $("#step_"+(response.index+1)+ " > p");
+						$("#step_"+(Math.max(0,response.index-1))).children() 
+						: $("#step_"+(response.index+1)).children();
 
 		// Realiza o fade-out do gráfico anterior
 		prevGraph.stop().fadeOut(100);
@@ -464,8 +468,6 @@ function barChart(dataset, x, y, labels, title, panel, options){
         d[y] = parseFloat(d[y]);
 	values.push(d[y])
     });
-    console.log(label)	
-    
     
     var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
     	w = 800 - margin.left - margin.right, 

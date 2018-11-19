@@ -449,7 +449,7 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.text(title);
 }
 
-// Função BAR CHART: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
+// Função BAR CHART: gera um gráfico de barras para determinado conjunto de dados.
 // @dataset 	Conjunto de dados de entrada 
 // @x 			Nome do atributo a ser projeto no eixo X 
 // @y 			Nome do atributo a ser projeto no eixo Y 
@@ -462,11 +462,13 @@ function barChart(dataset, x, y, labels, title, panel, options){
     let parseDate = d3.timeParse("%Y");
     let label = []
     let values = []
+
     dataset.forEach(function(d) {
         d[x] = +d[x];
-	label.push(d[x])
+		label.push(d[x])
+
         d[y] = parseFloat(d[y]);
-	values.push(d[y])
+		values.push(d[y])
     });
     
     var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
@@ -474,36 +476,32 @@ function barChart(dataset, x, y, labels, title, panel, options){
     	h = 600 - margin.top - margin.bottom;
 
     var bar_size = (w / dataset.length)
-    var xScale = d3.scaleBand()
-		.range([0,w])            
-		.domain(label)
-		.padding(0.2);
 
-    
+    var xScale = d3.scaleBand()
+					.range([0,w])            
+					.domain(label)
+					.padding(0.2);
 
     //var yScale = d3.scaleLinear()
       //  .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
         //.range([h, 0]); 
     let yScale = d3.scaleLinear()
-            .domain([0, d3.max(values)])
-            .range([h,0]);	
+		            .domain([0, d3.max(values)])
+		            .range([h,0]);	
 
     let xAxis = d3.axisBottom()
-            .scale(xScale);
-    let yAxis = d3.axisLeft()
-            .scale(yScale).ticks(5);
+		            .scale(xScale);
     
-
-
+    let yAxis = d3.axisLeft()
+        		    .scale(yScale).ticks(5);
+    
 	// 1. Add the SVG to the page and employ #2
     var svg = d3.select(panel).append("svg")
-	        .attr("width", w + margin.left + margin.right)
-	        .attr("height", h + margin.top + margin.bottom)
-	  	.append("g")
-	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+						        .attr("width", w + margin.left + margin.right)
+						        .attr("height", h + margin.top + margin.bottom)
+						  	.append("g")
+						    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
-
-
 	// add the Y gridlines
     svg.append('g')
        .attr('class', 'grid')
@@ -511,44 +509,50 @@ function barChart(dataset, x, y, labels, title, panel, options){
        .scale(yScale)
        .tickSize(-w, 0, 0)
        .tickFormat(''))
-    barChart = svg.selectAll()
-		  .data(dataset)
-	          .enter()
-	          .append("rect")
-	          .attr("y",(d) => yScale(d[y]))
-	          .attr("height", (d) => h - yScale(d[y]))
-    	          .attr("width", bar_size -10)
-	          .attr("transform", function (d, i) {
-         			var translate = [ bar_size* i, 0];
-         			return "translate("+ translate +")";
-			})
-		  .attr("fill",function (d,i){return options[i]})
-	          .on('mouseenter', function (a, i) {d3.select(this)
-				.transition()
-				.duration(100)
-				.attr('opacity', 0.5)
-				.attr('width', xScale.bandwidth()-5)	
-				svg.append('line')
-				   .attr('id','line')
-			       	   .attr('x1', 0)
-				   .attr('y1', yScale(a[y]))
-				   .attr('x2', w)
-				   .attr('y2', yScale(a[y]))
-				   .attr('stroke', 'red')})
-		   .on('mouseleave', function (a, i) {
-			d3.select(this)
-				.transition()
-				.duration(100)
-				.attr('opacity', 1)
-				.attr('width', xScale.bandwidth() -10)
-			svg.selectAll('#line').remove()
-		    })
 
+    barChart = svg.selectAll()
+					.data(dataset)
+					  .enter()
+					  .append("rect")
+					  .attr("y",(d) => yScale(d[y]))
+					  .attr("height", (d) => h - yScale(d[y]))
+					      .attr("width", bar_size -10)
+					  .attr("transform", function (d, i) {
+								var translate = [ bar_size * i, 0];
+								return "translate("+ translate +")";
+					  })
+					.attr("fill",function (d,i){ return options[i]} )
+					  .on('mouseenter', function (a, i) {
+						d3.select(this)
+							.transition()
+							.duration(100)
+							.attr('opacity', 0.5)
+							.attr('width', xScale.bandwidth()-5)	
+
+						svg.append('line')
+							.attr('id','line')
+							.attr('x1', 0)
+							.attr('y1', yScale(a[y]))
+							.attr('x2', w)
+							.attr('y2', yScale(a[y]))
+							.attr('stroke', 'red')
+					  })
+					  .on('mouseleave', function (a, i) {
+							d3.select(this)
+								.transition()
+								.duration(100)
+								.attr('opacity', 1)
+								.attr('width', xScale.bandwidth() -10)
+
+							svg.selectAll('#line').remove()
+					  })
 
     svg.append("g").attr("transform", "translate(0," + h + ")")
                     .call(xAxis);
+
     svg.append("g").attr("transform", "translate(0," + 0 + ")")
                     .call(yAxis);
+
 	// Título do Gráfico e nome dos eixos
     svg.append("text")
        .attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
@@ -580,17 +584,3 @@ function barChart(dataset, x, y, labels, title, panel, options){
 // ######################
 //     FUNÇÕES GERAIS
 // ######################
-function sampleImage() {
-	let i = Math.floor(Math.random() * 6);
-	let j = Math.floor(Math.random() * 6);
-
-	let odd = Math.random();
-	if(odd > 0.5) {
-		let idx = Math.floor(Math.random() * 6);
-
-		$("#mosaic_"+(i+1)+"x"+(j+1)).fadeOut('slow', function () {
-			$(this).css("background-image", "url(img/seca/"+idx+".jpg)")
-			$(this).fadeIn('slow');
-		});
-	}
-}

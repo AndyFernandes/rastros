@@ -213,7 +213,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
     				.range([0, width]);
 
 	var yScale = d3.scaleLinear()
-	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
+	    .domain([d3.min(data, function(d){return d[attY];})-50, d3.max(data, function(d){ return d[attY];})+50])  
 	    .range([height, 0]); 
 
 	var xAxis = d3.axisBottom()

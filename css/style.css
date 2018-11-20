@@ -387,28 +387,28 @@ line{
       TIME LINE
    ####################################### */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-       *, *::after, *::before {
-          box-sizing: border-box;
-        }
+*, *::after, *::before {
+    box-sizing: border-box;
+}
 
-        a {
-          color: #7b9d6f;
-          text-decoration: none;
-        }
+a {
+    color: #7b9d6f;
+    text-decoration: none;
+}
 
-        .cd-horizontal-timeline {
-          opacity: 0;
-          margin: 2em auto;
-          -webkit-transition: opacity 0.2s;
-          -moz-transition: opacity 0.2s;
-          transition: opacity 0.2s;
-        }
+.cd-horizontal-timeline {
+    opacity: 0;
+    margin: 2em auto;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+    }
         
-        .cd-horizontal-timeline::before {
-          /* never visible - this is used in jQuery to check the current MQ */
-          content: 'mobile';
-          display: none;
-        }
+.cd-horizontal-timeline::before {
+    /* never visible - this is used in jQuery to check the current MQ */
+    content: 'mobile';
+    display: none;
+}
 
         .cd-horizontal-timeline.loaded {
           /* show the timeline after events position has been set (using JavaScript) */
@@ -418,9 +418,12 @@ line{
         .cd-horizontal-timeline .timeline {
           position: relative;
           height: 100px;
-          width: 90%;
-          max-width: 800px;
+          width: 100%;
           margin: 0 auto;
+        }
+
+        #timeline_master{
+        	margin-top: -20%;
         }
 
         .cd-horizontal-timeline .events-wrapper {
@@ -447,7 +450,7 @@ line{
         .cd-horizontal-timeline .events-wrapper::after {
           right: 0;
         }
-        
+
         .cd-horizontal-timeline .events {
           /* this is the grey line/timeline */
           position: absolute;
@@ -686,7 +689,6 @@ line{
         }
         .cd-horizontal-timeline .events-content em {
           display: block;
-          font-style: italic;
           margin: 10px auto;
         }
         .cd-horizontal-timeline .events-content em::before {
@@ -802,10 +804,10 @@ line{
         }
 
         #section_header4 em{
-        	font-size: 20px;
+        	font-size: 15px;
         }
 
         #section_header4 p{
-        	font-size: 25px;
+        	font-size: 12px;
         	text-align: justify;
         }

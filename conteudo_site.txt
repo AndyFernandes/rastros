@@ -1,5 +1,3 @@
-
-
 1A PARTE: O QUE É A SECA ?
 Há pesquisadores que demarcam 1603 como o ano da primeira seca registrada no Ceará, depois da “chegada do branco”. 
 A memória histórica conta que a seca, além dos índios, fez o português Pero Coelho de Souza desistir da colonização local.
@@ -8,9 +6,8 @@ A memória histórica conta que a seca, além dos índios, fez o português Pero
 
 As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de 607,5 milímetros
 Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o período de estação (ou quadra) chuvosa do Estado. 
-<<<<<< gráfico barra para mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
+<<<<<< gráfico barra par3w4354\a mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
 -> Aqui mostra um textinho para cada barra de quadra de chuva
-
 
 
 Seca ou inverno - As observações ao longo do tempo resultaram em um critério matemático usado pela Funceme para classificar a estação chuvosa no Ceará. 
@@ -23,16 +20,12 @@ Os anos secos ocorrem quando as precipitações pluviométricas, entre fevereiro
                 -> BOTAR LINHAS PRETAS DELIMITANDO OS LIMITES ACIMA | BACKGROUND RUIM(VERMELHO PASTEL), NORMAL(AMARELO PASTEL), BOM(VERDE PASTEL) | VERIFICAR CORES PRO SITE DALTONICO
 Fonte: As informações são da Fundação Cearense de Meteorologia e Recursos Hídricos (Funceme)
 
-
-
-
 Quadra invernosa - A Funceme observa ainda que 75% das chuvas do ano se concentram na quadra chuvosa: 
  “Ou seja, a quantidade de chuva entre fevereiro e maio é bastante importante para o resultado da safra e para o gerenciamento de recursos hídricos”. 
  A previsão climática realizada no fim de janeiro, explica o órgão, é tida como “a mais importante do ano, pois vai nos dar uma ideia de como será o período chuvoso”.
 <<<<<< MOSTRAR AQUI UM GRÁFICO BARRA RANKEADO mostrando a 100*(volume/capacidade) (MÉDIA DE TODOS ANOS)>>>>>>>>
 
 OBS: ISSO SERIA NAS CORRELAÇÕES NÃO?
-
 
 <DIV>
 A estiagem se relaciona “à redução das precipitações pluviométricas, ao atraso dos períodos chuvosos ou à ausência de chuvas previstas para uma determinada temporada, em que a perda do solo é superior à sua reposição”. A estiagem, completa o estudo, existe “quando há um atraso superior a quinze dias do início da temporada chuvosa”
@@ -77,54 +70,63 @@ Abaixo, a cronologia mais precisa da Funceme (com os milímetros de precipitaç�
 
 --------------------------------------------
 
-2A PARTE: (EXPLORATÓRIA DOS INDICES SOCIAIS DO ESTADO) (AQUI A GENTE SO VAI VER O QUE É CRÍTICO)A partir daqui a gente vai fazer exploratórias sobre os dados sociais:  -> taxa mortalidade
-    IdEIA DE TEXTO:	
-    	1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
-    				O Ceará está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km²,[8] ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.[9]
+2A PARTE: (EXPLORATÓRIA DOS INDICES SOCIAIS DO ESTADO) (AQUI A GENTE SO VAI VER O QUE É CRÍTICO)A partir daqui a gente vai fazer exploratórias sobre os dados sociais:
+    IdEIA DE TEXTO: 
+      1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
+            O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
+            <<<< Ve se da pra botar um mapinha colorido que transita do nordeste para o Brasil >>>.
 
-					A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza (RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses.[10] Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.[9]
+          A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza(RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses. Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.
+          <<< Mostrar mapa com as subregiões do Ceará com o número de população de cada cidade(?)>>>>>>>
 
-					É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país.[11] O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN,[12] além do segundo melhor Índice de Desenvolvimento Humano da região.[7] O Ceará abriga um dos maiores parques aquáticos da América Latina,[13] o Beach Park, na praia do Porto das Dunas, que recebe cerca de 1,3 milhão de visitantes por ano.[13] O estado também abriga o quarto maior estádio de futebol do Brasil, o Estádio Governador Plácido Castelo (Castelão), que tem capacidade para mais de 64 000 pessoas.
+          ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
 
-					O estado é conhecido nacionalmente pela beleza de seu litoral, pela religiosidade popular e pela fama de ser grande berço de talentos do humor. A jangada, ainda comum ao longo da costa, é considerada um dos maiores símbolos do povo e da cultura cearenses.[14] O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão. Terra de escritores como José de Alencar, Rachel de Queiroz, Patativa do Assaré, Juvenal Galeno, de Dom Hélder Câmara, Clóvis Beviláqua, Castelo Branco e de Padre Cícero, o "cearense do século".[15] O Ceará também revelou Chico Anysio, Renato Aragão e Tom Cavalcante, considerados os maiores humoristas do país;[16] atores e cineastas famosos como José Wilker, Gero Camilo, Luiza Tomé e Karim Aïnouz; além de nomes de destaque das ciências exatas, como Casimiro Montenegro Filho, Fernando de Mendonça, Maurício Peixoto, Cláudio Lenz Cesar, dentre muitos. O Ceará também é conhecido como "Terra da Luz", numa referência à grande quantidade de dias ensolarados, mas que, principalmente, remonta ao fato de o estado ter sido o primeiro da federação a abolir a escravidão, em 1884, quatro anos antes da Lei Áurea. Por esse fato, o jornalista José do Patrocínio cunhou o título de "a terra da luz" ao Ceará
-					(mostrar fotinhas)
+          - Alívio pobreza
+              - Alívio de caos na sanidade pública
+              - Alívio da desigualdade
+              - Aumento de renda e empregos
+            - Aumento do PIB
+            - Aumento IDH
+            - Alívio taxa de mortalidade
+              - Melhoras na agropecuária
 
-        2. Medir: 		- Alívio pobreza
-            			- Alívio de caos na sanidade pública
-            			- Alívio da desigualdade
-            			- Aumento de renda e empregos
-            			- Aumento de fábricas e etc
-            			- Melhoras na agropecuária
-            			- Novas fontes de renda?
-            			- Alívio na taxa de mortalidade
-            			- Aumento no IDH
-                                -> dengue
-                                -> Alívio pobreza
-                                -> Aumento PIB
-                                ->
-                                -> scatterplot pib x renda p cada municipio
-    > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
-    > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
+              E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
+
+          ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
+          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
+          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
+  
+          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
+
+          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
+          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
+          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
+          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+
+
+              Medir:      
+            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
+            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
 
 -----------------------------------------------
 
-3A PARTE: (EXPLORAR A CORRELAÇÃO DOS PIORES ANOS COM AS CIDADES MAIS POBRES - + ATV AGROPECUÁRIA)
-> Vai explorar o impacto da seca nelas e começar as correlações dos anos de seca com os desastres sociais
+3A PARTE: (EXPLORAR A CORRELAÇÃO DOS PIORES ANOS DE SECA COM AS CIDADES (PRINCIPALMENTE AS MAIS POBRES) 
+= IDH
+= PIB
+= AGRICULTURA
+= OUTROS DADOS QUE NAO SEI
 >>>>> USAR TITULOS SENSACIONALISTAS <<<<<<<<
 OBS: Deixar bem claro 
 OBS: TRAÇAR ESSES PONTOS A PARTIR DE ANÁLISES NO TABLEAU
 
-Em 1947, já cantava a seca Luiz Gonzaga nos versos de Asa Branca: “Que braseiro, que fornalha, nem um pé de plantação. Por falta d’água perdi meu gado, morreu de sede meu alazão”.
-
-Setenta anos se passaram e letra se mostra ainda tão atual quanto no tempo do rei do baião. São os retratos da seca no Nordeste que denunciam a condição de risco em que milhares de brasileiros vivem expostos. Desde os primeiros registros do final do século XV até hoje, a situação parece a mesma: a falta de água continua a queimar o solo de sertão, gerando prejuízos inestimáveis para a população.
+Desde os primeiros registros do final do século XV até hoje, a situação parece a mesma: a falta de água continua a queimar o solo de sertão, gerando prejuízos inestimáveis para a população.
 
 De acordo com dados do Ministério da Integração Nacional (MI), só em 2016, foram reconhecidos 1.489 eventos relacionados à seca e à estiagem no Nordeste. Nos primeiros meses de 2017, até a última atualização do MI, o número já chega a 774 casos, com fortes perspectivas de crescimento. Isso porque a região enfrenta a pior crise de abastecimento desde 2012. Segundo a Agência Nacional de Água (ANA), atualmente, os reservatórios do Nordeste contam com apenas 13,81% de água. No mesmo período do ano passado, em março de 2016, a marca era de 21%.  Ceará, Pernambuco e Paraíba são os estados afetados de forma mais severa, onde o volume já se encontra abaixo de 10%.
 
 <<<<< MOSTRAR RESERVATÓRIOS NESSE ANO >>>>>
 <<<<< MOSTRAR INDICES DE ATIVIDADE ECONOMICA NESSE ANO E IDENTIFICAR CIDADES + AFETADAS >>>>>
 
-A região vive o que Regina Alvalá, coordenadora de Relações Institucionais do Centro Nacional de Monitoramento e Alertas de Desastres Naturais (Cemaden), define como “uma seca prolongada”. Há cinco anos, as chuvas vêm abaixo da média no semiárido nordestino, mesmo durante as estações chuvosas. Para além dos fatores geográficos naturais – que envolvem questões de relevo, latitude e poucos rios permanentes -, ocorre também o fenômeno El Niño, o aquecimento das águas do Oceano Pacífico, que acaba impactando nas dinâmicas do clima. No Nordeste, isso significa longos períodos de estiagem.
-
+A região vive o que Regina Alvalá, coordenadora de Relações Institucionais do Centro Nacional de Monitoramento e Alertas de Desastres Naturais (Cemaden), define como “uma seca prolongada”. Há cinco anos, as chuvas vêm abaixo da média no semiárido nordestino, mesmo durante as estações chuvosas.
 
 Essa realidade atinge principalmente aqueles já convivem com os impactos do baixo desenvolvimento, como no sertão, onde grande parte da população depende da agricultura de subsistência. A falta de água, recurso abundante no Brasil, mas mal distribuído entre suas regiões, expõe os riscos de uma realidade mais ainda complexa: a fome. Sem o recurso para irrigar as plantações, moradores não conseguem garantir a alimentação necessária para o sustento de suas famílias e também de seus animais.
 
@@ -140,18 +142,17 @@ Essa realidade atinge principalmente aqueles já convivem com os impactos do bai
 
 4A PARTE: MOSTRAR IMPACTOS DAS SOLUÇÕES E MEDIDAS DO GOVERNO (VÁRIOS GRÁFICOS DE LINHA)
 (FAZER UMA LINHA DO TEMPO COM:
-CADA OBRA DESSA DEVERÁ TER:	- DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
-							- LOCALIDADE ATINGIDA
-							- IMPACTO (FONTE)
-							- DESCRIÇÃO PRÉVIA DE NO MÁIMO 4 LINHAS)
-   > PROGRAMA FOME ZERO
-   > BOLSA FAMÍLIA
+
+CADA OBRA DESSA DEVERÁ TER: - DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
+                            - LOCALIDADE ATINGIDA
+                            - IMPACTO (FONTE)
+                            - DESCRIÇÃO PRÉVIA DE NO MÁIMO 4 LINHAS)
+   
    > TRANSPOSIÇÃO DO RIO SÃO FRANCISCO
-   > PROGRAMA SISTERNAS
+   > PROGRAMA CISTERNAS
    > BANCO DO NORDESTE
    > CONSTRUÇÃO DE AÇUDES
    > REDE DE DADOS HIDROLOGICOS E METEOROLOGICOS
-   > SEMINARIO PARA DESENVOLVIMENTO ECONOMICO DO NORDESTE
    > ÁGUA PARA TODOS
    > ADUTORAS
    > GRUPO DE CONTIGÊNCIAS
@@ -159,147 +160,161 @@ CADA OBRA DESSA DEVERÁ TER:	- DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
    > CINTURÃO DAS ÁGUAS
    > TARIFA DE CONTIGÊNCIA
    > INOVAÇÃO
+   > DNOCS
 https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigmas/
 
    > INOVAÇÃO
-   		Também das dunas a Oeste de Fortaleza, no Cumbuco, o Estado do Ceará está construído o primeiro Poço Direcional (poço com tramos horizontais) para captação de água do País. A técnica já é difundida mundialmente na exploração de petróleo. Em breve, estará produzindo água no Ceará.
+      > QUANDO:
+      > GOVERNO
+      > O QUE É:
+      > OBJETIVO:
+      > DESCRIÇÃO:
+      > RESULTADOS:
+      > MAIS/FONTE:
+      Também das dunas a Oeste de Fortaleza, no Cumbuco, o Estado do Ceará está construído o primeiro Poço Direcional (poço com tramos horizontais) para captação de água do País. A técnica já é difundida mundialmente na exploração de petróleo. Em breve, estará produzindo água no Ceará.
 
-		A captação de água dos leitos secos de rios e açudes não é propriamente uma inovação. Já é feita pelo sertanejo há séculos, explorando os aluviões nos períodos de maior escassez. Contudo, a construção de uma rede de poços dentro de um leito seco de uma barragem, ou a utilização de ponteiras próprias para rebaixamento de lençol freático na obtenção da última água do manancial, dá a dimensão do caráter inovador dessa gestão.
+      A captação de água dos leitos secos de rios e açudes não é propriamente uma inovação. Já é feita pelo sertanejo há séculos, explorando os aluviões nos períodos de maior escassez. Contudo, a construção de uma rede de poços dentro de um leito seco de uma barragem, ou a utilização de ponteiras próprias para rebaixamento de lençol freático na obtenção da última água do manancial, dá a dimensão do caráter inovador dessa gestão.
+
+   > REDE DE DADOS HIDROLOGICOS E METEOROLOGICOS
+      > QUANDO:  18 de setembro de 1972, pela lei Nº 9.618 (D.O. 26/09/72) - Fundação Cearense de Meteorologia e Chuvas Artificiais
+      > GOVERNO: ?
+      > O QUE É: 
+      > OBJETIVO: Os objetivos da Funceme hoje estão voltados para o desenvolvimento de tecnologias, pesquisas aplicadas e para a criação, manutenção e constante expansão de banco de dados, gerando todo um conjunto de informações meteorológicas, climatológicas, geográficas, ambientais, hidrográficas, e sobre a cobertura vegetal e solos do Estado do Ceará. Para tanto, desenvolve projetos e mantém convênios e acordos de cooperação técnica com diversos órgãos em nível Estadual, Nacional e Internacional
+      > DESCRIÇÃO: Inicialmente com personalidade jurídica de direito privado vinculada à Secretaria de Agricultura e Abastecimento. Na época seus objetivos eram muito limitados, pois ela se destinava preponderantemente à produção de chuvas artificiais e estudos de meteorologia aplicada no Estado do Ceará. Em 15 de dezembro de 1987, através da lei Nº 11.380 (D.O. 17/12/87), a Funceme teve seu nome modificado para Fundação Cearense de Meteorologia e Recursos Hídricos, passando a ser vinculada à Secretaria de Recursos Hídricos do Estado do Ceará.
+      > RESULTADOS: 
+      > MAIS/FONTE: http://www.funceme.br/index.php/instituicao/historico
 
    > TARIFA DE CONTIGÊNCIA
-   		o usuário de água tratada é sujeito a multa se não reduzir seu consumo.
-   		Nesse período, cresceu a disputa (legítima) pelo pouco de água que ainda resta nos reservatórios. Sobretudo no Vale do Jaguaribe, no qual se encontram os principais açudes do Estado: o Castanhão e o Orós. Foram duras, porém democráticas, as negociações durante as reuniões para a Alocação Negociada de Água, que há 23 anos decidem as vazões para os mais diversos usos. A agricultura irrigada tem sido o setor mais afetado, com restrições que já beiram os 80%. “Tivemos reuniões com mais de 500 pessoas no mesmo auditório. Muitas com interesses conflitantes e legítimos”, destaca Texeira. “Isso mostra o amadurecimento e solidez do nosso modelo de gestão compartilhadas das águas”, avalia.
-
-		O Rio Jaguaribe deixou de ser perenizado, obrigando cidades do médio e baixo vale a retomarem seus antigos sistemas de abastecimento a partir de poços.
-
-		Na Capital, a Companhia de Água e Esgoto do Ceará (Cagece) se desdobrou para reduzir as perdas por vazamentos na distribuição da água. Uma campanha foi implementada para legalizar as ligações clandestinas. A água da lavagem dos filtros de uma de suas estações de tratamento passou a ser reaproveitada. A Companhia de Gestão dos Recursos Hídricos (Cogerh) passou a exercer com maior rigor o controle da oferta e da demanda, literalmente forçando a Cagece a fazer mais com menos. Hoje, vive-se na Grande Fortaleza com 20% a menos de água do que se vivia em 2014.
-
-		O esforço conjunto voltou-se também para a obtenção de novas fontes hídricas. Estudos realizados pela Cogerh apontavam para grande manancial de água subterrânea no complexo de dunas a Oeste de Fortaleza – entre Caucaia e Paracuru. Testes comprovaram o potencial. Uma bateria de poços foi construída na área do Pecém, obtendo cerca de 200 litros de água por segundo.
-
-		Outra bateria de poços está para ser feita na região da Taíba/Siupé, também no litoral Oeste. A expectativa é de que outros 200 litros/s sejam aduzidos ao reservatório que distribui água para as indústrias instaladas na região.
-
-		O complexo Cauípe (açude e lagoa) também deve ofertar, em breve, incremento de “água nova” naquela região. Todo esse esforço alivia a pressão sobre os reservatórios que atualmente abastecem a Região Metropolitana, liberando mais água para o abastecimento humano na Capital.
+      > QUANDO: ?
+      > GOVERNO: ?
+      > O QUE É: O usuário de água tratada é sujeito a multa se não reduzir seu consumo.
+      > OBJETIVO: ?
+      > DESCRIÇÃO: ? 
+      > RESULTADOS: Nesse período, cresceu a disputa (legítima) pelo pouco de água que ainda resta nos reservatórios. Sobretudo no Vale do Jaguaribe, no qual se encontram os principais açudes do Estado: o Castanhão e o Orós. A agricultura irrigada tem sido o setor mais afetado, com restrições que já beiram os 80%. O Rio Jaguaribe deixou de ser perenizado, obrigando cidades do médio e baixo vale a retomarem seus antigos sistemas de abastecimento a partir de poços. Na Capital, a Companhia de Água e Esgoto do Ceará (Cagece) se desdobrou para reduzir as perdas por vazamentos na distribuição da água.
+        > MAIS/FONTE:
+      
 
    > ADUTORAS
-   		Uma das primeiras medidas adotadas foi a intensificação do programa de Adutoras de Montagem Rápida (AMRs). Esse tipo de adutora, solução nascida no âmbito do Grupo de Contingência, era o meio mais eficiente para restabelecer o serviço de abastecimento de água de sedes municipais, ao mesmo tempo em que era a forma mais eficaz de aproveitar o restante de água de alguns reservatórios mais resilientes. No atual governo, mais de 350 km de AMRs já foram entregues à população de diversos municípios.
+      > QUANDO: ?
+      > GOVERNO: ?
+      > O QUE É: Adutoras de Montagem Rápida (AMRs). 
+      > OBJETIVO:
+      > DESCRIÇÃO: Solução nascida no âmbito do Grupo de Contingência, era o meio mais eficiente para restabelecer o serviço de abastecimento de água de sedes municipais, ao mesmo tempo em que era a forma mais eficaz de aproveitar o restante de água de alguns reservatórios mais resilientes. 
+      > RESULTADOS: No atual governo, mais de 350 km de AMRs já foram entregues à população de diversos municípios.
+      > MAIS/FONTE:
    
    > PERFURAÇÃO DE POÇOS
-   		O solo dos sertões cearenses é pobre em água subterrânea. Além de pouca, a água costuma ter a qualidade comprometida em função das altas concentrações de sais. Mais um paradigma a ser quebrado. Foi com a certeza de que água ruim é aquela que não existe, que o Ceará iniciou o desenvolvimento do maior programa de construção de poços já visto no Ceará. São mais de quatro mil poços construídos no atual governo. “O governo Camilo Santana construiu quase 40% do total de poços feitos pelo Estado em 30 anos de Sohidra. Isso já mostra a determinação do governador em enfrentar o problema”, avalia Teixeira.
+      > QUANDO: ?
+      > GOVERNO: Camilo Santana 
+      > O QUE É: ?
+      > OBJETIVO: ?
+      > DESCRIÇÃO: Apesar do solo dos sertões cearenses ter pouca água subterrânea ela ainda costuma ter a qualidade comprometida em função das altas concentrações de sais. Foi com a certeza de que água ruim é aquela que não existe, que o Ceará iniciou o desenvolvimento do maior programa de construção de poços já visto no Ceará. 
+      > RESULTADOS: Mais de quatro mil poços construídos no atual governo. Cidades inteiras são hoje abastecidas com água subterrânea. Se o poço apresenta baixa vazão, instala-se chafariz. Não há água perdida. Um só município – Boa Viagem, no Sertão de Canindé – já recebeu mais de 200 poços na busca pelo mínimo de vazão que garanta o abastecimento. 
+      > MAIS/FONTE:
 
-		Dessa forma, cidades inteiras são hoje abastecidas com água subterrânea. Se o poço apresenta baixa vazão, instala-se chafariz. Não há água perdida. Um só município – Boa Viagem, no Sertão de Canindé – já recebeu mais de 200 poços na busca pelo mínimo de vazão que garanta o abastecimento. Em Pedra Branca, em virtude das baixas vazões encontradas nos poços construídos, uma rede adensada de chafarizes foi montada na malha urbana. Dessa forma, se não tem água na torneira, o cidadão a encontra a alguns passos da porta de casa. Toda água se aproveita.
+  > CINTURÃO DAS ÁGUAS E SÃO FRANCISCO
+      > QUANDO: ?
+      > GOVERNO: ?
+      > O QUE É: Construção encabeçada pelo Ministério da Integração Nacional 
+      > OBJETIVO: Aumentar a garantia do abastecimento humano da região do Cariri, além de tornar mais eficiente a chegada da água para 3,5 milhões de habitantes da Região Metropolitana de Fortaleza. Os mais de 150 km de canais vão se interligar com a Transposição do São Francisco, levando as vazões excedentes para os açudes Castanhão e Óros. O trecho 1 da obra está com mais de 80% de execução e, ao todo, o CAC deve receber investimentos de mais de R$ 2 bilhões. Beneficiar mais de 12 milhões de pessoas, espalhadas pelos estados de Pernambuco, Ceará, Rio Grande do Norte e Paraíba
+      > DESCRIÇÃO:
+      > RESULTADOS:
+      > MAIS/FONTE:
 
-	> CINTURÃO DAS ÁGUAS E SÃO FRANCISCO
-			Além das ações mais emergenciais, uma grande aposta do Governo para ampliar em larga escala a infraestrutura hídrica cearense é o Cinturão das Águas do Ceará (CAC). A obra vai aumentar a garantia do abastecimento humano da região do Cariri – a segunda mais populosa do Estado, com mais de 1 milhão de habitantes –, além de tornar mais eficiente a chegada da água para 3,5 milhões de habitantes da Região Metropolitana de Fortaleza (RMF). Os mais de 150 km de canais vão se interligar com a Transposição do São Francisco, levando as vazões excedentes para os açudes Castanhão e Óros. O trecho 1 da obra está com mais de 80% de execução e, ao todo, o CAC deve receber investimentos de mais de R$ 2 bilhões.
+  > CISTERNAS
+      > QUANDO: ?
+      > GOVERNO: ?
+      > O QUE É: s cisternas são soluções simples para captar e armazenar a água da chuva durante os períodos de seca. 
+      > DESCRIÇÃO: O Programa Cisternas, coordenado pelo Ministério do Desenvolvimento Social (MDS) e que tem o Banco do Nordeste como um dos operadores na Região, é parte do Água para Todos. O programa também fornece capacitação para a convivência sustentável dos produtores com o Semiárido.
+      > OBJETIVO: garantir água de qualidade às populações rurais dispersas e em situação de extrema pobreza, para o consumo próprio, a produção de alimentos e a criação de animais
+      > RESULTADOS:  O BNB firmou 14 contratos de repasse com nove entidades sem fins lucrativos para construção de 21 mil cisternas, na Bahia, Ceará e Minas Gerais. A construção desses reservatórios foi acompanhada de perto pela equipe da instituição. foi reconhecido com o segundo lugar do Prêmio Internacional de Política para o Futuro 2017, da organização alemã World Future Council, em parceria com a Convenção das Nações Unidas de Combate à Desertificação. Mais de 24 mil famílias de agricultores dos três Estados foram capacitadas. 
+      > MAIS/FONTE:
 
-			O Eixo Norte da Transposição do São Francisco, que vai se conectar com o Ceará, está em fase final de conclusão. O Ministério da Integração Nacional garante que, até o começo do ano que vem, as tão sonhadas águas do “Velho Chico” estejam correndo em solo cearense. Com mais de 477 km de extensão em dois eixos (Leste e Norte), o Projeto de Integração do
-			Rio São Francisco vai beneficiar mais de 12 milhões de pessoas, espalhadas pelos estados de Pernambuco, Ceará, Rio Grande do Norte e Paraíba
-   
-   > BOLSA FAMILIA
-   		O Bolsa Família é um programa que contribui para o combate à pobreza e à desigualdade no Brasil. Ele foi criado em outubro de 2003 e possui três eixos principais: Complemento da renda, Acesso a direitos, Articulação com outras ações.
-		Desde 2011, o Bolsa Família faz parte do Plano Brasil Sem Miséria, que reuniu diversas iniciativas para permitir que as famílias deixassem a extrema pobreza, com efetivo acesso a direitos básicos e a oportunidades de trabalho e de empreendedorismo.
-	
-	> BND WITH CISTERNAS
-			O Programa Cisternas, coordenado pelo Ministério do Desenvolvimento Social (MDS) e que tem o Banco do Nordeste como um dos operadores na Região, foi reconhecido com o segundo lugar do Prêmio Internacional de Política para o Futuro 2017, da organização alemã World Future Council, em parceria com a Convenção das Nações Unidas de Combate à Desertificação.
-
-			O projeto é parte do Água para Todos, que tem o objetivo garantir água de qualidade às populações rurais dispersas e em situação de extrema pobreza, para o consumo próprio, a produção de alimentos e a criação de animais. As cisternas são soluções simples para captar e armazenar a água da chuva durante os períodos de seca. 
-
-			O BNB firmou 14 contratos de repasse com nove entidades sem fins lucrativos para construção de 21 mil cisternas, na Bahia, Ceará e Minas Gerais. A construção desses reservatórios foi acompanhada de perto pela equipe da instituição. "Os agente de desenvolvimento do Banco do Nordeste foram peças fundamentais no processo. Eles fiscalizaram in loco todas as cisternas construídas", destaca o gerente do Ambiente de Políticas de Desenvolvimento, Rubens Mota.
-
-			“Ao garantir água para essas famílias no Semiárido, estamos promovendo o seu bem-estar, mudando a vida dessas pessoas. Temos muito orgulho de ter participado desse programa do MDS e dos resultados e impactos obtidos”, declara Paulo Dídimo, gerente executivo da Célula de Desenvolvimento Territorial, responsável no BNB pela operacionalização do Programa Cisternas. 
-
-			O programa também fornece capacitação para a convivência sustentável dos produtores com o Semiárido. Mais de 24 mil famílias de agricultores dos três Estados foram capacitadas. 
-
-	> AÇUDE CASTANHÃO
-		O Açude Público Padre Cícero, mais conhecido como Açude Castanhão, é uma represa brasileira construída no leito do rio Jaguaribe, no estado do Ceará. O açude está localizado em Jaguaribara, embora atinja outros municípios. A obra foi iniciada em 1995, durante o governo de Tasso Jereissati, e concluída em 23 de dezembro de 2002, pelo governador Beni Veras (PSDB), numa parceria entre a Secretaria de Recursos Hídricos do Ceará e o Departamento Nacional de Obras Contra as Secas (DNOCS).
-		Representa importante mecanismo de controle das secas e das cheias sazonais que atingem o vale do Jaguaribe, assim como, cresce em importância para o restante do Ceará, enquanto reserva hídrica estratégica para o Estado.
-
-		Suas águas são vocacionadas para o uso na agricultura irrigada, piscicultura, pesca (esportiva e de subsistência), lazer náutico, assim como, através da construção do Canal da Integração, este açude terá suas águas levadas para abastecimento da população da Grande Fortaleza e para o Complexo Portuário do Pecém, onde permitirá a implantação de um polo industrial. Não há uso atual como fonte hidroelétrica desta barragem.
-
-		A capacidade de armazenamento do Castanhão é de 6.700.000.000 m³, o que o coloca como o maior açude para múltiplos usos da América Latina.O Castanhão é uma maravilha da engenharia moderna, concluída neste século, mas cujos projetos iniciais remontam o século 19, quando surgiram os primeiros estudos para se edificar uma obra que garantisse reserva de água para enfrentar a irregularidade das chuvas no semi-árido Nordestino. Destaque especial merece o engenheiro da Universidade de Stanford, "Sir" Roderic Crandall, que identificou na área conhecida como "Boqueirão do Cunha", onde atualmente está este açude, uma série de marcadores geológicos que indicavam aquela ser a melhor região para a construção da barragem.
-	
-	> ÁGUA PARA TODOS
-		Água para Todos é um programa do Governo Federal do Brasil criado através do Decreto nº 7 535, de 26 de julho de 2011 (2º governo Lula), que reúne medidas preventivas e corretivas contra a seca nas regiões onde a precipitação pluviométrica é escassa, sobretudo nas zonas rurais. Faz parte do plano Brasil sem Miséria, associado ao Programa 2.069 - Segurança Alimentar e Nutricional. É, também, conhecido como Programa Nacional de Universalização do Acesso e Uso da Água.
-		O Programa Água para Todos estabelece parcerias entre os governos federais, estaduais e municipais, para que as garantias dos direitos ao programa sejam dispensados da melhor maneira possível, aliando a seguridade de direitos essenciais à possibilidade de melhoria das condições de vida da população extremamente pobre, através da elevação da renda familiar per capita da população e levando água a pelo menos 750 mil famílias. Apesar de ter abrangência nacional, o programa dá atenção especial ao semiárido da Região Nordeste do País e ao Norte de Minas Gerais.
-
-		A partir da demanda do CadÚnico, foi fixada a meta de instalação de 750 mil cisternas com 16.000 litros de capacidade cada, sendo 450.000 cisternas de placas e 300.000 cisternas de polietileno. O cumprimento das metas se daria entre 2011 e 2014.[2][1] Segundo dados do Ministério da Integração Nacional, entre 2011 e março de 2015, foram construídas mais de 933 mil cisternas, resultado quase 25% acima da meta. Foram 823 mil cisternas voltadas para o consumo (capacidade de armazenamento: 13,1 bilhões de litros de água) e outras 110 mil cisternas foram construídas para a produção de alimentos. O investimento foi de R$ 4,2 bilhões.
-
-		A tentativa de amenizar os efeitos negativos da seca que o programa encontrou foi a construção de cisternas de placa de concreto e distribuição de caixas de polietileno (uma por família), além do kit de irrigação.
-
-		O Programa Água para Todos tem administração da Secretaria de Desenvolvimento Regional (SDR), que formula, implementa, monitora e avalia as ações. Um comitê gestor nacional, composto pelo Ministério da Integração Nacional, é responsável por coordenar o programa no âmbito dos ministérios do Desenvolvimento Social e Combate à Fome (MDS), das Cidades e do Meio Ambiente, em parceria com a Confederação Nacional dos Trabalhadores na Agricultura (CONTAG) e Confederação Nacional dos Trabalhadores e Trabalhadoras na Agricultura Familiar do Brasil (Contraf-Brasil/CUT). Também fazem parte, do comitê, membros convidados, como a Agência Nacional de Águas (ANA), a Fundação Banco do Brasil e a Companhia de Desenvolvimento dos Vales do São Francisco e do Parnaíba (Codevasf).[1]
-
-		A continuação do programa se estenderia, mas, em 2015, segundo a Revista Veja, no referido ano, o Governo Federal deixou de construir 33 mil cisternas, por causa do suposto não pagamento das faturas pelos ministérios da Saúde, da Integração Nacional e do Desenvolvimento, referentes às compras de material para execução das obras. A dívida seria de 350 milhões de reais
+  > BANCO DO NORDESTE
+      > QUANDO: 19/07/1952 
+      > GOVERNO: Getúlio Vargas
+      > O QUE É: O Banco do Nordeste do Brasil S.A. é uma instituição financeira múltipla, organizada sob a forma de sociedade de economia mista, de capital aberto e tem mais de 90% de seu capital sob o controle do Governo Federal. Desde sua criação, tem sede na cidade de Fortaleza, no Ceará.
+      > DESCRIÇÃO: O Banco do Nordeste foi criado pela Lei Federal nº 1649, de 19.07.1952, para atuar no chamado Polígono das Secas, designação dada a perímetro do território brasileiro atingido periodicamente por prolongados períodos de estiagem. A empresa assumia então a atribuição de prestação de assistência às populações dessa área, por meio da oferta de crédito.
+      > OBJETIVO:  Fomentar o desenvolvimento da região Nordeste que, assolada pelas constantes secas e pela escassez de recursos estáveis, carecia de um organismo financeiro capaz de estruturar sua economia.
+      > RESULTADOS: Está presente em cerca de 2 mil municípios, abrangendo toda a área dos nove estados da Região Nordeste (Maranhão, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Sergipe e Bahia), além do  norte de Minas Gerais (incluindo os Vales do Mucuri e do Jequitinhonha) e o norte do Espírito Santo. Atualmente, mantém a liderança na aplicação de recursos de longo prazo e de crédito rural em sua área de atuação.
+      > MAIS/FONTE:
 
 
+  > AÇUDE CASTANHÃO
+      > QUANDO: A obra foi iniciada em 1995, durante o governo de Tasso Jereissati, e concluída em 23 de dezembro de 2002, pelo governador Beni Veras (PSDB)
+      > GOVERNO: Tasso Jereissati e Beni Veras.
+      > O QUE É: é uma represa brasileira construída no leito do rio Jaguaribe, no estado do Ceará. O açude está localizado em Jaguaribara, embora atinja outros municípios.
+      > OBJETIVO:
+      > DESCRIÇÃO: Parceria entre a Secretaria de Recursos Hídricos do Ceará e o Departamento Nacional de Obras Contra as Secas (DNOCS), representa importante mecanismo de controle das secas e das cheias sazonais que atingem o vale do Jaguaribe, assim como, cresce em importância para o restante do Ceará, enquanto reserva hídrica estratégica para o Estado. A capacidade de armazenamento do Castanhão é de 6.700.000.000 m³, o que o coloca como o maior açude para múltiplos usos da América Latina.O Castanhão é uma maravilha da engenharia moderna, concluída neste século, mas cujos projetos iniciais remontam o século 19,
+      > RESULTADOS: Suas águas são vocacionadas para o uso na agricultura irrigada, piscicultura, pesca (esportiva e de subsistência), lazer náutico, assim como, através da construção do Canal da Integração, este açude terá suas águas levadas para abastecimento da população da Grande Fortaleza e para o Complexo Portuário do Pecém, onde permitirá a implantação de um polo industrial. Não há uso atual como fonte hidroelétrica desta barragem.
+      > MAIS/FONTE:
+    
 
-		> AÇUDE OROS
-				A obra na região centro-sul do Ceará, no município de Orós, era uma antiga promessa do DNOCS – Departamento Nacional de Obras contra as Secas – do que seria o maior reservatório do Nordeste, com 2 bilhões de metros cúbicos de água armazenada. 
-				Após muitos estudos de viabilidade, um engenheiro de Porto Alegre, chamado Casimiro Munarsky, sugeriu fazer-se o açude com parede de terra e em forma de arco, um pouco antes do boqueirão. Com a nova engenharia, o açude deixaria de comportar 4 bilhões de metros cúbicos de água, inicialmente projetados, e passaria a comportar 2 bilhões. Obra realizada no governo de Juscelino Kubistchek, a construção do açude inundou alguns vilarejos próximos, dos quais o mais conhecido era Conceição do Buraco,  hoje Guassussê. A obra foi concluída em 1961.
+  > ÁGUA PARA TODOS
+      > QUANDO: criado através do Decreto nº 7 535, de 26 de julho de 2011
+      > GOVERNO: (2º governo Lula)
+      > O QUE É: Água para Todos é um programa do Governo Federal do Brasil. que reúne medidas preventivas e corretivas contra a seca nas regiões onde a precipitação pluviométrica é escassa, sobretudo nas zonas rurais
+      > OBJETIVO:  A tentativa de amenizar os efeitos negativos da seca que o programa encontrou foi a construção de cisternas de placa de concreto e distribuição de caixas de polietileno (uma por família), além do kit de irrigação.
+      > DESCRIÇÃO:  O Programa Água para Todos estabelece parcerias entre os governos federais, estaduais e municipais, para que as garantias dos direitos ao programa sejam dispensados da melhor maneira possível, aliando a seguridade de direitos essenciais à possibilidade de melhoria das condições de vida da população extremamente pobre, através da elevação da renda familiar per capita da população e levando água a pelo menos 750 mil famílias. Apesar de ter abrangência nacional, o programa dá atenção especial ao semiárido da Região Nordeste do País e ao Norte de Minas Gerais.
+      O Programa Água para Todos tem administração da Secretaria de Desenvolvimento Regional (SDR), que formula, implementa, monitora e avalia as ações. Um comitê gestor nacional, composto pelo Ministério da Integração Nacional, é responsável por coordenar o programa no âmbito dos ministérios do Desenvolvimento Social e Combate à Fome (MDS), das Cidades e do Meio Ambiente, em parceria com a Confederação Nacional dos Trabalhadores na Agricultura (CONTAG) e Confederação Nacional dos Trabalhadores e Trabalhadoras na Agricultura Familiar do Brasil (Contraf-Brasil/CUT). Também fazem parte, do comitê, membros convidados, como a Agência Nacional de Águas (ANA), a Fundação Banco do Brasil e a Companhia de Desenvolvimento dos Vales do São Francisco e do Parnaíba (Codevasf)
+      > RESULTADOS: A partir da demanda do CadÚnico, foi fixada a meta de instalação de 750 mil cisternas com 16.000 litros de capacidade cada, sendo 450.000 cisternas de placas e 300.000 cisternas de polietileno. O cumprimento das metas se daria entre 2011 e 2014.[2][1] Segundo dados do Ministério da Integração Nacional, entre 2011 e março de 2015, foram construídas mais de 933 mil cisternas, resultado quase 25% acima da meta. Foram 823 mil cisternas voltadas para o consumo (capacidade de armazenamento: 13,1 bilhões de litros de água) e outras 110 mil cisternas foram construídas para a produção de alimentos. O investimento foi de R$ 4,2 bilhões.
+      > MAIS/FONTE:
 
-				Quando ainda estava em construção, em 1960, uma rachadura na parede do açude provocou uma grande inundação deixando várias cidades completamente alagados e sem comunicação. Na época, o Rio Jaguaribe, que abastece o açude, passou por uma grande cheia fazendo com que o Orós transbordasse e sofresse um arrombamento parcial. Nesse mesmo ano, o então presidente sobrevoou as áreas atingidas pelas águas, conforme relatam alguns pesquisadores. Por ordem dele, o trabalho de reconstrução foi iniciado imediatamente e, assim, o açude foi inaugurado um ano depois com o nome de Juscelino Kubitschek.
-				No dia 26 de março, a barragem se rompeu parcialmente. Precisamente às 10 horas um grande estrondo foi ouvido: as águas ultrapassaram o nível da barragem e invadiram toda a extensão do Vale do Jaguaribe, destruindo tudo que se encontrava pela frente, levando de roldão povoações, cultivos e criações, deixando um rastro de morte, miséria e desabrigo, causando prejuízos incalculáveis. 
+      As tecnologias apoiadas pelo programa Água para Todos disponibilizam o uso da água para o consumo próprio ou para a produção de alimentos e a criação de animais, que podem gerar excedentes comercializáveis, ampliando a inclusão produtiva das populações beneficiárias, que vivem em situação de vulnerabilidade social.
+      Atualmente, o programa apoia a implementação das seguintes tecnologias em especial:
 
-				Obra da engenharia nacional, a barragem do Orós suportou, embora em fase de construção, uma pressão muitas vezes superior ao seu nível de segurança. Todavia, parte da obra teve de ser sacrificada a dinamite, para evitar uma tragédia maior, que seria sua destruição total a um só tempo.
-				Depois dos problemas do início da construção do Açude Orós, o reservatório só levou benefícios para uma região que enfrenta a seca. Localizado no leito do Rio Jaguaribe, na região centro sul do Ceará, o Orós trouxe novas oportunidades para a população ribeirinha.
+      a) Cisternas de consumo: reservatórios com capacidade para 16.000 litros para captação de água pluvial destinada ao consumo humano;
+
+      b) Cisternas de produção: sistemas de captação de água pluvial destinada ao armazenamento de água para agricultores;
+
+      c) Sistemas coletivos de abastecimento de água: sistemas de captação, adução, tratamento (quando necessário), reservação, e distribuição de água, oriunda de corpos d'água, poços ou nascentes;
+
+      d) Barreiros ou pequenas barragens: pequenas contenções para captação de água da chuva que visam a atender à carência de água para produção agrícola e alimentar;
+
+      e) Kits de irrigação: conjunto de utilitários - composto de caixa d'água, bomba, mangueira, dentre outros - reunidos para a formação de um pequeno sistema de irrigação, com capacidade para irrigar, por sistema de gotejamento, uma área de 500 a 2.000 metros quadrados;
+
+      f) Barragens subterrâneas: escavações, até as rochas, de valas, cujas paredes são forradas por lonas de plástico, e, a seguir, preenchidas com o solo retirado, de forma a reter as águas pluviais sobre a rocha;
+
+      g) Poços:  obras de captação de água subterrânea feita com o emprego de perfuratriz em um furo vertical.
+
+
+    > AÇUDE OROS
+      > QUANDO: Conclusão em 1961.
+      > GOVERNO: Obra realizada no governo de Juscelino Kubistchek
+      > O QUE É: A obra na região centro-sul do Ceará, no município de Orós
+      > OBJETIVO:
+      > DESCRIÇÃO: A barragem do Orós suportou, embora em fase de construção, uma pressão muitas vezes superior ao seu nível de segurança. Todavia, parte da obra teve de ser sacrificada a dinamite, para evitar uma tragédia maior, que seria sua destruição total a um só tempo.
+        Depois dos problemas do início da construção do Açude Orós, o reservatório só levou benefícios para uma região que enfrenta a seca. Localizado no leito do Rio Jaguaribe, na região centro sul do Ceará, o Orós trouxe novas oportunidades para a população ribeirinha.
+        Era uma antiga promessa do DNOCS – Departamento Nacional de Obras contra as Secas – do que seria o maior reservatório do Nordeste, com 2 bilhões de metros cúbicos de água armazenada. 
+        Após muitos estudos de viabilidade, um engenheiro de Porto Alegre, chamado Casimiro Munarsky, sugeriu fazer-se o açude com parede de terra e em forma de arco, um pouco antes do boqueirão. Com a nova engenharia, o açude deixaria de comportar 4 bilhões de metros cúbicos de água, inicialmente projetados, e passaria a comportar 2 bilhões. , a construção do açude inundou alguns vilarejos próximos.
+      > RESULTADOS:  A água armazenada é usada para o consumo humano, para o plantio irrigado e favorece a pesca. O Orós também costuma atrair turistas e curiosos, que gostam de apreciar as belezas do segundo maior reservatório do Ceará.
+      > MAIS/FONTE:
+        
  
-				A água armazenada é usada para o consumo humano, para o plantio irrigado e favorece a pesca. O Orós também costuma atrair turistas e curiosos, que gostam de apreciar as belezas do segundo maior reservatório do Ceará.
-
-		> BRASIL SEM MMISÉRIA
-				O Plano Brasil Sem Miséria (BSM) foi lançado em junho de 2011, voltado às famílias que viviam com uma renda familiar inferior a R$ 70 mensais por pessoa. Em quatro anos, as ações do BSM retiraram 22 milhões de pessoas da situação de extrema pobreza. Em 2014, a linha que caracteriza a extrema pobreza passou de R$ 70 mensais per capita para R$ 77, e o benefício médio mensal repassado às famílias chegou a R$ 170,00, reajuste aproximado de 88% para o período. 
-
-				O plano é baseado em três pilares: garantia de renda, para alívio imediato da situação de extrema pobreza; acesso aos serviços públicos, visando melhorar as condições de educação, saúde e cidadania das famílias; e inclusão produtiva, com o objetivo de aumentar as capacidades e as oportunidades de trabalho e geração de renda entre as famílias mais pobres do campo e das cidades.
-
-				Para ampliar o acesso da população de baixa renda às creches públicas, foi criado o programa Brasil Carinhoso, que incentiva os municípios a ampliarem o número de vagas e a melhorarem o atendimento, repassando mais recursos federais às prefeituras a cada vaga ocupada por criança beneficiária do Bolsa Família. Em 2014, foram identificadas 707,7 mil crianças atendidas pelo programa e matriculadas em creches, um aumento de 56% em relação ao ano anterior.
-
-				Para facilitar a entrada dos beneficiários do Bolsa Família no mercado de trabalho, o Programa Nacional de Acesso ao Ensino Técnico e Emprego (Pronatec Brasil Sem Miséria) oferece gratuitamente cursos de qualificação profissional. Em março de 2014, foi atingida a meta de um 1,3 milhão de alunos, prevista para o período 2011-2014. De janeiro a dezembro de 2014, foram efetuadas 733,3 mil matrículas, totalizando 1,6 milhão de matrículas no último quadriênio. Do total de alunos matriculados no programa, 48% têm entre 18 e 29 anos, 68% são negros e 68% são mulheres.
-
-				O plano também atua para melhorar o acesso à saúde. O Programa Nacional de Qualificação da Assistência Farmacêutica, no âmbito do Sistema Único de Saúde (SUS), apoia 1.582 municípios constantes do Plano Brasil Sem Miséria de até 100 mil habitantes. Isso corresponde a uma cobertura de mais de 26 milhões de pessoas, com prioridade para a estruturação dos serviços farmacêuticos na atenção básica, com investimento de mais de R$ 17 milhões. Em 2015, o governo federal espera atingir 2.257 municípios.
-
-				Além das áreas de educação, saúde e formação profissional, existe o eixo Direitos e Cidadania, no qual a comunidade de quilombolas do Cadastro Único foi considerada público prioritário do Plano Brasil Sem Miséria. Em 2013, 84 mil famílias quilombolas estavam inscritas, sendo que 73% encontravam-se em situação de extrema pobreza. Até outubro de 2014, dado o esforço de busca ativa do governo, foram inscritas mais 44 mil famílias, chegando a mais de 128 mil famílias quilombolas, sendo 72% em situação de extrema pobreza.
-
-				Em março de 2013, os últimos brasileiros contemplados pelo Programa Bolsa Família que ainda viviam em situação de miséria transpuseram a linha da extrema pobreza. Com eles, 22 milhões de pessoas superaram tal condição desde o lançamento do plano. Mas ainda há três grandes desafios pela frente, como a busca ativa, para que nenhuma família com perfil de atendimento do Brasil Sem Miséria fique fora do programa; o aperfeiçoamento das estratégias de inclusão produtiva, que estão dando resultados; e a maior oferta de serviços públicos de qualidade, de forma a incluir quem mais precisa.
-
-		> DNOCS
-				Criado sob o nome de Inspetoria de Obras Contra as Secas - IOCS através do Decreto 7.619, de 21 de outubro de 1909⇲, editado pelo então Presidente Nilo Peçanha, foi o primeiro órgão a estudar a problemática do semiárido. O DNOCS recebeu ainda em 1919 (Decreto 13.687⇲), o nome de Inspetoria Federal de Obras Contra as Secas - IFOCS antes de assumir sua denominação atual, que lhe foi conferida em 1945 (Decreto-Lei 8.486, de 28/12/1945⇲), vindo a ser transformado em autarquia federal, através da Lei n° 4.229, de 01/06/1963⇲.
-
-				Sendo, de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região, fez de tudo. Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.
-
-				Chegou a se constituir na maior "empreiteira" da América Latina na época em que o Governo Federal construía, no Nordeste, suas obras por administração direta tendo marcado com a sua presença, praticamente, todo o solo nordestino. Além de grandes açudes, como Orós, Banabuiú, Araras, podemos registrar a construção da rodovia Fortaleza-Brasília[Nota 1] e o início da construção da barragem de Boa Esperança.
-
-				Com a criação de órgãos especializados, o acervo de obras construídas pelo Departamento vinculado a ações "não hídricas", como rodovias, linhas de transmissão, ferrovias, portos, etc., foram àqueles transferidos. Posteriormente, transferiram-se aos Estados as redes de abastecimento urbano e à SUVALE, hoje CODEVASF, os Projetos públicos de Irrigação situados no vale do Rio São Francisco
+    > DNOCS
+      > QUANDO: 21 de outubro de 1909, através do Decreto 7.619
+      > GOVERNO: Presidente Nilo Peçanha
+      > O QUE É:
+      > OBJETIVO:
+      > DESCRIÇÃO: Criado sob o nome de Inspetoria de Obras Contra as Secas - IOCS,  foi o primeiro órgão a estudar a problemática do semiárido. O DNOCS recebeu ainda em 1919 (Decreto 13.687), o nome de Inspetoria Federal de Obras Contra as Secas - IFOCS antes de assumir sua denominação atual, que lhe foi conferida em 1945 (Decreto-Lei 8.486, de 28/12/1945⇲), vindo a ser transformado em autarquia federal, através da Lei n° 4.229, de 01/06/1963. Com a criação de órgãos especializados, o acervo de obras construídas pelo Departamento vinculado a ações "não hídricas", como rodovias, linhas de transmissão, ferrovias, portos, etc., foram àqueles transferidos. Posteriormente, transferiram-se aos Estados as redes de abastecimento urbano e à SUVALE, hoje CODEVASF, os Projetos públicos de Irrigação situados no vale do Rio São Francisco
+      > RESULTADOS:  Sendo, de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região, fez de tudo. Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.
+      > MAIS/FONTE: https://www2.dnocs.gov.br/
 
 
-		As tecnologias apoiadas pelo programa Água para Todos disponibilizam o uso da água para o consumo próprio ou para a produção de alimentos e a criação de animais, que podem gerar excedentes comercializáveis, ampliando a inclusão produtiva das populações beneficiárias, que vivem em situação de vulnerabilidade social.
-
-Atualmente, o programa apoia a implementação das seguintes tecnologias em especial:
-
-a) Cisternas de consumo: reservatórios com capacidade para 16.000 litros para captação de água pluvial destinada ao consumo humano;
-
-b) Cisternas de produção: sistemas de captação de água pluvial destinada ao armazenamento de água para agricultores;
-
-c) Sistemas coletivos de abastecimento de água: sistemas de captação, adução, tratamento (quando necessário), reservação, e distribuição de água, oriunda de corpos d'água, poços ou nascentes;
-
-d) Barreiros ou pequenas barragens: pequenas contenções para captação de água da chuva que visam a atender à carência de água para produção agrícola e alimentar;
-
-e) Kits de irrigação: conjunto de utilitários - composto de caixa d'água, bomba, mangueira, dentre outros - reunidos para a formação de um pequeno sistema de irrigação, com capacidade para irrigar, por sistema de gotejamento, uma área de 500 a 2.000 metros quadrados;
-
-f) Barragens subterrâneas: escavações, até as rochas, de valas, cujas paredes são forradas por lonas de plástico, e, a seguir, preenchidas com o solo retirado, de forma a reter as águas pluviais sobre a rocha;
-
-g) Poços:  obras de captação de água subterrânea feita com o emprego de perfuratriz em um furo vertical.
+    
 ------------------
-	# inspiração
-		Andrade (1970) estruturou as políticas de secas em quatro fases: 1) humanitária; 2) intervenção e sistematização com estudos e obras; 3) diferenciação; e 4) integração do desenvolvimento regional e promoção universitária. A fase humanitária refere-se à comiseração às vítimas das secas. A fase da intervenção, também denominada fase hidráulica, inicia-se com a criação da Inspetoria de Obras Contra as Secas em 1909. Nessa fase construíram-se açudes e sistematiza-se a rede de dados meteorológicos e hidrológicos. A fase de diferenciação inicia com a criação do Banco do Nordeste do Brasil (BNB) em 1951. A fase de desenvolvimento regional tem como marco o Seminário para o Desenvolvimento Econômico do Nordeste, realizado em Garanhuns (PE), de 26 de abril a 3 de maio de 1959.
+  # inspiração
+    Andrade (1970) estruturou as políticas de secas em quatro fases: 1) humanitária; 2) intervenção e sistematização com estudos e obras; 3) diferenciação; e 4) integração do desenvolvimento regional e promoção universitária. A fase humanitária refere-se à comiseração às vítimas das secas. A fase da intervenção, também denominada fase hidráulica, inicia-se com a criação da Inspetoria de Obras Contra as Secas em 1909. Nessa fase construíram-se açudes e sistematiza-se a rede de dados meteorológicos e hidrológicos. A fase de diferenciação inicia com a criação do Banco do Nordeste do Brasil (BNB) em 1951. A fase de desenvolvimento regional tem como marco o Seminário para o Desenvolvimento Econômico do Nordeste, realizado em Garanhuns (PE), de 26 de abril a 3 de maio de 1959.
 
-		s centraram-se na ideia de que a solução dos problemas da região envolvia reformas estruturais profundas. As ideias do Grupo de Trabalho de Desenvolvimento do Nordeste (GTDN) representam o eixo das mudanças das estratégias (Carvalho, 1988, p.227). A fase de reformas conservadoras, iniciada com o governo militar, relaciona-se às mudanças das prioridades definidas pelo GTDN. No período, as reformas da estrutura agrária priorizam os projetos de irrigação com mobilização dos recursos do Programa de Integração Nacional (Carvalho, 1988, p.233).
+    s centraram-se na ideia de que a solução dos problemas da região envolvia reformas estruturais profundas. As ideias do Grupo de Trabalho de Desenvolvimento do Nordeste (GTDN) representam o eixo das mudanças das estratégias (Carvalho, 1988, p.227). A fase de reformas conservadoras, iniciada com o governo militar, relaciona-se às mudanças das prioridades definidas pelo GTDN. No período, as reformas da estrutura agrária priorizam os projetos de irrigação com mobilização dos recursos do Programa de Integração Nacional (Carvalho, 1988, p.233).
 
 --------------------
-		O presidente Fernando Henrique Cardoso e o "ministro da seca", Raul Jungmann, anunciaram ontem uma série de programas emergenciais contra a seca no semi-árido nordestino, que abrangem recursos de R$ 4 bilhões neste ano. Desse total, apenas R$ 562 milhões são "dinheiro novo" -R$ 162 milhões para o programa Bolsa-Renda e R$ 400 milhões para o Seguro-Renda.
-		No Bolsa-Renda, as famílias a serem selecionadas receberão R$ 60 por mês mais uma cesta básica. Famílias com mais de quatro pessoas deverão receber o dobro.
-		O programa Seguro-Renda destina-se aos agricultores que perderem a safra em razão da seca.
+    O presidente Fernando Henrique Cardoso e o "ministro da seca", Raul Jungmann, anunciaram ontem uma série de programas emergenciais contra a seca no semi-árido nordestino, que abrangem recursos de R$ 4 bilhões neste ano. Desse total, apenas R$ 562 milhões são "dinheiro novo" -R$ 162 milhões para o programa Bolsa-Renda e R$ 400 milhões para o Seguro-Renda.
+    No Bolsa-Renda, as famílias a serem selecionadas receberão R$ 60 por mês mais uma cesta básica. Famílias com mais de quatro pessoas deverão receber o dobro.
+    O programa Seguro-Renda destina-se aos agricultores que perderem a safra em razão da seca.
 ---------------------
 http://faec.org.br/novo/propostas-e-estrategias-de-enfrentamento-da-seca-com-enfase-no-ceara/
--------------------
-O Programa Fome Zero foi criado para combater a fome e as suas causas estruturais, que geram a exclusão social e para garantir a segurança alimentar dos brasileiros em três frentes: um conjunto de políticas públicas; a construção participativa de uma Política Nacional de Segurança Alimentar e Nutricional; e um grande mutirão contra a fome, envolvendo as três esferas de governo (federal, estadual e municipal) e todos os ministérios. De acordo com o site do programa, no Brasil em 2003 existiam 44 milhões de pessoas ameaçadas pela fome. O Programa Fome Zero consistia num conjunto de mais de 30 programas complementares dedicados a combater as causas imediatas e subjacentes da fome e da insegurança alimentar, implementados pelo ou com o apoio do governo federal.
-No processo de revisão e ampliação dos programas sociais do governo federal, o programa Fome Zero acabou sendo incorporado pelo Bolsa Família
+
 ==============
 FRENTE CEARÁ CONTRA SECA/GRUPO DE CONTIGÊNCIA
 Participam do Grupo de Contingência – tanto de forma virtual, quanto presencial – vários secretários de Estado das pastas com interface com soluções hídricas, chefes de órgãos e autarquias, e o gabinete do Governador. O próprio chefe do Executivo se reúne mensalmente com parte da equipe. A integração de toda essa massa crítica vem garantindo agilidade nas respostas e a obtenção de soluções para graves problemas de abastecimento.
@@ -317,19 +332,29 @@ OLHAR ESSEOUTRO ARTIGO:http://bibliotecadigital.fgv.br/ojs/index.php/rbe/article
 LER ISSO AQUI: http://www.integracao.gov.br/web/guest/programas-e-acoes-sih
 
 Há mudanças de foco ao longo dos debates. Primeiramente discutiu-se se as secas eram, ou não, um problema nacional que deveria ser objeto de políticas públicas. A aceitação da tese da seca combbm      - linha: entrada
-	-
-	-
+  -
+  -
 - barra: entrada
-	-
-	-
+  -
+  -
 - espacial
-	- colorido
-	- 
+  - colorido
+  - 
 
 -> Definir paleta de cores
 -> Iniciar modulos das funções dos gráficos
 -> Colorir Site
 -> Rodapé
 -> cores
+
+ -------------- contexto que eu acho que entraria em outro ponto
+      Uma campanha foi implementada para legalizar as ligações clandestinas. A água da lavagem dos filtros de uma de suas estações de tratamento passou a ser reaproveitada. A Companhia de Gestão dos Recursos Hídricos (Cogerh) passou a exercer com maior rigor o controle da oferta e da demanda, literalmente forçando a Cagece a fazer mais com menos. Hoje, vive-se na Grande Fortaleza com 20% a menos de água do que se vivia em 2014.
+
+      O esforço conjunto voltou-se também para a obtenção de novas fontes hídricas. Estudos realizados pela Cogerh apontavam para grande manancial de água subterrânea no complexo de dunas a Oeste de Fortaleza – entre Caucaia e Paracuru. Testes comprovaram o potencial. Uma bateria de poços foi construída na área do Pecém, obtendo cerca de 200 litros de água por segundo.
+
+      Outra bateria de poços está para ser feita na região da Taíba/Siupé, também no litoral Oeste. A expectativa é de que outros 200 litros/s sejam aduzidos ao reservatório que distribui água para as indústrias instaladas na região.
+
+      O complexo Cauípe (açude e lagoa) também deve ofertar, em breve, incremento de “água nova” naquela região. Todo esse esforço alivia a pressão sobre os reservatórios que atualmente abastecem a Região Metropolitana, liberando mais água para o abastecimento humano na Capital.
+      --------------------------------------
 
 

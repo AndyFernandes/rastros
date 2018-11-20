@@ -237,7 +237,6 @@ animation: bounce 2s infinite;
 	position: relative;
 	grid-column-gap: 0px;
 	background: white;
-	z-index: 2;
 	/*border-top: 1px solid #000;
 	border-bottom: 1px solid #000;*/
 }
@@ -301,12 +300,12 @@ animation: bounce 2s infinite;
 .scroll__text {
 	position: relative;
 	left: 65%;
-	padding: 0 1rem;
+	padding: 0 0rem;
 	width: 35%;
+	height: 100%;
 }
 
 .step {
-	margin: 0 auto 2rem auto;
 	/*border: 1px solid #333;*/
 	/* border-bottom: none; */
 }
@@ -320,6 +319,10 @@ animation: bounce 2s infinite;
 }
 
 .step p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 auto;
 	text-align: justify;
 	padding: 1rem;
 	font-size: 1.5rem;

@@ -98,9 +98,7 @@
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_1'>
 				<p>Gráfico em Barra mostrando as diferenças entre as quadras para últimos 30 anos (inserir linha da média) + Mapa choropleth com valores médios de chuva por ano (nesse ou slide extra)(map interativo?)</p>
 			</div>
-			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'>
-				<p>GRÁFICO DE LINHAS C/ A PRECIPITAÇÃO (X = ANO | Y = PRECICIPITAÇÃO ACUMULADA DE FEVERERIO A MAIO) + BOTAR LINHAS PRETAS DELIMITANDO OS LIMITES ACIMA + BACKGROUNDs RUIM(VERMELHO PASTEL), NORMAL(AMARELO PASTEL), BOM(VERDE PASTEL)</p>
-			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'></div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_3'>
 				<p>MOSTRAR AQUI UM GRÁFICO BARRA EMPILHADO MOSTRANDO A MÉDIA DE PRODUÇÃO DE CADA CULTURA DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DA PRODUÇÃO NESSES MESES) NOS ÚLTIMOS ANOS. (GRAFICO AGRUPADO DE DIFERENÇAS) (SÓ OS 10 PRODUTOS MAIS PRODUZIDOS)</p>
 			</div>
@@ -119,11 +117,9 @@
 			<div class='step' id='step_2'>
 				<p>As observações ao longo do tempo resultaram em um critério matemático usado pela Funceme(link) para classificar a estação chuvosa no Ceará. Os anos secos ocorrem quando as precipitações pluviométricas, entre fevereiro e maio: </p>
 
-				<ul>
-					<li>não ultrapassam 493.2 milímetros;</li>
-					<li>de 493.3 a 631.2 milímetros, temos anos normais;</li>
-					<li>e acima dos 631.3 milímetros são estações acima da média (anos chuvosos);</li>
-				</ul>
+				<p>não ultrapassam 493.2 milímetros;</p>
+				<p>de 493.3 a 631.2 milímetros, temos anos normais;</p>
+				<p>e acima dos 631.3 milímetros são estações acima da média (anos chuvosos);</p>
 			</div>
 			<div class='step' id='step_3'>
 				<p>A Funceme observa ainda que 75% das chuvas do ano se concentram na quadra chuvosa: </p>
@@ -359,60 +355,71 @@
 		init("#scroll_3");
 		init("#scroll_4");
 
+		/* SECTION 1 - O que é a Seca? */
+		// Gráfico de Linhas das Quadras a Partir dos Anos com Fundo Delimitado
+		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
+			let options = { "color": "#428BCABB", "marker-size": 5, 
+							"width": 1028,
+							"height": 728,
+							"xlabel":"Anos", "ylabel":"Precipitação" };
+
+			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__img_2", options)
+		})
+
 		
 		// Execução da função de plotagem para scatterplots
-		newData = []
-		let promises = [
-		    d3.csv("data/social/dengue.csv").then(function(csv){ 
-		    	for (var i = csv.length - 1; i >= 0; i--) {
-		    		newData.push({"Localidade": csv[i]["Localidade"], "Notificacoes": csv[i]["2011"]})
-		    	}
-			}),
-			d3.csv("data/social/mortalidade_infantil.csv").then(function(csv){ 
-		    	for (var i = csv.length - 1; i >= 0; i--) {
-		    		for (var j = newData.length - 1; j >= 0; j--) {
-		    			if(newData[j]["Localidade"] == csv[i]["Localidade"]) newData[j]["Mortalidade"] = csv[i]["2011"]
-		    		}
-		    	}
-		    })
-		]
+		// newData = []
+		// let promises = [
+		//     d3.csv("data/social/dengue.csv").then(function(csv){ 
+		//     	for (var i = csv.length - 1; i >= 0; i--) {
+		//     		newData.push({"Localidade": csv[i]["Localidade"], "Notificacoes": csv[i]["2011"]})
+		//     	}
+		// 	}),
+		// 	d3.csv("data/social/mortalidade_infantil.csv").then(function(csv){ 
+		//     	for (var i = csv.length - 1; i >= 0; i--) {
+		//     		for (var j = newData.length - 1; j >= 0; j--) {
+		//     			if(newData[j]["Localidade"] == csv[i]["Localidade"]) newData[j]["Mortalidade"] = csv[i]["2011"]
+		//     		}
+		//     	}
+		//     })
+		// ]
 
-		Promise.all(promises).then(function() {
-		    // opcoes
-			let options = { "color": "#428BCABB", "marker-size": 5, 
-								"width": 800,
-								"height": 600,
-								"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
+		// Promise.all(promises).then(function() {
+		//     // opcoes
+		// 	let options = { "color": "#428BCABB", "marker-size": 5, 
+		// 						"width": 800,
+		// 						"height": 600,
+		// 						"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
 
-		    // scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
-		})  
+		//     // scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__img_3", options)	
+		// })  
 
-		// Corpo para montagem dos gráficos de linha
-		ldata = []
+		// // Corpo para montagem dos gráficos de linha
+		// ldata = []
 		
-		let promise = [
-			d3.csv("data/social/regua_precipitacao.csv").then(function(d){
-				for(var k = d.length - 1; k >=0; k--){
-					ldata.push({"ano": d[k].ano, "precipitacao": d[k].precipitacao})
-				}
-			})
-		]
+		// let promise = [
+		// 	d3.csv("data/social/regua_precipitacao.csv").then(function(d){
+		// 		for(var k = d.length - 1; k >=0; k--){
+		// 			ldata.push({"ano": d[k].ano, "precipitacao": d[k].precipitacao})
+		// 		}
+		// 	})
+		// ]
 
-		Promise.all(promise).then(function(){
-			var colors =["#A52A2A","#000000","#00008B","#2F4F4F","#4682B4",
-				"#FFFF00","#008080","#6A5ACD","#8B4513","#A52A2A",
-				"#000000","#00008B","#2F4F4F","#4682B4","#FFFF00",
-				"#008080","#6A5ACD","#8B4513","#6A5ACD","#8B4513"]
+		// Promise.all(promise).then(function(){
+		// 	var colors =["#A52A2A","#000000","#00008B","#2F4F4F","#4682B4",
+		// 		"#FFFF00","#008080","#6A5ACD","#8B4513","#A52A2A",
+		// 		"#000000","#00008B","#2F4F4F","#4682B4","#FFFF00",
+		// 		"#008080","#6A5ACD","#8B4513","#6A5ACD","#8B4513"]
 
-			let options = { "color": "#428BCABB", "marker-size": 5, 
-								"width": 800,
-								"height": 600,
-								"xlabel":"Anos", "ylabel":"Precipitação" };
+		// 	let options = { "color": "#428BCABB", "marker-size": 5, 
+		// 						"width": 800,
+		// 						"height": 600,
+		// 						"xlabel":"Anos", "ylabel":"Precipitação" };
 			
-			// chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4", options);
+		// 	// chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__img_4", options);
 			
-			// barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
-		});    
+		// 	// barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__img_3", colors)
+		// });    
 	</script>
 
 </body>

@@ -129,7 +129,7 @@ function init(selector) {
 	// Função de tratamento para o evento de redimensionamento da janela
 	function handleResize() {
 		// Atualiza o tamanho das caixas de step
-		var stepHeight = Math.floor(window.innerHeight * 0.90);
+		var stepHeight = Math.floor(window.innerHeight * 0.99);
 		step.style("height", stepHeight + "px");
 
 		// Atualiza as informações de largura e altura da área dos gráfico
@@ -145,6 +145,8 @@ function init(selector) {
 			.style("width", graphicWidth + "px")
 			.style("height", graphicHeight + "px")
 			.style("top", 0);
+
+		text.style("margin-top", -graphicHeight+"px")
 
 		// Atualiza as dimensões de outros componentes do site
 		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
@@ -213,7 +215,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
     				.range([0, width]);
 
 	var yScale = d3.scaleLinear()
-	    .domain([d3.min(data, function(d){return d[attY];}), d3.max(data, function(d){ return d[attY];})])  
+	    .domain([d3.min(data, function(d){return d[attY];})-50, d3.max(data, function(d){ return d[attY];})+50])  
 	    .range([height, 0]); 
 
 	var xAxis = d3.axisBottom()
@@ -258,7 +260,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
 	svg.append("text")
 			.attr("transform", "translate(" + (width/2) + "," + (height+50) + ")")
 			.style("text-anchor", "middle")
-			.attr("font-family", "Segoe UI")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
 			.text(options["xlabel"]);
 
@@ -273,7 +275,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
 			.attr("x", 0 - (height / 2))
 			.attr("dy", "1em")
 			.style("text-anchor", "middle")
-			.attr("font-family", "Segoe UI")
+			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
 			.text(options["ylabel"]);
 	
@@ -313,7 +315,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
 	svg.append("text")
 		.attr("transform", "translate(" + (width/2) + ","+ (0 - 30) +")")
 		.style("text-anchor", "middle")
-		.attr("font-family", "Segoe UI")
+		.attr("font-family", "Roboto")
 		.attr("font-weight", "bold")
 		.attr("font-size", "30px")
 		.text(title);

@@ -6,7 +6,7 @@ A memória histórica conta que a seca, além dos índios, fez o português Pero
 
 As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de 607,5 milímetros
 Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o período de estação (ou quadra) chuvosa do Estado. 
-<<<<<< gráfico barra par3w4354\a mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
+<<<<<< gráfico barra par3a mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
 -> Aqui mostra um textinho para cada barra de quadra de chuva
 
 
@@ -161,76 +161,24 @@ CADA OBRA DESSA DEVERÁ TER: - DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
    > TARIFA DE CONTIGÊNCIA
    > INOVAÇÃO
    > DNOCS
+
+> Varios programas: http://www3.funceme.br/evento-secas-2016/uploads/apresentacoes/TerceiroDia/Sessao10/Helder.pdf
+> Ver aqui https://www.srh.ce.gov.br/plano-de-acoes-estrategicas-de-recursos-hidricos-do-ceara-pae-rh/
 https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigmas/
 
-   > INOVAÇÃO
-      > QUANDO:
-      > GOVERNO
+  
+
+
+  > DNOCS
+      > QUANDO: 21 de outubro de 1909, através do Decreto 7.619
+      > GOVERNO: Presidente Nilo Peçanha
       > O QUE É:
-      > OBJETIVO:
-      > DESCRIÇÃO:
-      > RESULTADOS:
-      > MAIS/FONTE:
-      Também das dunas a Oeste de Fortaleza, no Cumbuco, o Estado do Ceará está construído o primeiro Poço Direcional (poço com tramos horizontais) para captação de água do País. A técnica já é difundida mundialmente na exploração de petróleo. Em breve, estará produzindo água no Ceará.
+      > OBJETIVO:  tem por finalidade executar políticas do Governo Federal, no que se refere a beneficiamento de áreas e obras de proteção contra as secas e inundações, irrigação, radicação da população em comunidades de irrigantes e subsidiariamente, outros assuntos que lhe seja cometidos pelo Governo Federal, nos campos do saneamento básico, assistência às populações atingidas por calamidades públicas e cooperação com os Municípios, possuindo grande atuação no semiárido do Nordeste e norte de Minas Gerais
+      > DESCRIÇÃO: Criado sob o nome de Inspetoria de Obras Contra as Secas - IOCS,  foi o primeiro órgão a estudar a problemática do semiárido. O DNOCS recebeu ainda em 1919 (Decreto 13.687), o nome de Inspetoria Federal de Obras Contra as Secas - IFOCS antes de assumir sua denominação atual, que lhe foi conferida em 1945 (Decreto-Lei 8.486, de 28/12/1945⇲), vindo a ser transformado em autarquia federal, através da Lei n° 4.229, de 01/06/1963. Com a criação de órgãos especializados, o acervo de obras construídas pelo Departamento vinculado a ações "não hídricas", como rodovias, linhas de transmissão, ferrovias, portos, etc., foram àqueles transferidos. Posteriormente, transferiram-se aos Estados as redes de abastecimento urbano e à SUVALE, hoje CODEVASF, os Projetos públicos de Irrigação situados no vale do Rio São Francisco
+      > RESULTADOS:  Sendo, de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região, fez de tudo. Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.
+      > MAIS/FONTE: https://www2.dnocs.gov.br/
 
-      A captação de água dos leitos secos de rios e açudes não é propriamente uma inovação. Já é feita pelo sertanejo há séculos, explorando os aluviões nos períodos de maior escassez. Contudo, a construção de uma rede de poços dentro de um leito seco de uma barragem, ou a utilização de ponteiras próprias para rebaixamento de lençol freático na obtenção da última água do manancial, dá a dimensão do caráter inovador dessa gestão.
-
-   > REDE DE DADOS HIDROLOGICOS E METEOROLOGICOS
-      > QUANDO:  18 de setembro de 1972, pela lei Nº 9.618 (D.O. 26/09/72) - Fundação Cearense de Meteorologia e Chuvas Artificiais
-      > GOVERNO: ?
-      > O QUE É: 
-      > OBJETIVO: Os objetivos da Funceme hoje estão voltados para o desenvolvimento de tecnologias, pesquisas aplicadas e para a criação, manutenção e constante expansão de banco de dados, gerando todo um conjunto de informações meteorológicas, climatológicas, geográficas, ambientais, hidrográficas, e sobre a cobertura vegetal e solos do Estado do Ceará. Para tanto, desenvolve projetos e mantém convênios e acordos de cooperação técnica com diversos órgãos em nível Estadual, Nacional e Internacional
-      > DESCRIÇÃO: Inicialmente com personalidade jurídica de direito privado vinculada à Secretaria de Agricultura e Abastecimento. Na época seus objetivos eram muito limitados, pois ela se destinava preponderantemente à produção de chuvas artificiais e estudos de meteorologia aplicada no Estado do Ceará. Em 15 de dezembro de 1987, através da lei Nº 11.380 (D.O. 17/12/87), a Funceme teve seu nome modificado para Fundação Cearense de Meteorologia e Recursos Hídricos, passando a ser vinculada à Secretaria de Recursos Hídricos do Estado do Ceará.
-      > RESULTADOS: 
-      > MAIS/FONTE: http://www.funceme.br/index.php/instituicao/historico
-
-   > TARIFA DE CONTIGÊNCIA
-      > QUANDO: ?
-      > GOVERNO: ?
-      > O QUE É: O usuário de água tratada é sujeito a multa se não reduzir seu consumo.
-      > OBJETIVO: ?
-      > DESCRIÇÃO: ? 
-      > RESULTADOS: Nesse período, cresceu a disputa (legítima) pelo pouco de água que ainda resta nos reservatórios. Sobretudo no Vale do Jaguaribe, no qual se encontram os principais açudes do Estado: o Castanhão e o Orós. A agricultura irrigada tem sido o setor mais afetado, com restrições que já beiram os 80%. O Rio Jaguaribe deixou de ser perenizado, obrigando cidades do médio e baixo vale a retomarem seus antigos sistemas de abastecimento a partir de poços. Na Capital, a Companhia de Água e Esgoto do Ceará (Cagece) se desdobrou para reduzir as perdas por vazamentos na distribuição da água.
-        > MAIS/FONTE:
-      
-
-   > ADUTORAS
-      > QUANDO: ?
-      > GOVERNO: ?
-      > O QUE É: Adutoras de Montagem Rápida (AMRs). 
-      > OBJETIVO:
-      > DESCRIÇÃO: Solução nascida no âmbito do Grupo de Contingência, era o meio mais eficiente para restabelecer o serviço de abastecimento de água de sedes municipais, ao mesmo tempo em que era a forma mais eficaz de aproveitar o restante de água de alguns reservatórios mais resilientes. 
-      > RESULTADOS: No atual governo, mais de 350 km de AMRs já foram entregues à população de diversos municípios.
-      > MAIS/FONTE:
-   
-   > PERFURAÇÃO DE POÇOS
-      > QUANDO: ?
-      > GOVERNO: Camilo Santana 
-      > O QUE É: ?
-      > OBJETIVO: ?
-      > DESCRIÇÃO: Apesar do solo dos sertões cearenses ter pouca água subterrânea ela ainda costuma ter a qualidade comprometida em função das altas concentrações de sais. Foi com a certeza de que água ruim é aquela que não existe, que o Ceará iniciou o desenvolvimento do maior programa de construção de poços já visto no Ceará. 
-      > RESULTADOS: Mais de quatro mil poços construídos no atual governo. Cidades inteiras são hoje abastecidas com água subterrânea. Se o poço apresenta baixa vazão, instala-se chafariz. Não há água perdida. Um só município – Boa Viagem, no Sertão de Canindé – já recebeu mais de 200 poços na busca pelo mínimo de vazão que garanta o abastecimento. 
-      > MAIS/FONTE:
-
-  > CINTURÃO DAS ÁGUAS E SÃO FRANCISCO
-      > QUANDO: ?
-      > GOVERNO: ?
-      > O QUE É: Construção encabeçada pelo Ministério da Integração Nacional 
-      > OBJETIVO: Aumentar a garantia do abastecimento humano da região do Cariri, além de tornar mais eficiente a chegada da água para 3,5 milhões de habitantes da Região Metropolitana de Fortaleza. Os mais de 150 km de canais vão se interligar com a Transposição do São Francisco, levando as vazões excedentes para os açudes Castanhão e Óros. O trecho 1 da obra está com mais de 80% de execução e, ao todo, o CAC deve receber investimentos de mais de R$ 2 bilhões. Beneficiar mais de 12 milhões de pessoas, espalhadas pelos estados de Pernambuco, Ceará, Rio Grande do Norte e Paraíba
-      > DESCRIÇÃO:
-      > RESULTADOS:
-      > MAIS/FONTE:
-
-  > CISTERNAS
-      > QUANDO: ?
-      > GOVERNO: ?
-      > O QUE É: s cisternas são soluções simples para captar e armazenar a água da chuva durante os períodos de seca. 
-      > DESCRIÇÃO: O Programa Cisternas, coordenado pelo Ministério do Desenvolvimento Social (MDS) e que tem o Banco do Nordeste como um dos operadores na Região, é parte do Água para Todos. O programa também fornece capacitação para a convivência sustentável dos produtores com o Semiárido.
-      > OBJETIVO: garantir água de qualidade às populações rurais dispersas e em situação de extrema pobreza, para o consumo próprio, a produção de alimentos e a criação de animais
-      > RESULTADOS:  O BNB firmou 14 contratos de repasse com nove entidades sem fins lucrativos para construção de 21 mil cisternas, na Bahia, Ceará e Minas Gerais. A construção desses reservatórios foi acompanhada de perto pela equipe da instituição. foi reconhecido com o segundo lugar do Prêmio Internacional de Política para o Futuro 2017, da organização alemã World Future Council, em parceria com a Convenção das Nações Unidas de Combate à Desertificação. Mais de 24 mil famílias de agricultores dos três Estados foram capacitadas. 
-      > MAIS/FONTE:
-
-  > BANCO DO NORDESTE
+    > BANCO DO NORDESTE
       > QUANDO: 19/07/1952 
       > GOVERNO: Getúlio Vargas
       > O QUE É: O Banco do Nordeste do Brasil S.A. é uma instituição financeira múltipla, organizada sob a forma de sociedade de economia mista, de capital aberto e tem mais de 90% de seu capital sob o controle do Governo Federal. Desde sua criação, tem sede na cidade de Fortaleza, no Ceará.
@@ -238,7 +186,27 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
       > OBJETIVO:  Fomentar o desenvolvimento da região Nordeste que, assolada pelas constantes secas e pela escassez de recursos estáveis, carecia de um organismo financeiro capaz de estruturar sua economia.
       > RESULTADOS: Está presente em cerca de 2 mil municípios, abrangendo toda a área dos nove estados da Região Nordeste (Maranhão, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Sergipe e Bahia), além do  norte de Minas Gerais (incluindo os Vales do Mucuri e do Jequitinhonha) e o norte do Espírito Santo. Atualmente, mantém a liderança na aplicação de recursos de longo prazo e de crédito rural em sua área de atuação.
       > MAIS/FONTE:
+      
+    > AÇUDE OROS
+      > QUANDO: Conclusão em 1961.
+      > GOVERNO: Obra realizada no governo de Juscelino Kubistchek
+      > O QUE É: A obra na região centro-sul do Ceará, no município de Orós
+      > OBJETIVO:
+      > DESCRIÇÃO: A barragem do Orós suportou, embora em fase de construção, uma pressão muitas vezes superior ao seu nível de segurança. Todavia, parte da obra teve de ser sacrificada a dinamite, para evitar uma tragédia maior, que seria sua destruição total a um só tempo.
+        Depois dos problemas do início da construção do Açude Orós, o reservatório só levou benefícios para uma região que enfrenta a seca. Localizado no leito do Rio Jaguaribe, na região centro sul do Ceará, o Orós trouxe novas oportunidades para a população ribeirinha.
+        Era uma antiga promessa do DNOCS – Departamento Nacional de Obras contra as Secas – do que seria o maior reservatório do Nordeste, com 2 bilhões de metros cúbicos de água armazenada. 
+        Após muitos estudos de viabilidade, um engenheiro de Porto Alegre, chamado Casimiro Munarsky, sugeriu fazer-se o açude com parede de terra e em forma de arco, um pouco antes do boqueirão. Com a nova engenharia, o açude deixaria de comportar 4 bilhões de metros cúbicos de água, inicialmente projetados, e passaria a comportar 2 bilhões. , a construção do açude inundou alguns vilarejos próximos.
+      > RESULTADOS:  A água armazenada é usada para o consumo humano, para o plantio irrigado e favorece a pesca. O Orós também costuma atrair turistas e curiosos, que gostam de apreciar as belezas do segundo maior reservatório do Ceará.
+      > MAIS/FONTE:
 
+      > REDE DE DADOS HIDROLOGICOS E METEOROLOGICOS
+      > QUANDO:  18 de setembro de 1972, pela lei Nº 9.618 (D.O. 26/09/72) - Fundação Cearense de Meteorologia e Chuvas Artificiais
+      > GOVERNO: ?
+      > O QUE É: 
+      > OBJETIVO: Os objetivos da Funceme hoje estão voltados para o desenvolvimento de tecnologias, pesquisas aplicadas e para a criação, manutenção e constante expansão de banco de dados, gerando todo um conjunto de informações meteorológicas, climatológicas, geográficas, ambientais, hidrográficas, e sobre a cobertura vegetal e solos do Estado do Ceará. Para tanto, desenvolve projetos e mantém convênios e acordos de cooperação técnica com diversos órgãos em nível Estadual, Nacional e Internacional
+      > DESCRIÇÃO: Inicialmente com personalidade jurídica de direito privado vinculada à Secretaria de Agricultura e Abastecimento. Na época seus objetivos eram muito limitados, pois ela se destinava preponderantemente à produção de chuvas artificiais e estudos de meteorologia aplicada no Estado do Ceará. Em 15 de dezembro de 1987, através da lei Nº 11.380 (D.O. 17/12/87), a Funceme teve seu nome modificado para Fundação Cearense de Meteorologia e Recursos Hídricos, passando a ser vinculada à Secretaria de Recursos Hídricos do Estado do Ceará.
+      > RESULTADOS: 
+      > MAIS/FONTE: http://www.funceme.br/index.php/instituicao/historico
 
   > AÇUDE CASTANHÃO
       > QUANDO: A obra foi iniciada em 1995, durante o governo de Tasso Jereissati, e concluída em 23 de dezembro de 2002, pelo governador Beni Veras (PSDB)
@@ -249,6 +217,24 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
       > RESULTADOS: Suas águas são vocacionadas para o uso na agricultura irrigada, piscicultura, pesca (esportiva e de subsistência), lazer náutico, assim como, através da construção do Canal da Integração, este açude terá suas águas levadas para abastecimento da população da Grande Fortaleza e para o Complexo Portuário do Pecém, onde permitirá a implantação de um polo industrial. Não há uso atual como fonte hidroelétrica desta barragem.
       > MAIS/FONTE:
     
+> CISTERNAS
+      > QUANDO: 2003
+      > GOVERNO: Lula
+      > O QUE É: s cisternas são soluções simples para captar e armazenar a água da chuva durante os períodos de seca. 
+      > DESCRIÇÃO: O Programa Nacional de Apoio à Captação de Água de Chuva e outras Tecnologias Sociais (Programa Cisternas), financiado pelo MDS desde 2003 (acesse e conheça a legislação [CGR1] instituído pela Lei Nº 12.873/2013 e regulamentado pelo Decreto N° 8.038/2013). O Programa Cisternas, coordenado pelo Ministério do Desenvolvimento Social (MDS) e que tem o Banco do Nordeste como um dos operadores na Região, é parte do Água para Todos. O programa também fornece capacitação para a convivência sustentável dos produtores com o Semiárido.
+      > OBJETIVO:  objetivo a promoção do acesso à água para o consumo humano e para a produção de alimentos por meio da implementação de tecnologias sociais simples e de baixo custo.   garantir água de qualidade às populações rurais dispersas e em situação de extrema pobreza, para o consumo próprio, a produção de alimentos e a criação de animais
+      > RESULTADOS:  O BNB firmou 14 contratos de repasse com nove entidades sem fins lucrativos para construção de 21 mil cisternas, na Bahia, Ceará e Minas Gerais. A construção desses reservatórios foi acompanhada de perto pela equipe da instituição. foi reconhecido com o segundo lugar do Prêmio Internacional de Política para o Futuro 2017, da organização alemã World Future Council, em parceria com a Convenção das Nações Unidas de Combate à Desertificação. Mais de 24 mil famílias de agricultores dos três Estados foram capacitadas. Iniciativa do governo federal conquistou o segundo lugar no Prêmio Internacional de Política para o Futuro 2017 da organização alemã World Future Council
+      > MAIS/FONTE: http://mds.gov.br/area-de-imprensa/noticias/2017/agosto/programa-cisternas-e-uma-das-tres-melhores-politicas-publicas-do-mundo
+      http://mds.gov.br/assuntos/seguranca-alimentar/acesso-a-agua-1/programa-cisternas
+
+> ADUTORAS
+      > QUANDO: 2008
+      > GOVERNO: ?
+      > O QUE É: Adutoras de Montagem Rápida (AMRs). 
+      > OBJETIVO: atender às demandas hídricas do Estado, com a ampliação da estrutura hídrica de distribuição dos estoques d´água, fortalecer o sistema de abastecimento do Estado e dotar de maior eficiência a malha de transferência d´água para múltiplos usos, ligando as fontes hídricas permanentes aos centros consumidores de variadas categorias. 
+      > DESCRIÇÃO: Solução nascida no âmbito do Grupo de Contingência, era o meio mais eficiente para restabelecer o serviço de abastecimento de água de sedes municipais, ao mesmo tempo em que era a forma mais eficaz de aproveitar o restante de água de alguns reservatórios mais resilientes. 
+      > RESULTADOS: No atual governo, mais de 350 km de AMRs já foram entregues à população de diversos municípios.
+      > MAIS/FONTE: https://www.srh.ce.gov.br/programa-de-adutoras-de-multiplos-usos/
 
   > ÁGUA PARA TODOS
       > QUANDO: criado através do Decreto nº 7 535, de 26 de julho de 2011
@@ -264,50 +250,56 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
       Atualmente, o programa apoia a implementação das seguintes tecnologias em especial:
 
       a) Cisternas de consumo: reservatórios com capacidade para 16.000 litros para captação de água pluvial destinada ao consumo humano;
-
       b) Cisternas de produção: sistemas de captação de água pluvial destinada ao armazenamento de água para agricultores;
-
       c) Sistemas coletivos de abastecimento de água: sistemas de captação, adução, tratamento (quando necessário), reservação, e distribuição de água, oriunda de corpos d'água, poços ou nascentes;
-
       d) Barreiros ou pequenas barragens: pequenas contenções para captação de água da chuva que visam a atender à carência de água para produção agrícola e alimentar;
-
       e) Kits de irrigação: conjunto de utilitários - composto de caixa d'água, bomba, mangueira, dentre outros - reunidos para a formação de um pequeno sistema de irrigação, com capacidade para irrigar, por sistema de gotejamento, uma área de 500 a 2.000 metros quadrados;
-
       f) Barragens subterrâneas: escavações, até as rochas, de valas, cujas paredes são forradas por lonas de plástico, e, a seguir, preenchidas com o solo retirado, de forma a reter as águas pluviais sobre a rocha;
-
       g) Poços:  obras de captação de água subterrânea feita com o emprego de perfuratriz em um furo vertical.
 
+      > CINTURÃO DAS ÁGUAS E SÃO FRANCISCO
+      > QUANDO: 2013
+      > GOVERNO: Dilma Rousseff
+      > O QUE É: Construção encabeçada pelo Ministério da Integração Nacional 
+      > OBJETIVO: Aumentar a garantia do abastecimento humano da região do Cariri, além de tornar mais eficiente a chegada da água para 3,5 milhões de habitantes da Região Metropolitana de Fortaleza. Os mais de 150 km de canais vão se interligar com a Transposição do São Francisco, levando as vazões excedentes para os açudes Castanhão e Óros. O trecho 1 da obra está com mais de 80% de execução e, ao todo, o CAC deve receber investimentos de mais de R$ 2 bilhões. Beneficiar mais de 12 milhões de pessoas, espalhadas pelos estados de Pernambuco, Ceará, Rio Grande do Norte e Paraíba
+      > DESCRIÇÃO: O projeto Cinturão das Águas do Ceará se constitui de um grande sistema de canais que, se originam praticamente na entrada do chamado Eixo Norte do Projeto de Transposição de Águas do Rio São Francisco para o Nordeste Setentrional, à altura da cidade de Jati. Além de possibilitar a perenização do rio Acaraú, o Cinturão pode alimentar dois outros canais que ali se originarão na cota estimada de 370m do Rio Acaraú. A iniciativa permitirá a adução das águas transpostas para a maioria do território cearense, inclusive para as regiões mais secas do estado, bem como para aquelas de potencial turístico e econômico. 
+      > RESULTADOS: 
+      > MAIS/FONTE: https://especiais.opovo.com.br/cinturaodasaguas/
+      http://www.brasil.gov.br/governo/2013/07/obras-do-cinturao-das-aguas-sao-iniciadas-no-ceara
+      <<< mostrar uma foto do trajeto >>>
 
-    > AÇUDE OROS
-      > QUANDO: Conclusão em 1961.
-      > GOVERNO: Obra realizada no governo de Juscelino Kubistchek
-      > O QUE É: A obra na região centro-sul do Ceará, no município de Orós
-      > OBJETIVO:
-      > DESCRIÇÃO: A barragem do Orós suportou, embora em fase de construção, uma pressão muitas vezes superior ao seu nível de segurança. Todavia, parte da obra teve de ser sacrificada a dinamite, para evitar uma tragédia maior, que seria sua destruição total a um só tempo.
-        Depois dos problemas do início da construção do Açude Orós, o reservatório só levou benefícios para uma região que enfrenta a seca. Localizado no leito do Rio Jaguaribe, na região centro sul do Ceará, o Orós trouxe novas oportunidades para a população ribeirinha.
-        Era uma antiga promessa do DNOCS – Departamento Nacional de Obras contra as Secas – do que seria o maior reservatório do Nordeste, com 2 bilhões de metros cúbicos de água armazenada. 
-        Após muitos estudos de viabilidade, um engenheiro de Porto Alegre, chamado Casimiro Munarsky, sugeriu fazer-se o açude com parede de terra e em forma de arco, um pouco antes do boqueirão. Com a nova engenharia, o açude deixaria de comportar 4 bilhões de metros cúbicos de água, inicialmente projetados, e passaria a comportar 2 bilhões. , a construção do açude inundou alguns vilarejos próximos.
-      > RESULTADOS:  A água armazenada é usada para o consumo humano, para o plantio irrigado e favorece a pesca. O Orós também costuma atrair turistas e curiosos, que gostam de apreciar as belezas do segundo maior reservatório do Ceará.
-      > MAIS/FONTE:
-        
- 
-    > DNOCS
-      > QUANDO: 21 de outubro de 1909, através do Decreto 7.619
-      > GOVERNO: Presidente Nilo Peçanha
+   > PERFURAÇÃO DE POÇOS
+      > QUANDO: 2011 (conferir)
+      > GOVERNO: Camilo Santana 
+      > O QUE É: ?
+      > OBJETIVO: ?
+      > DESCRIÇÃO: Apesar do solo dos sertões cearenses ter pouca água subterrânea ela ainda costuma ter a qualidade comprometida em função das altas concentrações de sais. Foi com a certeza de que água ruim é aquela que não existe, que o Ceará iniciou o desenvolvimento do maior programa de construção de poços já visto no Ceará. 
+      > RESULTADOS: Mais de quatro mil poços construídos no atual governo. Cidades inteiras são hoje abastecidas com água subterrânea. Se o poço apresenta baixa vazão, instala-se chafariz. Não há água perdida. Um só município – Boa Viagem, no Sertão de Canindé – já recebeu mais de 200 poços na busca pelo mínimo de vazão que garanta o abastecimento. 
+      > MAIS/FONTE:    
+ -------------------- duvida se poe
+   > TARIFA DE CONTIGÊNCIA
+      > QUANDO: 02 de setembro de 2016
+      > GOVERNO: Camilo Santana
+      > O QUE É: O usuário de água tratada é sujeito a multa se não reduzir seu consumo.
+      > OBJETIVO: Conscientizar os consumidores de água quanto a economia da mesma
+      > DESCRIÇÃO: ? 
+      > RESULTADOS: Nesse período, cresceu a disputa (legítima) pelo pouco de água que ainda resta nos reservatórios. Sobretudo no Vale do Jaguaribe, no qual se encontram os principais açudes do Estado: o Castanhão e o Orós. A agricultura irrigada tem sido o setor mais afetado, com restrições que já beiram os 80%. O Rio Jaguaribe deixou de ser perenizado, obrigando cidades do médio e baixo vale a retomarem seus antigos sistemas de abastecimento a partir de poços. Na Capital, a Companhia de Água e Esgoto do Ceará (Cagece) se desdobrou para reduzir as perdas por vazamentos na distribuição da água.
+        > MAIS/FONTE: http://www.mpce.mp.br/wp-content/uploads/2015/12/Lei-Estadual-n%C2%BA16.103-2016-Tarifa-de-contingencia-pelo-uso-de-Recursos-Hidricos-em-situa%C3%A7%C3%A3o-de-escassez-hidrica.pdf
+        << grafico mostrando a baixa do consumo >>
+-----------------------------  
+    
+   > INOVAÇÃO/Poço Direcional
+      > QUANDO: 2017
+      > GOVERNO: Camilo Santana - Michel Temer
       > O QUE É:
-      > OBJETIVO:
-      > DESCRIÇÃO: Criado sob o nome de Inspetoria de Obras Contra as Secas - IOCS,  foi o primeiro órgão a estudar a problemática do semiárido. O DNOCS recebeu ainda em 1919 (Decreto 13.687), o nome de Inspetoria Federal de Obras Contra as Secas - IFOCS antes de assumir sua denominação atual, que lhe foi conferida em 1945 (Decreto-Lei 8.486, de 28/12/1945⇲), vindo a ser transformado em autarquia federal, através da Lei n° 4.229, de 01/06/1963. Com a criação de órgãos especializados, o acervo de obras construídas pelo Departamento vinculado a ações "não hídricas", como rodovias, linhas de transmissão, ferrovias, portos, etc., foram àqueles transferidos. Posteriormente, transferiram-se aos Estados as redes de abastecimento urbano e à SUVALE, hoje CODEVASF, os Projetos públicos de Irrigação situados no vale do Rio São Francisco
-      > RESULTADOS:  Sendo, de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região, fez de tudo. Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.
-      > MAIS/FONTE: https://www2.dnocs.gov.br/
+      > OBJETIVO: Reforçar o abastecimento hídrico da Região Metropolitana e dar autonomia ao Complexo Industrial e Portuário do Pecém (CIPP)
+      > DESCRIÇÃO: Operação da máquina perfuratriz para cavar o primeiro poço com furo horizontal e direcional de captação de água no País. A técnica, que é normalmente usada para extração de petróleo no fundo do mar, está sendo adaptada para as condições do solo arenoso e vai possibilitar o aproveitamento do aquífero Dunas/Cumbuco.
+      > RESULTADOS:
+      > MAIS/FONTE: https://www.ceara.gov.br/2017/05/31/ceara-tem-primeira-perfuracao-de-poco-horizontal-para-captacao-de-agua-do-pais/
 
 
     
 ------------------
-  # inspiração
-    Andrade (1970) estruturou as políticas de secas em quatro fases: 1) humanitária; 2) intervenção e sistematização com estudos e obras; 3) diferenciação; e 4) integração do desenvolvimento regional e promoção universitária. A fase humanitária refere-se à comiseração às vítimas das secas. A fase da intervenção, também denominada fase hidráulica, inicia-se com a criação da Inspetoria de Obras Contra as Secas em 1909. Nessa fase construíram-se açudes e sistematiza-se a rede de dados meteorológicos e hidrológicos. A fase de diferenciação inicia com a criação do Banco do Nordeste do Brasil (BNB) em 1951. A fase de desenvolvimento regional tem como marco o Seminário para o Desenvolvimento Econômico do Nordeste, realizado em Garanhuns (PE), de 26 de abril a 3 de maio de 1959.
-
-    s centraram-se na ideia de que a solução dos problemas da região envolvia reformas estruturais profundas. As ideias do Grupo de Trabalho de Desenvolvimento do Nordeste (GTDN) representam o eixo das mudanças das estratégias (Carvalho, 1988, p.227). A fase de reformas conservadoras, iniciada com o governo militar, relaciona-se às mudanças das prioridades definidas pelo GTDN. No período, as reformas da estrutura agrária priorizam os projetos de irrigação com mobilização dos recursos do Programa de Integração Nacional (Carvalho, 1988, p.233).
-
 --------------------
     O presidente Fernando Henrique Cardoso e o "ministro da seca", Raul Jungmann, anunciaram ontem uma série de programas emergenciais contra a seca no semi-árido nordestino, que abrangem recursos de R$ 4 bilhões neste ano. Desse total, apenas R$ 562 milhões são "dinheiro novo" -R$ 162 milhões para o programa Bolsa-Renda e R$ 400 milhões para o Seguro-Renda.
     No Bolsa-Renda, as famílias a serem selecionadas receberão R$ 60 por mês mais uma cesta básica. Famílias com mais de quatro pessoas deverão receber o dobro.
@@ -315,37 +307,14 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
 ---------------------
 http://faec.org.br/novo/propostas-e-estrategias-de-enfrentamento-da-seca-com-enfase-no-ceara/
 
-==============
-FRENTE CEARÁ CONTRA SECA/GRUPO DE CONTIGÊNCIA
-Participam do Grupo de Contingência – tanto de forma virtual, quanto presencial – vários secretários de Estado das pastas com interface com soluções hídricas, chefes de órgãos e autarquias, e o gabinete do Governador. O próprio chefe do Executivo se reúne mensalmente com parte da equipe. A integração de toda essa massa crítica vem garantindo agilidade nas respostas e a obtenção de soluções para graves problemas de abastecimento.
-
-“Fazemos essa reunião toda sexta-feira. Nela, nós passamos município por município do Ceará para constatar quais os que enfrentam maior crise. Assim hierarquizamos as nossas medidas quanto ao nível de criticidade desses municípios”, explica o secretário dos Recursos Hídricos, Francisco Teixeira. Segundo ele, nessas reuniões são decididas, por exemplo, a destinação das 17 máquinas perfuratrizes da Superintendência de Obras Hidráulicas (Sohidra). “Temos inúmeras demandas, quase sempre legítimas, mas é nessas reuniões, de acordo com critérios técnicos, que destinamos nossos esforços”, ensina
 =====================
 https://ww2.ibge.gov.br/home/estatistica/pesquisas/pesquisa_resultados.php?id_pesquisa=40
 ------------
 ARTIGO FONTE: http://www.scielo.br/pdf/rec/v17n1/v17n1a04.pdf
-=============
-olhar o DNOCS
 ===========
 OLHAR ESSEOUTRO ARTIGO:http://bibliotecadigital.fgv.br/ojs/index.php/rbe/article/viewFile/582/7932
 =========
 LER ISSO AQUI: http://www.integracao.gov.br/web/guest/programas-e-acoes-sih
-
-Há mudanças de foco ao longo dos debates. Primeiramente discutiu-se se as secas eram, ou não, um problema nacional que deveria ser objeto de políticas públicas. A aceitação da tese da seca combbm      - linha: entrada
-  -
-  -
-- barra: entrada
-  -
-  -
-- espacial
-  - colorido
-  - 
-
--> Definir paleta de cores
--> Iniciar modulos das funções dos gráficos
--> Colorir Site
--> Rodapé
--> cores
 
  -------------- contexto que eu acho que entraria em outro ponto
       Uma campanha foi implementada para legalizar as ligações clandestinas. A água da lavagem dos filtros de uma de suas estações de tratamento passou a ser reaproveitada. A Companhia de Gestão dos Recursos Hídricos (Cogerh) passou a exercer com maior rigor o controle da oferta e da demanda, literalmente forçando a Cagece a fazer mais com menos. Hoje, vive-se na Grande Fortaleza com 20% a menos de água do que se vivia em 2014.

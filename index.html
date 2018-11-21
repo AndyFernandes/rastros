@@ -31,6 +31,10 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/dc.min.js"></script>
 
+	<script src="https://cdn.jsdelivr.net/npm/vega@4.3.0/build/vega.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8/build/vega-lite.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0/build/vega-embed.js"></script>
+
 </head>
 
 <!-- CORPO -->
@@ -96,7 +100,7 @@
 				<p>Imagem do mapa do Ceará ou alguma imagem histórica da Seca?</p>
 			</div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_1'>
-				<p>Gráfico em Barra mostrando as diferenças entre as quadras para últimos 30 anos (inserir linha da média) + Mapa choropleth com valores médios de chuva por ano (nesse ou slide extra)(map interativo?)</p>
+				<button id="clique">Mais</button>
 			</div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'></div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_3'>
@@ -142,9 +146,7 @@
 	
 	<section class="scroll" id='scroll_2'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_2'>
-			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_5'>
-				<img src="res/dog1.jpg">
-			</div>
+			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_5'></div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_6'>
 				<img src="res/dog2.jpg">
 			</div>
@@ -363,10 +365,29 @@
 							"height": 728,
 							"xlabel":"Anos", "ylabel":"Precipitação" };
 
-			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__img_2", options)
+			chartLine(data, "Ano", "Total", "Régua de Precipitação", "#scroll__graphic__img_2", options)
 		})
 
-		
+		// Embed the visualization in the container with id `vis`
+		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
+			let options = { "color": "#428BCABB", "marker-size": 5, 
+							"width": 1028,
+							"height": 728,
+							"xlabel":"Anos", "ylabel":"Precipitação" };
+
+			groupedBarChart(data, "Ano", [1, 3], "Régua de Precipitação", "#scroll__graphic__img_1", options)
+		})
+
+		// var opt = {
+		// 	"renderer": "svg", 
+		// 	"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+		// }
+		// d3.json("vega/gpBarChart_01.json").then(function(spec) { 
+		// 	vegaEmbed("#scroll__graphic__img_5", spec, opt).then(function(view) {
+
+		// 	}) 
+		// });
+
 		// Execução da função de plotagem para scatterplots
 		// newData = []
 		// let promises = [

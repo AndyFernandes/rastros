@@ -1,0 +1,30 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+	"data": {"url": "data/metereologico/quadras_anuais.csv"},
+	"transform": [
+		{"filter": "datum.Ano > 2000"},
+		{"calculate": "datum['Quadra Chuvosa'] == 1 ? 'Quadra Chuvosa' : 'Resto Do Ano'", "as": "Periodo" }
+	],
+	"mark": "bar",
+	"encoding": {
+	"column": {"field": "Ano", "type": "ordinal" },
+		"y": {
+		  "aggregate": "sum",
+		  "field": "Total",
+		  "type": "quantitative",
+		  "axis": {"title": "Precipitação", "grid": false }
+	},
+		"x": {
+		  "field": "Periodo",
+		  "type": "nominal",
+		  "scale": {"rangeStep": 25},
+		  "axis": {"title": ""}
+	},
+		"color": {
+		  "field": "Periodo",
+		  "type": "nominal",
+		  "scale": {"range": ["#EA98D2", "#659CCA"] }
+		}
+	},
+	"config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1} }
+}

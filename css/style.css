@@ -279,6 +279,12 @@ animation: bounce 2s infinite;
 	margin: 0 auto;
 }
 
+.scroll__graphic__img button {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+}
+
 .scroll__graphic p {
 	text-align: center;
 	padding: 1rem;

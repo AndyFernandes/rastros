@@ -598,6 +598,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
     	w = options.width - margin.left - margin.right, 
     	h = options.height - margin.top - margin.bottom;
 
+
     var x0Scale = d3.scaleBand()
 					.range([0,w])            
 					.domain(categories)
@@ -660,8 +661,6 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 			.attr("y", function(d) { return yScale(d.value); })
 			.attr("height", function(d) { return h - yScale(d.value) })
 			.style("fill", function(d) { return colorScales[d.key](d.value) })
-			.on('mouseover', tip.show)
-  			.on('mouseout', tip.hide)
 
 	// Título do Gráfico e nome dos eixos
     svg.append("text")

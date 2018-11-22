@@ -512,7 +512,6 @@
 		init("#scroll_1");
 		init("#scroll_2");
 		init("#scroll_3");
-		init("#scroll_4");
 
 		/* SECTION 1 - O que é a Seca? */
 		// Gráfico de Linhas das Quadras a Partir dos Anos com Fundo Delimitado
@@ -532,7 +531,7 @@
 							"height": 728,
 							"xlabel":"Anos", "ylabel":"Precipitação" };
 
-			groupedBarChart(data, "Ano", [1, 3], "Régua de Precipitação", "#scroll__graphic__img_1", options)
+			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__img_1", options)
 		})
 
 		// var opt = {

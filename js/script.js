@@ -591,15 +591,12 @@ function barChart(dataset, x, y, labels, title, panel, options){
 // @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
 function groupedBarChart(dataset, x, classes, title, panel, options){
 
-    let categories = dataset.map(function(d) { return d[x]; })
-    						.filter(function(d) { return +d > d3.max(dataset, function(d) { return +d[x]-10; }); })
-    let labels = dataset.columns.slice(classes[0], classes[1]);
+	var newDataset = dataset.filter(function(d) { return +d[x] > d3.max(dataset, function(d) { return +d[x]-10; }); })
+    let categories = newDataset.map(function(d) { return d[x]; })
 
     var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
     	w = options.width - margin.left - margin.right, 
     	h = options.height - margin.top - margin.bottom;
-
-    var bar_size = (w / dataset.length)
 
     var x0Scale = d3.scaleBand()
 					.range([0,w])            
@@ -608,10 +605,10 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 
 	var x1Scale = d3.scaleBand()
 					.range([0, x0Scale.bandwidth()])            
-					.domain(labels);
+					.domain(classes);
 
     let yScale = d3.scaleLinear()
-		            .domain([0, d3.max(dataset, function(d) { return d3.max(labels, function(labels) { return +d[labels]; }); }) ]).nice()
+		            .domain([0, d3.max(dataset, function(d) { return d3.max(classes, function(labels) { return +d[labels]; }); }) ]).nice()
 		            .range([h,0]);	
 
     let xAxis = d3.axisBottom()
@@ -644,15 +641,14 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 	   )
 
 	var slice = svg.selectAll(".slice")
-				.data(dataset)
+				.data(newDataset)
 				.enter()
 				.append("g")
-				.filter(function(d) { return +d[x] > +d3.max(categories)-10 })
-					.attr("class", "slice g")
+					.attr("class", "slice")
 					.attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
 
 	slice.selectAll("rect")
-		.data(function(d) { return labels.map(function(key) { return {key: key, value: +d[key]}; }); })
+		.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
 		.enter()
 		.append("rect")
 			.attr("width", x1Scale.bandwidth())
@@ -665,7 +661,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
     svg.append("text")
        .attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
        .style("text-anchor", "middle")
-       .attr("font-family", "Segoe UI")
+       .attr("font-family", "Roboto")
        .attr("font-weight", "bold")
        .attr("font-size", "30px")
        .text(title);
@@ -673,7 +669,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
     svg.append("text")
            .attr("transform", "translate(" + (w/2) + "," + (h+35) + ")")
            .style("text-anchor", "middle")
-           .attr("font-family", "sans-serif")
+           .attr("font-family", "Roboto")
            .attr("font-size", "12px")
            .text(options.xlabel);
 	
@@ -683,7 +679,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 	   .attr("x",0 - (h / 2))
 	   .attr("dy", "1em")
 	   .style("text-anchor", "middle")
-	   .attr("font-family", "sans-serif")
+	   .attr("font-family", "Roboto")
 	   .attr("font-size", "12px")
 	   .text(options.ylabel);
 
@@ -692,90 +688,46 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
         .on("click", function() {
         	var max = Math.max(1988, d3.max(categories)-10)
 
-        	categories = dataset.map(function(d) { return d[x]; })
-								.filter(function(d) { return (+d <= max) && (+d > max-10); })
+        	newDataset = dataset.filter(function(d) { return (+d[x] <= max) && (+d[x] > max-10); })
+        	categories = newDataset.map(function(d) { return d[x]; })
 
-			console.log(max)
-		    x0Scale = d3.scaleBand()
-						.range([0,w])            
-						.domain(categories)
-						.padding(0.1);
+		    x0Scale.domain(categories)
+			x1Scale.range([0, x0Scale.bandwidth()])            
 
-			x1Scale = d3.scaleBand()
-						.range([0, x0Scale.bandwidth()])            
-						.domain(labels);
-
-		    xAxis = d3.axisBottom()
-			            .scale(x0Scale).tickSize(0);
-
-			// add the Y gridlines
-			svg.append("g").attr("transform", "translate(0," + h + ")")
-			                .attr("class", 'x_axis')
-			                .call(xAxis);
-
-			slice.selectAll("rect")
-				.data(dataset)
-				.exit()
-				.remove()
-
-			svg.selectAll(".slice g")
-                .data(dataset)
+			svg.selectAll(".slice")
+                .data([])
                 .exit()
                 .remove()
 
 			slice = svg.selectAll(".slice")
-						.data(dataset)
-						.enter()
-						.append("g")
-						.filter(function(d) { return (+d[x] <= max) && (+d[x] > max-10) })
-							.attr("class", "slice g")
-							.attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
-
-			svg.selectAll(".slice")
-                .data(dataset)
-                .filter(function(d) { return (+d[x] <= max) && (+d[x] > max-10) })
-                .transition()
-                .delay(100)
-                .duration(1000)
-                .attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
-
-			console.log("Teste")
-
-			svg.selectAll("rect")
-				.data(dataset)
-                .transition()
-                .delay(100)
-                .duration(1000)
-	                .attr("width", x1Scale.bandwidth())
-					.attr("y", function(d) { return yScale(0); })
-					.attr("height", function(d) { return h - yScale(0) })
+				.data(newDataset)
+				.enter()
+				.append("g")
+					.attr("class", "slice")
+					.attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
 
 			slice.selectAll("rect")
-				.data(function(d) { return labels.map(function(key) { return {key: key, value: +d[key]}; }); })
+				.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
 				.enter()
 				.append("rect")
 					.attr("width", x1Scale.bandwidth())
-					.style("fill", "#555544")
 					.attr("x", function(d) { return x1Scale(d.key); })
 					.attr("y", function(d) { return yScale(0); })
 					.attr("height", function(d) { return h - yScale(0) })
+					.style("fill", "#555544")
+
+			slice.selectAll("rect")
+					.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
 					.transition()
-	                .delay(1100)
+	                .delay(100)
 	                .duration(1000)
 					.attr("y", function(d) { return yScale(d.value); })
 					.attr("height", function(d) { return h - yScale(d.value) })
 
             svg.select(".x_axis")
                 .transition()
-                .delay(100)
-                .duration(1000)
+                .duration(100)
                 .call(xAxis)
-
-            svg.select(".y_axis")
-                .transition()
-                .delay(100)
-                .duration(1000)
-                .call(yAxis)
         })
 
  }

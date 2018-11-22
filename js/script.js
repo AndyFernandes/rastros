@@ -617,6 +617,17 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
     let yAxis = d3.axisLeft()
         		    .scale(yScale).ticks(10);
     
+    var legendColorScale = d3.scaleOrdinal()
+    						 .range(options.colorRange.map(function(d) { return d[0]; }))
+	var colorScales = {}
+	for (var i = 0; i < classes.length; i++) {
+		var colScale_aux = d3.scaleLinear()
+					.domain([0, d3.max(dataset, function(d) { return +d[classes[0]]; }) ])
+					.range(options.colorRange[i])
+
+		colorScales[classes[i]] = colScale_aux
+	}
+
 	// 1. Add the SVG to the page and employ #2
     var svg = d3.select(panel).append("svg")
 						        .attr("width", w + margin.left + margin.right)
@@ -632,13 +643,6 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 	svg.append("g").attr("transform", "translate(0," + 0 + ")")
 					.attr("class", 'y_axis')
 	                .call(yAxis);
-	svg.append('g')
-	   .attr('class', 'grid')
-	   .call(d3.axisLeft()
-		       .scale(yScale)
-		       .tickSize(-w, 0, 0)
-		       .tickFormat('')
-	   )
 
 	var slice = svg.selectAll(".slice")
 				.data(newDataset)
@@ -655,7 +659,9 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 			.attr("x", function(d) { return x1Scale(d.key); })
 			.attr("y", function(d) { return yScale(d.value); })
 			.attr("height", function(d) { return h - yScale(d.value) })
-			.style("fill", "#555544")
+			.style("fill", function(d) { return colorScales[d.key](d.value) })
+			.on('mouseover', tip.show)
+  			.on('mouseout', tip.hide)
 
 	// Título do Gráfico e nome dos eixos
     svg.append("text")
@@ -667,11 +673,11 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
        .text(title);
 
     svg.append("text")
-           .attr("transform", "translate(" + (w/2) + "," + (h+35) + ")")
-           .style("text-anchor", "middle")
-           .attr("font-family", "Roboto")
-           .attr("font-size", "12px")
-           .text(options.xlabel);
+       .attr("transform", "translate(" + (w/2) + "," + (h+35) + ")")
+       .style("text-anchor", "middle")
+       .attr("font-family", "Roboto")
+       .attr("font-size", "14px")
+       .text(options.xlabel);
 	
     svg.append("text")
 	   .attr("transform", "rotate(-90)")
@@ -680,16 +686,54 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 	   .attr("dy", "1em")
 	   .style("text-anchor", "middle")
 	   .attr("font-family", "Roboto")
-	   .attr("font-size", "12px")
+	   .attr("font-size", "14px")
 	   .text(options.ylabel);
 
+	var legend = svg.append("g")
+					.attr("font-family", "Roboto")
+					.attr("font-size", 12)
+					.attr("text-anchor", "end")
+					.selectAll("g")
+					.data(classes)
+					.enter().append("g")
+					.attr("transform", function(d, i) { return "translate(0," + i * 25 + ")"; });
+
+	legend.append("rect")
+			.attr("x", w - 19)
+			.attr("width", 19)
+			.attr("height", 19)
+			.attr("fill", legendColorScale);
+
+
+	legend.append("text")
+			.attr("x", w - 24)
+			.attr("y", 9.5)
+			.attr("dy", "0.32em")
+			.text(function(d) { return d; });
+
 	// Button
-	d3.select("#clique")
+	d3.select(options.button_next)
         .on("click", function() {
-        	var max = Math.max(1988, d3.max(categories)-10)
+        	var max = Math.min(2018, +d3.max(categories)+10)
 
         	newDataset = dataset.filter(function(d) { return (+d[x] <= max) && (+d[x] > max-10); })
+        	update(newDataset)
+        })
+
+    d3.select(options.button_prev)
+        .on("click", function() {
+        	var max = Math.max(1988, +d3.max(categories)-10)
+
+        	newDataset = dataset.filter(function(d) { return (+d[x] <= max) && (+d[x] > max-10); })
+        	update(newDataset)
+        })
+
+
+    function update(newDataset) {
         	categories = newDataset.map(function(d) { return d[x]; })
+
+        	d3.select(options.span_inf).text(d3.min(categories, function(d) { return +d} ))
+        	d3.select(options.span_sup).text(d3.max(categories, function(d) { return +d} ))
 
 		    x0Scale.domain(categories)
 			x1Scale.range([0, x0Scale.bandwidth()])            
@@ -714,7 +758,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 					.attr("x", function(d) { return x1Scale(d.key); })
 					.attr("y", function(d) { return yScale(0); })
 					.attr("height", function(d) { return h - yScale(0) })
-					.style("fill", "#555544")
+					.style("fill", function(d) { return colorScales[d.key](d.value) })
 
 			slice.selectAll("rect")
 					.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
@@ -728,7 +772,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
                 .transition()
                 .duration(100)
                 .call(xAxis)
-        })
+        }
 
  }
 

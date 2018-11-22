@@ -100,7 +100,11 @@
 				<p>Imagem do mapa do Ceará ou alguma imagem histórica da Seca?</p>
 			</div>
 			<div class='scroll__graphic__img right_panel' id='scroll__graphic__img_1'>
-				<button id="clique">Mais</button>
+				<div class="button_panel">
+					<div><button id="bt_prev_gpBar_01">Prev</button></div>
+					<div><p><span id="infSpan_gpBar_01">2008</span> - <span id="supSpan_gpBar_01">2018</span></p></div>
+					<div><button id="bt_next_gpBar_01">Next</button></div>
+				</div>
 			</div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'></div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_3'>
@@ -526,10 +530,12 @@
 
 		// Embed the visualization in the container with id `vis`
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
-			let options = { "color": "#428BCABB", "marker-size": 5, 
-							"width": 1028,
-							"height": 728,
-							"xlabel":"Anos", "ylabel":"Precipitação" };
+			let options = { "width": 1028, "height": 728,
+							"xlabel":"Anos", "ylabel":"Precipitação",
+							"colorRange": [["#52a552", "#244924"], ["#d9534f", "#56211f"]],
+							"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
+							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01"
+						};
 
 			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__img_1", options)
 		})

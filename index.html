@@ -105,6 +105,9 @@
 					<div><p><span id="infSpan_gpBar_01">2008</span> - <span id="supSpan_gpBar_01">2018</span></p></div>
 					<div><button id="bt_next_gpBar_01">Next</button></div>
 				</div>
+				<div id="ttip_gpBar_01" class="hidden">
+					<p><span id="ttip_gpBar_01_text"></span></p>
+				</div>
 			</div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_2'></div>
 			<div class='scroll__graphic__img left_panel' id='scroll__graphic__img_3'>
@@ -534,7 +537,8 @@
 							"xlabel":"Anos", "ylabel":"Precipitação",
 							"colorRange": [["#52a552", "#244924"], ["#d9534f", "#56211f"]],
 							"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
-							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01"
+							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01",
+							"tooltip": "#ttip_gpBar_01", "tooltip_text": "#ttip_gpBar_01_text"
 						};
 
 			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__img_1", options)

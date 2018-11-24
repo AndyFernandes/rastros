@@ -5,7 +5,9 @@
 </head>
 <body>
   <div id="vis"></div>
-  <div class="vega-bind"><span class="vega-bind-name">scale</span><input id="dado" type="range" name="scale" min="1990" max="2000" step="1"><label>2000</label></div>
+  <div class="vega-bind"><span class="vega-bind-name">scale</span>
+  <input id="dado" type="range" name="scale" min="1990" max="2000" step="1"><label>2000</label></div>
+  
   <script type="text/javascript">
     var vlSpec = {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
@@ -66,7 +68,7 @@
       "type": "shape",
       "from": {"data": "counties"},
       "encode": {
-        "enter": { "tooltip": {"field": "Nome"}},
+        "enter": { "tooltip": {"field": "Nome", "title": "Municipio"}},
         "update": { "fill": {"scale": "color", "field": "chuva_total"} },
         "hover": { "fill": {"value": "red"} }
       },
@@ -76,31 +78,32 @@
     }
   ]
 }
-  
-	vegaEmbed('#vis', vlSpec).then(function(res) {
-	    var loader = vega.loader(); 	
-            let dado_input = document.querySelector('#dado');
-	    loader.load('data/1995.csv').then(function(data) {
-	  		data = vega.read(data, {type: 'csv', parse: 'auto'});
-	    		var changeSet = vega.changeset().insert(data).remove();
-			res.view.change('unemp', changeSet).run();
-		});
-
-	    dado_input.addEventListener("mouseup", function(event){
-	    console.log(dado_input.value); 
-	    
-	          
-	loader.load('data/'+String(dado_input.value)+'.csv').then(function(data) {
-  		data = vega.read(data, {type: 'csv', parse: 'auto'});
-    		var changeSet = vega.changeset().insert(data).remove();
-		res.view.change('unemp', changeSet).run();
-	});
-        	
-	    
-		
-	   });
-	
+ 
+  vegaEmbed('#vis', vlSpec, {"renderer": "svg"}).then(function(res) {
+    var loader = vega.loader(); 	
+    let dado_input = document.querySelector('#dado');
+    
+    loader.load('data/1995.csv').then(function(data) {
+      data = vega.read(data, {type: 'csv', parse: 'auto'});
+      var changeSet = vega.changeset().insert(data).remove();
+      res.view.change('unemp', changeSet).run();
     });
+
+    dado_input.addEventListener("mouseup", function(event){
+      console.log(dado_input.value); 
+      
+      loader.load('data/'+String(dado_input.value)+'.csv').then(function(data) {
+        data = vega.read(data, {type: 'csv', parse: 'auto'});
+        var changeSet = vega.changeset().insert(data).remove();
+        res.view.change('unemp', changeSet).run();
+      });
+
+      
+
+      vegaTooltip.vegaLite(res.view, vlSpec, tooltipOption);
+    });
+
+  });
     
 
     

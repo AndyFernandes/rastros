@@ -661,6 +661,12 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 			.attr("y", function(d) { return yScale(d.value); })
 			.attr("height", function(d) { return h - yScale(d.value) })
 			.style("fill", function(d) { return colorScales[d.key](d.value) })
+			.on('mouseover', function(d) {
+				d3.select(this).style("fill", d3.rgb(colorScales[d.key](d.value)).darker(1))
+			})
+  			.on('mouseout', function(d) {
+  				d3.select(this).style("fill", colorScales[d.key](d.value))
+  			})
 
 	// Título do Gráfico e nome dos eixos
     svg.append("text")
@@ -729,49 +735,49 @@ function groupedBarChart(dataset, x, classes, title, panel, options){
 
 
     function update(newDataset) {
-        	categories = newDataset.map(function(d) { return d[x]; })
+		categories = newDataset.map(function(d) { return d[x]; })
 
-        	d3.select(options.span_inf).text(d3.min(categories, function(d) { return +d} ))
-        	d3.select(options.span_sup).text(d3.max(categories, function(d) { return +d} ))
+		d3.select(options.span_inf).text(d3.min(categories, function(d) { return +d} ))
+		d3.select(options.span_sup).text(d3.max(categories, function(d) { return +d} ))
 
-		    x0Scale.domain(categories)
-			x1Scale.range([0, x0Scale.bandwidth()])            
+		x0Scale.domain(categories)
+		x1Scale.range([0, x0Scale.bandwidth()])            
 
-			svg.selectAll(".slice")
-                .data([])
-                .exit()
-                .remove()
+		svg.selectAll(".slice")
+		    .data([])
+		    .exit()
+		    .remove()
 
-			slice = svg.selectAll(".slice")
-				.data(newDataset)
-				.enter()
-				.append("g")
-					.attr("class", "slice")
-					.attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
+		slice = svg.selectAll(".slice")
+			.data(newDataset)
+			.enter()
+			.append("g")
+				.attr("class", "slice")
+				.attr("transform", function(d) { return "translate(" + x0Scale(d[x]) + ",0)"; });
 
-			slice.selectAll("rect")
+		slice.selectAll("rect")
+			.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
+			.enter()
+			.append("rect")
+				.attr("width", x1Scale.bandwidth())
+				.attr("x", function(d) { return x1Scale(d.key); })
+				.attr("y", function(d) { return yScale(0); })
+				.attr("height", function(d) { return h - yScale(0) })
+				.style("fill", function(d) { return colorScales[d.key](d.value) })
+
+		slice.selectAll("rect")
 				.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
-				.enter()
-				.append("rect")
-					.attr("width", x1Scale.bandwidth())
-					.attr("x", function(d) { return x1Scale(d.key); })
-					.attr("y", function(d) { return yScale(0); })
-					.attr("height", function(d) { return h - yScale(0) })
-					.style("fill", function(d) { return colorScales[d.key](d.value) })
+				.transition()
+		        .delay(100)
+		        .duration(1000)
+				.attr("y", function(d) { return yScale(d.value); })
+				.attr("height", function(d) { return h - yScale(d.value) })
 
-			slice.selectAll("rect")
-					.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
-					.transition()
-	                .delay(100)
-	                .duration(1000)
-					.attr("y", function(d) { return yScale(d.value); })
-					.attr("height", function(d) { return h - yScale(d.value) })
-
-            svg.select(".x_axis")
-                .transition()
-                .duration(100)
-                .call(xAxis)
-        }
+		svg.select(".x_axis")
+		    .transition()
+		    .duration(100)
+		    .call(xAxis)
+    }
 
  }
 

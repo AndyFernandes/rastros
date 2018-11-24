@@ -227,6 +227,31 @@ animation: bounce 2s infinite;
 	margin-left: 35%
 }
 
+#ttip_gpBar_01 {
+	position: absolute;
+	width: 100px;
+	height: auto;
+	padding: 10px;
+	background-color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+}
+
+#ttip_gpBar_01 .hidden {
+	display: none;
+}
+
+#ttip_gpBar_01 p {
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 12px;
+	line-height: 30px;
+}
 
 
 /* ####################################

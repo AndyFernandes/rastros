@@ -184,8 +184,8 @@ function init(selector) {
 //     FUNÇÕES DE VISUALIZAÇÃO
 // ###############################
 
-// Função SCATTER: gera um gráfico de pontos (scatterplot) bivariados para determinado conjunto de dados.
-// @dataset 	Conjunto de dados de entrada 
+// Função CHARTLINE: gera um gráfico de linhas para determinado conjunto de dados.
+// @data 		Conjunto de dados de entrada 
 // @attX		Nome do atributo a ser projeto no eixo X 
 // @attY		Nome do atributo a ser projeto no eixo Y 
 // @title 		Título do gráfico a ser exibido
@@ -455,11 +455,10 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 // @dataset 	Conjunto de dados de entrada 
 // @x 			Nome do atributo a ser projeto no eixo X 
 // @y 			Nome do atributo a ser projeto no eixo Y 
-// @labels 		Nome do atributo a ser extraído como título de cada ponto 
 // @title 		Título do gráfico a ser exibido
 // @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
 // @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
-function barChart(dataset, x, y, labels, title, panel, options){
+function barChart(dataset, x, y, title, panel, options){
     let parseDate = d3.timeParse("%Y");
     let label = []
     let values = []
@@ -581,11 +580,10 @@ function barChart(dataset, x, y, labels, title, panel, options){
 	   .text(y);
  }
 
-// Função BAR CHART: gera um gráfico de barras para determinado conjunto de dados.
+// Função GROUPED BAR CHART: gera um gráfico de barras agrupado para determinado conjunto de dados.
 // @dataset 	Conjunto de dados de entrada 
 // @x 			Nome do atributo a ser projeto no eixo X 
-// @y 			Nome do atributo a ser projeto no eixo Y 
-// @labels 		Nome do atributo a ser extraído como título de cada ponto 
+// @classes 	Nome dos atributos a serem agrupados no eixo Y 
 // @title 		Título do gráfico a ser exibido
 // @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
 // @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
@@ -780,6 +778,42 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
     }
 
  }
+
+// Função DOTTED MAP: gera um mapa com conjunto de pontos sobrepostos.
+// @dataset 	Caminho para o arquivo de dados de entrada para os pontos
+// @x 			Nome do atributo a ser projeto como tamanho dos pontos
+// @labels 		Nome do atributo contendo os identificadores de cada ponto
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+function dottedMap(dataset, x, labels, title, panel, options) {
+	var opt = {
+		"renderer": "svg", 
+		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+	}
+
+	d3.json("../vega/overDotMap.json").then(function(spec) { 
+		// General properties
+		spec["width"] = options.width
+		spec["height"] = options.height
+
+		// // Map configuration
+		spec["layer"][0]["mark"]["fill"] = options.mapFill
+		spec["layer"][0]["mark"]["stroke"] = options.mapStroke
+
+		// // Points configuration
+		spec["layer"][1]["data"]["url"] = dataset
+		spec["layer"][1]["encoding"]["tooltip"][0]["field"] = labels
+		spec["layer"][1]["encoding"]["tooltip"][1]["field"] = x
+		spec["layer"][1]["encoding"]["size"]["field"] = x
+		spec["layer"][1]["encoding"]["size"]["scale"]["range"] = [0, options.sizeScale]
+		spec["layer"][1]["encoding"]["size"]["legend"]["title"] = options.legendTitle
+		spec["layer"][1]["encoding"]["color"]["value"] = options.color
+
+		vegaEmbed(panel, spec, opt).then(function(view) {}) 
+	});
+}
+
 
 // ######################
 //     FUNÇÕES GERAIS

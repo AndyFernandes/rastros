@@ -1,11 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "width": 800,
-  "height": 600,
   "layer": [
     {
       "data": {
-        "url": "vega/data/ceara.topojson",
+        "url": "data/ceara.topojson",
         "format": {
           "type": "topojson",
           "feature": "ceara"
@@ -15,15 +13,11 @@
         "type": "mercator"
       },
       "mark": {
-        "type": "geoshape",
-        "fill": "gray",
-        "stroke": "white"
+        "type": "geoshape"
       }
     },
     {
-      "data": {
-        "url": "data/reservatorios/relatorio_anual/relatorio_2011.csv"
-      },
+      "data": {},
       "transform": [
 				{ "filter": "datum.Latitude != 0"},
 				{ "filter": "datum.Longitude != 0"}
@@ -42,20 +36,18 @@
           "type": "quantitative"
         },
         "tooltip": [ 
-        	{ "field": "Nome", "type": "ordinal" },
-        	{ "field": "Volume Util (hm3)", "type": "quantitative" } 
+        	{ "type": "ordinal" },
+        	{ "type": "quantitative" } 
         ],
         "size": { 
-        	"field": "Volume Util (hm3)", 
         	"type": "quantitative", 
-        	"scale": {"range": [0, 10000]},
+        	"scale": { },
         	"legend": { 
-        		"title": "Volume Útil (hm3)", 
         		"clipHeight": 50,
         		"tickCount": 10
         	}
         },
-        "color": { "value": "#2222FFAA" }
+        "color": { }
       }
     }
   ]

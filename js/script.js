@@ -244,6 +244,10 @@ function chartLine(data, attX, attY, title, idDiv, options){
 			    .y(function(d) { return yScale(d[attY]); }); 
 
 
+	var div = d3.select("body").append("div")	
+    .attr("class", "stickerr")				
+    .style("opacity", 0);
+
 	// Add the SVG to the page and employ #2
 	var svg = d3.select(idDiv).append("svg")
 	    .attr("width", width + margin.left + margin.right)
@@ -309,6 +313,19 @@ function chartLine(data, attX, attY, title, idDiv, options){
 	    .attr("cx", function(d) { return xScale(d[attX]) })
 	    .attr("cy", function(d) { return yScale(d[attY]) })
 	    .attr("r", 5)
+	    .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            div	.html("<b>Precipitação: </b>" + Number(d[attY].toPrecision(3)) + "<br><b>Ano: </b>" + d[attX].getFullYear())	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })					
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        })
 	    .style("fill", options['color']);
 
 	// Title

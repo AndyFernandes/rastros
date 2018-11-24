@@ -114,9 +114,7 @@
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart left_panel'></div>
-			<div class='scroll__graphic__chart right_panel'>
-				<p>MOSTRAR AQUI UM GRÁFICO BARRA RANKEADO MOSTRANDO O VOLUME ACUMULADO DOS RESERVATÓRIOS DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DO VOLUME NESSES PERÍODOS)(MOSTRAR SÓ OS RESERVATÓRIOS COM MAIOR VOLUME DURANTE A QUADRA CHUVOSA) + POSSÍVEL GRÁFICO ASSOCIADO A VEGETAÇÃO (?)</p>
-			</div>
+			<div class='scroll__graphic__chart right_panel'></div>
 		</div>
 
 		<div class='scroll__text' id='scroll__text_1'>
@@ -572,6 +570,11 @@
 
 		d3.json("vega/stackBarChart_01.json").then(function(spec) { 
 			vegaEmbed("#scroll__graphic__chart_4", spec, opt).then(function(view) {}) 
+		});
+
+		// Mapa de Pontos mostrando o volume total dos reservatórios por ano
+		d3.json("vega/overDotMap.json").then(function(spec) { 
+			vegaEmbed("#scroll__graphic__chart_5", spec, opt).then(function(view) {}) 
 		});
 
 

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "width": 800,
+  "height": 600,
+  "layer": [
+    {
+      "data": {
+        "url": "vega/data/ceara.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ceara"
+        }
+      },
+      "projection": {
+        "type": "mercator"
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "gray",
+        "stroke": "white"
+      }
+    }
+  ]
+}

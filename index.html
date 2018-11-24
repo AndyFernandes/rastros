@@ -105,17 +105,15 @@
 					<div><p><span id="infSpan_gpBar_01">2008</span> - <span id="supSpan_gpBar_01">2018</span></p></div>
 					<div><button id="bt_next_gpBar_01">Next</button></div>
 				</div>
-				<div id="ttip_gpBar_01" class="hidden">
+				<!-- <div id="ttip_gpBar_01" class="hidden">
 					<p><span id="ttip_gpBar_01_text"></span></p>
-				</div>
+				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
 				<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
-			<div class='scroll__graphic__chart left_panel'>
-				<p>MOSTRAR AQUI UM GRÁFICO BARRA EMPILHADO MOSTRANDO A MÉDIA DE PRODUÇÃO DE CADA CULTURA DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DA PRODUÇÃO NESSES MESES) NOS ÚLTIMOS ANOS. (GRAFICO AGRUPADO DE DIFERENÇAS) (SÓ OS 10 PRODUTOS MAIS PRODUZIDOS)</p>
-			</div>
+			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart right_panel'>
 				<p>MOSTRAR AQUI UM GRÁFICO BARRA RANKEADO MOSTRANDO O VOLUME ACUMULADO DOS RESERVATÓRIOS DURANTE A QUADRA CHUVOSA VERSUS RESTO DO ANO (TIRAR A MÉDIA DO VOLUME NESSES PERÍODOS)(MOSTRAR SÓ OS RESERVATÓRIOS COM MAIOR VOLUME DURANTE A QUADRA CHUVOSA) + POSSÍVEL GRÁFICO ASSOCIADO A VEGETAÇÃO (?)</p>
 			</div>
@@ -539,29 +537,38 @@
 		init("#scroll_3");
 
 		/* SECTION 1 - O que é a Seca? */
-		// Gráfico de Linhas das Quadras a Partir dos Anos com Fundo Delimitado
-		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
-			let options = { "color": "#428BCABB", "marker-size": 5, 
-							"width": 1028,
-							"height": 728,
-							"xlabel":"Anos", "ylabel":"Precipitação" };
-
-			chartLine(data, "Ano", "Total", "Régua de Precipitação", "#scroll__graphic__chart_3", options)
-		})
-
-		// Embed the visualization in the container with id `vis`
+		// Gráfico de Barra Agrupada de Precipitação nas Quadras ao longo dos anos
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
 			let options = { "width": 1028, "height": 728,
 							"xlabel":"Anos", "ylabel":"Precipitação",
 							"colorRange": [["#52a552", "#244924"], ["#d9534f", "#56211f"]],
 							"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
-							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01",
-							"tooltip": "#ttip_gpBar_01", "tooltip_text": "#ttip_gpBar_01_text"
+							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01"
 						};
 
 			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_1", options)
 		})
 
+		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
+		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
+			let options = { "color": "#428BCA", "marker-size": 5, 
+							"width": 1028,
+							"height": 728,
+							"xlabel":"Anos", "ylabel":"Precipitação" };
+
+			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_3", options)
+		})
+
+		
+		// Gráfico de Barra Empilhada de área agrícola colhida por ano
+		var opt = {
+			"renderer": "svg", 
+			"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+		}
+
+		d3.json("vega/stackBarChart_01.json").then(function(spec) { 
+			vegaEmbed("#scroll__graphic__chart_4", spec, opt).then(function(view) {}) 
+		});
 
 
 

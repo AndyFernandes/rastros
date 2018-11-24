@@ -589,7 +589,7 @@ function barChart(dataset, x, y, labels, title, panel, options){
 // @title 		Título do gráfico a ser exibido
 // @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
 // @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
-function groupedBarChart(dataset, x, classes, title, panel, options){
+function groupedBarChart(dataset, x, classes, title, panel, options) {
 
 	var newDataset = dataset.filter(function(d) { return +d[x] > d3.max(dataset, function(d) { return +d[x]-10; }); })
     let categories = newDataset.map(function(d) { return d[x]; })

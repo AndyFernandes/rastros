@@ -1,11 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "width": 800,
-  "height": 600,
   "layer": [
     {
       "data": {
-        "url": "vega/data/ceara.topojson",
+        "url": "data/ceara.topojson",
         "format": {
           "type": "topojson",
           "feature": "ceara"
@@ -15,9 +13,41 @@
         "type": "mercator"
       },
       "mark": {
-        "type": "geoshape",
-        "fill": "gray",
-        "stroke": "white"
+        "type": "geoshape"
+      }
+    },
+    {
+      "data": {},
+      "transform": [
+				{ "filter": "datum.Latitude != 0"},
+				{ "filter": "datum.Longitude != 0"}
+			],
+      "projection": {
+        "type": "mercator"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "tooltip": [ 
+        	{ "type": "ordinal" },
+        	{ "type": "quantitative" } 
+        ],
+        "size": { 
+        	"type": "quantitative", 
+        	"scale": { },
+        	"legend": { 
+        		"clipHeight": 50,
+        		"tickCount": 10
+        	}
+        },
+        "color": { }
       }
     }
   ]

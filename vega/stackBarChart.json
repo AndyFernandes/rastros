@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "data": { },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "type": "ordinal"
+    },
+    "y": {
+      "aggregate": "sum",
+      "type": "quantitative"
+    },
+    "color": {
+      "type": "nominal",
+      "scale": { },
+      "legend": { }
+    }
+  }
+}

@@ -779,6 +779,37 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 
  }
 
+// Função STACKED BAR CHART: gera um gráfico de barras empilhadas
+// @dataset 	Caminho para o arquivo de dados de entrada para os pontos
+// @x 			Nome do atributo a ser projeto como tamanho dos pontos
+// @y 			Nome do atributo a ser projeto como tamanho dos pontos
+// @labels 		Nome do atributo contendo os identificadores de cada ponto
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+function stackBarChart(dataset, x, y, labels, title, panel, options) {
+	var opt = {
+		"renderer": "svg", 
+		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+	}
+
+	d3.json("../vega/stackBarChart.json").then(function(spec) { 
+		// General properties
+		spec["width"] = options.width
+		spec["height"] = options.height
+
+		// Bar configuration
+		spec["data"]["url"] = dataset
+		spec["encoding"]["x"]["field"] = x
+		spec["encoding"]["y"]["field"] = y
+		spec["encoding"]["color"]["field"] = labels
+		spec["encoding"]["color"]["scale"]["range"] = options.colors
+		spec["encoding"]["color"]["legend"]["title"] = options.legendTitle
+
+		vegaEmbed(panel, spec, opt).then(function(view) {}) 
+	});
+}
+
 // Função DOTTED MAP: gera um mapa com conjunto de pontos sobrepostos.
 // @dataset 	Caminho para o arquivo de dados de entrada para os pontos
 // @x 			Nome do atributo a ser projeto como tamanho dos pontos

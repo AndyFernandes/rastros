@@ -563,14 +563,13 @@
 
 		
 		// Gráfico de Barra Empilhada de área agrícola colhida por ano
-		var opt = {
-			"renderer": "svg", 
-			"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
-		}
+		var filePath = "data/agricola/areacolhida_ceara.csv"
+		var options = { "width": 800, "height": 600,
+						"legendTitle": "Area Colhida (hectares)",
+						"colors": ["#2222FF", "#21113FF", "#A22FF0", "#FF7213", "#F2020F", "#5A1137"]
+					};
 
-		d3.json("vega/stackBarChart_01.json").then(function(spec) { 
-			vegaEmbed("#scroll__graphic__chart_4", spec, opt).then(function(view) {}) 
-		});
+		stackBarChart(filePath, "Data", "Area Colhida (hct)", "Produto", "Area Colhida por Cultura", "#scroll__graphic__chart_4", options)
 
 		// Mapa de Pontos mostrando o volume total dos reservatórios por ano
 		var filePath = "data/reservatorios/relatorio_anual/relatorio_2011.csv"

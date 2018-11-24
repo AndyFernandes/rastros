@@ -12,7 +12,7 @@ function init(selector) {
 	var scroller = scrollama();
 
 	// Inicialmente esconde todas os gráficos no scrollytelling
-	container.selectAll(".scroll__graphic__img")._groups
+	container.selectAll(".scroll__graphic__chart")._groups
 		 .forEach(function(d, i) {
 		  $(d).hide()
 	   })
@@ -49,10 +49,10 @@ function init(selector) {
 						: $("#step_"+(response.index+1)).children();
 
 		// Armazena os gráficos específicos do step atual e anterior
-		var actGraph = $("#scroll__graphic__img_"+(response.index));
+		var actGraph = $("#scroll__graphic__chart_"+(response.index));
 		var prevGraph = (response.direction == 'down') ? 
-						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
-						 : $("#scroll__graphic__img_"+(response.index+1));
+						 $("#scroll__graphic__chart_"+(Math.max(0,response.index-1))) 
+						 : $("#scroll__graphic__chart_"+(response.index+1));
 
 		// Posiciona os gráficos e a caixa de texto de acordo com a classe do painel
 		if(actGraph.hasClass("left_panel")) {
@@ -82,8 +82,8 @@ function init(selector) {
 	
 		// Armazena os gráficos específicos do step anterior
 		var prevGraph = (response.direction == 'down') ? 
-						 $("#scroll__graphic__img_"+(Math.max(0,response.index-1))) 
-						 : $("#scroll__graphic__img_"+(response.index+1));
+						 $("#scroll__graphic__chart_"+(Math.max(0,response.index-1))) 
+						 : $("#scroll__graphic__chart_"+(response.index+1));
 
 		// Armazena os textos específicos do step atual e anterior
 		var prevText = (response.direction == 'down') ? 

@@ -297,7 +297,7 @@ animation: bounce 2s infinite;
 	bottom: 0;
 }
 
-.scroll__graphic__img {
+.scroll__graphic__chart {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);

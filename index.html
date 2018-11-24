@@ -110,7 +110,10 @@
 				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>
+				<!--<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>-->
+				<div id="vis"></div>
+  				<div class="vega-bind"><span class="vega-bind-name">scale</span>
+  				<input id="dado" type="range" name="scale" min="1990" max="2000" step="1"><label>2000</label></div>
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -584,9 +587,21 @@
 					};
 
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_5", options)
+		
 
+		var filePath = "vega/data/"
+		options = {
+			"width":1000, "height":600,
+			"field_name": ["chuva_total","Nome"],
+			"min_value": 0,"max_value": 1000,
+			"color": "blues" ,"n_colors" : 10,
+			"Id_div" : '#vis' ,"Id_mouse": '#dado',
+			"initial_data": 'vega/data/1995.csv',
+			"Title" : "Precipitacao anual"
 
-
+			}
+		
+		choroplethMap(filePath,options)
 		// var opt = {
 		// 	"renderer": "svg", 
 		// 	"actions": { "export":false, "source":false, "compiled":false, "editor":false } 

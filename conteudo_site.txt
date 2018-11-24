@@ -85,27 +85,11 @@ Abaixo, a cronologia mais precisa da Funceme (com os milímetros de precipitaç�
 
           ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
 
-          - Alívio pobrez
             - Aumento do PIB
             - Aumento IDH
 
               E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
 
-          ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
-          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
-          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
-  
-          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
-
-          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
-          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
-          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
-          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
-
-
-              Medir:      
-            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
-            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
 =======
     IdEIA DE TEXTO: 
       1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
@@ -343,7 +327,21 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
       > RESULTADOS:
       > MAIS/FONTE: https://www.ceara.gov.br/2017/05/31/ceara-tem-primeira-perfuracao-de-poco-horizontal-para-captacao-de-agua-do-pais/
 
+ ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
+          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
+          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
+  
+          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
 
+          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
+          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
+          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
+          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+
+
+              Medir:      
+            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
+            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
     
 ------------------
 --------------------

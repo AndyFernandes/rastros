@@ -1,0 +1,169 @@
+Produto,Data,Area Colhida (hct),Area Colhida (log(hct))
+Banana (cacho),1990,37092,10.52
+Banana (cacho),1991,40091,10.6
+Banana (cacho),1992,41145,10.62
+Banana (cacho),1993,37895,10.54
+Banana (cacho),1994,38682,10.56
+Banana (cacho),1995,42486,10.66
+Banana (cacho),1996,41514,10.63
+Banana (cacho),1997,44357,10.7
+Banana (cacho),1998,41609,10.64
+Banana (cacho),1999,42540,10.66
+Banana (cacho),2000,42767,10.66
+Banana (cacho),2001,41548,10.63
+Banana (cacho),2002,41936,10.64
+Banana (cacho),2003,42068,10.65
+Banana (cacho),2004,42261,10.65
+Banana (cacho),2005,42120,10.65
+Banana (cacho),2006,42718,10.66
+Banana (cacho),2007,42910,10.67
+Banana (cacho),2008,43511,10.68
+Banana (cacho),2009,44742,10.71
+Banana (cacho),2010,46220,10.74
+Banana (cacho),2011,47745,10.77
+Banana (cacho),2012,47413,10.77
+Banana (cacho),2013,49255,10.8
+Banana (cacho),2014,46654,10.75
+Banana (cacho),2015,44482,10.7
+Banana (cacho),2016,39140,10.57
+Banana (cacho),2017,40029,10.6
+Cafe (em grao),1990,9551,9.16
+Cafe (em grao),1991,8979,9.1
+Cafe (em grao),1992,8929,9.1
+Cafe (em grao),1993,9394,9.15
+Cafe (em grao),1994,9196,9.13
+Cafe (em grao),1995,9186,9.13
+Cafe (em grao),1996,8071,9.0
+Cafe (em grao),1997,9077,9.11
+Cafe (em grao),1998,8531,9.05
+Cafe (em grao),1999,7718,8.95
+Cafe (em grao),2000,7384,8.91
+Cafe (em grao),2001,7399,8.91
+Cafe (em grao),2002,7401,8.91
+Cafe (em grao),2003,7480,8.92
+Cafe (em grao),2004,7493,8.92
+Cafe (em grao),2005,7517,8.92
+Cafe (em grao),2006,7485,8.92
+Cafe (em grao),2007,7529,8.93
+Cafe (em grao),2008,7504,8.92
+Cafe (em grao),2009,7436,8.91
+Cafe (em grao),2010,7432,8.91
+Cafe (em grao),2011,7474,8.92
+Cafe (em grao),2012,7373,8.91
+Cafe (em grao),2013,7458,8.92
+Cafe (em grao),2014,6133,8.72
+Cafe (em grao),2015,4325,8.37
+Cafe (em grao),2016,3391,8.13
+Cafe (em grao),2017,2889,7.97
+Cana-de-acucar,1990,63096,11.05
+Cana-de-acucar,1991,65741,11.09
+Cana-de-acucar,1992,64180,11.07
+Cana-de-acucar,1993,45627,10.73
+Cana-de-acucar,1994,42425,10.66
+Cana-de-acucar,1995,43456,10.68
+Cana-de-acucar,1996,25302,10.14
+Cana-de-acucar,1997,25609,10.15
+Cana-de-acucar,1998,40448,10.61
+Cana-de-acucar,1999,38151,10.55
+Cana-de-acucar,2000,34535,10.45
+Cana-de-acucar,2001,33651,10.42
+Cana-de-acucar,2002,33974,10.43
+Cana-de-acucar,2003,33312,10.41
+Cana-de-acucar,2004,33972,10.43
+Cana-de-acucar,2005,35098,10.47
+Cana-de-acucar,2006,29067,10.28
+Cana-de-acucar,2007,40098,10.6
+Cana-de-acucar,2008,42159,10.65
+Cana-de-acucar,2009,42706,10.66
+Cana-de-acucar,2010,43024,10.67
+Cana-de-acucar,2011,41370,10.63
+Cana-de-acucar,2012,40248,10.6
+Cana-de-acucar,2013,32739,10.4
+Cana-de-acucar,2014,25190,10.13
+Cana-de-acucar,2015,19149,9.86
+Cana-de-acucar,2016,16123,9.69
+Cana-de-acucar,2017,15126,9.62
+Laranja,1990,1490,7.31
+Laranja,1991,1521,7.33
+Laranja,1992,1468,7.29
+Laranja,1993,1302,7.17
+Laranja,1994,1201,7.09
+Laranja,1995,1255,7.13
+Laranja,1996,1588,7.37
+Laranja,1997,1701,7.44
+Laranja,1998,1545,7.34
+Laranja,1999,1695,7.44
+Laranja,2000,1581,7.37
+Laranja,2001,1599,7.38
+Laranja,2002,1563,7.35
+Laranja,2003,1571,7.36
+Laranja,2004,1658,7.41
+Laranja,2005,1676,7.42
+Laranja,2006,1718,7.45
+Laranja,2007,1724,7.45
+Laranja,2008,1769,7.48
+Laranja,2009,1753,7.47
+Laranja,2010,1783,7.49
+Laranja,2011,1850,7.52
+Laranja,2012,1880,7.54
+Laranja,2013,1965,7.58
+Laranja,2014,1789,7.49
+Laranja,2015,1586,7.37
+Laranja,2016,1507,7.32
+Laranja,2017,1535,7.34
+Milho (em grao),1990,346331,12.76
+Milho (em grao),1991,596899,13.3
+Milho (em grao),1992,494803,13.11
+Milho (em grao),1993,166382,12.02
+Milho (em grao),1994,705315,13.47
+Milho (em grao),1995,650913,13.39
+Milho (em grao),1996,491135,13.1
+Milho (em grao),1997,425558,12.96
+Milho (em grao),1998,355151,12.78
+Milho (em grao),1999,593057,13.29
+Milho (em grao),2000,612976,13.33
+Milho (em grao),2001,603601,13.31
+Milho (em grao),2002,702962,13.46
+Milho (em grao),2003,707891,13.47
+Milho (em grao),2004,655677,13.39
+Milho (em grao),2005,566846,13.25
+Milho (em grao),2006,639205,13.37
+Milho (em grao),2007,674041,13.42
+Milho (em grao),2008,675480,13.42
+Milho (em grao),2009,691632,13.45
+Milho (em grao),2010,551984,13.22
+Milho (em grao),2011,725301,13.49
+Milho (em grao),2012,497598,13.12
+Milho (em grao),2013,355871,12.78
+Milho (em grao),2014,472059,13.06
+Milho (em grao),2015,495682,13.11
+Milho (em grao),2016,473696,13.07
+Milho (em grao),2017,562831,13.24
+Soja (em grao),1990,0,0.0
+Soja (em grao),1991,0,0.0
+Soja (em grao),1992,0,0.0
+Soja (em grao),1993,0,0.0
+Soja (em grao),1994,0,0.0
+Soja (em grao),1995,0,0.0
+Soja (em grao),1996,20,3.0
+Soja (em grao),1997,9,2.2
+Soja (em grao),1998,2,0.69
+Soja (em grao),1999,0,0.0
+Soja (em grao),2000,0,0.0
+Soja (em grao),2001,0,0.0
+Soja (em grao),2002,117,4.76
+Soja (em grao),2003,650,6.48
+Soja (em grao),2004,350,5.86
+Soja (em grao),2005,210,5.35
+Soja (em grao),2006,300,5.7
+Soja (em grao),2007,350,5.86
+Soja (em grao),2008,512,6.24
+Soja (em grao),2009,975,6.88
+Soja (em grao),2010,1020,6.93
+Soja (em grao),2011,0,0.0
+Soja (em grao),2012,1145,7.04
+Soja (em grao),2013,0,0.0
+Soja (em grao),2014,0,0.0
+Soja (em grao),2015,0,0.0
+Soja (em grao),2016,0,0.0
+Soja (em grao),2017,0,0.0

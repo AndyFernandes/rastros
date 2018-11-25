@@ -541,10 +541,10 @@
 		options = {
 			"width":800, "height":600,
 			"field_name": ["chuva_total","Nome"],
-			"min_value": 0,"max_value": 1000,
-			"color": "blues" ,"n_colors" : 10,
+			"min_value": 0,"max_value": 3071,
+			"color": "blues" ,"n_colors" : 8,
 			"Id_div" : '#vis' ,"Id_mouse": '#dado',
-			"initial_data": 'vega/data/1995.csv',
+			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
 			"Title" : "Precipitacao anual"
 
 			}
@@ -581,19 +581,16 @@
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_4", options)
 
 
-		var filePath = "data/metereologico/relatorios_anuais/"
-		options = {
-			"width":800, "height":600,
-			"field_name": ["chuva_total","Nome"],
-			"min_value": 0,"max_value": 3071,
-			"color": "blues" ,"n_colors" : 8,
-			"Id_div" : '#vis' ,"Id_mouse": '#dado',
-			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
-			"Title" : "Precipitacao anual"}
-		choroplethMap(filePath,options)
-
 		/* SECTION 3 - O que é a Seca? */
+		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
+			let options = { "width": 1028, "height": 728,
+							"marker-size": 5, "color":"#2222FFAA",
+							"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)"
+						};
 
+			console.log("teste")
+			scatter(data, "Area Colhida (hct)", "Quadra Chuvosa", "Data", "Área Colhida vs Precipitação", "#scroll__graphic__chart_10", options)
+		})
 		
 	</script>
 

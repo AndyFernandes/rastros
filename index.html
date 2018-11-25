@@ -109,11 +109,11 @@
 			<div class='scroll__graphic__chart right_panel'>
 				<div id="vega__map"></div>
   				<div class="slidecontainer">	<span>1988</span>
-  					<input id="dado_2" type="range" class="slider" name="scale" min="1988" max="2018" step="1"  onchange="valor.value=value" >
+  					<input id="slider1" type="range" class="slider" name="scale" min="1988" max="2018" step="1">
 					<span class="vega-bind-name">2018</span>
 				</div>
 				<span class="vega-bind-name">Ano </span>
-				<input type="submit" id="valor" value="2003" readonly>
+				<span id="valor_choropleth_1"></span>
 				
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -169,33 +169,33 @@
 				<div id="vega__map2"></div>
 
 				<div class="slidecontainer">	<span>1991</span>
-  					<input id="dado_2_2" type="range" class="slider" name="scale" min="1991" max="2009" step="9"  onchange="valor.value=value" >
+  					<input id="dado_2_2" type="range" class="slider" name="scale" min="1991" max="2009" step="9">
 					<span class="vega-bind-name">2010</span>
 				</div>
 				<span class="vega-bind-name">Ano </span>
-				<input type="submit" id="valor" value="2000" readonly>
+				<span id="valor_choropleth_2"></span>
 			</div>
 			<div class='scroll__graphic__chart left_panel'>
 				<!--<p>Gráfico mapa mostrando linha histórica IDH municipios</p>-->
 				<div id="vega__map3"></div>
 
 				<div class="slidecontainer">	<span>1991</span>
-  					<input id="dado_2_3" type="range" class="slider" name="scale" min="1991" max="2009" step="9"  onchange="valor.value=value" >
+  					<input id="dado_2_3" type="range" class="slider" name="scale" min="1991" max="2009" step="9">
 					<span class="vega-bind-name">2010</span>
 				</div>
 				<span class="vega-bind-name">Ano </span>
-				<input type="submit" id="valor" value="2000" readonly>
+				<span id="valor_choropleth_3"></span>
 			</div>
 			<div class='scroll__graphic__chart left_panel'>
 				<!--<p>Gráfico mapa mostrando linha histórica PIB municipios</p>-->
 				<div id="vega__map4"></div>
 
 				<div class="slidecontainer">	<span>1999</span>
-  					<input id="dado_2_4" type="range" class="slider" name="scale" min="1999" max="2012" step="1"  onchange="valor.value=value" >
+  					<input id="dado_2_4" type="range" class="slider" name="scale" min="1999" max="2012" step="1">
 					<span class="vega-bind-name">2012</span>
 				</div>
 				<span class="vega-bind-name">Ano </span>
-				<input type="submit" id="valor" value="2005" readonly>
+				<span id="valor_choropleth_4"></span>
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
 				<!--<p>Gráfico mapa mostrando linha histórica POBREZA municipios</p>-->
@@ -573,12 +573,22 @@
 		})
 
 		// Gráfico Choropleth de Precipitação Total ao longo dos anos
+				
 		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
 		var options = { 
 			"width":900, "height":700, "mapStroke": "white",
 			"input": "#dado_2", "path": "data/metereologico/relatorios_anuais/municipios_"
 		}
-
+		// Function that recives slider and output ids and updates the output value
+		function slider_value(slider,output){
+			var slider = document.getElementById(slider);
+			var output = document.getElementById(output);
+			output.innerHTML = slider.value;
+			slider.oninput = function() {
+			  output.innerHTML = this.value;
+			}
+		}
+		slider_value("slider1","valor_choropleth_1")
 		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vega__map", options)
 
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
@@ -647,8 +657,6 @@
 		}
 
 		choroplethMap(filePath, "pib", "Localidade", "PIB", "#vega__map4", options)
-
-		
 
 		/* SECTION 3 - O que é a Seca? */
 		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos

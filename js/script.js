@@ -366,7 +366,38 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 				  .scale(xScale);
 
 	let yAxis = d3.axisLeft()
-				  .scale(yScale)
+				  .scale(yScale);
+
+	var xSeries = d3.range(1, dataset.length+1);
+	var ySeries = dataset.map(function(d){return parseFloat(d[y]);});
+
+	var leastSquaresCoeff = leastSquares(xSeries,ySeries);
+
+	var x1 = dataset[0][x];
+	var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
+	var x2 = dataset[dataset.length-1][x];
+	var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
+	var trendData = [[x1,y1,x2,y2]];
+
+	function leastSquares(xSeries, ySeries){
+		var reduceSumFunc = function(prev, cur){ return prev+cur;};
+
+		var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
+		var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+
+		var ssXX = xSeries.map(function(d){ return Math.pow(d - xBar, 2);})
+							.reduce(reduceSumFunc);
+
+		var ssYY = ySeries.map(function(d){ return Math.pow(d - yBar, 2);})
+							.reduce(reduceSumFunc);
+
+		var ssXY = xSeries.map(function(d,i){ return (d - xBar)*(ySeries[i] - yBar);})
+							.reduce(reduceSumFunc);
+		var slope = ssXY/ssXX;
+		var intercept = yBar - (xBar * slope);
+		var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
+		return [slope,intercept,rSquare];
+	};
 
 	// Cria a região onde o gráfico será desenhado
     let svg = d3.select(panel)
@@ -374,8 +405,21 @@ function scatter(dataset, x, y, labels, title, panel, options) {
         			.attr("width", w + margin.left + margin.right)
         			.attr("height", h + margin.top + margin.bottom)
         		.append("g")
-        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
+   var trendline = svg.selectAll(".trendline")
+   						.data(trendData);
+
+   trendline.enter()
+   			.append("line")
+   			.attr("class","trendline")
+   			.attr("x1", function(d) { return xScale(d[0]);})
+   			.attr("y1", function(d) { return yScale(d[1]);})
+   			.attr("x2", function(d) { return xScale(d[2]);})
+   			.attr("y2", function(d) { return xScale(d[3]);})
+   			.attr("stroke","black")
+   			.attr("stroke-width",10);
+
     // Declara e posiciona os marcadores do gráfico scatterplot
     svg.selectAll("circle")
 		.data(dataset)
@@ -391,7 +435,6 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("r", options["marker-size"])
 		.attr("fill", options["color"])
 		.attr("stroke", "black");
-
 
 	// Adiciona as labels a cada marcador no gráfico
     svg.selectAll("text")
@@ -964,14 +1007,6 @@ function choroplethMap(filePath,options) {
 // ######################
 //     FUNÇÕES GERAIS
 // ######################
-
-
-
-
-
-
-
-
 
 // ######################
 //     TIMELINE

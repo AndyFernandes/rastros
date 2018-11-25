@@ -75,75 +75,72 @@ Abaixo, a cronologia mais precisa da Funceme (com os milímetros de precipitaç�
 --------------------------------------------
 
 2A PARTE: (EXPLORATÓRIA DOS INDICES SOCIAIS DO ESTADO) (AQUI A GENTE SO VAI VER O QUE É CRÍTICO)A partir daqui a gente vai fazer exploratórias sobre os dados sociais:
-<<<<<<< HEAD
-    IdEIA DE TEXTO: 
-      1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
-            O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
+IdEIA DE TEXTO: 
+  1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
+        O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
 
-          A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza(RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses. Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.
-          <<< Mostrar mapa com as subregiões do Ceará com o número de população de cada cidade(?)>>>>>>>
+      A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza(RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses. Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.
+      <<< Mostrar mapa com as subregiões do Ceará com o número de população de cada cidade(?)>>>>>>>
 
-          ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
+      ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
 
-          - Alívio pobrez
-            - Aumento do PIB
-            - Aumento IDH
+      - Alívio pobrez
+        - Aumento do PIB
+        - Aumento IDH
 
-              E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
+          E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
 
-          ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
-          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
-          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
-  
-          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
+      ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
+      O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
+      É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
 
-          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
-          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
-          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
-          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+      A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
 
-
-              Medir:      
-            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
-            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
-=======
-    IdEIA DE TEXTO: 
-      1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
-            O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
-            <<<< Ve se da pra botar um mapinha colorido que transita do nordeste para o Brasil >>>.
-
-          A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza(RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses. Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.
-          <<< Mostrar mapa com as subregiões do Ceará com o número de população de cada cidade(?)>>>>>>>
-
-          ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
-
-          - Alívio pobreza
-              - Alívio de caos na sanidade pública
-              - Alívio da desigualdade
-              - Aumento de renda e empregos
-            - Aumento do PIB
-            - Aumento IDH
-            - Alívio taxa de mortalidade
-              - Melhoras na agropecuária
-
-              E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
-
-          ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
-          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
-          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
-  
-          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
-
-          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
-          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
-          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
-          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+      O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
+      (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
+      (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
+      (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
 
 
-              Medir:      
-            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
-            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
->>>>>>> 680fbb0b9096f706c5a35ef99a42fd74443b26ca
+          Medir:      
+        > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
+        > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
+IdEIA DE TEXTO: 
+  1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
+        O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
+        <<<< Ve se da pra botar um mapinha colorido que transita do nordeste para o Brasil >>>.
+
+      A capital e município mais populoso é Fortaleza, sede da Região Metropolitana de Fortaleza(RMF). Outras cidades importantes fora da RMF são: Juazeiro do Norte e Crato, na Região Metropolitana do Cariri; Sobral, sede da Região Metropolitana de Sobral; Itapipoca, na região norte; Iguatu, na região centro-sul; Aracati, na região do Vale do Jaguaribe; e Quixadá e Quixeramobim na região dos Sertões Cearenses. Na RMF, cidades importantes como Caucaia, Eusébio, Horizonte, Maranguape, Maracanaú, Aquiraz e São Gonçalo do Amarante, sede do Complexo Industrial e Portuário do Pecém, incrementam o Produto Interno Bruto cearense. O estado possui ao todo 184 municípios.
+      <<< Mostrar mapa com as subregiões do Ceará com o número de população de cada cidade(?)>>>>>>>
+
+      ------------- AQUI FAZER UM ADENTRO SOBRE O HISTÓRICO DE ÍNDICES SOCIAIS DO CEARÁ ---------------------------
+
+      - Alívio pobreza
+          - Alívio de caos na sanidade pública
+          - Alívio da desigualdade
+          - Aumento de renda e empregos
+        - Aumento do PIB
+        - Aumento IDH
+        - Alívio taxa de mortalidade
+          - Melhoras na agropecuária
+
+          E TENTA IDENTIFICAR OS QUE TIVEREM PIOR PERFORMANCE (MAIS NA FRENTE USAREMOS PARA MOSTRAR A SECA)
+
+      ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
+      O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
+      É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
+
+      A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
+
+      O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
+      (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
+      (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
+      (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+
+
+          Medir:      
+        > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
+        > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
 
 -----------------------------------------------
 

@@ -948,7 +948,7 @@ function choroplethMap(filePath,options) {
         });
 //Get the value of the slider and load the respective data
         dado_input.addEventListener("mouseup", function(event){
-	    loader.load(filePath+String(dado_input.value)+'.csv').then(function(data) {
+	    loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
 		data = vega.read(data, {type: 'csv', parse: 'auto'});
 		var changeSet = vega.changeset().insert(data).remove();
 		res.view.change('dataset', changeSet).run();

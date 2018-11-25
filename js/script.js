@@ -244,6 +244,10 @@ function chartLine(data, attX, attY, title, idDiv, options){
 			    .y(function(d) { return yScale(d[attY]); }); 
 
 
+	var div = d3.select("body").append("div")	
+    .attr("class", "stickerr")				
+    .style("opacity", 0);
+
 	// Add the SVG to the page and employ #2
 	var svg = d3.select(idDiv).append("svg")
 	    .attr("width", width + margin.left + margin.right)
@@ -309,6 +313,19 @@ function chartLine(data, attX, attY, title, idDiv, options){
 	    .attr("cx", function(d) { return xScale(d[attX]) })
 	    .attr("cy", function(d) { return yScale(d[attY]) })
 	    .attr("r", 5)
+	    .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            div	.html("<b>Precipitação: </b>" + Number(d[attY].toPrecision(3)) + "<br><b>Ano: </b>" + d[attX].getFullYear())	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })					
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        })
 	    .style("fill", options['color']);
 
 	// Title
@@ -844,6 +861,104 @@ function dottedMap(dataset, x, labels, title, panel, options) {
 		vegaEmbed(panel, spec, opt).then(function(view) {}) 
 	});
 }
+
+function choroplethMap(filePath,options) {
+    var opt = {
+		"renderer": "svg", 
+		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+	}
+    var vlSpec = {
+       	"$schema": "https://vega.github.io/schema/vega/v4.json",
+	"width":  options.width,
+	"height": options.height,
+	"autosize": "none",
+	"signals": [{"name": "scale","value": 6500},
+	            {"name": "centerY", "value": -5},
+		    {"name": "rotateX", "value": 38}],
+	"data": [
+	    {
+	      "name": "dataset",
+	      "format": {"type": "csv", "parse": "auto"}
+	    },
+	    {
+	      "name": "Ceara",
+	      "url": "data/ceara.topojson",
+	      "format": {"type": "topojson", "feature": "ceara"},
+	      "transform": [
+	          { "type": "lookup", "from": "dataset", "key": "id", "fields": ["id"], "values": options.field_name }
+
+	      ]
+	    }
+	  ],
+
+	  "projections": [
+	    {
+	      "name": "projection",
+	      "type": "mercator",
+	      "scale": {"signal": "scale"},
+	      "rotate": [{"signal": "rotateX"}, 0, 0],
+	      "center": [0, {"signal": "centerY"}]}
+	      
+	    
+	  ],
+
+	  "scales": [
+	    {
+	      "name": "color",
+	      "type": "quantize",
+	      "domain": [options.min_value, options.max_value],
+	      "range": {"scheme": options.color, "count": options.n_colors}
+	    }
+	  ],
+
+	  "legends": [
+	    {
+	      "fill": "color",
+	      "orient": "bottom-right",
+	      "title": options.Title,
+	      "format": ".4f"
+	    }
+	  ],
+
+	  "marks": [
+	    {
+	      "type": "shape",
+	      "from": {"data": "Ceara"},
+	      "encode": {
+		"enter": { "tooltip": {"field": "Nome"}},
+		"update": { "fill": {"scale": "color", "field": options.field_name[0]} },
+		"hover": { "fill": {"value": "red"} }
+	      },
+	      "transform": [
+		{ "type": "geoshape", "projection": "projection" }
+	      ]
+	    }
+	  ]
+	}
+
+   
+    vegaEmbed(options.Id_div, vlSpec, opt).then(function(res) {
+        var loader = vega.loader(); 	
+        let dado_input = document.querySelector(options.Id_mouse);
+//Load data based on the initial position of the slider         
+	loader.load(options.initial_data).then(function(data) {
+            data = vega.read(data, {type: 'csv', parse: 'auto'});
+            var changeSet = vega.changeset().insert(data).remove();
+            res.view.change('dataset', changeSet).run();
+        });
+//Get the value of the slider and load the respective data
+        dado_input.addEventListener("mouseup", function(event){
+	    loader.load(filePath+String(dado_input.value)+'.csv').then(function(data) {
+		data = vega.read(data, {type: 'csv', parse: 'auto'});
+		var changeSet = vega.changeset().insert(data).remove();
+		res.view.change('dataset', changeSet).run();
+	    });
+	});
+
+    });
+      
+}
+
 
 
 // ######################

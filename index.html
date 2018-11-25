@@ -57,7 +57,7 @@
 					<a class="nav-link" href="#section_header3">Correlações</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#section_header4">Medidas e Soluções</a>
+					<a class="nav-link" href="#section_header44">Medidas e Soluções</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#about_us">Sobre</a>
@@ -107,7 +107,15 @@
 				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>
+				<!--<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>-->
+				<div id="vis"></div>
+  				<div class="vega-bind"><span class="vega-bind-name">scale</span>
+  				<input id="dado" type="range" name="scale" min="1990" max="2000" step="1" onchange="valor.value=value">
+				<input type="text" id="valor" value="1995" readonly></div>
+				
+						
+				
+				
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -228,6 +236,10 @@
 	</section>
 
 	<!-- SECTION 4: Medidas e Soluções -->
+	<section class="section_header container" id="section_header44">
+		<h1>QUARTA PARTE</h1>
+		<h2>MEDIDAS E SOLUÇÕES</h2>
+	</section>
 	<section class="section_header container" id="section_header4">
 		<section class="cd-horizontal-timeline">
 	      <div class="timeline" id="timeline_master">
@@ -528,6 +540,21 @@
 			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_1", options)
 		})
 
+		// Gráfico Choropleth de Precipitação Total ao longo dos anos
+		var filePath = "vega/data/"
+		options = {
+			"width":800, "height":600,
+			"field_name": ["chuva_total","Nome"],
+			"min_value": 0,"max_value": 1000,
+			"color": "blues" ,"n_colors" : 10,
+			"Id_div" : '#vis' ,"Id_mouse": '#dado',
+			"initial_data": 'vega/data/1995.csv',
+			"Title" : "Precipitacao anual"
+
+			}
+		
+		choroplethMap(filePath,options)
+
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
 			let options = { "color": "#428BCA", "marker-size": 5, 
@@ -538,7 +565,6 @@
 			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_3", options)
 		})
 
-		
 		// Gráfico de Barra Empilhada de área agrícola colhida por ano
 		var filePath = "data/agricola/areacolhida_ceara.csv"
 		var options = { "width": 800, "height": 600,
@@ -557,9 +583,11 @@
 					};
 
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_5", options)
- 
+
+
 		/* SECTION 3 - O que é a Seca? */
 
+		
 	</script>
 
 </body>

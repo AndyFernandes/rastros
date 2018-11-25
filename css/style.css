@@ -422,7 +422,19 @@ line{
   	opacity: 0.6;
 }
 
-
+div.stickerr { 
+    position: absolute;     
+    text-align: center;     
+    width: 200px;          
+    height: 70px;         
+    padding: 10px;       
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;    
+    background: white; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+}
 
 
 /* #######################################

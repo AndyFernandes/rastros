@@ -6,11 +6,7 @@ A memória histórica conta que a seca, além dos índios, fez o português Pero
 
 As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de 607,5 milímetros
 Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o período de estação (ou quadra) chuvosa do Estado. 
-<<<<<<< HEAD
-<<<<<< gráfico barra par3w4354\a mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
-=======
 <<<<<< gráfico barra par3a mostrar a diferença/comparação das quadras (MÉDIO)>>>> -> ai bota um mapa pra mostrar usando aquela escala linear bonitinha parecido com a visualização dos eua -> Ai cada barra ele coisa -> Branco -> Azul Escuro
->>>>>>> 680fbb0b9096f706c5a35ef99a42fd74443b26ca
 -> Aqui mostra um textinho para cada barra de quadra de chuva
 
 
@@ -101,10 +97,10 @@ IdEIA DE TEXTO:
       (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
       (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
 
-
           Medir:      
         > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
         > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
+
 IdEIA DE TEXTO: 
   1. BREVE INTRODUÇÃO AO CEARÁ - EXTENSÃO, NÚMERO DE CIDADES, ATUAL GOVERNADOR, POPULAÇÃO, PRINCIPAIS REGIÕES E CIDADES       
         O Ceará, também é conhecido como "Terra da Luz", está situado no norte da Região Nordeste. Sua área total é de 148 920,472 km², ou 9,37% da área do Nordeste e 1,74% da superfície do Brasil. A população do estado é de 9 075 649 habitantes, conforme estimativas do Instituto Brasileiro de Geografia e Estatística (IBGE), em 2018, sendo o oitavo estado mais populoso do país.
@@ -177,20 +173,11 @@ Essa realidade atinge principalmente aqueles já convivem com os impactos do bai
 4A PARTE: MOSTRAR IMPACTOS DAS SOLUÇÕES E MEDIDAS DO GOVERNO (VÁRIOS GRÁFICOS DE LINHA)
 (FAZER UMA LINHA DO TEMPO COM:
 
-<<<<<<< HEAD
-CADA OBRA DESSA DEVERÁ TER: - DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
-              - LOCALIDADE ATINGIDA
-              - IMPACTO (FONTE)
-              - DESCRIÇÃO PRÉVIA DE NO MÁIMO 4 LINHAS)
-   > PROGRAMA FOME ZERO
-   > BOLSA FAMÍLIA
-=======
 CADA OBRA DESSA DEVERÁ TER: - DATA DE INICIO/CRIAÇÃO - PRESIDENTE/GOVERNO
                             - LOCALIDADE ATINGIDA
                             - IMPACTO (FONTE)
                             - DESCRIÇÃO PRÉVIA DE NO MÁIMO 4 LINHAS)
    
->>>>>>> 680fbb0b9096f706c5a35ef99a42fd74443b26ca
    > TRANSPOSIÇÃO DO RIO SÃO FRANCISCO
    > PROGRAMA CISTERNAS
    > BANCO DO NORDESTE
@@ -340,7 +327,21 @@ https://www.ceara.gov.br/2017/09/27/maior-seca-da-historia-ceara-quebra-paradigm
       > RESULTADOS:
       > MAIS/FONTE: https://www.ceara.gov.br/2017/05/31/ceara-tem-primeira-perfuracao-de-poco-horizontal-para-captacao-de-agua-do-pais/
 
+ ------------- E ENTÃO DA UMA RELAPSADA MOSTRANDO QUE A ANÁLISE ANTERIOR REALMENTE TEVE FRUTOS, E O CEARÁ TEVE ÍNDICES MUITO BONS EM CENÁRIO NACIONAL -------------
+          O Ceará concentra 55% de toda caatinga do Brasil e é o único estado do Nordeste-Sudeste a estar completamente inserido na sub-região do sertão.
+          É atualmente o décimo segundo estado mais rico do país e o terceiro mais rico do Nordeste. (1)
+  
+          A capital, Fortaleza, é o município com o maior PIB do Nordeste, e o nono maior do país. (2)
 
+          O Ceará apresentava, em 2010, a melhor qualidade de vida do Norte-Nordeste, segundo a FIRJAN, além do segundo melhor Índice de Desenvolvimento Humano da região. (3)
+          (1) <<<< Mostrar gráfico de riqueza entre os estados, com barras coloridas por região >>>>>
+          (2) <<<< Mostrar novamente um gráfico de barras com PIB dos municipios do Nordeste (os 5 primeiros) e país (os 10 primeiros)>>>
+          (3) <<<< Mostrar novamente um gráfico de barras medindo IDH >>>
+
+
+              Medir:      
+            > Sugestão da ddza: Aqui a gente poderia plotar boa parte de nossos dados e traçar a própria evolução.
+            > A partir dos gráficos plotados vamos perceber cidades que ficaram muito na frente (tiveram uma maior evolução), regiões/cidades que ficaram menos que as outras e levantar o ponto pra apresentar abaixo
     
 ------------------
 --------------------

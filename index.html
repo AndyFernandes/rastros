@@ -615,10 +615,11 @@
 		var filePath = "data/regioes.csv";
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
-			"input": "#dado_2", "path": "data/regioes"
+			"input": "#dado_2", "path": "data/regioes",
+			"colors":["blue","steelblue","green","pink","yellow","orange","white","black","purple","red","#232323","#574411","#004455","#F2020F"],"domain":["Grande Fortaleza", "Cariri", "Sertão Central", "Litoral Leste","Litoral Norte","Litoral Oeste","Sertão de Sobral","Centro Sul","Vale do Jaguaribe","Serra da Ibiapaba","Sertão de Canindé","Maciço de Baturité","Sertão dos Inhamuns","Sertão dos Crateús"]
 		}
 
-		choroplethMap(filePath, "regiao", "Nome", "Região", "#vega__map1", options)
+		choroplethMapNominal(filePath, "regiao", "Nome", "regiao", "#vega__map1", options)
 
 		// Gráfico Cloropleth: População 1991,2000,2010 por municipio
 		var filePath = "data/social/populacao/populacao_2010.csv";

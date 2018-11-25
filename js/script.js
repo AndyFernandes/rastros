@@ -964,6 +964,61 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 	});
 }
 
+function choroplethMapNominal(dataset, x, labels, title, panel, options) {
+	var opt = {
+		"renderer": "svg", 
+		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
+	}
+
+	d3.json("../vega/cloroplethNominal.json").then(function(spec) { 
+		// General properties
+		spec["width"] = options.width
+		spec["height"] = options.height
+
+		// Map configuration
+		spec["mark"]["stroke"] = options.mapStroke
+
+		// Color configuration
+		spec["transform"][0]["from"]["data"]["url"] = dataset
+		spec["transform"][0]["from"]["fields"] = [labels, x]
+		spec["encoding"]["color"]["field"] = x
+		spec["encoding"]["color"]["scale"]["domain"] = options.domain
+		spec["encoding"]["color"]["scale"]["range"] = options.color
+		spec["encoding"]["tooltip"][0]["field"] = labels
+		console.log(x)
+		console.log(dataset[x])
+		spec["encoding"]["tooltip"][1]["field"] = x
+
+		// Rendering
+		vegaEmbed(panel, spec, opt).then(function(view) {
+			
+			// Embed the input objects if the options.input is different from "none"
+			if(options.input != "none") {
+				var loader = vega.loader(); 	
+
+				// Load data based on the initial position of the slider 
+				loader.load(options.path + $(options.input).val() + ".csv").then(function(data) {        
+					data = vega.read(data, {type: 'csv', parse: 'auto'})
+					var changeSet = vega.changeset().insert(data).remove();
+					
+					view.view.change('dataset', changeSet).run();
+				})
+
+				// Embed a listener to the input to change the dataset accordingly
+				$(options.input).on("change mousemove", function(event) {
+					loader.load(options.path + $(this).val() + ".csv").then(function(data) {        
+						data = vega.read(data, {type: 'csv', parse: 'auto'})
+						var changeSet = vega.changeset().insert(data).remove();
+
+						view.view.change('dataset', changeSet).run();
+					})
+				});
+			}
+
+		}) 
+	});
+}
+
 
 
 // ######################

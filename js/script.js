@@ -180,6 +180,7 @@ function init(selector) {
 }
 
 
+
 // ###############################
 //     FUNÇÕES DE VISUALIZAÇÃO
 // ###############################
@@ -905,6 +906,9 @@ function dottedMap(dataset, x, labels, title, panel, options) {
 		vegaEmbed(panel, spec, opt).then(function(view) {}) 
 	});
 }
+
+
+
 
 // Função CHOROPLETH MAP: gera um mapa colorido de acordo com determinado dado.
 // @dataset 	Caminho para o arquivo de dados de entrada para as cores

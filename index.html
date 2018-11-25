@@ -109,8 +109,8 @@
 			<div class='scroll__graphic__chart right_panel'>
 				<div id="vis"></div>
   				<div class="vega-bind"><span class="vega-bind-name">scale</span>
-  				<input id="dado" type="range" name="scale" min="1990" max="2000" step="1" onchange="valor.value=value">
-				<input type="text" id="valor" value="1995" readonly></div>
+  				<input id="dado" type="range" name="scale" min="1988" max="2018" step="1"  onchange="valor.value=value" >
+				<input type="text" id="valor" value="2003" readonly></div>
 				
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -580,6 +580,17 @@
 
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_4", options)
 
+
+		var filePath = "data/metereologico/relatorios_anuais/"
+		options = {
+			"width":800, "height":600,
+			"field_name": ["chuva_total","Nome"],
+			"min_value": 0,"max_value": 3071,
+			"color": "blues" ,"n_colors" : 8,
+			"Id_div" : '#vis' ,"Id_mouse": '#dado',
+			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
+			"Title" : "Precipitacao anual"}
+		choroplethMap(filePath,options)
 
 		/* SECTION 3 - O que é a Seca? */
 

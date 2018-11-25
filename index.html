@@ -107,10 +107,13 @@
 				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<div id="vis"></div>
-  				<div class="vega-bind"><span class="vega-bind-name">scale</span>
-  				<input id="dado" type="range" name="scale" min="1988" max="2018" step="1"  onchange="valor.value=value" >
-				<input type="text" id="valor" value="2003" readonly></div>
+				<div id="vega__map"></div>
+  				<div class="slidecontainer">	<span>1988</span>
+  					<input id="dado_2" type="range" class="slider" name="scale" min="1988" max="2018" step="1"  onchange="valor.value=value" >
+					<span class="vega-bind-name">2018</span>
+				</div>
+				<span class="vega-bind-name">Ano </span>
+				<input type="submit" id="valor" value="2003" readonly>
 				
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -546,11 +549,11 @@
 		// Gráfico Choropleth de Precipitação Total ao longo dos anos
 		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
 		var options = { 
-			"width":800, "height":600, "mapStroke": "white",
-			"input": "#dado", "path": "data/metereologico/relatorios_anuais/municipios_"
+			"width":900, "height":700, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/metereologico/relatorios_anuais/municipios_"
 		}
 
-		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vis", options)
+		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vega__map", options)
 
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
@@ -618,15 +621,15 @@
 		})
 		
 		// TESTE !!! OLHEM AQUI PRA SE BASEAR NA UTILIZAÇÃO DO CHOROPLETH
-		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
-		var options = { 
-			"width":800, "height":600, "mapStroke": "white",
-			"input": "#dado_2", "path": "data/metereologico/relatorios_anuais/municipios_"
-		}
+		//var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
+		//var options = { 
+		//	"width":800, "height":600, "mapStroke": "white",
+		//	"input": "#dado_2", "path": "data/metereologico/relatorios_anuais/municipios_"
+		//}
 
 		// O segundo parâmetro é o nome da coluna com os dados da cor e o terceiro parâmetro é o nome da coluna que tem
 		// os nomes dos municípios.
-		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vega__map", options)
+		//choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vega__map", options)
 		// !!!!
 
 	</script>

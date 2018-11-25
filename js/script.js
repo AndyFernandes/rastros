@@ -368,17 +368,20 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 	let yAxis = d3.axisLeft()
 				  .scale(yScale);
 
+	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
 	var xSeries = d3.range(1, dataset.length+1);
 	var ySeries = dataset.map(function(d){return parseFloat(d[y]);});
-
+	console.log(ySeries)
 	var leastSquaresCoeff = leastSquares(xSeries,ySeries);
 
-	var x1 = dataset[0][x];
+	var x1 = d3.min(dataset, function(d){return d[x];});
+	console.log(dataset);
+	
 	var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
-	var x2 = dataset[dataset.length-1][x];
+	var x2 = d3.max(dataset, function(d){ return d[x];});
 	var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
 	var trendData = [[x1,y1,x2,y2]];
-
+	console.log(y1);
 	function leastSquares(xSeries, ySeries){
 		var reduceSumFunc = function(prev, cur){ return prev+cur;};
 
@@ -416,9 +419,9 @@ function scatter(dataset, x, y, labels, title, panel, options) {
    			.attr("x1", function(d) { return xScale(d[0]);})
    			.attr("y1", function(d) { return yScale(d[1]);})
    			.attr("x2", function(d) { return xScale(d[2]);})
-   			.attr("y2", function(d) { return xScale(d[3]);})
+   			.attr("y2", function(d) { return yScale(d[3]);})
    			.attr("stroke","black")
-   			.attr("stroke-width",10);
+   			.attr("stroke-width",5);
 
     // Declara e posiciona os marcadores do gráfico scatterplot
     svg.selectAll("circle")

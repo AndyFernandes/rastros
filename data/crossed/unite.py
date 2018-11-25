@@ -2,29 +2,26 @@ import pandas as pd
 import numpy as np 
 
 try:
-	data1 = pd.read_csv("areacolhida_ceara.csv", sep=",")
-	data2 = pd.read_csv("quadras_anuais.csv", sep=",")
+	data1 = pd.read_csv("idh.csv", sep=",")
+	data2 = pd.read_csv("municipios_1991.csv", sep=",")
 
-	data2.set_index('Ano', inplace=True)
+	data1 = data1.drop("Multiplicador", axis=1)
+	data1 = data1.drop("Unidade", axis=1)
+	data1 = data1.drop("A", axis=1)
+	data1 = data1.drop("id", axis=1)
 
-	data1 = data1[["Data","Produto","Area Colhida (hct)","Area Colhida (log(hct))"]]
-	data1 = data1.groupby(["Data"], as_index=False)["Area Colhida (hct)"].sum()
+	data2 = data2.drop("id", axis=1)
+	data2 = data2.drop("ano", axis=1)
 
-	data1["Quadra Chuvosa"] = 0
-	data1["Restante do Ano"] = 0
-	data1["Colheita Total"] = 0
-	data1["Precipitacao Total"] = 0
+	newData = pd.merge(data1, data2, on="Nome")
 
-	data1 = data1.groupby(["Data"], as_index=False)["Area Colhida (hct)"].sum()
+	newData["1991"] = np.round(newData["1991"], 3)
+	newData["2000"] = np.round(newData["2000"], 3)
+	newData["2010"] = np.round(newData["2010"], 3)
 
-	for i in range(1990,2018):
-		data1.loc[data1["Data"]==i, "Quadra Chuvosa"] = data2.loc[i, "Quadra Chuvosa"]
-		data1.loc[data1["Data"]==i, "Restante do Ano"] = data2.loc[i, "Restante do Ano"]
-		data1.loc[data1["Data"]==i, "Precipitacao Total"] = data2.loc[i, "Total"]
-
-	print(data1)
-
-	data1.to_csv("agricultura_vs_chuva.csv", sep=",", index=False)
+	newData.to_csv("chuva_vs_idhm_1991.csv", columns=["Nome", "chuva_total", "1991"], sep=",", index=False)
+	newData.to_csv("chuva_vs_idhm_2000.csv", columns=["Nome", "chuva_total", "2000"], sep=",", index=False)
+	newData.to_csv("chuva_vs_idhm_2010.csv", columns=["Nome", "chuva_total", "2010"], sep=",", index=False)
 
 except FileNotFoundError:
 	print("Arquivo inexistente")

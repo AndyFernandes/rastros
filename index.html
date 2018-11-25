@@ -209,7 +209,14 @@
 		<div class='scroll__graphic sticky' id='scroll__graphic_3'>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart right_panel'></div>
-			<div class='scroll__graphic__chart right_panel'></div>
+			<div class='scroll__graphic__chart right_panel'>
+				<div id="vega__map"></div>
+
+				<div class="vega-bind_2"><span class="vega-bind-name_2">scale</span>
+  				<input id="dado_2" type="range" name="scale2" min="2000" max="2018" step="1"  onchange="valor.value=value" >
+				<input type="text" id="valor_2" value="2003" readonly></div>
+
+			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
 		</div>
 
@@ -537,19 +544,13 @@
 		})
 
 		// Gráfico Choropleth de Precipitação Total ao longo dos anos
-		var filePath = "vega/data/"
-		options = {
-			"width":800, "height":600,
-			"field_name": ["chuva_total","Nome"],
-			"min_value": 0,"max_value": 3071,
-			"color": "blues" ,"n_colors" : 8,
-			"Id_div" : '#vis' ,"Id_mouse": '#dado',
-			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
-			"Title" : "Precipitacao anual"
+		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
+		var options = { 
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado", "path": "data/metereologico/relatorios_anuais/municipios_"
+		}
 
-			}
-		
-		choroplethMap(filePath,options)
+		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vis", options)
 
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
@@ -572,91 +573,62 @@
 
 		// Mapa de Pontos mostrando o volume total dos reservatórios por ano
 		var filePath = "data/reservatorios/relatorio_anual/relatorio_2011.csv";
-		var options = { "width":800, "height":600,
-			"field_name": ["chuva_total","Nome"],
-			"min_value": 0,"max_value": 3071,
-			"color": "blues" ,"n_colors" : 8,
-			"Id_div" : '#vis' ,"Id_mouse": '#dado',
-			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
-			"Title" : "Precipitacao anual"}
+		var options = { "width": 800, "height": 600,
+			"mapFill": "#999999", "mapStroke": "white",
+			"sizeScale": 5000, "legendTitle": "Volume Util (hm3)",
+			"color": "#2222FFAA"
+		}
 
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_4", options)
-		
-		choroplethMap(filePath,options);
 
-
+		/* SECTION 2 - Índicadores Sociais do Ceará */
 		///////////////////////TESTANDOCOMIDH
 		var filePath = "data/social/idh/idh_1991.csv";
-		var options = { "width":800, "height":600,
-						"field_name": ["1991","Localidade"],
-						"min_value": 0,"max_value": 0.44,
-						"color": "blues" ,"n_colors" : 14,
-						"Id_div" : '#scroll__graphic__chart_7' ,"Id_mouse": '#dado',
-						"initial_data": 'data/social/idh/idh_1991.csv',
-						"Title" : "IDH"}
+
+		var options = { 
+			"width":800, "height":600,
+			"field_name": ["1991","Localidade"],
+			"min_value": 0,"max_value": 0.44,
+			"color": "blues" ,"n_colors" : 8,
+			"Id_div" : '#scroll__graphic__chart_6' ,"Id_mouse": '#dado',
+			"initial_data": 'data/social/idh/idh_1991.csv',
+			"Title" : "IDH"
+		}
 
 		choroplethMap(filePath,options);
-
-		var filePath = "data/regioes.csv";
-		var options = { "width":800, "height":600,
-						"field_name": ["regiao"],
-						"min_value": 0,"max_value": 0.44,
-						"color": "blues" ,"n_colors" : 8,
-						"Id_div" : '#scroll__graphic__chart_6' ,"Id_mouse": '#dado',
-						"initial_data": 'data/regioes.csv',
-						"Title" : "Regiões"}
-
-		choroplethMap(filePath,options);
-		// var opt = {
-		// 	"renderer": "svg", 
-		// 	"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
-		// }
-		// d3.json("vega/gpBarChart_01.json").then(function(spec) { 
-		// 	vegaEmbed("#scroll__graphic__chart_5", spec, opt).then(function(view) {
-
-		// 	}) 
-		// });
-
-		// Execução da função de plotagem para scatterplots
-		/* newData = []
-		let promises = [
-		    d3.csv("data/social/dengue.csv").then(function(csv){ 
-		     	for (var i = csv.length - 1; i >= 0; i--) {
-		     		newData.push({"Localidade": csv[i]["Localidade"], "Notificacoes": csv[i]["2011"]})
-		     	}
-		 	}),
-		 	d3.csv("data/social/mortalidade_infantil.csv").then(function(csv){ 
-		     	for (var i = csv.length - 1; i >= 0; i--) {
-		     		for (var j = newData.length - 1; j >= 0; j--) {
-		     			if(newData[j]["Localidade"] == csv[i]["Localidade"]) newData[j]["Mortalidade"] = csv[i]["2011"]
-		     		}
-		     	}
-		     })
-		 ]
-
-		 Promise.all(promises).then(function() {
-		     // opcoes
-		 	let options = { "color": "#428BCABB", "marker-size": 5, 
-		 						"width": 800,
-		 						"height": 600,
-		 						"xlabel":"Notificações de Dengue", "ylabel":"Óbitos por Mil Nascidos Vivos" };
-
-		     scatter(newData, "Notificacoes", "Mortalidade", "Localidade", "Dengue vs Mortalidade", "#scroll__graphic__chart_0", options)	
-		})*/  
-
-		// // Corpo para montagem dos gráficos de linha
-		// ldata = []
-
 		/* SECTION 3 - O que é a Seca? */
+		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos
 		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
 			let options = { "width": 1028, "height": 728,
 							"marker-size": 5, "color":"#2222FFAA",
 							"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)"
 						};
 
-			console.log("teste")
 			scatter(data, "Area Colhida (hct)", "Quadra Chuvosa", "Data", "Área Colhida vs Precipitação", "#scroll__graphic__chart_10", options)
-		})		
+		})
+
+		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos
+		d3.csv("data/crossed/chuva_vs_idhm_1991.csv").then(function(data) {
+			let options = { "width": 1028, "height": 728,
+							"marker-size": 5, "color":"#2222FFAA",
+							"xlabel": "Índice de Desenvolvimento Humano", "ylabel": "Precipitação Total (ml)"
+						};
+
+			scatter(data, "idh", "chuva_total", "Nome", "IDH vs Precipitação", "#scroll__graphic__chart_11", options)
+		})
+		
+		// TESTE !!! OLHEM AQUI PRA SE BASEAR NA UTILIZAÇÃO DO CHOROPLETH
+		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
+		var options = { 
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/metereologico/relatorios_anuais/municipios_"
+		}
+
+		// O segundo parâmetro é o nome da coluna com os dados da cor e o terceiro parâmetro é o nome da coluna que tem
+		// os nomes dos municípios.
+		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#vega__map", options)
+		// !!!!
+
 	</script>
 
 </body>

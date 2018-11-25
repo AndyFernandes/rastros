@@ -371,17 +371,15 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
 	var xSeries = d3.range(1, dataset.length+1);
 	var ySeries = dataset.map(function(d){return parseFloat(d[y]);});
-	console.log(ySeries)
 	var leastSquaresCoeff = leastSquares(xSeries,ySeries);
 
 	var x1 = d3.min(dataset, function(d){return d[x];});
-	console.log(dataset);
 	
 	var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
 	var x2 = d3.max(dataset, function(d){ return d[x];});
 	var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
 	var trendData = [[x1,y1,x2,y2]];
-	console.log(y1);
+
 	function leastSquares(xSeries, ySeries){
 		var reduceSumFunc = function(prev, cur){ return prev+cur;};
 
@@ -830,7 +828,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 				.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
 				.transition()
 		        .delay(100)
-		        .duration(1000)
+		        .duration(500)
 				.attr("y", function(d) { return yScale(d.value); })
 				.attr("height", function(d) { return h - yScale(d.value) })
 
@@ -908,83 +906,62 @@ function dottedMap(dataset, x, labels, title, panel, options) {
 	});
 }
 
-function choroplethMap(filePath,options) {
-    var opt = {
+// Função CHOROPLETH MAP: gera um mapa colorido de acordo com determinado dado.
+// @dataset 	Caminho para o arquivo de dados de entrada para as cores
+// @x 			Nome do atributo a ser projeto como gradiente da cor
+// @labels 		Nome do atributo contendo os identificadores de cada marca
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+function choroplethMap(dataset, x, labels, title, panel, options) {
+	var opt = {
 		"renderer": "svg", 
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
 
-    var vlSpec = {
-       	"$schema": "https://vega.github.io/schema/vega/v4.json",
-		"width":  options.width,
-		"height": options.height,
-		"autosize": "none",
-		"signals": [{"name": "scale","value": 6500},
-		            {"name": "centerY", "value": -5},
-			    	{"name": "rotateX", "value": 38}],
-		"data": [
-					{
-						"name": "dataset",
-				    	"format": {"type": "csv", "parse": "auto"}
-					},
-				    {
-				      	"name": "Ceara",
-				      	"url": "data/ceara.topojson",
-				      	"format": {"type": "topojson", "feature": "ceara"},
-				      	"transform":[{ "type": "lookup", "from": "dataset", "key": "id", "fields": ["id"], "values": options.field_name}]
-		    		}
-		    	],
-	  	"projections": [{
-					      "name": "projection",
-					      "type": "mercator",
-					      "scale": {"signal": "scale"},
-					      "rotate": [{"signal": "rotateX"}, 0, 0],
-					      "center": [0, {"signal": "centerY"}]
-					  }],
-	  	"scales": 	[{
-					      "name": "color",
-					      "type": "quantize",
-					      "domain": [options.min_value, options.max_value],
-					      "range": {"scheme": options.color, "count": options.n_colors}
-	    			}],
-	  	"legends": 	[{
-					      "fill": "color",
-					      "orient": "bottom-right",
-					      "title": options.Title,
-					      "format": ".4f"
-	    			}],
-	  	"marks": [{
-					      "type": "shape",
-					      "from": {"data": "Ceara"},
-					      "encode": {
-									"enter": { "tooltip": {"field": "Nome"}},
-									"update": { "fill": {"scale": "color", "field": options.field_name[0]} },
-									"hover": { "fill": {"value": "red"}}},
-					      "transform": [{ "type": "geoshape", "projection": "projection" }]
-			    }]
-	}
+	d3.json("../vega/choropleth.json").then(function(spec) { 
+		// General properties
+		spec["width"] = options.width
+		spec["height"] = options.height
 
-    vegaEmbed(options.Id_div, vlSpec, opt).then(function(res) {
-        var loader = vega.loader(); 	
-        let dado_input = document.querySelector(options.Id_mouse);
-		
-		//Load data based on the initial position of the slider         
-		loader.load(options.initial_data).then(function(data) {
-            	data = vega.read(data, {type: 'csv', parse: 'auto'});
-            	var changeSet = vega.changeset().insert(data).remove();
-            	res.view.change('dataset', changeSet).run();
-        });
-		
-		//Get the value of the slider and load the respective data
-        dado_input.addEventListener("mouseup", function(event){
-	    		loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
-						data = vega.read(data, {type: 'csv', parse: 'auto'});
+		// Map configuration
+		spec["mark"]["stroke"] = options.mapStroke
+
+		// Color configuration
+		spec["transform"][0]["from"]["data"]["url"] = dataset
+		spec["transform"][0]["from"]["fields"] = [labels, x]
+		spec["encoding"]["color"]["field"] = x
+		spec["encoding"]["tooltip"][0]["field"] = labels
+		spec["encoding"]["tooltip"][1]["field"] = x
+
+		// Rendering
+		vegaEmbed(panel, spec, opt).then(function(view) {
+			
+			// Embed the input objects if the options.input is different from "none"
+			if(options.input != "none") {
+				var loader = vega.loader(); 	
+
+				// Load data based on the initial position of the slider 
+				loader.load(options.path + $(options.input).val() + ".csv").then(function(data) {        
+					data = vega.read(data, {type: 'csv', parse: 'auto'})
+					var changeSet = vega.changeset().insert(data).remove();
+					
+					view.view.change('dataset', changeSet).run();
+				})
+
+				// Embed a listener to the input to change the dataset accordingly
+				$(options.input).on("change mousemove", function(event) {
+					loader.load(options.path + $(this).val() + ".csv").then(function(data) {        
+						data = vega.read(data, {type: 'csv', parse: 'auto'})
 						var changeSet = vega.changeset().insert(data).remove();
-						res.view.change('dataset', changeSet).run();
-	    		});
-		});
 
-    });  
+						view.view.change('dataset', changeSet).run();
+					})
+				});
+			}
+
+		}) 
+	});
 }
 
 

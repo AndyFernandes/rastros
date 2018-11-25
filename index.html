@@ -590,13 +590,23 @@
 		var options = { "width":800, "height":600,
 						"field_name": ["1991","Localidade"],
 						"min_value": 0,"max_value": 0.44,
-						"color": "blues" ,"n_colors" : 8,
-						"Id_div" : '#scroll__graphic__chart_6' ,"Id_mouse": '#dado',
+						"color": "blues" ,"n_colors" : 14,
+						"Id_div" : '#scroll__graphic__chart_7' ,"Id_mouse": '#dado',
 						"initial_data": 'data/social/idh/idh_1991.csv',
 						"Title" : "IDH"}
 
 		choroplethMap(filePath,options);
 
+		var filePath = "data/regioes.csv";
+		var options = { "width":800, "height":600,
+						"field_name": ["regiao"],
+						"min_value": 0,"max_value": 0.44,
+						"color": "blues" ,"n_colors" : 8,
+						"Id_div" : '#scroll__graphic__chart_6' ,"Id_mouse": '#dado',
+						"initial_data": 'data/regioes.csv',
+						"Title" : "Regiões"}
+
+		choroplethMap(filePath,options);
 		// var opt = {
 		// 	"renderer": "svg", 
 		// 	"actions": { "export":false, "source":false, "compiled":false, "editor":false } 

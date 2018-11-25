@@ -226,18 +226,6 @@ function chartLine(data, attX, attY, title, idDiv, options){
 					.scale(yScale)
 					.ticks(12);
 
-	// gridlines in x axis function
-	function make_x_gridlines() {		
-	    return d3.axisBottom(xScale)
-	        .ticks(5)
-	}
-
-	// gridlines in y axis function
-	function make_y_gridlines() {		
-	    return d3.axisLeft(yScale)
-	        .ticks(5)
-	}
-
 	// Line function
 	var line = d3.line()
 			    .x(function(d) { return xScale(d[attX]); }) 
@@ -254,6 +242,89 @@ function chartLine(data, attX, attY, title, idDiv, options){
 	    .attr("height", height + margin.top + margin.bottom)
 	  	.append("g")
 	    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// Adiciona linhas de grade no gráfico
+	if("grid" in options && options.grid == true) {
+		svg.append("g")			
+			.attr("class", "grid")
+			.attr("transform", "translate(0," + height + ")")
+			.call(make_x_gridlines(xScale, 5)
+					.tickSize(-height)
+					.tickFormat(""))
+
+		svg.append("g")			
+			.attr("class", "grid")
+			.call(make_y_gridlines(yScale, 5)
+					.tickSize(-width)
+					.tickFormat(""))
+	}
+
+	// Adiciona linhas horizontais ao gráfico
+	if("hline" in options) {
+		var x1 = d3.min(data, function(d){ return +d[attX];});
+		var x2 = d3.max(data, function(d){ return +d[attX];});
+
+		var hlineData = []
+		for (var i = 0; i < options.hline.length; i++) {
+			hlineData.push([x1, x2, options.hline[i].v, options.hline[i].name])
+		}
+
+		// Adiciona a linha de tendência ao gráfico
+		var trendline = svg.selectAll(".hline")
+							.data(hlineData);
+
+		trendline.enter()
+					.append("line")
+					.attr("class","hline")
+					.attr("x1", function(d) { return xScale(d[0]);})
+					.attr("x2", function(d) { return xScale(d[1]);})
+					.attr("y1", function(d) { return yScale(d[2]);})
+					.attr("y2", function(d) { return yScale(d[2]);})
+					.attr("stroke","black")
+					.style("stroke-dasharray", ("3, 3"))
+					.attr("stroke-width",2);
+
+		trendline.enter()
+					.append("text")
+					.attr("transform", function(d) { 
+						return "translate(" + (width - d[3].length*4) + "," + (yScale(d[2])-5) +")"
+					})
+					.style("text-anchor", "middle")
+					.attr("font-family", "Roboto")
+					.attr("font-size", "11px")
+					.text(function(d) { return ""+d[3] });
+
+
+		// Fundo Colorido de Separação das linhas horizontais
+		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
+			var y_min = d3.min(data, function(d){ return +d[attY];});
+			var y_max = d3.max(data, function(d){ return +d[attY];});
+
+			var hlineBGData = [[y_min, options.hline[0].v, options.hline_bg[0]]]
+
+			for (var i = 1; i < options.hline.length; i++) {
+				hlineBGData.push([options.hline[i-1].v, 
+									options.hline[i].v, 
+									options.hline_bg[i]])
+			}
+
+			hlineBGData.push([options.hline[options.hline.length-1].v, 
+								y_max, 
+								options.hline_bg[options.hline.length]])
+
+			console.log(hlineBGData)
+			var background = svg.selectAll(".hbackground")
+								.data(hlineBGData)
+			background.enter()
+						.append("rect")
+						.attr("class","hbackground")
+						.attr("x", 0)
+						.attr("y", function(d) { return yScale(d[1]) })
+						.attr("height", function(d) { return yScale(d[0]) - yScale(d[1]) } )
+						.attr("width", width)
+						.attr("fill", function(d) { return d[2] })
+		}
+	}
 
 	// Call the x axis in a group tag
 	svg.append("g")
@@ -283,21 +354,6 @@ function chartLine(data, attX, attY, title, idDiv, options){
 			.attr("font-size", "14px")
 			.text(options["ylabel"]);
 	
-	// add the X gridlines
-	svg.append("g")			
-	      .attr("class", "grid")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(make_x_gridlines()
-	          .tickSize(-height)
-	          .tickFormat(""))
-
-	// add the Y gridlines
-	svg.append("g")			
-	      .attr("class", "grid")
-	      .call(make_y_gridlines()
-	          .tickSize(-width)
-	          .tickFormat(""))
- 
 	svg.append("path") 
 	    .attr("class", "line") 
 	    .attr("d", line(data))
@@ -352,6 +408,8 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 	let w = options["width"] - margin.left - margin.right;
 	let h = options["height"] - margin.top - margin.bottom;
 
+	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
+
 	// Declara as funções de escala linear
     let xScale = d3.scaleLinear()
     			   .domain([d3.min(dataset, function(d){ return +d[x] } ), d3.max(dataset, function(d){ return +d[x] } )])
@@ -368,58 +426,129 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 	let yAxis = d3.axisLeft()
 				  .scale(yScale);
 
-	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
-	var xSeries = d3.range(1, dataset.length+1);
-	var ySeries = dataset.map(function(d){return parseFloat(d[y]);});
-	var leastSquaresCoeff = leastSquares(xSeries,ySeries);
+	// Declara a região onde os gráficos serão desenhados
+	let svg = d3.select(panel)
+				.append("svg")
+					.attr("width", w + margin.left + margin.right)
+					.attr("height", h + margin.top + margin.bottom)
+				.append("g")
+					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	var x1 = d3.min(dataset, function(d){return d[x];});
+	// Adiciona linhas horizontais ao gráfico
+	if("hline" in options) {
+		var x1 = d3.min(dataset, function(d){ return +d[x];});
+		var x2 = d3.max(dataset, function(d){ return +d[x];});
+
+		var hlineData = []
+		for (var i = 0; i < options.hline.length; i++) {
+			hlineData.push([x1, x2, options.hline[i].v, options.hline[i].name])
+		}
+
+		// Adiciona a linha de tendência ao gráfico
+		var trendline = svg.selectAll(".hline")
+							.data(hlineData);
+
+		trendline.enter()
+					.append("line")
+					.attr("class","hline")
+					.attr("x1", function(d) { return xScale(d[0]);})
+					.attr("x2", function(d) { return xScale(d[1]);})
+					.attr("y1", function(d) { return yScale(d[2]);})
+					.attr("y2", function(d) { return yScale(d[2]);})
+					.attr("stroke","black")
+					.style("stroke-dasharray", ("3, 3"))
+					.attr("stroke-width",2);
+
+		trendline.enter()
+					.append("text")
+					.attr("transform", function(d) { 
+						return "translate(" + (w - d[3].length*4) + "," + (yScale(d[2])-5) +")"
+					})
+					.style("text-anchor", "middle")
+					.attr("font-family", "Roboto")
+					.attr("font-size", "11px")
+					.text(function(d) { return ""+d[3] });
+
+
+		// Fundo Colorido de Separação das linhas horizontais
+		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
+			var y_min = d3.min(dataset, function(d){ return +d[y];});
+			var y_max = d3.max(dataset, function(d){ return +d[y];});
+
+			var hlineBGData = [[y_min, options.hline[0].v, options.hline_bg[0]]]
+
+			for (var i = 1; i < options.hline.length; i++) {
+				hlineBGData.push([options.hline[i-1].v, 
+									options.hline[i].v, 
+									options.hline_bg[i]])
+			}
+
+			hlineBGData.push([options.hline[options.hline.length-1].v, 
+								y_max, 
+								options.hline_bg[options.hline.length]])
+
+			console.log(hlineBGData)
+			var background = svg.selectAll(".hbackground")
+								.data(hlineBGData)
+			background.enter()
+						.append("rect")
+						.attr("class","hbackground")
+						.attr("x", 0)
+						.attr("y", function(d) { return yScale(d[1]) })
+						.attr("height", function(d) { return yScale(d[0]) - yScale(d[1]) } )
+						.attr("width", w)
+						.attr("fill", function(d) { return d[2] })
+		}
+	}
 	
-	var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
-	var x2 = d3.max(dataset, function(d){ return d[x];});
-	var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
-	var trendData = [[x1,y1,x2,y2]];
+	// Adiciona uma linha de tendência ao Scatterplot
+	if("trendline" in options && options.trendline == true) {
+		// Ordena as regiões e recebe a série dos atributos
+		var xSeries = d3.range(1, dataset.length+1);
+		var ySeries = dataset.map(function(d){ return parseFloat(d[y]); });
+		
+		// Calcula um modelo linear por Least Squares
+		var leastSquaresCoeff = leastSquares(xSeries,ySeries);
 
-	function leastSquares(xSeries, ySeries){
-		var reduceSumFunc = function(prev, cur){ return prev+cur;};
+		// Cria as coordenadas da linha
+		var x1 = d3.min(dataset, function(d){return d[x];});
+		var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
+		var x2 = d3.max(dataset, function(d){ return d[x];});
+		var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
+		var trendData = [[x1,y1,x2,y2]];
 
-		var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
-		var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+		// Adiciona a linha de tendência ao gráfico
+		var trendline = svg.selectAll(".trendline")
+							.data(trendData);
 
-		var ssXX = xSeries.map(function(d){ return Math.pow(d - xBar, 2);})
-							.reduce(reduceSumFunc);
+		trendline.enter()
+					.append("line")
+					.attr("class","trendline")
+					.attr("x1", function(d) { return xScale(d[0]);})
+					.attr("y1", function(d) { return yScale(d[1]);})
+					.attr("x2", function(d) { return xScale(d[2]);})
+					.attr("y2", function(d) { return yScale(d[3]);})
+					.attr("stroke","black")
+					.style("stroke-dasharray", ("3, 3"))
+					.attr("stroke-width",2);
+	}
 
-		var ssYY = ySeries.map(function(d){ return Math.pow(d - yBar, 2);})
-							.reduce(reduceSumFunc);
+	// Adiciona linhas de grade no gráfico
+	if("grid" in options && options.grid == true) {
+		svg.append("g")			
+			.attr("class", "grid")
+			.attr("transform", "translate(0," + h + ")")
+			.call(make_x_gridlines(xScale, 5)
+						.tickSize(-h)
+						.tickFormat(""))
 
-		var ssXY = xSeries.map(function(d,i){ return (d - xBar)*(ySeries[i] - yBar);})
-							.reduce(reduceSumFunc);
-		var slope = ssXY/ssXX;
-		var intercept = yBar - (xBar * slope);
-		var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
-		return [slope,intercept,rSquare];
-	};
+		svg.append("g")			
+			.attr("class", "grid")
+			.call(make_y_gridlines(yScale, 5)
+						.tickSize(-w)
+						.tickFormat(""))
+	}
 
-	// Cria a região onde o gráfico será desenhado
-    let svg = d3.select(panel)
-    			.append("svg")
-        			.attr("width", w + margin.left + margin.right)
-        			.attr("height", h + margin.top + margin.bottom)
-        		.append("g")
-        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
-   var trendline = svg.selectAll(".trendline")
-   						.data(trendData);
-
-   trendline.enter()
-   			.append("line")
-   			.attr("class","trendline")
-   			.attr("x1", function(d) { return xScale(d[0]);})
-   			.attr("y1", function(d) { return yScale(d[1]);})
-   			.attr("x2", function(d) { return xScale(d[2]);})
-   			.attr("y2", function(d) { return yScale(d[3]);})
-   			.attr("stroke","black")
-   			.attr("stroke-width",5);
 
     // Declara e posiciona os marcadores do gráfico scatterplot
     svg.selectAll("circle")
@@ -494,7 +623,7 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 
     svg.append("text")
 			.attr("transform", "rotate(-90)")
-			.attr("y", 0 - 50)
+			.attr("y", 0 - 60)
 			.attr("x", 0 - (h / 2))
 			.attr("dy", "1em")
 			.style("text-anchor", "middle")
@@ -965,10 +1094,38 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 }
 
 
-
 // ######################
 //     FUNÇÕES GERAIS
 // ######################
+function leastSquares(xSeries, ySeries){
+	var reduceSumFunc = function(prev, cur){ return prev+cur;};
+
+	var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
+	var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+
+	var ssXX = xSeries.map(function(d){ return Math.pow(d - xBar, 2);})
+						.reduce(reduceSumFunc);
+
+	var ssYY = ySeries.map(function(d){ return Math.pow(d - yBar, 2);})
+						.reduce(reduceSumFunc);
+
+	var ssXY = xSeries.map(function(d,i){ return (d - xBar)*(ySeries[i] - yBar);})
+						.reduce(reduceSumFunc);
+	var slope = ssXY/ssXX;
+	var intercept = yBar - (xBar * slope);
+	var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
+	return [slope,intercept,rSquare];
+};
+
+// gridlines in x axis function
+function make_x_gridlines(scale, n_ticks) {		
+	return d3.axisBottom(scale).ticks(n_ticks)
+}
+
+// gridlines in y axis function
+function make_y_gridlines(scale, n_ticks) {		
+	return d3.axisLeft(scale).ticks(n_ticks)
+}
 
 // ######################
 //     TIMELINE

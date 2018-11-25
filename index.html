@@ -584,9 +584,11 @@
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
 			let options = { "color": "#428BCA", "marker-size": 5, 
-							"width": 1028,
-							"height": 728,
-							"xlabel":"Anos", "ylabel":"Precipitação" };
+							"width": 1028, "height": 728,
+							"xlabel":"Anos", "ylabel":"Precipitação",
+							"grid": true,
+							"hline": [{"v": 900, "name": "Linha 1"}, {"v": 1100, "name": "Linha 1"} ],
+							"hline_bg": ["#1F030550", "#4946B750", "#3491AA50"] };
 
 			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_2", options)
 		})
@@ -654,7 +656,8 @@
 		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
 			let options = { "width": 1028, "height": 728,
 							"marker-size": 5, "color":"#2222FFAA",
-							"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)"
+							"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)",
+							"trendline": true
 						};
 
 			scatter(data, "Area Colhida (hct)", "Quadra Chuvosa", "Data", "Área Colhida vs Precipitação", "#scroll__graphic__chart_10", options)
@@ -664,7 +667,8 @@
 		d3.csv("data/crossed/chuva_vs_idhm_1991.csv").then(function(data) {
 			let options = { "width": 1028, "height": 728,
 							"marker-size": 5, "color":"#2222FFAA",
-							"xlabel": "Índice de Desenvolvimento Humano", "ylabel": "Precipitação Total (ml)"
+							"xlabel": "Índice de Desenvolvimento Humano", "ylabel": "Precipitação Total (ml)",
+							"trendline": true, "grid": true
 						};
 
 			scatter(data, "idh", "chuva_total", "Nome", "IDH vs Precipitação", "#scroll__graphic__chart_11", options)

@@ -9,103 +9,107 @@
   <input id="dado" type="range" name="scale" min="1990" max="2000" step="1"><label>2000</label></div>
   
   <script type="text/javascript">
-    var vlSpec = {
-  "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 960,
-  "height": 500,
-  "autosize": "none",
-  "signals": [{"name": "scale","value": 5000},
-	      {"name": "centerY", "value": -5},
-              {"name": "rotateX", "value": 38}],
-  "data": [
-    {
-      "name": "unemp",
-      "format": {"type": "csv", "parse": "auto"}
-    },
-    {
-      "name": "counties",
-      "url": "data/ceara.topojson",
-      "format": {"type": "topojson", "feature": "ceara"},
-      "transform": [
-        { "type": "lookup", "from": "unemp", "key": "id", "fields": ["id"], "values": ["chuva_total","Nome"] },
-        { "type": "filter", "expr": "datum.chuva_total != null" },
-	{ "type": "filter", "expr": "datum.Nome != null" }
-      ]
-    }
-  ],
-
-  "projections": [
-    {
-      "name": "projection",
-      "type": "mercator",
-      "scale": {"signal": "scale"},
-      "rotate": [{"signal": "rotateX"}, 0, 0],
-      "center": [0, {"signal": "centerY"}]}
-      
-    
-  ],
-
-  "scales": [
-    {
-      "name": "color",
-      "type": "quantize",
-      "domain": [0, 1000],
-      "range": {"scheme": "blues", "count": 10}
-    }
-  ],
-
-  "legends": [
-    {
-      "fill": "color",
-      "orient": "bottom-right",
-      "title": "Unemployment",
-      "format": ".4f"
-    }
-  ],
-
-  "marks": [
-    {
-      "type": "shape",
-      "from": {"data": "counties"},
-      "encode": {
-        "enter": { "tooltip": {"field": "Nome", "title": "Municipio"}},
-        "update": { "fill": {"scale": "color", "field": "chuva_total"} },
-        "hover": { "fill": {"value": "red"} }
+  
+  function plot() {
+      var vlSpec = {
+    "$schema": "https://vega.github.io/schema/vega/v4.json",
+    "width": 960,
+    "height": 500,
+    "autosize": "none",
+    "signals": [{"name": "scale","value": 5000},
+  	      {"name": "centerY", "value": -5},
+                {"name": "rotateX", "value": 38}],
+    "data": [
+      {
+        "name": "unemp",
+        "format": {"type": "csv", "parse": "auto"}
       },
-      "transform": [
-        { "type": "geoshape", "projection": "projection" }
-      ]
-    }
-  ]
-}
- 
-  vegaEmbed('#vis', vlSpec, {"renderer": "svg"}).then(function(res) {
-    var loader = vega.loader(); 	
-    let dado_input = document.querySelector('#dado');
-    
-    loader.load('data/1995.csv').then(function(data) {
-      data = vega.read(data, {type: 'csv', parse: 'auto'});
-      var changeSet = vega.changeset().insert(data).remove();
-      res.view.change('unemp', changeSet).run();
-    });
+      {
+        "name": "counties",
+        "url": "data/ceara.topojson",
+        "format": {"type": "topojson", "feature": "ceara"},
+        "transform": [
+          { "type": "lookup", "from": "unemp", "key": "id", "fields": ["id"], "values": ["chuva_total","Nome"] },
+          { "type": "filter", "expr": "datum.chuva_total != null" },
+  	{ "type": "filter", "expr": "datum.Nome != null" }
+        ]
+      }
+    ],
 
-    dado_input.addEventListener("mouseup", function(event){
-      console.log(dado_input.value); 
+    "projections": [
+      {
+        "name": "projection",
+        "type": "mercator",
+        "scale": {"signal": "scale"},
+        "rotate": [{"signal": "rotateX"}, 0, 0],
+        "center": [0, {"signal": "centerY"}]}
+        
       
-      loader.load('data/'+String(dado_input.value)+'.csv').then(function(data) {
+    ],
+
+    "scales": [
+      {
+        "name": "color",
+        "type": "quantize",
+        "domain": [0, 1000],
+        "range": {"scheme": "blues", "count": 10}
+      }
+    ],
+
+    "legends": [
+      {
+        "fill": "color",
+        "orient": "bottom-right",
+        "title": "Unemployment",
+        "format": ".4f"
+      }
+    ],
+
+    "marks": [
+      {
+        "type": "shape",
+        "from": {"data": "counties"},
+        "encode": {
+          "enter": { "tooltip": {"field": "Nome", "title": "Municipio"}},
+          "update": { "fill": {"scale": "color", "field": "chuva_total"} },
+          "hover": { "fill": {"value": "red"} }
+        },
+        "transform": [
+          { "type": "geoshape", "projection": "projection" }
+        ]
+      }
+    ]
+  }
+   
+    vegaEmbed('#vis', vlSpec, {"renderer": "svg"}).then(function(res) {
+      var loader = vega.loader(); 	
+      let dado_input = document.querySelector('#dado');
+      
+      loader.load('data/1995.csv').then(function(data) {
         data = vega.read(data, {type: 'csv', parse: 'auto'});
         var changeSet = vega.changeset().insert(data).remove();
         res.view.change('unemp', changeSet).run();
       });
 
-      
+      dado_input.addEventListener("mouseup", function(event){
+        console.log(dado_input.value); 
+        
+        loader.load('data/'+String(dado_input.value)+'.csv').then(function(data) {
+          data = vega.read(data, {type: 'csv', parse: 'auto'});
+          var changeSet = vega.changeset().insert(data).remove();
+          res.view.change('unemp', changeSet).run();
+        });
 
-      vegaTooltip.vegaLite(res.view, vlSpec, tooltipOption);
+        
+
+        vegaTooltip.vegaLite(res.view, vlSpec, tooltipOption);
+      });
+
     });
+      
+  }
 
-  });
-    
-
+  plot()
     
   </script>
 </body>

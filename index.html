@@ -96,9 +96,6 @@
 
 	<section class="scroll" id='scroll_1'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_1'>
-			<div class='scroll__graphic__chart left_panel'>
-				<p>Imagem do mapa do Ceará ou alguma imagem histórica da Seca?</p>
-			</div>
 			<div class='scroll__graphic__chart right_panel'>
 				<div class="button_panel">
 					<div><button id="bt_prev_gpBar_01">Prev</button></div>
@@ -110,10 +107,11 @@
 				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<!--<p>MAPA DE PRECIPITAÇÃO TOTAL DOS ÚLTIMOS 30 ANOS</p>-->
 				<div id="vis"></div>
   				<div class="vega-bind"><span class="vega-bind-name">scale</span>
-  				<input id="dado" type="range" name="scale" min="1990" max="2000" step="1"><label>2000</label></div>
+  				<input id="dado" type="range" name="scale" min="1988" max="2018" step="1"  onchange="valor.value=value" >
+				<input type="text" id="valor" value="2003" readonly></div>
+				
 			</div>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart left_panel'></div>
@@ -121,9 +119,6 @@
 		</div>
 
 		<div class='scroll__text' id='scroll__text_1'>
-			<div class='step'>
-				<p>Há pesquisadores que demarcam 1603 como o ano da primeira seca registrada no Ceará, depois da <i>“chegada do branco”</i>. A memória histórica conta que a seca, além dos índios, fez o português Pero Coelho de Souza desistir da colonização local.</p>
-			</div>
 			<div class='step'>
 				<p>As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de ??? milímetros. Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o <b>período de estação (ou quadra) chuvosa do Estado</b>.</p>
 			</div>
@@ -212,43 +207,26 @@
 
 	<section class="scroll" id='scroll_3'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_3'>
-			<div class='scroll__graphic__chart left_panel'>
-				<img src="res/dog1.jpg">
-			</div>
-			<div class='scroll__graphic__chart right_panel'>
-				<img src="res/dog2.jpg">
-			</div>
-			<div class='scroll__graphic__chart left_panel'>
-				<img src="res/dog3.jpg">
-			</div>
-			<div class='scroll__graphic__chart left_panel'>
-				<img src="res/dog1.jpg">
-			</div>
-			<div class='scroll__graphic__chart right_panel'>
-				<img src="res/dog4.jpg">
-			</div>
+			<div class='scroll__graphic__chart left_panel'></div>
+			<div class='scroll__graphic__chart right_panel'></div>
+			<div class='scroll__graphic__chart right_panel'></div>
+			<div class='scroll__graphic__chart left_panel'></div>
 		</div>
 
 		<div class='scroll__text' id='scroll__text_3'>
 			<div class='step'>
-				<p>STEP 1</p>
-				<p>Era uma vez, um pedaçinho no meio do nada</p>
+				<p>Talvez o mais claro efeito da falta de chuvas como um fator importante na qualidade de vida da população está relacionado com a agricultura e pecuária no estado. No Sertão, sem o recurso para irrigar as plantações, moradores não conseguem garantir a alimentação necessária para o sustento de suas famílias e também de seus animais.</p>
+
+				<p>Ao lado podemos perceber uma certa correlação entre o valor total de precipitação, durante a quadra chuvosa, com a quantidade de hectares colhidos para cada ano, em todo o estado.</p>
 			</div>
 			<div class='step'>
-				<p>STEP 2</p>
-				<p>Com sabor de chocolate</p>
+				<p>Podemos, ainda, visualizar a correlação entre a precipitação total e o Índice de Desenvolvimento Humano (IDHM), enfatizando o impacto dessa escassez no bem-estar geral da população.</p>
 			</div>
 			<div class='step'>
-				<p>STEP 3</p>
-				<p>Com cheiro de terra molhada</p>
+				<p>É possível notar, pelo mapa ao lado, como o IDHM demonstra valores baixos principalmente nas regiões mais interioranas, onde também sabe-se que há uma notável deficiência de chuvas.</p>
 			</div>
 			<div class='step'>
-				<p>STEP 3</p>
-				<p>Com cheiro de terra molhada</p>
-			</div>
-			<div class='step'>
-				<p>STEP 4</p>
-				<p>Pra gente ser feliz, tem que <b>confiar</b> das nossas fantasias</p>
+				<p>Os dados também mostram que os 10 municípios com menor porcentagem de população com acesso a água encanada também possuem altos índices de mortalidade infantil. Esses índices mostram um problema de altíssima gravidade, pois altos índices de mortalidade infantil são evidências diretas de condições adversas à vida em uma região.</p>
 			</div>
 		</div>
 	</section>
@@ -555,8 +533,23 @@
 							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01"
 						};
 
-			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_1", options)
+			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_0", options)
 		})
+
+		// Gráfico Choropleth de Precipitação Total ao longo dos anos
+		var filePath = "vega/data/"
+		options = {
+			"width":800, "height":600,
+			"field_name": ["chuva_total","Nome"],
+			"min_value": 0,"max_value": 3071,
+			"color": "blues" ,"n_colors" : 8,
+			"Id_div" : '#vis' ,"Id_mouse": '#dado',
+			"initial_data": 'data/metereologico/relatorios_anuais/municipios_2003.csv',
+			"Title" : "Precipitacao anual"
+
+			}
+		
+		choroplethMap(filePath,options)
 
 		// Gráfico de Linhas das Quadras ao longo dos anos com fundo delimitado
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
@@ -565,10 +558,9 @@
 							"height": 728,
 							"xlabel":"Anos", "ylabel":"Precipitação" };
 
-			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_3", options)
+			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_2", options)
 		})
 
-		
 		// Gráfico de Barra Empilhada de área agrícola colhida por ano
 		var filePath = "data/agricola/areacolhida_ceara.csv"
 		var options = { "width": 800, "height": 600,
@@ -576,7 +568,7 @@
 						"colors": ["#2222FF", "#21113FF", "#A22FF0", "#FF7213", "#F2020F", "#5A1137"]
 					};
 
-		stackBarChart(filePath, "Data", "Area Colhida (hct)", "Produto", "Area Colhida por Cultura", "#scroll__graphic__chart_4", options)
+		stackBarChart(filePath, "Data", "Area Colhida (hct)", "Produto", "Area Colhida por Cultura", "#scroll__graphic__chart_3", options)
 
 		// Mapa de Pontos mostrando o volume total dos reservatórios por ano
 		var filePath = "data/reservatorios/relatorio_anual/relatorio_2011.csv"
@@ -586,20 +578,7 @@
 						"color": "#2222FFAA" 
 					};
 
-		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_5", options)
-		
-
-		var filePath = "vega/data/"
-		options = {
-			"width":1000, "height":600,
-			"field_name": ["chuva_total","Nome"],
-			"min_value": 0,"max_value": 1000,
-			"color": "blues" ,"n_colors" : 10,
-			"Id_div" : '#vis' ,"Id_mouse": '#dado',
-			"initial_data": 'vega/data/1995.csv',
-			"Title" : "Precipitacao anual"
-
-			}
+		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_4", options)
 		
 		choroplethMap(filePath,options);
 
@@ -642,30 +621,17 @@
 
 		// // Corpo para montagem dos gráficos de linha
 		// ldata = []
-		
-		// let promise = [
-		// 	d3.csv("data/social/regua_precipitacao.csv").then(function(d){
-		// 		for(var k = d.length - 1; k >=0; k--){
-		// 			ldata.push({"ano": d[k].ano, "precipitacao": d[k].precipitacao})
-		// 		}
-		// 	})
-		// ]
 
-		// Promise.all(promise).then(function(){
-		// 	var colors =["#A52A2A","#000000","#00008B","#2F4F4F","#4682B4",
-		// 		"#FFFF00","#008080","#6A5ACD","#8B4513","#A52A2A",
-		// 		"#000000","#00008B","#2F4F4F","#4682B4","#FFFF00",
-		// 		"#008080","#6A5ACD","#8B4513","#6A5ACD","#8B4513"]
+		/* SECTION 3 - O que é a Seca? */
+		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
+			let options = { "width": 1028, "height": 728,
+							"marker-size": 5, "color":"#2222FFAA",
+							"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)"
+						};
 
-		// 	let options = { "color": "#428BCABB", "marker-size": 5, 
-		// 						"width": 800,
-		// 						"height": 600,
-		// 						"xlabel":"Anos", "ylabel":"Precipitação" };
-			
-		// 	// chartLine(ldata, "ano", "precipitacao", "Régua de Precipitação", "#scroll__graphic__chart_4", options);
-			
-		// 	// barChart(ldata, "ano", "precipitacao", "a", "teste", "#scroll__graphic__chart_3", colors)
-		// });    
+			console.log("teste")
+			scatter(data, "Area Colhida (hct)", "Quadra Chuvosa", "Data", "Área Colhida vs Precipitação", "#scroll__graphic__chart_10", options)
+		})		
 	</script>
 
 </body>

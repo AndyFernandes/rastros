@@ -915,7 +915,7 @@ function choroplethMap(filePath,options) {
 	"width":  options.width,
 	"height": options.height,
 	"autosize": "none",
-	"signals": [{"name": "scale","value": 5000},
+	"signals": [{"name": "scale","value": 6500},
 	            {"name": "centerY", "value": -5},
 		    {"name": "rotateX", "value": 38}],
 	"data": [
@@ -990,8 +990,8 @@ function choroplethMap(filePath,options) {
             res.view.change('dataset', changeSet).run();
         });
 //Get the value of the slider and load the respective data
-        dado_input.addEventListener("mouseup", function(event){ 
-	    loader.load(filePath+String(dado_input.value)+'.csv').then(function(data) {
+        dado_input.addEventListener("mouseup", function(event){
+	    loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
 		data = vega.read(data, {type: 'csv', parse: 'auto'});
 		var changeSet = vega.changeset().insert(data).remove();
 		res.view.change('dataset', changeSet).run();

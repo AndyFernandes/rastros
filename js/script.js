@@ -991,29 +991,6 @@ function choroplethMapNominal(dataset, x, labels, title, panel, options) {
 
 		// Rendering
 		vegaEmbed(panel, spec, opt).then(function(view) {
-			
-			// Embed the input objects if the options.input is different from "none"
-			if(options.input != "none") {
-				var loader = vega.loader(); 	
-
-				// Load data based on the initial position of the slider 
-				loader.load(options.path + $(options.input).val() + ".csv").then(function(data) {        
-					data = vega.read(data, {type: 'csv', parse: 'auto'})
-					var changeSet = vega.changeset().insert(data).remove();
-					
-					view.view.change('dataset', changeSet).run();
-				})
-
-				// Embed a listener to the input to change the dataset accordingly
-				$(options.input).on("change mousemove", function(event) {
-					loader.load(options.path + $(this).val() + ".csv").then(function(data) {        
-						data = vega.read(data, {type: 'csv', parse: 'auto'})
-						var changeSet = vega.changeset().insert(data).remove();
-
-						view.view.change('dataset', changeSet).run();
-					})
-				});
-			}
 
 		}) 
 	});

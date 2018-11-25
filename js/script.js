@@ -784,7 +784,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 				.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
 				.transition()
 		        .delay(100)
-		        .duration(1000)
+		        .duration(500)
 				.attr("y", function(d) { return yScale(d.value); })
 				.attr("height", function(d) { return h - yScale(d.value) })
 

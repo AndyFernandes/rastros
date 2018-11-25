@@ -913,96 +913,78 @@ function choroplethMap(filePath,options) {
 		"renderer": "svg", 
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
+
     var vlSpec = {
        	"$schema": "https://vega.github.io/schema/vega/v4.json",
-	"width":  options.width,
-	"height": options.height,
-	"autosize": "none",
-	"signals": [{"name": "scale","value": 6500},
-	            {"name": "centerY", "value": -5},
-		    {"name": "rotateX", "value": 38}],
-	"data": [
-	    {
-	      "name": "dataset",
-	      "format": {"type": "csv", "parse": "auto"}
-	    },
-	    {
-	      "name": "Ceara",
-	      "url": "data/ceara.topojson",
-	      "format": {"type": "topojson", "feature": "ceara"},
-	      "transform": [
-	          { "type": "lookup", "from": "dataset", "key": "id", "fields": ["id"], "values": options.field_name }
-
-	      ]
-	    }
-	  ],
-
-	  "projections": [
-	    {
-	      "name": "projection",
-	      "type": "mercator",
-	      "scale": {"signal": "scale"},
-	      "rotate": [{"signal": "rotateX"}, 0, 0],
-	      "center": [0, {"signal": "centerY"}]}
-	      
-	    
-	  ],
-
-	  "scales": [
-	    {
-	      "name": "color",
-	      "type": "quantize",
-	      "domain": [options.min_value, options.max_value],
-	      "range": {"scheme": options.color, "count": options.n_colors}
-	    }
-	  ],
-
-	  "legends": [
-	    {
-	      "fill": "color",
-	      "orient": "bottom-right",
-	      "title": options.Title,
-	      "format": ".4f"
-	    }
-	  ],
-
-	  "marks": [
-	    {
-	      "type": "shape",
-	      "from": {"data": "Ceara"},
-	      "encode": {
-		"enter": { "tooltip": {"field": "Nome"}},
-		"update": { "fill": {"scale": "color", "field": options.field_name[0]} },
-		"hover": { "fill": {"value": "red"} }
-	      },
-	      "transform": [
-		{ "type": "geoshape", "projection": "projection" }
-	      ]
-	    }
-	  ]
+		"width":  options.width,
+		"height": options.height,
+		"autosize": "none",
+		"signals": [{"name": "scale","value": 6500},
+		            {"name": "centerY", "value": -5},
+			    	{"name": "rotateX", "value": 38}],
+		"data": [
+					{
+						"name": "dataset",
+				    	"format": {"type": "csv", "parse": "auto"}
+					},
+				    {
+				      	"name": "Ceara",
+				      	"url": "data/ceara.topojson",
+				      	"format": {"type": "topojson", "feature": "ceara"},
+				      	"transform":[{ "type": "lookup", "from": "dataset", "key": "id", "fields": ["id"], "values": options.field_name}]
+		    		}
+		    	],
+	  	"projections": [{
+					      "name": "projection",
+					      "type": "mercator",
+					      "scale": {"signal": "scale"},
+					      "rotate": [{"signal": "rotateX"}, 0, 0],
+					      "center": [0, {"signal": "centerY"}]
+					  }],
+	  	"scales": 	[{
+					      "name": "color",
+					      "type": "quantize",
+					      "domain": [options.min_value, options.max_value],
+					      "range": {"scheme": options.color, "count": options.n_colors}
+	    			}],
+	  	"legends": 	[{
+					      "fill": "color",
+					      "orient": "bottom-right",
+					      "title": options.Title,
+					      "format": ".4f"
+	    			}],
+	  	"marks": [{
+					      "type": "shape",
+					      "from": {"data": "Ceara"},
+					      "encode": {
+									"enter": { "tooltip": {"field": "Nome"}},
+									"update": { "fill": {"scale": "color", "field": options.field_name[0]} },
+									"hover": { "fill": {"value": "red"}}},
+					      "transform": [{ "type": "geoshape", "projection": "projection" }]
+			    }]
 	}
 
-   
     vegaEmbed(options.Id_div, vlSpec, opt).then(function(res) {
         var loader = vega.loader(); 	
         let dado_input = document.querySelector(options.Id_mouse);
-//Load data based on the initial position of the slider         
-	loader.load(options.initial_data).then(function(data) {
-            data = vega.read(data, {type: 'csv', parse: 'auto'});
-            var changeSet = vega.changeset().insert(data).remove();
-            res.view.change('dataset', changeSet).run();
+		
+		//Load data based on the initial position of the slider         
+		loader.load(options.initial_data).then(function(data) {
+            	data = vega.read(data, {type: 'csv', parse: 'auto'});
+            	var changeSet = vega.changeset().insert(data).remove();
+            	res.view.change('dataset', changeSet).run();
         });
-//Get the value of the slider and load the respective data
+		
+		//Get the value of the slider and load the respective data
         dado_input.addEventListener("mouseup", function(event){
-	    loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
-		data = vega.read(data, {type: 'csv', parse: 'auto'});
-		var changeSet = vega.changeset().insert(data).remove();
-		res.view.change('dataset', changeSet).run();
-	    });
-	});
+	    		loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
+						data = vega.read(data, {type: 'csv', parse: 'auto'});
+						var changeSet = vega.changeset().insert(data).remove();
+						res.view.change('dataset', changeSet).run();
+	    		});
+		});
 
-    });
-      
+    });  
 }
 
 

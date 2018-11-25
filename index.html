@@ -160,19 +160,45 @@
 	<section class="scroll" id='scroll_2'>
 		<div class='scroll__graphic sticky' id='scroll__graphic_2'>
 			<div class='scroll__graphic__chart left_panel'>
-				<p>GRAFICO mapa regiões ceará</p>
+				<!--<p>GRAFICO mapa regiões ceará</p>-->
+				<div id="vega__map1"></div>
+
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<p>GRAFICO mapa população municipiosceará</p>
+				<!--<p>GRAFICO mapa população municipiosceará</p>-->
+				<div id="vega__map2"></div>
+
+				<div class="slidecontainer">	<span>1991</span>
+  					<input id="dado_2_2" type="range" class="slider" name="scale" min="1991" max="2010" step="9"  onchange="valor.value=value" >
+					<span class="vega-bind-name">2010</span>
+				</div>
+				<span class="vega-bind-name">Ano </span>
+				<input type="submit" id="valor" value="2010" readonly>
 			</div>
 			<div class='scroll__graphic__chart left_panel'>
-				<p>Gráfico mapa mostrando linha histórica IDH municipios</p>
+				<!--<p>Gráfico mapa mostrando linha histórica IDH municipios</p>-->
+				<div id="vega__map3"></div>
+
+				<div class="slidecontainer">	<span>1991</span>
+  					<input id="dado_2_3" type="range" class="slider" name="scale" min="1991" max="2010" step="9"  onchange="valor.value=value" >
+					<span class="vega-bind-name">2010</span>
+				</div>
+				<span class="vega-bind-name">Ano </span>
+				<input type="submit" id="valor" value="2010" readonly>
 			</div>
 			<div class='scroll__graphic__chart left_panel'>
-				<p>Gráfico mapa mostrando linha histórica PIB municipios</p>
+				<!--<p>Gráfico mapa mostrando linha histórica PIB municipios</p>-->
+				<div id="vega__map4"></div>
+
+				<div class="slidecontainer">	<span>1999</span>
+  					<input id="dado_2_4" type="range" class="slider" name="scale" min="1999" max="2016" step="1"  onchange="valor.value=value" >
+					<span class="vega-bind-name">2016</span>
+				</div>
+				<span class="vega-bind-name">Ano </span>
+				<input type="submit" id="valor" value="2015" readonly>
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
-				<p>Gráfico mapa mostrando linha histórica POBREZA municipios</p>
+				<!--<p>Gráfico mapa mostrando linha histórica POBREZA municipios</p>-->
 			</div>
 		</div>
 
@@ -585,20 +611,44 @@
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_4", options)
 
 		/* SECTION 2 - Índicadores Sociais do Ceará */
-		///////////////////////TESTANDOCOMIDH
-		var filePath = "data/social/idh/idh_1991.csv";
-
+		// Gráfico Cloropleth: Regiões do Ceará 
+		var filePath = "data/regioes.csv";
 		var options = { 
-			"width":800, "height":600,
-			"field_name": ["1991","Localidade"],
-			"min_value": 0,"max_value": 0.44,
-			"color": "blues" ,"n_colors" : 8,
-			"Id_div" : '#scroll__graphic__chart_6' ,"Id_mouse": '#dado',
-			"initial_data": 'data/social/idh/idh_1991.csv',
-			"Title" : "IDH"
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/regioes"
 		}
 
-		choroplethMap(filePath,options);
+		choroplethMap(filePath, "regiao", "Nome", "Região", "#vega__map1", options)
+
+		// Gráfico Cloropleth: População 1991,2000,2010 por municipio
+		var filePath = "data/social/populacao/populacao_2010.csv";
+		var options = { 
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/social/populacao/populacao_"
+		}
+
+		choroplethMap(filePath, "População Total", "Espacialidades", "População", "#vega__map2", options)
+
+		// Gráfico Cloropleth: IDH 1991,2000,2010 por municipio
+		var filePath = "data/social/idh/idh_2010.csv";
+		var options = { 
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/social/idh/idh_"
+		}
+
+		choroplethMap(filePath, "idh", "Localidade", "IDH", "#vega__map3", options)
+
+		// Gráfico Cloropleth: PIB 1999-2016 por municipio
+		var filePath = "data/social/pib/pib_2010.csv";
+		var options = { 
+			"width":800, "height":600, "mapStroke": "white",
+			"input": "#dado_2", "path": "data/social/pib/pib"
+		}
+
+		choroplethMap(filePath, "pib", "Localidade", "PIB", "#vega__map4", options)
+
+		
+
 		/* SECTION 3 - O que é a Seca? */
 		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos
 		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {

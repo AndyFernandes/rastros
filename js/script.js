@@ -366,7 +366,39 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 				  .scale(xScale);
 
 	let yAxis = d3.axisLeft()
-				  .scale(yScale)
+				  .scale(yScale);
+
+	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
+	var xSeries = d3.range(1, dataset.length+1);
+	var ySeries = dataset.map(function(d){return parseFloat(d[y]);});
+	var leastSquaresCoeff = leastSquares(xSeries,ySeries);
+
+	var x1 = d3.min(dataset, function(d){return d[x];});
+	
+	var y1 = leastSquaresCoeff[0] + leastSquaresCoeff[1];
+	var x2 = d3.max(dataset, function(d){ return d[x];});
+	var y2 = leastSquaresCoeff[0]*xSeries.length + leastSquaresCoeff[1];
+	var trendData = [[x1,y1,x2,y2]];
+
+	function leastSquares(xSeries, ySeries){
+		var reduceSumFunc = function(prev, cur){ return prev+cur;};
+
+		var xBar = xSeries.reduce(reduceSumFunc) * 1.0 / xSeries.length;
+		var yBar = ySeries.reduce(reduceSumFunc) * 1.0 / ySeries.length;
+
+		var ssXX = xSeries.map(function(d){ return Math.pow(d - xBar, 2);})
+							.reduce(reduceSumFunc);
+
+		var ssYY = ySeries.map(function(d){ return Math.pow(d - yBar, 2);})
+							.reduce(reduceSumFunc);
+
+		var ssXY = xSeries.map(function(d,i){ return (d - xBar)*(ySeries[i] - yBar);})
+							.reduce(reduceSumFunc);
+		var slope = ssXY/ssXX;
+		var intercept = yBar - (xBar * slope);
+		var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
+		return [slope,intercept,rSquare];
+	};
 
 	// Cria a região onde o gráfico será desenhado
     let svg = d3.select(panel)
@@ -374,8 +406,21 @@ function scatter(dataset, x, y, labels, title, panel, options) {
         			.attr("width", w + margin.left + margin.right)
         			.attr("height", h + margin.top + margin.bottom)
         		.append("g")
-        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
+   var trendline = svg.selectAll(".trendline")
+   						.data(trendData);
+
+   trendline.enter()
+   			.append("line")
+   			.attr("class","trendline")
+   			.attr("x1", function(d) { return xScale(d[0]);})
+   			.attr("y1", function(d) { return yScale(d[1]);})
+   			.attr("x2", function(d) { return xScale(d[2]);})
+   			.attr("y2", function(d) { return yScale(d[3]);})
+   			.attr("stroke","black")
+   			.attr("stroke-width",5);
+
     // Declara e posiciona os marcadores do gráfico scatterplot
     svg.selectAll("circle")
 		.data(dataset)
@@ -391,7 +436,6 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		.attr("r", options["marker-size"])
 		.attr("fill", options["color"])
 		.attr("stroke", "black");
-
 
 	// Adiciona as labels a cada marcador no gráfico
     svg.selectAll("text")
@@ -862,101 +906,62 @@ function dottedMap(dataset, x, labels, title, panel, options) {
 	});
 }
 
-function choroplethMap(filePath,options) {
-    var opt = {
+// Função CHOROPLETH MAP: gera um mapa colorido de acordo com determinado dado.
+// @dataset 	Caminho para o arquivo de dados de entrada para as cores
+// @x 			Nome do atributo a ser projeto como gradiente da cor
+// @labels 		Nome do atributo contendo os identificadores de cada marca
+// @title 		Título do gráfico a ser exibido
+// @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
+// @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
+function choroplethMap(dataset, x, labels, title, panel, options) {
+	var opt = {
 		"renderer": "svg", 
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
-    var vlSpec = {
-       	"$schema": "https://vega.github.io/schema/vega/v4.json",
-	"width":  options.width,
-	"height": options.height,
-	"autosize": "none",
-	"signals": [{"name": "scale","value": 6500},
-	            {"name": "centerY", "value": -5},
-		    {"name": "rotateX", "value": 38}],
-	"data": [
-	    {
-	      "name": "dataset",
-	      "format": {"type": "csv", "parse": "auto"}
-	    },
-	    {
-	      "name": "Ceara",
-	      "url": "data/ceara.topojson",
-	      "format": {"type": "topojson", "feature": "ceara"},
-	      "transform": [
-	          { "type": "lookup", "from": "dataset", "key": "id", "fields": ["id"], "values": options.field_name }
 
-	      ]
-	    }
-	  ],
+	d3.json("../vega/choropleth.json").then(function(spec) { 
+		// General properties
+		spec["width"] = options.width
+		spec["height"] = options.height
 
-	  "projections": [
-	    {
-	      "name": "projection",
-	      "type": "mercator",
-	      "scale": {"signal": "scale"},
-	      "rotate": [{"signal": "rotateX"}, 0, 0],
-	      "center": [0, {"signal": "centerY"}]}
-	      
-	    
-	  ],
+		// Map configuration
+		spec["mark"]["stroke"] = options.mapStroke
 
-	  "scales": [
-	    {
-	      "name": "color",
-	      "type": "quantize",
-	      "domain": [options.min_value, options.max_value],
-	      "range": {"scheme": options.color, "count": options.n_colors}
-	    }
-	  ],
+		// Color configuration
+		spec["transform"][0]["from"]["data"]["url"] = dataset
+		spec["transform"][0]["from"]["fields"] = [labels, x]
+		spec["encoding"]["color"]["field"] = x
+		spec["encoding"]["tooltip"][0]["field"] = labels
+		spec["encoding"]["tooltip"][1]["field"] = x
 
-	  "legends": [
-	    {
-	      "fill": "color",
-	      "orient": "bottom-right",
-	      "title": options.Title,
-	      "format": ".4f"
-	    }
-	  ],
+		// Rendering
+		vegaEmbed(panel, spec, opt).then(function(view) {
+			
+			// Embed the input objects if the options.input is different from "none"
+			if(options.input != "none") {
+				var loader = vega.loader(); 	
 
-	  "marks": [
-	    {
-	      "type": "shape",
-	      "from": {"data": "Ceara"},
-	      "encode": {
-		"enter": { "tooltip": {"field": "Nome"}},
-		"update": { "fill": {"scale": "color", "field": options.field_name[0]} },
-		"hover": { "fill": {"value": "red"} }
-	      },
-	      "transform": [
-		{ "type": "geoshape", "projection": "projection" }
-	      ]
-	    }
-	  ]
-	}
+				// Load data based on the initial position of the slider 
+				loader.load(options.path + $(options.input).val() + ".csv").then(function(data) {        
+					data = vega.read(data, {type: 'csv', parse: 'auto'})
+					var changeSet = vega.changeset().insert(data).remove();
+					
+					view.view.change('dataset', changeSet).run();
+				})
 
-   
-    vegaEmbed(options.Id_div, vlSpec, opt).then(function(res) {
-        var loader = vega.loader(); 	
-        let dado_input = document.querySelector(options.Id_mouse);
-//Load data based on the initial position of the slider         
-	loader.load(options.initial_data).then(function(data) {
-            data = vega.read(data, {type: 'csv', parse: 'auto'});
-            var changeSet = vega.changeset().insert(data).remove();
-            res.view.change('dataset', changeSet).run();
-        });
-//Get the value of the slider and load the respective data
-        dado_input.addEventListener("mouseup", function(event){
-	    loader.load(filePath+"municipios_"+String(dado_input.value)+'.csv').then(function(data) {
-		data = vega.read(data, {type: 'csv', parse: 'auto'});
-		var changeSet = vega.changeset().insert(data).remove();
-		res.view.change('dataset', changeSet).run();
-	    });
+				// Embed a listener to the input to change the dataset accordingly
+				$(options.input).on("change mousemove", function(event) {
+					loader.load(options.path + $(this).val() + ".csv").then(function(data) {        
+						data = vega.read(data, {type: 'csv', parse: 'auto'})
+						var changeSet = vega.changeset().insert(data).remove();
+
+						view.view.change('dataset', changeSet).run();
+					})
+				});
+			}
+
+		}) 
 	});
-
-    });
-      
 }
 
 
@@ -964,14 +969,6 @@ function choroplethMap(filePath,options) {
 // ######################
 //     FUNÇÕES GERAIS
 // ######################
-
-
-
-
-
-
-
-
 
 // ######################
 //     TIMELINE

@@ -232,14 +232,7 @@
 		<div class='scroll__graphic sticky' id='scroll__graphic_3'>
 			<div class='scroll__graphic__chart left_panel'></div>
 			<div class='scroll__graphic__chart right_panel'></div>
-			<div class='scroll__graphic__chart right_panel'>
-				<div id="vega__map"></div>
-
-				<div class="vega-bind_2"><span class="vega-bind-name_2">scale</span>
-  				<input id="dado_2" type="range" name="scale2" min="2000" max="2018" step="1"  onchange="valor.value=value" >
-				<input type="text" id="valor_2" value="2003" readonly></div>
-
-			</div>
+			<div class='scroll__graphic__chart right_panel'></div>
 			<div class='scroll__graphic__chart left_panel'></div>
 		</div>
 
@@ -669,6 +662,17 @@
 			};
 
 			scatter(data, "idh", "chuva_total", "Nome", "IDH vs Precipitação", "#scroll__graphic__chart_11", options)
+		})
+
+		d3.csv("data/teste.csv").then(function(data) {
+			let options = { 
+				"width": 1028, "height": 728,
+				"colorRange": ["#7092BF", "#30527F"],
+				"xlabel": "A", "ylabel": "B",
+				"trendline": true, "grid": true
+			};
+
+			barChart(data, "A", "B", "Teste", "#scroll__graphic__chart_12", options)
 		})
 		
 	</script>

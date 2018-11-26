@@ -236,7 +236,7 @@ function chartLine(data, attX, attY, title, idDiv, options){
 		.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-		// Adiciona linhas de grade no gráfico
+	// Adiciona linhas de grade no gráfico
 	if("grid" in options && options.grid == true) {
 		make_grid(svg, xScale, yScale, width, height)
 	}
@@ -435,6 +435,10 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 			.attr("transform", "translate(0,"+ h + ")")
 			.attr("class", "axis")
 			.call(xAxis)	
+	
+	svg.append("g")
+			.attr("class", "axis")
+			.call(yAxis)
 
 	svg.append("text")
 			.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
@@ -442,10 +446,6 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
 			.text(options["xlabel"]);
-
-	svg.append("g")
-			.attr("class", "axis")
-			.call(yAxis)
 
 	svg.append("text")
 			.attr("transform", "rotate(-90)")
@@ -495,8 +495,8 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 					.attr("x2", function(d) { return xScale(d[2]);})
 					.attr("y2", function(d) { return yScale(d[3]);})
 					.attr("stroke","black")
-					.style("stroke-dasharray", ("3, 3"))
-					.attr("stroke-width",2);
+					.style("stroke-dasharray", ("6, 6"))
+					.attr("stroke-width",3);
 	}
 }
 
@@ -508,125 +508,128 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 // @panel 		Identificador da <div> na qual o gráfico deve ser renderizado
 // @options 	Conjunto de opções gráficas (cor, dimensões, labels, etc.)
 function barChart(dataset, x, y, title, panel, options) {
-	let parseDate = d3.timeParse("%Y");
-	let label = []
-	let values = []
 
-	dataset.forEach(function(d) {
-		d[x] = +d[x];
-		label.push(d[x])
-
-		d[y] = parseFloat(d[y]);
-		values.push(d[y])
-	});
-	
+	// Variáveis Gerais
+	var label = dataset.map( function(d) { return d[x] } )
 	var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
-		w = 800 - margin.left - margin.right, 
-		h = 600 - margin.top - margin.bottom;
+		w = options.width - margin.left - margin.right, 
+		h = options.height - margin.top - margin.bottom;
 
-	var bar_size = (w / dataset.length)
-
+	// Declaração das Funções de Escala
 	var xScale = d3.scaleBand()
-					.range([0,w])            
+					.range([0, w])            
 					.domain(label)
 					.padding(0.2);
 
-	//var yScale = d3.scaleLinear()
-	  //  .domain([d3.min(dataset, function(d){return d[y];}), d3.max(dataset, function(d){ return d[y];})])  
-		//.range([h, 0]); 
 	let yScale = d3.scaleLinear()
-					.domain([0, d3.max(values)])
-					.range([h,0]);	
+					.domain([0, d3.max(dataset, function(d) { return +d[y] })+2])
+					.range([h, 0]);	
 
+	var colorScale = ''
+	if("colors" in options) {
+		colorScale = d3.scaleOrdinal()
+						.domain(label)
+						.range(options.colors)
+
+	} else if("colorRange" in options) {
+		colorScale = d3.scaleOrdinal()
+						.domain([0, d3.max(dataset, function(d) { return +d[y] })])
+						.range(options.colorRange)
+
+	}
+
+	// Declaração dos Eixos
 	let xAxis = d3.axisBottom()
 					.scale(xScale);
 	
 	let yAxis = d3.axisLeft()
 					.scale(yScale).ticks(5);
-	
-	// 1. Add the SVG to the page and employ #2
+
+	// Declara a região onde os gráficos serão desenhados
 	var svg = d3.select(panel).append("svg")
 								.attr("width", w + margin.left + margin.right)
 								.attr("height", h + margin.top + margin.bottom)
 							.append("g")
 								.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
-	// add the Y gridlines
-	svg.append('g')
-	   .attr('class', 'grid')
-	   .call(d3.axisLeft()
-	   .scale(yScale)
-	   .tickSize(-w, 0, 0)
-	   .tickFormat(''))
+	// Adiciona linhas horizontais ao gráfico
+	if("hline" in options) {
+		make_hline(svg, w, xScale, yScale, options.hline)
 
+		// Fundo Colorido de Separação das linhas horizontais
+		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
+			make_hline_background(svg, w, h, yScale, options.hline, options.hline_bg)
+		}
+	}
+
+	// Cria linhas horizontais
+	svg.append("g")			
+		.attr("class", "grid")
+		.call(d3.axisLeft(yScale)
+				.ticks(5)
+				.tickSize(-w)
+				.tickFormat(""))
+
+ 	// Declara e posiciona os marcadores do gráfico barChart
 	barChart = svg.selectAll()
 					.data(dataset)
 					  .enter()
 					  .append("rect")
-					  .attr("y",(d) => yScale(d[y]))
-					  .attr("height", (d) => h - yScale(d[y]))
-						  .attr("width", bar_size -10)
-					  .attr("transform", function (d, i) {
-								var translate = [ bar_size * i, 0];
-								return "translate("+ translate +")";
+					  .attr("x", function(d) { return xScale(d[x]) })
+					  .attr("y", function(d) { return yScale(+d[y]) })
+					  .attr("height", function(d) { return h - yScale(+d[y]) })
+					  .attr("width", xScale.bandwidth())
+					  .attr("stroke", "#2F2F2F")
+					  .attr("stroke-width", 0)
+					  .attr("fill", function(d) { 
+					  	if("colors" in options) {
+					  		return colorScale(d[x])
+						} else if("colorRange" in options) {
+							return colorScale(+d[y])
+						}
 					  })
-					.attr("fill",function (d,i){ return options[i]} )
-					  .on('mouseenter', function (a, i) {
-						d3.select(this)
-							.transition()
-							.duration(100)
-							.attr('opacity', 0.5)
-							.attr('width', xScale.bandwidth()-5)	
-
-						svg.append('line')
-							.attr('id','line')
-							.attr('x1', 0)
-							.attr('y1', yScale(a[y]))
-							.attr('x2', w)
-							.attr('y2', yScale(a[y]))
-							.attr('stroke', 'red')
+					  .on('mouseenter', function (d) {
+						d3.select(this).transition().duration(200)
+					  		.attr("stroke-width", 2)
 					  })
-					  .on('mouseleave', function (a, i) {
-							d3.select(this)
-								.transition()
-								.duration(100)
-								.attr('opacity', 1)
-								.attr('width', xScale.bandwidth() -10)
-
-							svg.selectAll('#line').remove()
+					  .on('mouseleave', function (d) {
+					  	d3.select(this).transition().duration(200)
+					  		.attr("stroke-width", 0)
 					  })
 
+	
+	// Título do Gráfico e nome dos eixos
 	svg.append("g").attr("transform", "translate(0," + h + ")")
 					.call(xAxis);
 
 	svg.append("g").attr("transform", "translate(0," + 0 + ")")
 					.call(yAxis);
 
-	// Título do Gráfico e nome dos eixos
 	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
-	   .style("text-anchor", "middle")
-	   .attr("font-family", "Segoe UI")
-	   .attr("font-weight", "bold")
-	   .attr("font-size", "30px")
-	   .text(title);
+		.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
+		.style("text-anchor", "middle")
+		.attr("font-family", "Roboto")
+		.attr("font-size", "14px")
+		.text(options["xlabel"]);
 
 	svg.append("text")
-		   .attr("transform", "translate(" + (w/2) + "," + (h + margin.bottom) + ")")
-		   .style("text-anchor", "middle")
-		   .attr("font-family", "sans-serif")
-		   .attr("font-size", "12px")
-		   .text(x);
-	
+		.attr("transform", "rotate(-90)")
+		.attr("y", 0 - 60)
+		.attr("x", 0 - (h / 2))
+		.attr("dy", "1em")
+		.style("text-anchor", "middle")
+		.attr("font-family", "Roboto")
+		.attr("font-size", "14px")
+		.text(options["ylabel"]);
+			
+	// Título do Gráfico
 	svg.append("text")
-	   .attr("transform", "rotate(-90)")
-	   .attr("y", 0 - margin.left)
-	   .attr("x",0 - (h / 2))
-	   .attr("dy", "1em")
-	   .style("text-anchor", "middle")
-	   .attr("font-family", "sans-serif")
-	   .attr("font-size", "12px")
-	   .text(y);
+		.attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
+		.style("text-anchor", "middle")
+		.attr("font-family", "Roboto")
+		.attr("font-weight", "bold")
+		.attr("font-size", "24px")
+		.text(title);
  }
 
 // Função GROUPED BAR CHART: gera um gráfico de barras agrupado para determinado conjunto de dados.
@@ -722,11 +725,15 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 			.attr("y", function(d) { return yScale(d.value); })
 			.attr("height", function(d) { return h - yScale(d.value) })
 			.style("fill", function(d) { return colorScales[d.key](d.value) })
-			.on('mouseover', function(d) {
-				d3.select(this).style("fill", d3.rgb(colorScales[d.key](d.value)).darker(1))
+			.attr("stroke", "#2F2F2F")
+		  	.attr("stroke-width", 0)
+			.on('mouseenter', function (d) {
+				d3.select(this).transition().duration(200)
+					.attr("stroke-width", 2)
 			})
-			.on('mouseout', function(d) {
-				d3.select(this).style("fill", colorScales[d.key](d.value))
+			.on('mouseleave', function (d) {
+				d3.select(this).transition().duration(200)
+					.attr("stroke-width", 0)
 			})
 
 	// Declaração da Caixa de Legenda
@@ -1055,7 +1062,7 @@ function make_hline(svg, w, xScale, yScale, hline) {
 				.attr("y2", function(d) { return yScale(d[2]);})
 				.attr("stroke","black")
 				.style("stroke-dasharray", ("3, 3"))
-				.attr("stroke-width",2);
+				.attr("stroke-width",3);
 
 	trendline.enter()
 				.append("text")
@@ -1112,7 +1119,7 @@ function make_vline(svg, w, xScale, yScale, vline) {
 				.attr("y2", function(d) { return yScale(d[2]);})
 				.attr("stroke","black")
 				.style("stroke-dasharray", ("3, 3"))
-				.attr("stroke-width",2);
+				.attr("stroke-width",3);
 
 	trendline.enter()
 				.append("text")

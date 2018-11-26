@@ -278,7 +278,7 @@
 	        <div class="events-wrapper">
 	          <div class="events">
 	            <ol>
-	              <a href="#0" data-date="21/10/1909" class="selected">1909</a></li>
+	              <a href="#0" data-date="21/10/1949" class="selected">1909</a></li>
 	              <a href="#0" data-date="19/07/1952">1952</a>
 	              <a href="#0" data-date="01/01/1961">1961</a>
 	              <a href="#0" data-date="18/09/1972">1972</a>
@@ -286,9 +286,9 @@
 	              <a href="#0" data-date="01/01/2003">2003</a>
 	              <a href="#0" data-date="01/01/2008">2008</a>
 	              <a href="#0" data-date="26/07/2011">2011</a>
-	              <a href="#0" data-date="10/12/2014">10 Dec</a>
-	              <a href="#0" data-date="19/01/2015">29 Jan</a>
-	              <a href="#0" data-date="03/03/2015">3 Mar</a>
+	              <a href="#0" data-date="10/12/2014">2014</a>
+	              <a href="#0" data-date="19/01/2015">2015</a>
+	              <a href="#0" data-date="03/03/2020">2015</a>
 	            </ol>
 
 	            <span class="filling-line" aria-hidden="true"></span>
@@ -306,15 +306,10 @@
 	          <li class="selected" data-date="21/10/1909">
 	            <h2>DNOCS</h2>
 	            <em>21 de outubro de 1909</em>
-	            <p> 
-	              <b>DESCRIÇÃO:</b> Criado sob o nome de Inspetoria de Obras Contra as Secas - IOCS, posteriormente IFOCS e atual DNOCS foi o primeiro órgão a estudar a problemática do semiárido, vindo a ser transformado em autarquia federal, através da Lei n° 4.229, de 01/06/1963. Com a criação de órgãos especializados, o acervo de obras construídas pelo Departamento vinculado a ações "não hídricas", como rodovias, linhas de transmissão, ferrovias, portos, etc., foram àqueles transferidos. Posteriormente, transferiram-se aos Estados as redes de abastecimento urbano e à SUVALE, hoje CODEVASF, os Projetos públicos de Irrigação situados no vale do Rio São Francisco.
+	            <p> <b>Primeiro órgão a estudar a problemática do semiárido</b>, se transformou em autarquia federal em 1963.</p>
+	            <p> Tinha o objetivo de <b>executar políticas</b> do Governo Federal, <b>referente a beneficiamento de áreas e obras de proteção contra as secas e inundações, irrigação, radicação da população em comunidades de irrigantes e subsidiariamente</b>, outros assuntos que lhe seja cometidos pelo Governo Federal, nos campos do saneamento básico, assistência às populações atingidas por calamidades públicas e cooperação com os Municípios, possuindo <b>grande atuação no semiárido do Nordeste e norte de Minas Gerais.</b>
 	            </p>
-	             <p> 
-	              <b>OBJETIVO:</b> Executar políticas do Governo Federal, no que se refere a beneficiamento de áreas e obras de proteção contra as secas e inundações, irrigação, radicação da população em comunidades de irrigantes e subsidiariamente, outros assuntos que lhe seja cometidos pelo Governo Federal, nos campos do saneamento básico, assistência às populações atingidas por calamidades públicas e cooperação com os Municípios, possuindo grande atuação no semiárido do Nordeste e norte de Minas Gerais.
-	            </p>
-	            <p> 
-	              <b>RESULTADOS:</b>  Sendo, de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região, fez de tudo. Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.
-	            </p>
+	            <p> Sendo, <b>de 1909 até por volta de 1959, praticamente, a única agência governamental federal executora de obras de engenharia na região</b>, fez de tudo. <b>Construiu açudes, estradas, pontes, portos, ferrovias, hospitais e campos de pouso, implantou redes de energia elétrica e telegráficas, usinas hidrelétricas</b> e foi, até a criação da SUDENE, o responsável único pelo socorro às populações flageladas pelas cíclicas secas que assolam a região.</p>
 	          </li>
 
 	          <li data-date="19/07/1952">
@@ -641,7 +636,7 @@
 			"width":800, "height":600, "mapStroke": "white",
 			"input": "#dado_2_2", "path": "data/social/populacao/populacao_"
 		}
-
+		slider_value("dado_2_2","valor_choropleth_2")
 		choroplethMap(filePath, "populacao", "Espacialidades", "População", "#vega__map2", options)
 
 		// Gráfico Cloropleth: IDH 1991,2000,2010 por municipio
@@ -651,6 +646,7 @@
 			"input": "#dado_2_3", "path": "data/social/idh/idh_"
 		}
 
+		slider_value("dado_2_3","valor_choropleth_3")
 		choroplethMap(filePath, "idh", "Localidade", "IDH", "#vega__map3", options)
 
 		// Gráfico Cloropleth: PIB 1999-2016 por municipio
@@ -660,6 +656,7 @@
 			"input": "#dado_2_4", "path": "data/social/pib/pib_"
 		}
 
+		slider_value("dado_2_4","valor_choropleth_4")
 		choroplethMap(filePath, "pib", "Localidade", "PIB", "#vega__map4", options)
 
 		/* SECTION 3 - O que é a Seca? */

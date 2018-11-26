@@ -564,9 +564,11 @@
 		d3.csv("data/metereologico/quadras_anuais.csv").then(function(data) {
 			let options = { "width": 1028, "height": 728,
 							"xlabel":"Anos", "ylabel":"Precipitação",
-							"colorRange": [["#52a552", "#244924"], ["#d9534f", "#56211f"]],
+							"colorRange": [["#7092BF", "#30527F"], ["#d9534f", "#56211f"]],
+							"barNumber": 10,
 							"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
-							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01"
+							"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01",
+							"grid": true
 						};
 
 			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_0", options)
@@ -598,7 +600,7 @@
 							"xlabel":"Anos", "ylabel":"Precipitação",
 							"grid": true,
 							"hline": [{"v": 900, "name": "Linha 1"}, {"v": 1100, "name": "Linha 1"} ],
-							"hline_bg": ["#1F030550", "#4946B750", "#3491AA50"] };
+							"hline_bg": ["#1F030540", "#4946B740", "#3491AA40"] };
 
 			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_2", options)
 		})

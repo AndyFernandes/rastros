@@ -945,14 +945,18 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 		spec["encoding"]["tooltip"][1]["field"] = x
 
 		// Rendering
-		vegaEmbed(panel, spec, opt).then(function(view) {
+		mapPanel = $(panel + " > .vega__map")[0]
+		vegaEmbed(mapPanel, spec, opt).then(function(view) {
 			
 			// Embed the input objects if the options.input is different from "none"
-			if(options.input != "none") {
+			if(options.input == true) {
+				var slider = $(panel + " > .slide__container > .slider")
 				var loader = vega.loader(); 	
 
 				// Load data based on the initial position of the slider 
-				loader.load(options.path + $(options.input).val() + ".csv").then(function(data) {        
+				d3.select($(panel +" > .slider__actual")[0]).text(slider.val())
+
+				loader.load(options.path + slider.val() + ".csv").then(function(data) {        
 					data = vega.read(data, {type: 'csv', parse: 'auto'})
 					var changeSet = vega.changeset().insert(data).remove();
 					
@@ -960,7 +964,9 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 				})
 
 				// Embed a listener to the input to change the dataset accordingly
-				$(options.input).on("change mousemove", function(event) {
+				slider.on("change mousemove", function(event) {
+					d3.select($(panel +" > .slider__actual")[0]).text($(this).val())
+
 					loader.load(options.path + $(this).val() + ".csv").then(function(data) {        
 						data = vega.read(data, {type: 'csv', parse: 'auto'})
 						var changeSet = vega.changeset().insert(data).remove();

@@ -408,7 +408,7 @@ animation: bounce 2s infinite;
 	/*background-color: lightgoldenrodyellow;*/
 }
 
-.step p {
+.step p, ul {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);

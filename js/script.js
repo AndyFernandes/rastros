@@ -517,6 +517,10 @@ function barChart(dataset, x, y, title, panel, options) {
 	var label = dataset.map( function(d) { return d[x] } )
 
 	// Declaração das Funções de Escala
+	var xLinScale = d3.scaleLinear()
+					.range([0, w])            
+					.domain([0, w]);
+
 	var xScale = d3.scaleBand()
 					.range([0, w])            
 					.domain(label)
@@ -552,17 +556,6 @@ function barChart(dataset, x, y, title, panel, options) {
 							.append("g")
 								.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
-	// Adiciona linhas horizontais ao gráfico
-	if("hline" in options) {
-		make_hline(svg, w, xScale, yScale, options.hline)
-
-		// Fundo Colorido de Separação das linhas horizontais
-		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
-			make_hline_background(svg, w, h, yScale, options.hline, options.hline_bg)
-		}
-	}
-
-
 	// Cria linhas horizontais
 	svg.append("g")			
 		.attr("class", "grid")
@@ -620,6 +613,19 @@ function barChart(dataset, x, y, title, panel, options) {
 					  	d3.select("#"+ d[x].replace(/ /g, "_") +"_"+Math.floor(+d[y])).transition().duration(500)
 					  		.style("opacity", 0)
 					  })
+
+	// Adiciona linhas horizontais ao gráfico
+	if("hline" in options) {
+		console.log("teset")
+		make_hline(svg, w, xLinScale, yScale, options.hline)
+		console.log("teset")
+
+
+		// Fundo Colorido de Separação das linhas horizontais
+		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
+			make_hline_background(svg, w, h, yScale, options.hline, options.hline_bg)
+		}
+	}
 
 	
 	// Título do Gráfico e nome dos eixos
@@ -723,9 +729,6 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 							.append("g")
 								.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	console.log(xScale.invert(0))
-
- 
 	// Adiciona linhas de grade no gráfico
 	if("grid" in options && options.grid == true) {
 		make_grid(svg, x0Scale, yScale, w, h)
@@ -877,6 +880,16 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 				.attr("y", function(d) { return yScale(0); })
 				.attr("height", function(d) { return h - yScale(0) })
 				.style("fill", function(d) { return colorScales[d.key](d.value) })
+				.attr("stroke", "#2F2F2F")
+			  	.attr("stroke-width", 0)
+				.on('mouseenter', function (d) {
+					d3.select(this).transition().duration(200)
+						.attr("stroke-width", 2)
+				})
+				.on('mouseleave', function (d) {
+					d3.select(this).transition().duration(200)
+						.attr("stroke-width", 0)
+				})
 
 		slice.selectAll("rect")
 				.data(function(d) { return classes.map(function(key) { return {key: key, value: +d[key]}; }); })
@@ -1046,8 +1059,6 @@ function choroplethMapNominal(dataset, x, labels, title, panel, options) {
 		spec["encoding"]["color"]["scale"]["domain"] = options.domain
 		spec["encoding"]["color"]["scale"]["range"] = options.color
 		spec["encoding"]["tooltip"][0]["field"] = labels
-		console.log(x)
-		console.log(dataset[x])
 		spec["encoding"]["tooltip"][1]["field"] = x
 
 		// Rendering

@@ -497,26 +497,17 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 function barChart(dataset, x, y, title, panel, options) {
 
 	// Variáveis Gerais
-
 	var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
 		w = options.width - margin.left - margin.right, 
 		h = options.height - margin.top - margin.bottom;
 
-
-	var div = d3.select("body").append("div")	
-				.attr("class", "stickerr")				
-				.style("opacity", 0);
-
 	// Verifica opção de ordenação
 	if("sort" in options) {
-		console.log(dataset)
 		if(options.sort == "asc"){
     		dataset.sort(function(a, b) { return a[y] - b[y] } )
-    		console.log("T")
 		}
     	else
     		dataset.sort(function(a, b) { return b[y] - a[y] } )
-		console.log(dataset)
 	}
 
 	if("barNumber" in options) {
@@ -524,7 +515,6 @@ function barChart(dataset, x, y, title, panel, options) {
 	}
 
 	var label = dataset.map( function(d) { return d[x] } )
-
 
 	// Declaração das Funções de Escala
 	var xScale = d3.scaleBand()
@@ -543,10 +533,9 @@ function barChart(dataset, x, y, title, panel, options) {
 						.range(options.colors)
 
 	} else if("colorRange" in options) {
-		colorScale = d3.scaleOrdinal()
+		colorScale = d3.scaleLinear()
 						.domain([0, d3.max(dataset, function(d) { return +d[y] })])
 						.range(options.colorRange)
-
 	}
 
 	// Declaração dos Eixos
@@ -587,7 +576,7 @@ function barChart(dataset, x, y, title, panel, options) {
 		.data(dataset)
 		.enter()
 			.append("text")
-			.attr("id", function(d) { return ""+d[x]+"_"+d[y] })
+			.attr("id", function(d) { return "" + d[x].replace(/ /g, "_")  + "_" + Math.floor(+d[y]) })
 			.attr("transform", function(d) {
 				return "translate(" + (xScale(d[x])+xScale.bandwidth()/2) + "," + (yScale(+d[y])-10) + ")"
 			})
@@ -595,12 +584,10 @@ function barChart(dataset, x, y, title, panel, options) {
 			.attr("font-family", "Roboto")
 			.attr("font-size", "14px")
 			.style("opacity", 0)
-			.text(function(d) { return d[y] } );
-
-
+			.text(function(d) { return Number((+d[y]).toPrecision(4)) } );
 
  	// Declara e posiciona os marcadores do gráfico barChart
-	barChart = svg.selectAll()
+	var barChart = svg.selectAll()
 					.data(dataset)
 					  .enter()
 					  .append("rect")
@@ -622,7 +609,7 @@ function barChart(dataset, x, y, title, panel, options) {
 					  		.attr("stroke-width", 2)
 
 
-					  	d3.select("#"+d[x]+"_"+d[y]).transition().duration(200)
+					  	d3.select("#"+ d[x].replace(/ /g, "_")  +"_"+Math.floor(+d[y])).transition().duration(200)
 					  		.style("opacity", .9)
 
 					  })
@@ -630,11 +617,9 @@ function barChart(dataset, x, y, title, panel, options) {
 					  	d3.select(this).transition().duration(200)
 					  		.attr("stroke-width", 0)
 
-					  	d3.select("#"+d[x]+"_"+d[y]).transition().duration(500)
+					  	d3.select("#"+ d[x].replace(/ /g, "_") +"_"+Math.floor(+d[y])).transition().duration(500)
 					  		.style("opacity", 0)
 					  })
-
-	
 
 	
 	// Título do Gráfico e nome dos eixos

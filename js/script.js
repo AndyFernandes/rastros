@@ -151,6 +151,7 @@ function init(selector) {
 		// Atualiza as dimensões de outros componentes do site
 		$("#ajuste").css("height", Math.floor(window.innerHeight/2));
 		$(".section_header").css("height", Math.floor(window.innerHeight));
+		$("#section_timeline").css("height", Math.floor(window.innerHeight));
 		$("#about_us").css("height", Math.floor(window.innerHeight/2)-80);
 		$("#teste").css("height", Math.floor(window.innerHeight/2)-80);
 		 // $("#intro").css("height", Math.floor(window.innerHeight)/4);
@@ -1179,7 +1180,7 @@ function make_grid(svg, xScale, yScale, width, height) {
 // ######################
 jQuery(document).ready(function($){
 	var timelines = $('.cd-horizontal-timeline'),
-		eventsMinDistance = 5;
+		eventsMinDistance = 60;
 
 	(timelines.length > 0) && initTimeline(timelines);
 

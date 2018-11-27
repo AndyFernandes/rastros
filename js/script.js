@@ -983,10 +983,10 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 
 		// Color configuration
 		spec["transform"][0]["from"]["data"]["url"] = dataset
-		spec["transform"][0]["from"]["fields"] = [labels, x]
+		spec["transform"][0]["from"]["fields"] = [labels, x,options.info]
 		spec["encoding"]["color"]["field"] = x
 		spec["encoding"]["tooltip"][0]["field"] = labels
-		spec["encoding"]["tooltip"][1]["field"] = x
+		spec["encoding"]["tooltip"][1]["field"] = options.info
 		spec["encoding"]["color"]["scale"]["range"] = options.colorRange
 
 		// Rendering

@@ -230,9 +230,10 @@
 			<div class='step'>
 				<p>Fortaleza foi a cidade com a maior concentração de riqueza: R$ 22 bilhões. O PIB de Fortaleza hoje é o 9º maior entre as capitais do País, atrás de São Paulo, Rio de Janeiro, Brasília, Belo Horizonte, Curitiba, Porto Alegre, Manaus e Salvador.</p>
 				
-				<p>Maracanaú é o segundo município com o maior acumulo de bens. A cidade da Região Metropolitana continua se destacando por possuir o polo industrial do Estado, em especial as indústrias de transformação, as quais compõem a atividade com maior valor adicionado bruto. Na sequência, aparecem as cidades de Caucaia, Sobral, Juazeiro do Norte, Eusébio.</p>
+				<!-- <p>Maracanaú é o segundo município com o maior acumulo de bens. A cidade da Região Metropolitana continua se destacando por possuir o polo industrial do Estado, em especial as indústrias de transformação, as quais compõem a atividade com maior valor adicionado bruto. Na sequência, aparecem as cidades de Caucaia, Sobral, Juazeiro do Norte, Eusébio.
 
-				<p>A cidade com o menor PIB foi <b>?</b>, registrando R$ <b>?</b>.Completando o ranking das cinco menores riquezas geradas no ano de 2013 no Estado do Ceará, estão os municípios de ????MELHORARVISUALIZAÇÃOPRAENXERGAR</p>
+				 cidade com o menor PIB foi <b>?</b>, registrando R$ <b>?</b>.Completando o ranking das cinco menores riquezas geradas no ano de 2013 no Estado do Ceará, estão os municípios de ????MELHORARVISUALIZAÇÃOPRAENXERGAR</p> -->
+
 			</div>
 		</div>
 	</section>
@@ -480,7 +481,8 @@
 		var options = { 
 			"width":900, "height":700, "mapStroke": "white",
 			"input": true, "path": "data/metereologico/relatorios_anuais/municipios_",
-			"colorRange":["#AB742A","#D5742A","#FFE759","#41b6c4","#2c7fb8","#253494"]
+			"colorRange":["#AB742A","#D5742A","#FFE759","#41b6c4","#2c7fb8","#253494"],
+			"info":"chuva_total"
 
 		}
 
@@ -552,10 +554,11 @@
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
 			"input": true, "path": "data/social/populacao/populacao_",
-			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"populacao"
 
 		}
-		choroplethMap(filePath, "populacao", "Espacialidades", "População", "#scroll__graphic__chart_7", options)
+		choroplethMap(filePath, "log_populacao", "Espacialidades", "População", "#scroll__graphic__chart_7", options)
 
 		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos
 		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
@@ -585,10 +588,9 @@
 		var filePath = "data/social/idh/idh_2000.csv";
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
-
 			"input": true, "path": "data/social/idh/idh_",
-			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
-
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"idh"
 		}
 
 		choroplethMap(filePath, "idh", "Localidade", "IDH", "#scroll__graphic__chart_10", options)
@@ -624,10 +626,11 @@
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
 			"input": true, "path": "data/social/pib/pib_",
-			"colorRange": ["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+			"colorRange": ["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"pib"
 		}
 
-		choroplethMap(filePath, "pib", "Localidade", "PIB", "#scroll__graphic__chart_13", options)
+		choroplethMap(filePath, "log_pib", "Localidade", "PIB", "#scroll__graphic__chart_13", options)
 		
 	</script>
 

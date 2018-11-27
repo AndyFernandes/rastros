@@ -98,13 +98,10 @@
 		<div class='scroll__graphic sticky' id='scroll__graphic_1'>
 			<div class='scroll__graphic__chart right_panel'>
 				<div class="button_panel">
-					<div><button id="bt_prev_gpBar_01">Prev</button></div>
+					<div><button id="bt_prev_gpBar_01">Anterior</button></div>
 					<div><p><span id="infSpan_gpBar_01">2008</span> - <span id="supSpan_gpBar_01">2018</span></p></div>
-					<div><button id="bt_next_gpBar_01">Next</button></div>
+					<div><button id="bt_next_gpBar_01">Próximo</button></div>
 				</div>
-				<!-- <div id="ttip_gpBar_01" class="hidden">
-					<p><span id="ttip_gpBar_01_text"></span></p>
-				</div> -->
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
 				<div class="vega__map"></div>
@@ -122,18 +119,20 @@
 
 		<div class='scroll__text' id='scroll__text_1'>
 			<div class='step'>
-				<p>As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de ??? milímetros. Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o <b>período de estação (ou quadra) chuvosa do Estado</b>.</p>
+				<p>As chuvas acumuladas entre 1º de fevereiro e 31 de maio, no Ceará, têm uma média histórica de precipitações de 635.8 milímetros. Este parâmetro considera os últimos 30 anos, e o intervalo de tempo (quatro meses) delimitado é o <b>período de estação (ou quadra) chuvosa do Estado</b>.</p>
+
+				<p>Pela visualização ao lado, podemos perceber a disparidade entre a quantidade de precipitação durante a quadra chuvosa, se comparado com o restante do ano. Além disso, podemos perceber que, nos últimos 30 anos, houveram muitos anos com precipitação total bem abaixo da média.</p>
 			</div>
 			<div class='step'>
 				<p>Podemos observar pelo mapa ao lado que, mesmo em anos considerados acima da média, muitos municípios ainda sofrem com escassez de chuvas. Esses são municípios de regiões mais interioranas, onde várias famílias ainda dependem da chuva para agricultura de subsistência.</p>
 			</div>
 			<div class='step'>
-				<p>As observações ao longo do tempo resultaram em um critério matemático usado pela Funceme(link) para classificar a estação chuvosa no Ceará. Os anos secos ocorrem quando as precipitações pluviométricas, entre fevereiro e maio: </p>
+				<p>As observações ao longo do tempo resultaram em um critério matemático usado pela <a href=http://www.funceme.br/>Funceme</a> para classificar a estação chuvosa no Ceará: </p>
 				
 				<ul>
-					<li><b>Anos de Seca:</b> Menos de 493.2 milímetros</li>
-					<li><b>Anos Normais:</b> De 493.3 a 631.2 milímetros</li>
-					<li><b>Anos de Chuvosos:</b> Acima dos 631.3 milímetros</li>
+					<li><b>Anos de Seca:</b> Menos de 497.2 milímetros</li>
+					<li><b>Anos Normais:</b> De 497.3 a 635.8 milímetros</li>
+					<li><b>Anos de Chuvosos:</b> Acima dos 635.9 milímetros</li>
 				</ul>
 				
 			</div>
@@ -489,10 +488,12 @@
 				"barNumber": 10,
 				"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
 				"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01",
+				"hline": [ {"v": 635.82, "name": "Média"} ],
 				"grid": true
 			};
 
-			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Régua de Precipitação", "#scroll__graphic__chart_0", options)
+			groupedBarChart(data, "Ano", ["Quadra Chuvosa", "Restante do Ano"], "Quadras Chuvosas nos Últimos Anos", "#scroll__graphic__chart_0", options)
+
 		})
 
 		// Gráfico Choropleth de Precipitação Total ao longo dos anos
@@ -500,7 +501,9 @@
 		var filePath = "data/metereologico/relatorios_anuais/municipios_2011.csv";
 		var options = { 
 			"width":900, "height":700, "mapStroke": "white",
-			"input": true, "path": "data/metereologico/relatorios_anuais/municipios_"
+			"input": true, "path": "data/metereologico/relatorios_anuais/municipios_",
+			"colorRange":["#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"]
+
 		}
 
 		choroplethMap(filePath, "chuva_total", "Nome", "Reservatórios", "#scroll__graphic__chart_1", options)
@@ -512,7 +515,8 @@
 				"width": 1028, "height": 728,
 				"xlabel":"Anos", "ylabel":"Precipitação",
 				"grid": true,
-				"hline": [{"v": 900, "name": "Linha 1"}, {"v": 1100, "name": "Linha 1"} ],
+				"hline": [{"v": 635.9, "name": "Anos Chuvosos"}, {"v": 497.2, "name": "Anos Normais"} ],
+
 				"hline_bg": ["#1F030540", "#4946B740", "#3491AA40"] 
 			};
 
@@ -555,7 +559,9 @@
 		var filePath = "data/social/populacao/populacao_2000.csv";
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
-			"input": true, "path": "data/social/populacao/populacao_"
+			"input": true, "path": "data/social/populacao/populacao_",
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+
 		}
 		choroplethMap(filePath, "populacao", "Espacialidades", "População", "#scroll__graphic__chart_6", options)
 
@@ -563,7 +569,10 @@
 		var filePath = "data/social/idh/idh_2000.csv";
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
-			"input": true, "path": "data/social/idh/idh_"
+
+			"input": true, "path": "data/social/idh/idh_",
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+
 		}
 
 		choroplethMap(filePath, "idh", "Localidade", "IDH", "#scroll__graphic__chart_7", options)
@@ -572,7 +581,9 @@
 		var filePath = "data/social/pib/pib_2005.csv";
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
-			"input": true, "path": "data/social/pib/pib_"
+			"input": true, "path": "data/social/pib/pib_",
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+
 		}
 
 		choroplethMap(filePath, "pib", "Localidade", "PIB", "#scroll__graphic__chart_8", options)
@@ -607,7 +618,9 @@
 				"width": 1028, "height": 728,
 				"colorRange": ["#7092BF", "#30527F"],
 				"xlabel": "A", "ylabel": "B",
-				"trendline": true, "grid": true
+				"trendline": true, "grid": true,
+				"sort": "desc", "barNumber": 10
+
 			};
 
 			barChart(data, "A", "B", "Teste", "#scroll__graphic__chart_12", options)

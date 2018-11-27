@@ -23,7 +23,8 @@
   "mark": "geoshape",
   "encoding": {
     "color": {
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale":{}
     },
     "tooltip": [
       { "type": "ordinal" },

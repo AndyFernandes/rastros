@@ -227,8 +227,9 @@ function chartLine(data, attX, attY, title, idDiv, options){
 
 
 	var div = d3.select("body").append("div")	
-	.attr("class", "stickerr")				
-	.style("opacity", 0);
+				.attr("class", "stickerr")				
+				.style("opacity", 0);
+
 
 	// Add the SVG to the page and employ #2
 	var svg = d3.select(idDiv).append("svg")
@@ -298,10 +299,11 @@ function chartLine(data, attX, attY, title, idDiv, options){
 		.on("mouseover", function(d) {		
 			div.transition()		
 				.duration(200)		
-				.style("opacity", .9);		
-			div	.html("<b>Precipitação: </b>" + Number(d[attY].toPrecision(3)) + "<br><b>Ano: </b>" + d[attX].getFullYear())	
-				.style("left", (d3.event.pageX) + "px")		
-				.style("top", (d3.event.pageY - 28) + "px");	
+				.style("opacity", .9);				
+			div.html("<b>Precipitação: </b>" + Number(d[attY].toPrecision(3)) + "<br><b>Ano: </b>" + d[attX].getFullYear())	
+				.style("left", (d3.event.pageX)-83 + "px")		
+				.style("top", (d3.event.pageY - 75) + "px");	
+
 			})					
 		.on("mouseout", function(d) {		
 			div.transition()		
@@ -335,6 +337,10 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 	let margin = {top: 150, right: 100, bottom: 150, left: 100};
 	let w = options["width"] - margin.left - margin.right;
 	let h = options["height"] - margin.top - margin.bottom;
+
+	var div = d3.select("body").append("div")	
+				.attr("class", "stickerr")				
+				.style("opacity", 0)
 
 	dataset.sort((a,b) => parseFloat(a[x]) - parseFloat(b[x]));
 
@@ -391,46 +397,26 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 		})
 		.attr("r", options["marker-size"])
 		.attr("fill", options["color"])
-		.attr("stroke", "black");
+		.attr("stroke", "black")
+		.on("mouseover", function(d) {
+			div.transition()		
+				.duration(200)		
+				.style("opacity", .9);		
+			
+			div.html("<b>" + d[labels] + "</b><br>" +
+					 "<b>"+ options.xlabel +": </b>" + Number((+d[x]).toPrecision(2)) + "<br><b>"+ 
+							options.ylabel +": </b>" + Number((+d[y]).toPrecision(2)))	
+				.style("left", (d3.event.pageX)-83 + "px")		
+				.style("top", (d3.event.pageY - 75) + "px");
 
-	// Adiciona as labels a cada marcador no gráfico
-	svg.selectAll("text")
-		.data(dataset)
-		.enter()
-		.append("text")
-		.attr("class", "label")
-		.attr("x", function(d){
-			return xScale(+d[x])+5;
 		})
-		.attr("y", function(d){
-			return yScale(+d[y])-5;
-		})
-		.attr("font-family", "Roboto")
-		.attr("font-size", "14px")
-		.attr("fill", "black")
-		.text(function(d) {
-			return d[labels];
-		});
-
-	// Adiciona a animação das labels para o Hover nos marcadores
-	d3.selectAll(".label")
-		.each(function (d, i) { 
-			d3.select(this).attr("id", "label_"+i)
-			$(this).hide()
+		.on("mouseleave", function(d) {
+			div.transition()		
+				.duration(500)		
+				.style("opacity", 0);		
 		})
 
-	d3.selectAll(".marker")
-		.each(function (d, i) { 
-			d3.select(this).attr("id", "marker_"+i)
-				
-				$(this).mouseover(function() {
-				$("#label_" + $(this).attr("id").split("_")[1]).stop().fadeIn();
-			});
-			$(this).mouseleave(function() {
-				$("#label_" + $(this).attr("id").split("_")[1]).stop().fadeOut();
-			});
-		})         	
-	
+
 	// Adiciona os eixos à região do gráfico
 	svg.append("g")
 			.attr("transform", "translate(0,"+ h + ")")
@@ -511,10 +497,34 @@ function scatter(dataset, x, y, labels, title, panel, options) {
 function barChart(dataset, x, y, title, panel, options) {
 
 	// Variáveis Gerais
-	var label = dataset.map( function(d) { return d[x] } )
+
 	var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
 		w = options.width - margin.left - margin.right, 
 		h = options.height - margin.top - margin.bottom;
+
+
+	var div = d3.select("body").append("div")	
+				.attr("class", "stickerr")				
+				.style("opacity", 0);
+
+	// Verifica opção de ordenação
+	if("sort" in options) {
+		console.log(dataset)
+		if(options.sort == "asc"){
+    		dataset.sort(function(a, b) { return a[y] - b[y] } )
+    		console.log("T")
+		}
+    	else
+    		dataset.sort(function(a, b) { return b[y] - a[y] } )
+		console.log(dataset)
+	}
+
+	if("barNumber" in options) {
+		dataset = dataset.slice(0, options.barNumber)
+	}
+
+	var label = dataset.map( function(d) { return d[x] } )
+
 
 	// Declaração das Funções de Escala
 	var xScale = d3.scaleBand()
@@ -563,6 +573,7 @@ function barChart(dataset, x, y, title, panel, options) {
 		}
 	}
 
+
 	// Cria linhas horizontais
 	svg.append("g")			
 		.attr("class", "grid")
@@ -570,6 +581,23 @@ function barChart(dataset, x, y, title, panel, options) {
 				.ticks(5)
 				.tickSize(-w)
 				.tickFormat(""))
+
+	// Cria as labels com texto da variável numérica das barras
+	svg.selectAll()
+		.data(dataset)
+		.enter()
+			.append("text")
+			.attr("id", function(d) { return ""+d[x]+"_"+d[y] })
+			.attr("transform", function(d) {
+				return "translate(" + (xScale(d[x])+xScale.bandwidth()/2) + "," + (yScale(+d[y])-10) + ")"
+			})
+			.style("text-anchor", "middle")
+			.attr("font-family", "Roboto")
+			.attr("font-size", "14px")
+			.style("opacity", 0)
+			.text(function(d) { return d[y] } );
+
+
 
  	// Declara e posiciona os marcadores do gráfico barChart
 	barChart = svg.selectAll()
@@ -592,11 +620,21 @@ function barChart(dataset, x, y, title, panel, options) {
 					  .on('mouseenter', function (d) {
 						d3.select(this).transition().duration(200)
 					  		.attr("stroke-width", 2)
+
+
+					  	d3.select("#"+d[x]+"_"+d[y]).transition().duration(200)
+					  		.style("opacity", .9)
+
 					  })
 					  .on('mouseleave', function (d) {
 					  	d3.select(this).transition().duration(200)
 					  		.attr("stroke-width", 0)
+
+					  	d3.select("#"+d[x]+"_"+d[y]).transition().duration(500)
+					  		.style("opacity", 0)
 					  })
+
+	
 
 	
 	// Título do Gráfico e nome dos eixos
@@ -645,13 +683,21 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 	// Realiza o primeiro "slice" dos dados para exibição
 	var newDataset = dataset.filter(function(d) { return +d[x] > d3.max(dataset, function(d) { return +d[x] - options.barNumber; }); })
 	let categories = newDataset.map(function(d) { return d[x]; })
-
 	// Variáveis Gerais
 	var margin = {top: 150, right: 100, bottom: 150, left: 100}, 
 		w = options.width - margin.left - margin.right, 
 		h = options.height - margin.top - margin.bottom;
 
+	var div = d3.select("body").append("div")	
+			.attr("class", "stickerr")				
+			.style("opacity", 0);
+
 	// Funções de Escala 
+	var xScale = d3.scaleLinear()
+					.range([0, w])            
+					.domain([0, w]);
+
+
 	var x0Scale = d3.scaleBand()
 					.range([0, w])            
 					.domain(categories)
@@ -691,6 +737,9 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 								.attr("height", h + margin.top + margin.bottom)
 							.append("g")
 								.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	console.log(xScale.invert(0))
+
  
 	// Adiciona linhas de grade no gráfico
 	if("grid" in options && options.grid == true) {
@@ -701,7 +750,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 	if("hline" in options) {
 		make_hline(svg, w, xScale, yScale, options.hline)
 
-		// Fundo Colorido de Separação das linhas horizontais
+	// Fundo Colorido de Separação das linhas horizontais
 		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
 			make_hline_background(svg, w, h, yScale, options.hline, options.hline_bg)
 		}
@@ -769,7 +818,8 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 					.call(yAxis);
 
 	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + ","+ (0 - 30) +")")
+
+	   .attr("transform", "translate(" + (w/2) + ","+ (0 - 40) +")")
 	   .style("text-anchor", "middle")
 	   .attr("font-family", "Roboto")
 	   .attr("font-weight", "bold")
@@ -777,7 +827,7 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 	   .text(title);
 
 	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + "," + (h+35) + ")")
+	   .attr("transform", "translate(" + (w/2) + "," + (h+40) + ")")
 	   .style("text-anchor", "middle")
 	   .attr("font-family", "Roboto")
 	   .attr("font-size", "14px")
@@ -785,7 +835,8 @@ function groupedBarChart(dataset, x, classes, title, panel, options) {
 	
 	svg.append("text")
 	   .attr("transform", "rotate(-90)")
-	   .attr("y", 0 - 55)
+
+	   .attr("y", 0 - 60)
 	   .attr("x",0 - (h / 2))
 	   .attr("dy", "1em")
 	   .style("text-anchor", "middle")
@@ -951,6 +1002,7 @@ function choroplethMap(dataset, x, labels, title, panel, options) {
 		spec["encoding"]["color"]["field"] = x
 		spec["encoding"]["tooltip"][0]["field"] = labels
 		spec["encoding"]["tooltip"][1]["field"] = x
+		spec["encoding"]["color"]["scale"]["range"] = options.colorRange
 
 		// Rendering
 		mapPanel = $(panel + " > .vega__map")[0]
@@ -1131,6 +1183,7 @@ function make_vline(svg, w, xScale, yScale, vline) {
 				.attr("font-family", "Roboto")
 				.attr("font-size", "11px")
 				.text(function(d) { return ""+d[3] });
+
 }
 
 function make_vline_background(svg, w, h, yScale, vline, vline_bg) {
@@ -1157,6 +1210,7 @@ function make_vline_background(svg, w, h, yScale, vline, vline_bg) {
 				.attr("height", h)
 				.attr("fill", function(d) { return d[2] })
 }
+
 
 function make_grid(svg, xScale, yScale, width, height) {
 	svg.append("g")			
@@ -1352,9 +1406,11 @@ jQuery(document).ready(function($){
 		eventsContent.css('height', selectedContentHeight+'px');
 	}
 
+
 	function updateOlderEvents(event) {
 		event.parent('li').prevAll('li').children('a').addClass('older-event').end().end().nextAll('li').children('a').removeClass('older-event');
 	}
+
 
 	function getTranslateValue(timeline) {
 		var timelineStyle = window.getComputedStyle(timeline.get(0), null),
@@ -1384,6 +1440,7 @@ jQuery(document).ready(function($){
 		element.style["transform"] = property+"("+value+")";
 	}
 
+
 	//based on http://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascript
 	function parseDate(events) {
 		var dateArrays = [];
@@ -1394,6 +1451,7 @@ jQuery(document).ready(function($){
 		});
 	    return dateArrays;
 	}
+
 
 	function parseDate2(events) {
 		var dateArrays = [];
@@ -1458,4 +1516,6 @@ jQuery(document).ready(function($){
 		//check if mobile or desktop device
 		return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
 	}
+
 });
+

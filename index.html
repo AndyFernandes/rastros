@@ -501,7 +501,8 @@
 		var options = { 
 			"width":900, "height":700, "mapStroke": "white",
 			"input": true, "path": "data/metereologico/relatorios_anuais/municipios_",
-			"colorRange":["#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"]
+			"colorRange":["#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"],
+			"info":"chuva_total"
 
 		}
 
@@ -559,10 +560,11 @@
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
 			"input": true, "path": "data/social/populacao/populacao_",
-			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"populacao"
 
 		}
-		choroplethMap(filePath, "populacao", "Espacialidades", "População", "#scroll__graphic__chart_6", options)
+		choroplethMap(filePath, "log_populacao", "Espacialidades", "População", "#scroll__graphic__chart_6", options)
 
 		// Gráfico Cloropleth: IDH 1991,2000,2010 por municipio
 		var filePath = "data/social/idh/idh_2000.csv";
@@ -570,7 +572,8 @@
 			"width":800, "height":600, "mapStroke": "white",
 
 			"input": true, "path": "data/social/idh/idh_",
-			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"idh"
 
 		}
 
@@ -581,11 +584,12 @@
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
 			"input": true, "path": "data/social/pib/pib_",
-			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"]
+			"colorRange":["#ffd700","#ffa661","#c35849","#b42a66","#980085","#6800a4","#000097"],
+			"info":"pib"
 
 		}
 
-		choroplethMap(filePath, "pib", "Localidade", "PIB", "#scroll__graphic__chart_8", options)
+		choroplethMap(filePath, "log_pib", "Localidade", "PIB", "#scroll__graphic__chart_8", options)
 
 		/* SECTION 3 - O que é a Seca? */
 		// Scatterplot mostrando a correlação entre a produção total e a precipitação ao longo dos anos

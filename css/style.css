@@ -455,10 +455,10 @@ line{
 div.stickerr { 
     position: absolute;     
     text-align: center;     
-    width: 200px;          
-    height: 70px;         
+    width: auto;          
+    height: auto;         
     padding: 10px;       
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Roboto', sans-serif;    
     background: white; 
     border: 0px;    

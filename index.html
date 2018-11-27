@@ -98,9 +98,9 @@
 		<div class='scroll__graphic sticky' id='scroll__graphic_1'>
 			<div class='scroll__graphic__chart right_panel'>
 				<div class="button_panel">
-					<div><button id="bt_prev_gpBar_01">Anterior</button></div>
+					<div><button id="bt_prev_gpBar_01" class="btn btn-outline-info">Anterior</button></div>
 					<div><p><span id="infSpan_gpBar_01">2008</span> - <span id="supSpan_gpBar_01">2018</span></p></div>
-					<div><button id="bt_next_gpBar_01">Próximo</button></div>
+					<div><button id="bt_next_gpBar_01" class="btn btn-outline-info">Próximo</button></div>
 				</div>
 			</div>
 			<div class='scroll__graphic__chart right_panel'>
@@ -437,9 +437,6 @@
 
 	</section>
 	
-
-	
-	
 	
 	<!-- EXECUÇÃO PRINCIPAL DOS SCRIPTS -->
 	<script>
@@ -465,7 +462,7 @@
 			let options = { 
 				"width": 1028, "height": 728,
 				"xlabel":"Anos", "ylabel":"Precipitação",
-				"colorRange": [["#7092BF", "#30527F"], ["#d9534f", "#56211f"]],
+				"colorRange": [["#2c7fb8", "#253494"], ["#AB742A", "#D5742A"]],
 				"barNumber": 10,
 				"button_next": "#bt_next_gpBar_01", "button_prev": "#bt_prev_gpBar_01",
 				"span_inf": "#infSpan_gpBar_01", "span_sup": "#supSpan_gpBar_01",
@@ -483,7 +480,7 @@
 		var options = { 
 			"width":900, "height":700, "mapStroke": "white",
 			"input": true, "path": "data/metereologico/relatorios_anuais/municipios_",
-			"colorRange":["#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"]
+			"colorRange":["#AB742A","#D5742A","#FFE759","#41b6c4","#2c7fb8","#253494"]
 
 		}
 
@@ -498,7 +495,7 @@
 				"grid": true,
 				"hline": [{"v": 635.9, "name": "Anos Chuvosos"}, {"v": 497.2, "name": "Anos Normais"} ],
 
-				"hline_bg": ["#1F030540", "#4946B740", "#3491AA40"] 
+				"hline_bg": ["#d5742a8f", "#7fcdbb7d", "#25349469"]
 			};
 
 			chartLine(data, "Ano", "Quadra Chuvosa", "Régua de Precipitação", "#scroll__graphic__chart_2", options)
@@ -508,7 +505,7 @@
 		d3.csv("data/metereologico/temperatura/relatorio_1998.csv").then(function(data) {
 			let options = { 
 				"width": 1028, "height": 728,
-				"colorRange": ["#BF9270", "#7F5230"],
+				"colorRange": ["#FFE759", "#D5742A"],
 				"xlabel": "Município", "ylabel": "Temperatura Máxima Média",
 				"sort": "desc"
 			};
@@ -522,7 +519,8 @@
 		var options = { 
 			"width": 800, "height": 600,
 			"legendTitle": "Area Colhida (hectares)",
-			"colors": ["#2222FF", "#21113FF", "#A22FF0", "#FF7213", "#F2020F", "#5A1137"]
+			"colors": ["#FFE759", "#AB742A", "#FFF3BE", "#D5742A", "#FF9F39", "#253494"]
+
 		};
 
 		stackBarChart(filePath, "Data", "Area Colhida (hct)", "Produto", "Area Colhida por Cultura", "#scroll__graphic__chart_4", options)
@@ -531,9 +529,9 @@
 		var filePath = "data/reservatorios/relatorio_anual/relatorio_2011.csv";
 		var options = { 
 			"width": 800, "height": 600,
-			"mapFill": "#999999", "mapStroke": "white",
+			"mapFill": "#AB742A", "mapStroke": "white",
 			"sizeScale": 5000, "legendTitle": "Volume Util (hm3)",
-			"color": "#2222FFAA"
+			"color": "#253494"
 		}
 
 		dottedMap(filePath, "Volume Util (hm3)", "Nome", "Reservatórios", "#scroll__graphic__chart_5", options)
@@ -544,7 +542,7 @@
 		var options = { 
 			"width":800, "height":600, "mapStroke": "white",
 			"input": "", "path": "data/regioes",
-			"colors":["blue","steelblue","green","pink","yellow","orange","white","black","purple","red","#232323","#574411","#004455","#F2020F"],"domain":["Grande Fortaleza", "Cariri", "Sertão Central", "Litoral Leste","Litoral Norte","Litoral Oeste","Sertão de Sobral","Centro Sul","Vale do Jaguaribe","Serra da Ibiapaba","Sertão de Canindé","Maciço de Baturité","Sertão dos Inhamuns","Sertão dos Crateús"]
+			"color":["#ffd700","#ffb14e","#fa8775","#ea5f94","#cd34b5","#9d02d7","#0000ff", "#28d595f5", "#19855df5", "#FF8A4C", "#FFB14C", "#93E5B5", "#93E5D9", "#936068"],"domain":["Grande Fortaleza", "Cariri", "Sertão Central", "Litoral Leste","Litoral Norte","Litoral Oeste","Sertão de Sobral","Centro Sul","Vale do Jaguaribe","Serra da Ibiapaba","Sertão de Canindé","Maciço de Baturité","Sertão dos Inhamuns","Sertão dos Crateús"]
 		}
 
 		choroplethMapNominal(filePath, "regiao", "Nome", "regiao", "#vega__map1", options)
@@ -563,7 +561,7 @@
 		d3.csv("data/crossed/agricultura_vs_chuva.csv").then(function(data) {
 			let options = { 
 				"width": 1028, "height": 728,
-				"marker-size": 5, "color":"#2222FFAA",
+				"marker-size": 5, "color":"#ea5f949e",
 				"xlabel": "Área Colhida (hct)", "ylabel": "Precipitação Total (ml)",
 				"trendline": true
 			};
@@ -575,7 +573,7 @@
 		d3.csv("data/crossed/chuva_vs_idhm_1991.csv").then(function(data) {
 			let options = { 
 				"width": 1028, "height": 728,
-				"marker-size": 5, "color":"#2222FFAA",
+				"marker-size": 5, "color":"#cd34b597",
 				"xlabel": "Índice de Desenvolvimento Humano", "ylabel": "Precipitação Total (ml)",
 				"trendline": true, "grid": true
 			};
@@ -599,7 +597,7 @@
 		d3.csv("data/social/habitacao.csv").then(function(data) {
 			let options = { 
 				"width": 1028, "height": 728,
-				"colorRange": ["#7092BF", "#30527F"],
+				"colorRange": ["#cd34b5ff", "#30527F"],
 				"xlabel": "E", "ylabel": "B",
 				"grid": false, "sort": "asc", 
 				"barNumber": 13

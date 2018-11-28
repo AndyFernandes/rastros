@@ -616,10 +616,7 @@ function barChart(dataset, x, y, title, panel, options) {
 
 	// Adiciona linhas horizontais ao gráfico
 	if("hline" in options) {
-		console.log("teset")
 		make_hline(svg, w, xLinScale, yScale, options.hline)
-		console.log("teset")
-
 
 		// Fundo Colorido de Separação das linhas horizontais
 		if("hline_bg" in options && options.hline_bg.length == options.hline.length+1) {
@@ -1044,7 +1041,7 @@ function choroplethMapNominal(dataset, x, labels, title, panel, options) {
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
 
-	d3.json("../vega/cloroplethNominal.json").then(function(spec) { 
+	d3.json("vega/cloroplethNominal.json").then(function(spec) { 
 		// General properties
 		spec["width"] = options.width
 		spec["height"] = options.height
@@ -1089,6 +1086,7 @@ function leastSquares(xSeries, ySeries) {
 	var slope = ssXY/ssXX;
 	var intercept = yBar - (xBar * slope);
 	var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
+	
 	return [slope,intercept,rSquare];
 };
 

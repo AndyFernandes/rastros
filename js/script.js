@@ -921,7 +921,7 @@ function stackBarChart(dataset, x, y, labels, title, panel, options) {
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
 
-	d3.json("../vega/stackBarChart.json").then(function(spec) { 
+	d3.json("vega/stackBarChart.json").then(function(spec) { 
 		// General properties
 		spec["width"] = options.width
 		spec["height"] = options.height
@@ -951,7 +951,7 @@ function dottedMap(dataset, x, labels, title, panel, options) {
 		"actions": { "export":false, "source":false, "compiled":false, "editor":false } 
 	}
 
-	d3.json("../vega/overDotMap.json").then(function(spec) { 
+	d3.json("vega/overDotMap.json").then(function(spec) { 
 		// General properties
 		spec["width"] = options.width
 		spec["height"] = options.height

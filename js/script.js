@@ -627,13 +627,19 @@ function barChart(dataset, x, y, title, panel, options) {
 	
 	// Título do Gráfico e nome dos eixos
 	svg.append("g").attr("transform", "translate(0," + h + ")")
-					.call(xAxis);
+					.call(xAxis)
+					.selectAll("text")  
+				     .style("text-anchor", "end")
+				     .attr("dx", "-.8em")
+				     .attr("dy", ".15em")
+				     .attr("transform", "rotate(-65)");
 
 	svg.append("g").attr("transform", "translate(0," + 0 + ")")
-					.call(yAxis);
+					.call(yAxis)
+					.selectAll("text")  
 
 	svg.append("text")
-		.attr("transform", "translate(" + (w/2) + "," + (h+50) + ")")
+		.attr("transform", "translate(" + (w/2) + "," + (h+110) + ")")
 		.style("text-anchor", "middle")
 		.attr("font-family", "Roboto")
 		.attr("font-size", "14px")
@@ -926,7 +932,9 @@ function stackBarChart(dataset, x, y, labels, title, panel, options) {
 		// Bar configuration
 		spec["data"]["url"] = dataset
 		spec["encoding"]["x"]["field"] = x
+		spec["encoding"]["x"]["title"] = options.xlabel
 		spec["encoding"]["y"]["field"] = y
+		spec["encoding"]["y"]["title"] = options.ylabel
 		spec["encoding"]["color"]["field"] = labels
 		spec["encoding"]["color"]["scale"]["range"] = options.colors
 		spec["encoding"]["color"]["legend"]["title"] = options.legendTitle
@@ -1086,7 +1094,7 @@ function leastSquares(xSeries, ySeries) {
 	var slope = ssXY/ssXX;
 	var intercept = yBar - (xBar * slope);
 	var rSquare = Math.pow(ssXY,2)/(ssXX*ssYY);
-	
+
 	return [slope,intercept,rSquare];
 };
 
